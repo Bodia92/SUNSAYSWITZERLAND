@@ -22,8 +22,7 @@
                 <div class="popup__text">
                     <p>Ми звʼяжемось з вами протягом 24 годин</p>
                 </div>
-                <button class="btn" type="button" data-close-popup>Ок
-                </button>
+                <button class="btn btn--no-icon" type="button" data-close-popup>Ок</button>
             </div>
         </div>
     </div>
@@ -41,7 +40,10 @@
                     <h3 class="includes-popup__title" data-includes-popup-title></h3>
                     <p class="includes-popup__lead" data-includes-popup-lead></p>
                     <div class="includes-popup__text" data-includes-popup-text></div>
-                    <a href="tel:+10000000000" class="includes-popup__btn btn btn-light">Call Now</a>
+                    <a href="tel:+10000000000" class="includes-popup__btn btn btn-light">
+                        <span>Call Now</span>
+                        {{> Ui/ArrowIcon }}
+                    </a>
                 </div>
             </div>
         </div>
@@ -64,9 +66,11 @@
                     <div class="course-popup__actions">
                         <a href="#" class="btn btn-main" data-popup-target="#contact-us">
                             <span>Book now</span>
+                            {{> Ui/ArrowIcon }}
                         </a>
                         <a href="tel:+0000000000" class="btn btn-secondary">
                             <span>+000 000 00</span>
+                            {{> Ui/ArrowIcon }}
                         </a>
                     </div>
                 </div>

@@ -1,28 +1,16 @@
-// 1. Шрифти та Іконки (генерують @font-face)
+// 1. Шрифти та іконки (генерують @font-face)
 @use "@fonts-style" as *;
 
-// 2. Скидання стилів (повинно бути перед :root та іншими стилями)
-@use "reset";
+// 2. База: reset → CSS-змінні → типографіка → html/body/wrapper
+@use "base";
 
-// 3. CSS змінні (:root)
-@use "vars";
-@use "variables";
-@use "mixins";
+// 3. Утиліти: helpers, заголовки, іконки, анімації
+@use "utilities";
 
-//4.--- ЗАГАЛЬНІ СТИЛІ ---
-@use "typography";
-@use "buttons";
-@use "layout";
-@use "hero";
-@use "quality";
-@use "price";
-@use "marquee";
-@use "select";
-@use "tabs";
+// 4. UI-kit: кнопки, форми, селект, таби, слайдер, marquee, акордеон, lightbox
 @use "ui";
-@use "thank-you";
-@use "error";
-// @use "lightbox";
-// ----------------------
 
-// 5. Стилі компонентів підключаються з відповідних Component.js (див. збірку wp у vite.config.js)
+// 5. Секції сторінок
+@use "sections";
+
+// 6. Стилі компонентів підключаються з відповідних Component.js (див. збірку wp у vite.config.js)

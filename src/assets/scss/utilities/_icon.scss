@@ -1,0 +1,41 @@
+.icon {
+    display: inline-block;
+    width: 24px; // Стандартний розмір
+    height: 24px;
+    fill: currentColor;
+    stroke: none; // Якщо іконки заливні
+    transition: fill 0.3s ease; // Плавна зміна кольору
+
+    // Якщо іконки зроблені лініями (stroke), то навпаки:
+    // fill: none;
+    // stroke: currentColor;
+}
+
+.arrow-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--yellow-brand);
+    color: var(--black);
+    transition: background 0.3s ease;
+
+    .icon {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+    }
+
+    &--sm {
+        width: 28px;
+        height: 28px;
+
+        .icon {
+            width: 12px;
+            height: 12px;
+        }
+    }
+}

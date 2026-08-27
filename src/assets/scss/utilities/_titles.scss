@@ -1,0 +1,62 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    @include af(28, 24);
+    font-weight: 600;
+    line-height: 1.2;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.title-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 120%;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.page-title {
+    @include av("font-size", 60, 40);
+    font-weight: 500;
+    padding: 0;
+    font-family: var(--font-playfair);
+    line-height: 1.2;
+    color: var(--black);
+    text-align: left;
+
+    &:not(:last-child) {
+        margin-bottom: 40px;
+
+        @media (max-width: 767.98px) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.date {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+
+.line {
+    height: 2px;
+    background: var(--black);
+    width: 100%;
+    max-width: 226px;
+}

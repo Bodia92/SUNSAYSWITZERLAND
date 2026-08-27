@@ -1,145 +1,215 @@
 <header class="header">
-    <div class="header__container">
-        <a href="/" class="header__logo">
-            <img src="@img/logo.svg" alt="Nail" />
-        </a>
+    <div class="header__main">
+        <div class="header__container header__bar">
+            <a href="/" class="header__logo">
+                <img src="@img/logo.svg" alt="SUNSAY NRG" width="170" height="40" />
+            </a>
 
-        <div class="header__navbar" data-anim="fade-down">
-            <div class="header__menu">
-                <nav class="header__nav">
-                    <ul>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li class="header__nav-item header__nav-item--has-child js-header-submenu">
-                            <div class="header__nav-parent">
-                                <a href="/services.html">Services</a>
-                                <button class="header__submenu-toggle js-header-submenu-trigger" type="button"
-                                    aria-expanded="false" aria-label="Toggle Services submenu">
-                                    <svg class="icon header__nav-arrow" aria-hidden="true">
-                                        <use href="@img/sprite.svg#icon-arrow-down"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="header__submenu header__submenu--services js-header-submenu-body">
-                                <ul class="header__submenu-list">
-                                    <li>
-                                        <a href="/service.html">
-                                            <span>4 hands</span>
-                                            <span class="arrow-icon" aria-hidden="true">
-                                                <svg class="icon" aria-hidden="true">
-                                                    <use href="@img/sprite.svg#icon-arrow-next"></use>
-                                                </svg>
-                                            </span>
+            <div class="header__navbar">
+                {{!-- WP: theme_location = header_top + header_regions + language switcher --}}
+                <div class="header__top">
+                    <div class="header__top-row">
+                        <div class="header__regions">
+                            <ul class="menu">
+                                <li class="menu-item menu-item-has-children js-header-submenu">
+                                    <div class="header__nav-parent">
+                                        <a href="#">
+                                            <svg class="icon header__pin" aria-hidden="true">
+                                                <use href="@img/sprite.svg#icon-location"></use>
+                                            </svg>
+                                            Регіони
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="/service.html">
-                                            <span>Manicure</span>
-                                            <span class="arrow-icon" aria-hidden="true">
-                                                <svg class="icon" aria-hidden="true">
-                                                    <use href="@img/sprite.svg#icon-arrow-next"></use>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/service.html">
-                                            <span>Waxing</span>
-                                            <span class="arrow-icon" aria-hidden="true">
-                                                <svg class="icon" aria-hidden="true">
-                                                    <use href="@img/sprite.svg#icon-arrow-next"></use>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/service.html">
-                                            <span>Nail extensions</span>
-                                            <span class="arrow-icon" aria-hidden="true">
-                                                <svg class="icon" aria-hidden="true">
-                                                    <use href="@img/sprite.svg#icon-arrow-next"></use>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/service.html">
-                                            <span>Lash and brows</span>
-                                            <span class="arrow-icon" aria-hidden="true">
-                                                <svg class="icon" aria-hidden="true">
-                                                    <use href="@img/sprite.svg#icon-arrow-next"></use>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/service.html">
-                                            <span>Pedicure</span>
-                                            <span class="arrow-icon" aria-hidden="true">
-                                                <svg class="icon" aria-hidden="true">
-                                                    <use href="@img/sprite.svg#icon-arrow-next"></use>
-                                                </svg>
-                                            </span>
-                                        </a>
+                                        {{> Ui/NavChevron }}
+                                    </div>
+                                    <ul class="sub-menu js-header-submenu-body">
+                                        <li class="menu-item current-menu-item">
+                                            <a href="#">Івано-Франківська</a>
+                                        </li>
+                                        <li class="menu-item"><a href="#">Вінницька</a></li>
+                                        <li class="menu-item"><a href="#">Житомирська</a></li>
+                                        <li class="menu-item"><a href="#">Запорізька</a></li>
+                                        <li class="menu-item"><a href="#">Миколаївська</a></li>
+                                        <li class="menu-item"><a href="#">Полтавська</a></li>
+                                        <li class="menu-item"><a href="#">Сумська</a></li>
+                                        <li class="menu-item"><a href="#">Харківська</a></li>
+                                        <li class="menu-item"><a href="#">Хмельницька</a></li>
+                                        <li class="menu-item"><a href="#">Чернівецька</a></li>
+                                        <li class="menu-item"><a href="#">Київська</a></li>
+                                        <li class="menu-item"><a href="#">Волинська</a></li>
+                                        <li class="menu-item"><a href="#">Дніпропетровська</a></li>
+                                        <li class="menu-item"><a href="#">Закарпатська</a></li>
+                                        <li class="menu-item"><a href="#">Кіровоградська</a></li>
+                                        <li class="menu-item"><a href="#">Одеська</a></li>
+                                        <li class="menu-item"><a href="#">Рівненська</a></li>
+                                        <li class="menu-item"><a href="#">Тернопільська</a></li>
+                                        <li class="menu-item"><a href="#">Черкаська</a></li>
+                                        <li class="menu-item"><a href="#">Чернігівська</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <nav class="header__top-nav" aria-label="Додаткова навігація">
+                            <ul class="menu">
+                                <li class="menu-item"><a href="#">Про нас</a></li>
+                                <li class="menu-item"><a href="#">Проєкти</a></li>
+                                <li class="menu-item"><a href="#">Блог</a></li>
+                                <li class="menu-item"><a href="#">Кар’єра</a></li>
+                                <li class="menu-item"><a href="#">Партнерам</a></li>
+                                <li class="menu-item"><a href="#">Контакти</a></li>
+                            </ul>
+                        </nav>
+
+                        <div class="header__top-aside">
+                            <a href="mailto:hello@sunsayenergy.com" class="header__contact">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="@img/sprite.svg#icon-mail"></use>
+                                </svg>
+                                <span>hello@sunsayenergy.com</span>
+                            </a>
+                            <a href="tel:+380939145010" class="header__contact">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="@img/sprite.svg#icon-phone"></use>
+                                </svg>
+                                <span>+38 093 914 50 10</span>
+                            </a>
+
+                            <div class="header__lang">
+                                <ul class="menu">
+                                    <li class="menu-item menu-item-has-children lang-item current-lang js-header-submenu">
+                                        <div class="header__nav-parent">
+                                            <a href="#" aria-label="Мова">UA</a>
+                                            {{> Ui/NavChevron }}
+                                        </div>
+                                        <ul class="sub-menu js-header-submenu-body">
+                                            <li class="menu-item lang-item current-lang">
+                                                <a href="#"><b>UA</b> - Українська</a>
+                                            </li>
+                                            <li class="menu-item lang-item">
+                                                <a href="#"><b>EN</b> - English</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
-                                <div class="header__submenu-media">
-                                    <img src="@img/img2.jpg" alt="" />
-                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{!-- WP: theme_location = header_primary. Icon classes: menu-item--icon-business|services|service|equipment|calculator --}}
+                <nav class="header__nav" aria-label="Основна навігація">
+                    <ul class="menu">
+                        <li class="menu-item menu-item-has-children menu-item--icon-business js-header-submenu">
+                            <div class="header__nav-parent">
+                                <a href="#">Рішення</a>
+                                {{> Ui/NavChevron }}
+                            </div>
+                            <ul class="sub-menu js-header-submenu-body">
+                                <li class="menu-item menu-item-has-children js-header-submenu">
+                                    <div class="header__nav-parent">
+                                        <a href="#">СЕС для бізнесу</a>
+                                        {{> Ui/NavChevron }}
+                                    </div>
+                                    <ul class="sub-menu js-header-submenu-body">
+                                        <li class="menu-item"><a href="#">СЕС 100 кВт</a></li>
+                                        <li class="menu-item"><a href="#">СЕС 150 кВт</a></li>
+                                        <li class="menu-item"><a href="#">СЕС 200 кВт</a></li>
+                                        <li class="menu-item"><a href="#">СЕС 500 кВт</a></li>
+                                        <li class="menu-item"><a href="#">СЕС 1 МВт</a></li>
+                                        <li class="menu-item"><a href="#">Для агробізнесу</a></li>
+                                        <li class="menu-item"><a href="#">Для підприємств</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children js-header-submenu">
+                                    <div class="header__nav-parent">
+                                        <a href="#">Установки зберігання енергії (УЗЕ)</a>
+                                        {{> Ui/NavChevron }}
+                                    </div>
+                                    <ul class="sub-menu js-header-submenu-body">
+                                        <li class="menu-item"><a href="#">УЗЕ для бізнесу</a></li>
+                                        <li class="menu-item"><a href="#">УЗЕ для підприємств</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children js-header-submenu">
+                                    <div class="header__nav-parent">
+                                        <a href="#">Гібридні системи (СЕС + УЗЕ)</a>
+                                        {{> Ui/NavChevron }}
+                                    </div>
+                                    <ul class="sub-menu js-header-submenu-body">
+                                        <li class="menu-item"><a href="#">Гібридні рішення для бізнесу</a></li>
+                                        <li class="menu-item"><a href="#">СЕС + УЗЕ під ключ</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="/academy.html">Academy</a>
+
+                        <li class="menu-item menu-item-has-children menu-item--icon-services js-header-submenu">
+                            <div class="header__nav-parent">
+                                <a href="#">Послуги</a>
+                                {{> Ui/NavChevron }}
+                            </div>
+                            <ul class="sub-menu js-header-submenu-body">
+                                <li class="menu-item"><a href="#">СЕС під ключ</a></li>
+                                <li class="menu-item"><a href="#">Фінансування</a></li>
+                                <li class="menu-item"><a href="#">Страхування</a></li>
+                                <li class="menu-item"><a href="#">Net billing (активний споживач)</a></li>
+                                <li class="menu-item"><a href="#">Проєктування</a></li>
+                                <li class="menu-item"><a href="#">Монтаж та підключення</a></li>
+                                <li class="menu-item"><a href="#">Пусконалагодження</a></li>
+                                <li class="menu-item"><a href="#">Збільшення потужності СЕС</a></li>
+                                <li class="menu-item"><a href="#">Демонтаж і перенесення</a></li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="/gift-card.html">GIFT CARD</a>
+
+                        <li class="menu-item menu-item-has-children menu-item--icon-service js-header-submenu">
+                            <div class="header__nav-parent">
+                                <a href="#">Сервіс</a>
+                                {{> Ui/NavChevron }}
+                            </div>
+                            <ul class="sub-menu js-header-submenu-body">
+                                <li class="menu-item"><a href="#">Гарантійне обслуговування</a></li>
+                                <li class="menu-item"><a href="#">Технічний супровід</a></li>
+                                <li class="menu-item"><a href="#">Моніторинг станцій</a></li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="/catalog.html">Catalog</a>
+
+                        <li class="menu-item menu-item-has-children menu-item--icon-equipment js-header-submenu">
+                            <div class="header__nav-parent">
+                                <a href="#">Обладнання</a>
+                                {{> Ui/NavChevron }}
+                            </div>
+                            <ul class="sub-menu js-header-submenu-body">
+                                <li class="menu-item"><a href="#">Сонячні панелі</a></li>
+                                <li class="menu-item"><a href="#">Інвертори</a></li>
+                                <li class="menu-item"><a href="#">Системи зберігання енергії</a></li>
+                                <li class="menu-item"><a href="#">Кріплення та комплектуючі</a></li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="/gallery.html">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="/about.html">About us</a>
-                        </li>
-                        <li>
-                            <a href="/blog.html">BLOG</a>
+
+                        <li class="menu-item menu-item-has-children menu-item--icon-calculator js-header-submenu">
+                            <div class="header__nav-parent">
+                                <a href="#">Калькулятор прибутку</a>
+                                {{> Ui/NavChevron }}
+                            </div>
+                            <ul class="sub-menu js-header-submenu-body">
+                                <li class="menu-item"><a href="#">Калькулятор СЕС</a></li>
+                                <li class="menu-item"><a href="#">Калькулятор УЗЕ</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>
 
-                <div class="header__socials">
-                    <a href="#" class="header__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                        <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.2433 0H25.0783C30.7298 0 35.3216 4.4677 35.3216 9.96642V24.4005C35.3216 27.0438 34.2424 29.5788 32.3214 31.4479C30.4004 33.3169 27.795 34.367 25.0783 34.367H10.2433C4.59181 34.367 0 29.8992 0 24.4005V9.96642C0 7.32316 1.0792 4.78816 3.00018 2.9191C4.92117 1.05003 7.52658 0 10.2433 0ZM9.89005 3.4367C8.20383 3.4367 6.58668 4.08844 5.39434 5.24855C4.20201 6.40866 3.53216 7.9821 3.53216 9.62275V24.7442C3.53216 28.1637 6.37555 30.9303 9.89005 30.9303H25.4315C27.1178 30.9303 28.7349 30.2785 29.9273 29.1184C31.1196 27.9583 31.7894 26.3848 31.7894 24.7442V9.62275C31.7894 6.20323 28.946 3.4367 25.4315 3.4367H9.89005ZM26.9327 6.01422C27.5182 6.01422 28.0797 6.24052 28.4937 6.64333C28.9077 7.04615 29.1403 7.59248 29.1403 8.16215C29.1403 8.73182 28.9077 9.27815 28.4937 9.68097C28.0797 10.0838 27.5182 10.3101 26.9327 10.3101C26.3472 10.3101 25.7857 10.0838 25.3717 9.68097C24.9577 9.27815 24.7251 8.73182 24.7251 8.16215C24.7251 7.59248 24.9577 7.04615 25.3717 6.64333C25.7857 6.24052 26.3472 6.01422 26.9327 6.01422ZM17.6608 8.59174C20.0028 8.59174 22.2488 9.49694 23.9048 11.1082C25.5609 12.7195 26.4912 14.9048 26.4912 17.1835C26.4912 19.4621 25.5609 21.6475 23.9048 23.2588C22.2488 24.87 20.0028 25.7752 17.6608 25.7752C15.3188 25.7752 13.0728 24.87 11.4168 23.2588C9.76074 21.6475 8.8304 19.4621 8.8304 17.1835C8.8304 14.9048 9.76074 12.7195 11.4168 11.1082C13.0728 9.49694 15.3188 8.59174 17.6608 8.59174ZM17.6608 12.0284C16.2556 12.0284 14.908 12.5716 13.9144 13.5383C12.9208 14.5051 12.3626 15.8163 12.3626 17.1835C12.3626 18.5507 12.9208 19.8619 13.9144 20.8286C14.908 21.7954 16.2556 22.3385 17.6608 22.3385C19.066 22.3385 20.4136 21.7954 21.4072 20.8286C22.4008 19.8619 22.959 18.5507 22.959 17.1835C22.959 15.8163 22.4008 14.5051 21.4072 13.5383C20.4136 12.5716 19.066 12.0284 17.6608 12.0284Z"
-                                fill="#43C1C6" />
-                        </svg>
-                    </a>
-                    <a href="#" class="header__social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                        <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M35.3216 17.1835C35.3216 7.6982 27.4096 0 17.6608 0C7.91204 0 0 7.6982 0 17.1835C0 25.5003 6.07531 32.4252 14.1286 34.0233V22.3385H10.5965V17.1835H14.1286V12.8876C14.1286 9.5712 16.9014 6.87339 20.3099 6.87339H24.7251V12.0284H21.193C20.2216 12.0284 19.4269 12.8017 19.4269 13.7468V17.1835H24.7251V22.3385H19.4269V34.281C28.3456 33.4219 35.3216 26.1017 35.3216 17.1835Z"
-                                fill="#43C1C6" />
-                        </svg>
-
-                    </a>
-                </div>
                 <div class="header__actions">
-                    <a href="#" class="header__btn btn btn-main" data-popup-target="#contact-us">
-                        <span>Book now</span>
-                    </a>
-                    <a href="tel:+0000000000" class="header__btn btn btn-secondary">
-                        <span>+000 000 00</span>
+                    <a href="#" class="header__btn btn btn-outline" data-popup-target="#contact-us">
+                        <span>Залишити заявку</span>
+                        {{> Ui/ArrowIcon }}
                     </a>
                 </div>
             </div>
-        </div>
 
-        <button class="header__burger js-menu-trigger" type="button" aria-label="open menu">
-            <span></span>
-        </button>
+            <button class="header__burger js-menu-trigger" type="button" aria-label="Відкрити меню" aria-expanded="false">
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>

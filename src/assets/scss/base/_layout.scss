@@ -1,0 +1,114 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+// ----------------------------------------------------------------
+// Стилі тега BODY HTML
+// ----------------------------------------------------------------
+html {
+    @include thin-scrollbar;
+    scroll-behavior: smooth;
+    background: #faf8f6;
+}
+
+body {
+    min-width: 320px;
+    color: var(--text);
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+
+    background: #faf8f6;
+    font-variant-numeric: lining-nums proportional-nums;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    // Скролл заблоковано
+    [data-scrolllock] & {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    }
+    // Сайт завантажений
+    [data-loaded] & {
+    }
+}
+// ----------------------------------------------------------------
+// Оболонка WRAPPER
+// ----------------------------------------------------------------
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    // Притискаємо footer
+    > main {
+        flex: 1 1 auto;
+    }
+    // Фікс для слайдерів
+    > * {
+        min-width: 0;
+        scroll-margin-top: 160px;
+
+        @media (max-width: 991.98px) {
+            scroll-margin-top: 120px;
+        }
+    }
+}
+// ----------------------------------------------------------------
+// Обмежуючий контейнер
+// ----------------------------------------------------------------
+[class*="__container"] {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    width: 100%;
+    padding-left: var(--padding-container);
+    padding-right: var(--padding-container);
+}
+
+[class*="__slider"]:not(.swiper-initialized) {
+    .swiper-nav {
+        display: none;
+    }
+}
+// ----------------------------------------------------------------
+// Загальні стилі для усього сайту
+// ----------------------------------------------------------------
+button[hidden] {
+    display: none !important;
+}
+
+button[disabled] {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+body.page {
+    padding: 0;
+}
+
+/* Застосовуємо до всіх посилань, кнопок та полів вводу */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 1px solid var(--accent);
+
+    outline-offset: 0;
+
+    border-radius: 10px;
+}
+
+a:focus,
+button:focus {
+    outline: none;
+}
+
+html.lock-scroll,
+body.lock-scroll {
+    overflow: hidden !important;
+    height: 100% !important;
+    width: 100% !important;
+    position: fixed !important;
+    left: 0;
+    top: 0;
+}

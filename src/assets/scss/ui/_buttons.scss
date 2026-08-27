@@ -1,0 +1,355 @@
+// ==========================================================================
+// BUTTONS — SUNSAY NRG
+// ==========================================================================
+// Базовий клас: .btn (pill + .arrow-icon зі спрайтом icon-arrow-rotate)
+//
+// <a class="btn btn-main" href="#">
+//   <span>Дізнатись більше</span>
+//   <span class="arrow-icon" aria-hidden="true">
+//     <svg class="icon"><use href="@img/sprite.svg#icon-arrow-rotate"></use></svg>
+//   </span>
+// </a>
+//
+// Варіанти:
+//   .btn / .btn-main     — жовта заливка, білий кружок
+//   .btn-secondary       — біла, сірий бордер, жовтий кружок
+//   .btn-outline         — біла, жовтий бордер, жовтий кружок
+//   .btn-dark            — чорна, білий текст, жовтий кружок
+//   .btn-outline-white   — прозора, білий бордер, білий текст, жовтий кружок
+//
+// Розміри: .btn--sm, .btn--lg
+// Модифікатори: .btn--block, .btn--no-icon
+// Стан: [disabled] / .is-disabled
+// ==========================================================================
+
+@mixin btn-base {
+    --btn-height: 48px;
+    --btn-pad-x: 20px;
+    --btn-pad-end: 8px;
+    --btn-icon-size: 32px;
+    --btn-bg: var(--yellow-brand);
+    --btn-color: var(--black);
+    --btn-border: var(--yellow-brand);
+    --btn-icon-bg: var(--white);
+
+    isolation: isolate;
+    position: relative;
+    width: fit-content;
+    min-height: var(--btn-height);
+    padding: 8px var(--btn-pad-end) 8px var(--btn-pad-x);
+    gap: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--btn-color);
+    background-color: var(--btn-bg);
+    border: 1px solid var(--btn-border);
+    border-radius: 100px;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        opacity 0.3s ease;
+
+    > span:not(.arrow-icon) {
+        position: relative;
+        z-index: 2;
+    }
+
+    .arrow-icon {
+        width: var(--btn-icon-size);
+        height: var(--btn-icon-size);
+        background: var(--btn-icon-bg);
+        color: var(--black);
+        transition: transform 0.3s ease;
+
+        .icon {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    &[disabled],
+    &.is-disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+@mixin btn-main {
+    --btn-bg: var(--yellow-brand);
+    --btn-color: var(--black);
+    --btn-border: var(--yellow-brand);
+    --btn-icon-bg: var(--white);
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            --btn-bg: var(--black);
+            --btn-color: var(--white);
+            --btn-border: var(--black);
+            --btn-icon-bg: var(--yellow-brand);
+
+            .arrow-icon {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+@mixin btn-secondary {
+    --btn-bg: var(--white);
+    --btn-color: var(--black);
+    --btn-border: var(--stroke);
+    --btn-icon-bg: var(--yellow-brand);
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            --btn-bg: var(--yellow-brand);
+            --btn-color: var(--black);
+            --btn-border: var(--yellow-brand);
+            --btn-icon-bg: var(--white);
+        }
+    }
+}
+
+@mixin btn-outline {
+    --btn-bg: var(--white);
+    --btn-color: var(--black);
+    --btn-border: var(--yellow-brand);
+    --btn-icon-bg: var(--yellow-brand);
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            --btn-bg: var(--yellow-brand);
+            --btn-color: var(--black);
+            --btn-border: var(--yellow-brand);
+            --btn-icon-bg: var(--white);
+        }
+    }
+}
+
+@mixin btn-dark {
+    --btn-bg: var(--black);
+    --btn-color: var(--white);
+    --btn-border: var(--black);
+    --btn-icon-bg: var(--yellow-brand);
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            --btn-bg: var(--yellow-brand);
+            --btn-color: var(--black);
+            --btn-border: var(--yellow-brand);
+            --btn-icon-bg: var(--white);
+        }
+    }
+}
+
+@mixin btn-outline-white {
+    --btn-bg: transparent;
+    --btn-color: var(--white);
+    --btn-border: var(--white);
+    --btn-icon-bg: var(--yellow-brand);
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            --btn-bg: var(--yellow-brand);
+            --btn-color: var(--black);
+            --btn-border: var(--yellow-brand);
+            --btn-icon-bg: var(--white);
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// Base + variants
+// --------------------------------------------------------------------------
+
+.btn,
+button.btn,
+a.btn,
+input.btn[type="submit"],
+.wpcf7-form .btn.wpcf7-submit,
+.wpcf7-form input[type="submit"],
+.wpcf7-form button[type="submit"],
+.wp-block-button__link {
+    @include btn-base;
+    @include btn-main;
+}
+
+.btn-main,
+.btn-gradient {
+    @include btn-base;
+    @include btn-main;
+}
+
+.btn.btn-main,
+.btn.btn-gradient {
+    @include btn-main;
+}
+
+.btn-secondary,
+.btn-light,
+.btn--grey,
+.btn-white {
+    @include btn-base;
+    @include btn-secondary;
+}
+
+.btn.btn-secondary,
+.btn.btn-light,
+.btn.btn--grey,
+.btn.btn-white {
+    @include btn-secondary;
+}
+
+.btn-outline,
+.btn-border {
+    @include btn-base;
+    @include btn-outline;
+}
+
+.btn.btn-outline,
+.btn.btn-border {
+    @include btn-outline;
+}
+
+.btn-dark {
+    @include btn-base;
+    @include btn-dark;
+}
+
+.btn.btn-dark {
+    @include btn-dark;
+}
+
+.btn-outline-white {
+    @include btn-base;
+    @include btn-outline-white;
+}
+
+.btn.btn-outline-white {
+    @include btn-outline-white;
+}
+
+.btn {
+    &.btn--block,
+    &.btn-block {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &.btn--sm {
+        --btn-height: 40px;
+        --btn-pad-x: 16px;
+        --btn-pad-end: 6px;
+        --btn-icon-size: 28px;
+        font-size: 14px;
+
+        .arrow-icon .icon {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    &.btn--lg {
+        --btn-height: 56px;
+        --btn-pad-x: 24px;
+        --btn-pad-end: 10px;
+        --btn-icon-size: 36px;
+        font-size: 18px;
+
+        .arrow-icon .icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &.btn--no-icon {
+        padding-right: var(--btn-pad-x);
+        justify-content: center;
+
+        .arrow-icon {
+            display: none;
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// Text — посилання без фону й обведення
+// --------------------------------------------------------------------------
+
+@mixin btn-text-base {
+    --btn-height: auto;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent !important;
+    gap: 0;
+
+    .arrow-icon {
+        display: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+.btn-text,
+.btn-text-dark {
+    @include btn-base;
+    @include btn-text-base;
+    color: var(--black);
+
+    &:hover,
+    &:focus-visible {
+        color: var(--yellow-brand);
+    }
+}
+
+.btn-text-white {
+    @include btn-base;
+    @include btn-text-base;
+    color: var(--white);
+
+    &:hover,
+    &:focus-visible {
+        color: var(--yellow-brand);
+    }
+}
+
+.btn.btn-text,
+.btn.btn-text-dark,
+.btn.btn-text-white {
+    @include btn-text-base;
+}
+
+// --------------------------------------------------------------------------
+// Forms (WP CF7, custom forms)
+// --------------------------------------------------------------------------
+
+form {
+    .btn,
+    .wpcf7-submit,
+    input[type="submit"],
+    button[type="submit"] {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

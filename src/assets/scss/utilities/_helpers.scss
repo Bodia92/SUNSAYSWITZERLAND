@@ -1,0 +1,42 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.hidden {
+    display: none !important;
+}
+
+.lock {
+    overflow: hidden;
+}
+
+.section {
+    @include av("padding-top", 50, 30);
+    @include av("padding-bottom", 50, 30);
+}
+
+.desktop {
+    @media (max-width: 991.98px) {
+        display: none !important;
+    }
+}
+
+.mobile {
+    @media (min-width: 992px) {
+        display: none !important;
+    }
+}
+
+.visually-hidden {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+}
+
+#services,
+#faq,
+#reviews,
+#contacts {
+    scroll-margin-top: 65px;
+}

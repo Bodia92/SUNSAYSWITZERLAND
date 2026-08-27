@@ -1,0 +1,251 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+a {
+    transition: color 0.3s ease;
+    &:hover {
+        color: var(--blue-primary);
+    }
+}
+
+.editor {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    text-wrap: balance;
+
+    p {
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-weight: 600;
+        line-height: 1.25;
+
+        &:not(:first-child) {
+            margin-top: 32px;
+        }
+
+        &:not(:last-child) {
+            @include av("margin-bottom", 24, 16);
+        }
+    }
+
+    h1 {
+        @include af(57, 40);
+    }
+
+    h2 {
+        @include af(40, 28);
+    }
+
+    h3 {
+        @include af(28, 20);
+    }
+
+    h4 {
+        @include af(20, 18);
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    li {
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+
+    ul {
+        > li {
+            position: relative;
+            padding-left: 30px;
+
+            @include mq-down(lg) {
+                padding-left: 24px;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 12px;
+                top: 10px;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: var(--black);
+
+                @include mq-down(lg) {
+                    left: 10px;
+                }
+            }
+        }
+    }
+
+    ol {
+        counter-reset: number;
+
+        > li {
+            position: relative;
+            counter-increment: number;
+            padding-left: toRem(20);
+
+            &::before {
+                content: counter(number) ".";
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+
+    a {
+        text-decoration: underline;
+        transition: color 0.3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: none;
+                color: var(--blue-primary);
+            }
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+
+        &:not(:first-child) {
+            margin-top: 32px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 767.98px) {
+            aspect-ratio: 361 / 314;
+            object-fit: cover;
+        }
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    table td {
+        padding: 10px;
+        vertical-align: middle;
+        border: none;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    table td:first-child {
+        width: 60%;
+    }
+    table td:last-child {
+        width: 40%;
+        text-align: right;
+    }
+
+    table tr:nth-child(odd) td {
+    }
+
+    table tr:nth-child(even) td {
+        background-color: var(--input-border);
+    }
+
+    table td a {
+        color: var(--blue-primary);
+        text-decoration: underline;
+    }
+
+    table td a:hover {
+        text-decoration: none;
+    }
+}
+
+.content {
+    @include av("padding-top", 48, 28);
+    @include av("padding-bottom", 80, 48);
+
+    // .content__container
+    &__container {
+        max-width: 672px;
+    }
+
+    // .content__title
+    &__title {
+        text-align: left;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--black);
+        @include af(36, 28);
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    // .content__meta
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 16px;
+        margin-bottom: 28px;
+        font-size: 14px;
+        line-height: 1.4;
+        color: var(--grey);
+    }
+
+    // .content__line
+    &__line {
+        margin-left: auto;
+        margin-right: auto;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    .editor {
+        color: var(--text);
+    }
+}

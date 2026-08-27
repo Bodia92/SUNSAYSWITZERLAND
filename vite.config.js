@@ -206,10 +206,16 @@ export default defineConfig(({ mode, command }) => {
                 scss: {
                     silenceDeprecations: ["legacy-js-api", "import"],
                     additionalData: (content, filename) => {
-                        if (filename.includes("_vars.scss") || filename.includes("_mixins.scss"))
+                        if (
+                            filename.includes("_vars.scss") ||
+                            filename.includes("_mixins.scss") ||
+                            filename.endsWith("_index.scss")
+                        ) {
                             return content;
+                        }
                         return (
-                            `@use "@/assets/scss/_vars.scss" as *; @use "@/assets/scss/_mixins.scss" as *;` +
+                            `@use "@/assets/scss/abstracts/_vars.scss" as *;\n` +
+                            `@use "@/assets/scss/abstracts/_mixins.scss" as *;\n` +
                             content
                         );
                     },
