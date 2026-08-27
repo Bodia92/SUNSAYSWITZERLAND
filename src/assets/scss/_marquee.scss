@@ -1,0 +1,80 @@
+[data-marquee] {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+
+    // Ховаємо до ініціалізації, щоб не стрибало
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    &.is-initialized {
+        opacity: 1;
+    }
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content; // Трек розтягується на всю ширину контенту
+    flex-shrink: 0;
+
+    // Анімація завжди йде до -50%
+    // Тому що у нас є 2 однакові групи. Коли перша повністю виїхала (-50%),
+    // друга стоїть рівно на місці першої. В цей момент анімація стрибає в 0.
+    animation: marquee-scroll var(--marquee-duration) linear infinite;
+
+    // Оптимізація
+    will-change: transform;
+
+    // Пауза при наведенні (опціонально)
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.marquee-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+
+    img {
+    }
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        // Рухаємо рівно на ширину однієї групи
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.marquee {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    overflow: hidden;
+
+    img {
+        height: 44px;
+        width: auto;
+        object-fit: scale-down;
+
+        @media (max-width: 991.98px) {
+            height: 32px;
+        }
+    }
+
+    .marquee__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+    }
+}

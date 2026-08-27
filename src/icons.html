@@ -1,0 +1,189 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Icons Preview</title>
+        <style>
+            body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+            h1 { text-align: center; }
+            .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+            .icon-card { 
+                background: white; padding: 20px; border-radius: 8px; 
+                display: flex; flex-direction: column; align-items: center; 
+                cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .icon-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+            .icon { width: 40px; height: 40px; margin-bottom: 10px; fill: #333; }
+            .icon-name { font-size: 12px; color: #666; word-break: break-all; text-align: center; }
+        </style>
+    </head>
+    <body>
+        <h1>Icons Preview (Click to copy ID)</h1>
+        <div class="grid">
+            
+            <div class="icon-card" onclick="copyToClipboard('icon-star')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-star"></use>
+                </svg>
+                <div class="icon-name">icon-star</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-star-disabled')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-star-disabled"></use>
+                </svg>
+                <div class="icon-name">icon-star-disabled</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-plus')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-plus"></use>
+                </svg>
+                <div class="icon-name">icon-plus</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-time')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-time"></use>
+                </svg>
+                <div class="icon-name">icon-time</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-email')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-email"></use>
+                </svg>
+                <div class="icon-name">icon-email</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-phone')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-phone"></use>
+                </svg>
+                <div class="icon-name">icon-phone</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-arrow-rotate')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-arrow-rotate"></use>
+                </svg>
+                <div class="icon-name">icon-arrow-rotate</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-close')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-close"></use>
+                </svg>
+                <div class="icon-name">icon-close</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-arrow-left')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-arrow-left"></use>
+                </svg>
+                <div class="icon-name">icon-arrow-left</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-arrow-right')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-arrow-right"></use>
+                </svg>
+                <div class="icon-name">icon-arrow-right</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-done')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-done"></use>
+                </svg>
+                <div class="icon-name">icon-done</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-done1')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-done1"></use>
+                </svg>
+                <div class="icon-name">icon-done1</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-star-disabled1')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-star-disabled1"></use>
+                </svg>
+                <div class="icon-name">icon-star-disabled1</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-check')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-check"></use>
+                </svg>
+                <div class="icon-name">icon-check</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-arrow-down')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-arrow-down"></use>
+                </svg>
+                <div class="icon-name">icon-arrow-down</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-arrow-next')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-arrow-next"></use>
+                </svg>
+                <div class="icon-name">icon-arrow-next</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-arrow-prev')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-arrow-prev"></use>
+                </svg>
+                <div class="icon-name">icon-arrow-prev</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-star1')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-star1"></use>
+                </svg>
+                <div class="icon-name">icon-star1</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-heart')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-heart"></use>
+                </svg>
+                <div class="icon-name">icon-heart</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-heart-outline')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-heart-outline"></use>
+                </svg>
+                <div class="icon-name">icon-heart-outline</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-sparkle')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-sparkle"></use>
+                </svg>
+                <div class="icon-name">icon-sparkle</div>
+            </div>
+        
+            <div class="icon-card" onclick="copyToClipboard('icon-location')">
+                <svg class="icon">
+                    <use href="assets/images/sprite.svg#icon-location"></use>
+                </svg>
+                <div class="icon-name">icon-location</div>
+            </div>
+        
+        </div>
+        <script>
+            function copyToClipboard(id) {
+                navigator.clipboard.writeText(id).then(() => {
+                    alert('Copied: ' + id);
+                });
+            }
+        </script>
+    </body>
+    </html>
+    

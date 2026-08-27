@@ -1,0 +1,106 @@
+<div id="contact-us" class="popup" aria-hidden="true">
+    <div class="popup__wrapper">
+        <div class="popup__content">
+            <div class="popup__body">
+                <button class="popup__close" data-close-popup aria-label="Закрити" type="button"></button>
+                {{> Form/QuoteForm formId="popup" }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-success" class="popup" aria-hidden="true">
+    <div class="popup__wrapper">
+
+        <div class="popup__content">
+            <button class="popup__close close-popup" data-close-popup aria-label="Close" type="button"></button>
+
+            <div class="popup__body">
+                <h2 class="popup__title">
+                    Дякуємо!
+                </h2>
+                <div class="popup__text">
+                    <p>Ми звʼяжемось з вами протягом 24 годин</p>
+                </div>
+                <button class="btn" type="button" data-close-popup>Ок
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="includes-popup" class="popup popup--includes" aria-hidden="true">
+    <div class="popup__wrapper">
+        <div class="popup__content">
+            <button class="popup__close" data-close-popup aria-label="Close" type="button"></button>
+            <div class="includes-popup">
+                <div class="includes-popup__media">
+                    <img src="" alt="" data-includes-popup-image width="520" height="520">
+                </div>
+                <div class="includes-popup__body">
+                    <h3 class="includes-popup__title" data-includes-popup-title></h3>
+                    <p class="includes-popup__lead" data-includes-popup-lead></p>
+                    <div class="includes-popup__text" data-includes-popup-text></div>
+                    <a href="tel:+10000000000" class="includes-popup__btn btn btn-light">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="course-popup" class="popup popup--course" aria-hidden="true">
+    <div class="popup__wrapper">
+        <div class="popup__content">
+            <button class="popup__close" data-close-popup aria-label="Close" type="button"></button>
+            <div class="course-popup">
+                <div class="course-popup__media">
+                    <img src="" alt="" data-course-popup-image width="520" height="520">
+                </div>
+                <div class="course-popup__body">
+                    <span class="course-popup__badge" data-course-popup-badge></span>
+                    <h3 class="course-popup__title" data-course-popup-title></h3>
+                    <p class="course-popup__price" data-course-popup-price></p>
+                    <div class="course-popup__text" data-course-popup-text></div>
+                    <div class="course-popup__actions">
+                        <a href="#" class="btn btn-main" data-popup-target="#contact-us">
+                            <span>Book now</span>
+                        </a>
+                        <a href="tel:+0000000000" class="btn btn-secondary">
+                            <span>+000 000 00</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="review-popup" class="popup popup--review" aria-hidden="true">
+    <div class="popup__wrapper">
+        <div class="popup__content">
+            <button class="popup__close" data-close-popup aria-label="Close" type="button"></button>
+            <div class="review-popup">
+                <div class="review-popup__layout" data-review-popup-layout>
+                    <div class="review-popup__media" data-review-popup-media></div>
+                    <div class="review-popup__body">
+                        <div class="review-popup__head">
+                            <div class="review-popup__user">
+                                <span class="review-popup__avatar" data-review-popup-avatar aria-hidden="true"></span>
+                                <div class="review-popup__meta">
+                                    <div class="review-popup__name" data-review-popup-name></div>
+                                    <div class="review-popup__stars" data-review-popup-stars></div>
+                                    <div class="review-popup__badge" data-review-popup-badge hidden></div>
+                                </div>
+                            </div>
+                            <time class="review-popup__date" data-review-popup-date datetime=""></time>
+                        </div>
+                        <div class="review-popup__text" data-review-popup-text></div>
+                        <div class="review-popup__logo">
+                            <img src="@img/logo.svg" alt="Nail" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

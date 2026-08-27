@@ -1,0 +1,172 @@
+@use "../scss/mixins" as *;
+
+//select
+
+.form-group:has(.nice-select) {
+    position: relative;
+    z-index: 1;
+}
+
+.form-group:has(.nice-select.open) {
+    z-index: 50;
+}
+
+.form-group .nice-select.open,
+.form-group .nice-select:active,
+.form-group .nice-select:focus {
+    border-color: var(--blue);
+}
+
+.form-grid:has(.nice-select) {
+    position: relative;
+    z-index: 2;
+}
+
+.form-grid:has(.nice-select.open) {
+    z-index: 20;
+}
+
+.form-group .nice-select {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: 38px;
+    padding: 10px 20px;
+    padding-right: 14px;
+    align-items: center;
+    opacity: 1;
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    text-wrap: auto;
+    color: var(--black);
+    border-radius: 10px;
+    border: 1px solid #dbdbdb;
+    background: var(--white);
+    transition: all 0.3s ease;
+
+    &.open {
+        z-index: 50;
+        border-color: var(--accent);
+    }
+
+    // Стрілочка
+    &::after {
+        border-bottom: 2px solid var(--black);
+        border-right: 2px solid var(--black);
+        height: 12px;
+        width: 12px;
+        top: 14px;
+        right: 16px;
+    }
+
+    .nice-select-dropdown {
+        z-index: 60;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1) translateY(-10px);
+        pointer-events: none;
+        overflow: auto;
+        // Плавність
+        transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+
+        display: block !important;
+
+        width: 100%;
+        padding: 0;
+        margin-top: 8px;
+        border-radius: 15px;
+        background: var(--white);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+
+        @include thin-scrollbar;
+    }
+
+    &.open .nice-select-dropdown {
+        opacity: 1;
+        z-index: 60;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        padding: 10px;
+
+        &:hover {
+            .option:not(:hover) {
+                // background: transparent !important;
+                // color: var(--black) !important;
+
+                &.disabled {
+                    pointer-events: none !important;
+                    cursor: default !important;
+                    color: var(--grey) !important;
+                }
+            }
+
+            .option.selected {
+                background: transparent !important;
+                color: var(--black) !important;
+                pointer-events: none;
+                cursor: default;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        // Опція
+        .option {
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            white-space: normal;
+            width: 100%;
+            min-height: 32px;
+            padding: 4px 16px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            border-radius: 4px;
+            background: #dde6ed;
+            color: var(--black);
+            transition: all 0.3s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: var(--black);
+                    background: var(--accent) !important;
+                    &.disabled {
+                        pointer-events: none !important;
+                        cursor: default;
+                    }
+                }
+            }
+            &.focus,
+            &.selected {
+                background: var(--accent) !important;
+                color: var(--black) !important;
+                pointer-events: none;
+                cursor: default;
+            }
+
+            &.disabled {
+                pointer-events: none !important;
+                cursor: default;
+                color: var(--black) !important;
+            }
+        }
+    }
+}
+
+.hidden-select {
+    position: absolute;
+}

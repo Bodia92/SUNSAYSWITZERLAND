@@ -1,0 +1,52 @@
+/* ─────────────────────────────────────────────
+   Universal Tabs
+   ───────────────────────────────────────────── */
+
+[data-tabs] {
+    --tabs-duration: 250ms;
+}
+
+/* ── Nav ─────────────────────────────────────── */
+[data-tabs-nav] {
+}
+
+/* ── Button ──────────────────────────────────── */
+[data-tabs-btn] {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+
+[data-tabs-btn]:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+[data-tabs-btn].is-active {
+    /* Тут ваші стилі активної кнопки */
+}
+
+/* ── Panel ───────────────────────────────────── */
+[data-tabs-panel] {
+    display: none; /* Повністю приховує з DOM */
+    opacity: 0; /* Прозорість 0 */
+    transform: translateY(10px); /* Зміщення вниз */
+
+    /* Плавний перехід тільки для opacity та transform */
+    transition:
+        opacity var(--tabs-duration) ease,
+        transform var(--tabs-duration) ease;
+}
+
+/* Клас is-active просто повертає елемент в структуру сторінки (display: block) 
+   але він все ще прозорий і зміщений */
+[data-tabs-panel].is-active {
+    display: block;
+}
+
+/* Клас is-visible робить таб видимим. 
+   Додається JS-ом через долю секунди ПІСЛЯ is-active */
+[data-tabs-panel].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

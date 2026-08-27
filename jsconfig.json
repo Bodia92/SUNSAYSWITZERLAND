@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "ignoreDeprecations": "6.0",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@img/*": ["./src/assets/images/*"],
+            "@scss/*": ["./src/assets/scss/*"],
+            "@js/*": ["./src/assets/js/*"],
+            "@fonts/*": ["./src/assets/fonts/*"],
+            "@components/*": ["./src/components/*"]
+        }
+    },
+    "include": ["src/**/*", "vite.config.js", "build.config.mjs"],
+    "exclude": ["node_modules", "dist"]
+}

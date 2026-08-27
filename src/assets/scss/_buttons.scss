@@ -1,0 +1,388 @@
+@use "@/assets/scss/_mixins.scss" as *;
+
+// ==========================================================================
+// BUTTONS — UI kit Nail
+// ==========================================================================
+// Базовий клас: .btn (форма, розміри, типографіка)
+// Стилі (кожен має default → hover → :active):
+//   .btn / .btn-main / .btn-gradient — заливка teal, hover gold, active pale
+//   .btn-secondary      — прозора, текст teal → gold → pale
+//   .btn-light / .btn--grey — м'яка кнопка (світлий фон / поверх фото)
+//   .btn-border         — обведення, темний текст (світлі секції)
+//   .btn-outline-white  — обведення, білий текст (темні секції / фото)
+//   .btn-text / .btn-text-dark — текстове посилання, темний текст
+//   .btn-text-white     — текстове посилання, білий текст
+//
+// Розміри: .btn--sm, .btn--lg. Стан: [disabled] / .is-disabled
+//
+// WordPress:
+// - Додайте class "btn" до посилань/кнопок у меню, ACF, CF7
+// - CF7: <button class="btn wpcf7-submit" type="submit">
+// ==========================================================================
+
+@mixin btn-base {
+    --btn-height: 44px;
+    --btn-padding-x: 20px;
+    --btn-radius: 10px;
+    --btn-border: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold) 100%);
+
+    isolation: isolate;
+    position: relative;
+    width: fit-content;
+    min-height: var(--btn-height);
+    padding: 10px var(--btn-padding-x);
+    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-main);
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 100%;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--btn-radius);
+    background: transparent;
+    color: var(--white);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        border-radius: inherit;
+        padding: 1px;
+        background: var(--btn-border);
+        pointer-events: none;
+        transition:
+            background 0.3s ease,
+            opacity 0.3s ease;
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+
+    span {
+        position: relative;
+        z-index: 2;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        background: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold) 100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        opacity 0.4s ease;
+
+    &[disabled],
+    &.is-disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+@mixin btn-main {
+    background-color: var(--teal);
+    color: var(--white);
+    --btn-border: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold) 100%);
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            color: var(--white);
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &:active {
+        background-color: var(--teal-pale);
+        color: var(--teal-light);
+        --btn-border: linear-gradient(var(--teal-pale), var(--teal-pale));
+
+        &::after {
+            opacity: 0;
+        }
+    }
+}
+
+@mixin btn-secondary {
+    background: #b8e9ee33;
+    color: var(--teal);
+    font-weight: 600;
+    --btn-border: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold) 100%);
+
+    &::after {
+        opacity: 0;
+        background: linear-gradient(180deg, rgba(125, 85, 8, 0.1) 0%, rgba(201, 165, 88, 0.1) 100%);
+    }
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            background: transparent;
+            color: var(--gold);
+            -webkit-backdrop-filter: blur(31px);
+            backdrop-filter: blur(31px);
+            --btn-border: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold) 100%);
+
+            &::after {
+                content: "";
+                opacity: 1;
+            }
+        }
+    }
+
+    &:active {
+        background: #b8e9ee1a;
+        color: var(--teal-pale);
+        border: 1px solid var(--teal-pale);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+
+        &::after {
+            opacity: 0;
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// Base
+// --------------------------------------------------------------------------
+
+.btn,
+button.btn,
+a.btn,
+input.btn[type="submit"],
+.wpcf7-form .btn.wpcf7-submit,
+.wpcf7-form input[type="submit"],
+.wpcf7-form button[type="submit"],
+.wp-block-button__link {
+    @include btn-base;
+    @include btn-main;
+}
+
+.btn-main {
+    @include btn-base;
+    @include btn-main;
+}
+
+.btn-secondary {
+    @include btn-base;
+    @include btn-secondary;
+}
+
+.btn.btn-secondary {
+    @include btn-secondary;
+}
+
+.btn {
+    &.btn--block,
+    &.btn-block {
+        width: 100%;
+    }
+
+    &.btn--sm {
+        --btn-height: 40px;
+        --btn-padding-x: 20px;
+        font-size: 14px;
+    }
+
+    &.btn--lg {
+        --btn-height: 56px;
+        --btn-padding-x: 36px;
+        font-size: 18px;
+    }
+}
+
+// --------------------------------------------------------------------------
+// Filled — основний CTA (суцільний синій)
+// --------------------------------------------------------------------------
+
+.btn-gradient {
+    @include btn-base;
+    @include btn-main;
+}
+
+// --------------------------------------------------------------------------
+// Filled — м'яка кнопка (світла заливка, темний текст)
+// Використовується на світлих секціях і поверх фото в hero
+// --------------------------------------------------------------------------
+
+.btn-light,
+.btn--grey {
+    @include btn-base;
+    background: var(--blue-100);
+    color: var(--text) !important;
+    border-color: transparent;
+
+    &:hover,
+    &:focus-visible {
+        background: var(--blue-primary);
+        color: var(--white) !important;
+    }
+
+    &[disabled],
+    &.is-disabled {
+        pointer-events: none;
+        background: var(--blue-50);
+        color: var(--blue-100) !important;
+        opacity: 1;
+    }
+}
+
+// --------------------------------------------------------------------------
+// Outline — темне обведення (світлі секції)
+// --------------------------------------------------------------------------
+
+.btn-border,
+.btn-outline {
+    @include btn-base;
+    border-color: var(--text);
+    color: var(--text) !important;
+    background: transparent;
+
+    &:hover,
+    &:focus-visible {
+        border-color: var(--blue-primary);
+        color: var(--blue-primary) !important;
+        background: rgba(71, 169, 251, 0.08);
+    }
+
+    &[disabled],
+    &.is-disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.btn-border {
+    border-color: var(--accent);
+    color: var(--blue) !important;
+    background: transparent;
+
+    @media (any-hover: hover) {
+        &:hover,
+        &:focus-visible {
+            border-color: var(--blue);
+            color: var(--blue) !important;
+            background: rgba(144, 212, 255, 0.18);
+        }
+    }
+}
+
+.btn-white {
+    @include btn-base;
+    background: var(--white);
+    color: var(--black) !important;
+    border-color: transparent;
+    &:hover,
+    &:focus-visible {
+        background: var(--accent);
+        color: var(--black) !important;
+    }
+}
+// --------------------------------------------------------------------------
+// Outline — біле обведення (темні секції / поверх фото)
+// --------------------------------------------------------------------------
+
+.btn-outline-white {
+    @include btn-base;
+    border-color: var(--white);
+    color: var(--white) !important;
+    background: transparent;
+
+    &:hover,
+    &:focus-visible {
+        border-color: var(--blue-primary);
+        color: var(--blue-primary) !important;
+        background: rgba(71, 169, 251, 0.12);
+    }
+
+    &[disabled],
+    &.is-disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+// --------------------------------------------------------------------------
+// Text — текстове посилання без фону й обведення
+// --------------------------------------------------------------------------
+
+@mixin btn-text-base {
+    --btn-height: auto;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent !important;
+
+    &::before,
+    &::after {
+        content: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+.btn-text,
+.btn-text-dark {
+    @include btn-base;
+    @include btn-text-base;
+    color: var(--text) !important;
+
+    &:hover,
+    &:focus-visible {
+        color: var(--blue-primary) !important;
+    }
+}
+
+.btn-text-white {
+    @include btn-base;
+    @include btn-text-base;
+    color: var(--white) !important;
+
+    &:hover,
+    &:focus-visible {
+        color: var(--blue-primary) !important;
+    }
+}
+
+// --------------------------------------------------------------------------
+// Forms (WP CF7, custom forms)
+// --------------------------------------------------------------------------
+
+form {
+    .btn,
+    .wpcf7-submit,
+    input[type="submit"],
+    button[type="submit"] {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

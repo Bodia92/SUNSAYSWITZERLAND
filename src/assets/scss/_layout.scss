@@ -1,0 +1,1056 @@
+@use "@/assets/scss/_mixins.scss" as *;
+
+// ----------------------------------------------------------------
+// Стилі тега BODY HTML
+// ----------------------------------------------------------------
+html {
+    @include thin-scrollbar;
+    scroll-behavior: smooth;
+    background: #faf8f6;
+}
+
+body {
+    min-width: 320px;
+    color: var(--text);
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+
+    background: #faf8f6;
+    font-variant-numeric: lining-nums proportional-nums;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    // Скролл заблоковано
+    [data-scrolllock] & {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    }
+    // Сайт завантажений
+    [data-loaded] & {
+    }
+}
+// ----------------------------------------------------------------
+// Оболонка WRAPPER
+// ----------------------------------------------------------------
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    // Притискаємо footer
+    > main {
+        flex: 1 1 auto;
+    }
+    // Фікс для слайдерів
+    > * {
+        min-width: 0;
+        scroll-margin-top: 160px;
+
+        @media (max-width: 991.98px) {
+            scroll-margin-top: 120px;
+        }
+    }
+}
+// ----------------------------------------------------------------
+// Обмежуючий контейнер
+// ----------------------------------------------------------------
+[class*="__container"] {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    width: 100%;
+    padding-left: var(--padding-container);
+    padding-right: var(--padding-container);
+}
+
+[class*="__slider"]:not(.swiper-initialized) {
+    .swiper-nav {
+        display: none;
+    }
+}
+// ----------------------------------------------------------------
+// Загальні стилі для усього сайту
+// ----------------------------------------------------------------
+button[hidden] {
+    display: none !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.lock {
+    overflow: hidden;
+}
+
+.section {
+    @include av("padding-top", 50, 30);
+    @include av("padding-bottom", 50, 30);
+}
+
+body.page {
+    padding: 0;
+}
+
+/* Застосовуємо до всіх посилань, кнопок та полів вводу */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 1px solid var(--accent);
+
+    outline-offset: 0;
+
+    border-radius: 10px;
+}
+
+a:focus,
+button:focus {
+    outline: none;
+}
+
+.desktop {
+    @media (max-width: 991.98px) {
+        display: none !important;
+    }
+}
+
+.mobile {
+    @media (min-width: 992px) {
+        display: none !important;
+    }
+}
+
+.visually-hidden {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    @include af(28, 24);
+    font-weight: 600;
+    line-height: 1.2;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.title-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 120%;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.page-title {
+    @include av("font-size", 60, 40);
+    font-weight: 500;
+    padding: 0;
+    font-family: var(--font-playfair);
+    line-height: 1.2;
+    color: var(--black);
+    text-align: left;
+
+    &:not(:last-child) {
+        margin-bottom: 40px;
+
+        @media (max-width: 767.98px) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.date {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+
+.icon {
+    display: inline-block;
+    width: 24px; // Стандартний розмір
+    height: 24px;
+    fill: currentColor;
+    stroke: none; // Якщо іконки заливні
+    transition: fill 0.3s ease; // Плавна зміна кольору
+
+    // Якщо іконки зроблені лініями (stroke), то навпаки:
+    // fill: none;
+    // stroke: currentColor;
+}
+
+.arrow-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: var(--white);
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+
+    .icon {
+        width: 14px;
+        height: 14px;
+        transform: rotate(45deg);
+    }
+
+    &--sm {
+        width: 28px;
+        height: 28px;
+
+        &::after {
+            width: 6px;
+            height: 6px;
+        }
+    }
+}
+
+.js-accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+        max-height 0.4s ease,
+        opacity 0.4s ease;
+
+    &.is-open {
+        opacity: 1;
+    }
+}
+
+.js-accordion-trigger {
+    position: relative;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 12px;
+
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.33;
+    text-transform: uppercase;
+
+    @include mq(lg) {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        order: 1;
+        text-align: left;
+
+        &::before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" fill="none"><path d="M8.02503 3.24538e-05C3.58753 -0.0124675 -0.0124675 3.58753 3.24538e-05 8.02503C0.0125325 12.4125 3.67191 16 8.05941 16H16V8.05941C16 3.67191 12.4125 0.0125325 8.02503 3.24538e-05ZM8.71253 12.075C8.50316 12.2594 8.24378 12.3532 7.93128 12.3532C7.61878 12.3532 7.35941 12.2594 7.15003 12.075C6.94066 11.8907 6.83753 11.6532 6.83753 11.3657C6.83753 11.0782 6.94066 10.8407 7.15003 10.6563C7.35941 10.4719 7.61878 10.3782 7.93128 10.3782C8.24378 10.3782 8.50316 10.4719 8.71253 10.6563C8.92191 10.8407 9.02503 11.0782 9.02503 11.3657C9.02503 11.6532 8.91878 11.8875 8.71253 12.075ZM10.5625 6.84691C10.4344 7.11253 10.2282 7.38441 9.94378 7.65941L9.27191 8.28441C9.08128 8.46878 8.94691 8.65628 8.87503 8.85003C8.80003 9.04378 8.75941 9.28753 8.75316 9.58441H7.07816C7.07816 9.01566 7.14378 8.56566 7.27191 8.23753C7.40316 7.90316 7.61878 7.60941 7.89691 7.38128C8.18441 7.14066 8.40628 6.91878 8.55628 6.71878C8.70316 6.52816 8.78128 6.29378 8.78128 6.05628C8.78128 5.46878 8.52816 5.17191 8.02191 5.17191C7.80316 5.16566 7.59378 5.25941 7.45628 5.42816C7.31253 5.60003 7.23441 5.83128 7.22816 6.12503H5.25316C5.26253 5.34378 5.50628 4.73753 5.99066 4.30316C6.47503 3.86878 7.15316 3.65003 8.02503 3.65003C8.89378 3.65003 9.56878 3.85003 10.0469 4.25316C10.525 4.65628 10.7625 5.22503 10.7625 5.96566C10.7594 6.26878 10.6938 6.57191 10.5625 6.84691Z" fill="%23CC171E"/><path d="M8.71253 12.075C8.50316 12.2594 8.24378 12.3532 7.93128 12.3532C7.61878 12.3532 7.35941 12.2594 7.15003 12.075C6.94066 11.8907 6.83753 11.6532 6.83753 11.3657C6.83753 11.0782 6.94066 10.8407 7.15003 10.6563C7.35941 10.4719 7.61878 10.3782 7.93128 10.3782C8.24378 10.3782 8.50316 10.4719 8.71253 10.6563C8.92191 10.8407 9.02503 11.0782 9.02503 11.3657C9.02503 11.6532 8.91878 11.8875 8.71253 12.075Z" fill="white"/><path d="M10.5625 6.84691C10.4344 7.11253 10.2282 7.38441 9.94378 7.65941L9.27191 8.28441C9.08128 8.46878 8.94691 8.65628 8.87503 8.85003C8.80003 9.04378 8.75941 9.28753 8.75316 9.58441H7.07816C7.07816 9.01566 7.14378 8.56566 7.27191 8.23753C7.40316 7.90316 7.61878 7.60941 7.89691 7.38128C8.18441 7.14066 8.40628 6.91878 8.55628 6.71878C8.70316 6.52816 8.78128 6.29378 8.78128 6.05628C8.78128 5.46878 8.52816 5.17191 8.02191 5.17191C7.80316 5.16566 7.59378 5.25941 7.45628 5.42816C7.31253 5.60003 7.23441 5.83128 7.22816 6.12503H5.25316C5.26253 5.34378 5.50628 4.73753 5.99066 4.30316C6.47503 3.86878 7.15316 3.65003 8.02503 3.65003C8.89378 3.65003 9.56878 3.85003 10.0469 4.25316C10.525 4.65628 10.7625 5.22503 10.7625 5.96566C10.7594 6.26878 10.6938 6.57191 10.5625 6.84691Z" fill="white"/></svg>')
+                center no-repeat;
+
+            @include mq(lg) {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    &::before {
+        order: 2;
+        font-size: 7px;
+        transition: transform 0.3s;
+        margin-left: auto;
+    }
+
+    &.is-active {
+        &::before {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+.line {
+    height: 2px;
+    background: var(--black);
+    width: 100%;
+    max-width: 226px;
+}
+
+// ----------------------------------------------------------------
+// Форма, інпути
+// ----------------------------------------------------------------
+
+input[type="date"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.form-group {
+    position: relative;
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+
+.form-title {
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: var(--black);
+    font-size: 19px;
+    text-align: center;
+}
+
+.form-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 411px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--grey);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    @media (max-width: 991.98px) {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+
+.form-info {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--text);
+    span {
+        color: var(--accent);
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 32px;
+    }
+}
+
+.form-input {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 42px;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 14px 0px #0000001a;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    line-height: 100%;
+    color: var(--black);
+    caret-color: var(--black);
+    background: var(--white);
+    transition: border-color 0.3s ease;
+    outline: none;
+
+    &::placeholder {
+        color: #00000080;
+    }
+
+    &:focus {
+        border-color: var(--accent);
+        outline: none;
+    }
+}
+textarea.form-input {
+    height: 76px;
+    padding-top: 12px;
+    padding-left: 20px;
+    resize: none !important;
+
+    @media (max-width: 991.98px) {
+        padding-top: 16px;
+        padding-left: 16px;
+    }
+}
+
+.form-group-title {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    @include af(19, 16);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    text-transform: capitalize;
+    color: var(--text);
+    margin-bottom: 6px;
+
+    span {
+        color: var(--accent);
+    }
+}
+
+.form-messages.custom-consent-checkbox {
+    display: flex;
+    align-items: center; /* Або flex-start, якщо тексту багато і ви хочете вирівняти іконку по верху */
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 24px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 145%;
+    letter-spacing: 0.008em; /* 0.8% краще писати так */
+    cursor: pointer; /* Показуємо, що це клікабельно */
+
+    /* Ховаємо реальний інпут */
+    input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    a {
+        text-decoration: underline;
+        transition: color 0.3s ease;
+        position: relative;
+        z-index: 2;
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: none;
+                color: var(--black);
+            }
+        }
+    }
+
+    .form-messages__icon {
+        position: relative;
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: var(--color-white);
+        border: 1px solid var(--secondary3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.3s ease;
+
+        &::after {
+            content: "";
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--black);
+            opacity: 0;
+            transform: scale(0.5);
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            width: 20px;
+            height: 20px;
+
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.90527 5.65039V8.70996L10.8633 6.75293L11.1201 6.49609L11.3672 6.76074L12.1445 7.59473L12.375 7.8418L12.1367 8.08105L10.123 10.0947H13.3496V11.9053H10.1787L12.1924 13.9189L12.4395 14.167L11.167 15.4395L10.9189 15.1924L8.90527 13.1787V16.3496H7.09473V13.123L5.08105 15.1367L4.83301 15.3838L3.56348 14.1143L3.80566 13.8662L5.72363 11.9053H2.65039V10.0947H5.82129L3.80762 8.08105L3.56055 7.83301L4.83301 6.56055L5.08105 6.80762L7.09473 8.82129V5.65039H8.90527Z" fill="%23202022" stroke="white" stroke-width="0.7"/></svg>')
+                center no-repeat;
+            // opacity: 0;
+            // transform: scale(0.5);
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+    }
+
+    input[type="checkbox"]:checked ~ .form-messages__icon {
+        // border-color: var(--black);
+
+        &::after,
+        &::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    input[type="checkbox"]:focus-visible ~ .form-messages__icon {
+        box-shadow: 0 0 0 2px rgba(var(--black), 0.3);
+    }
+}
+.custom-checkbox {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    @include mq(lg) {
+        margin-left: 0;
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            color: var(--black);
+        }
+    }
+
+    &:has(input[type="checkbox"]:checked) {
+        .checkmark {
+            background: var(--black);
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+
+    a {
+        color: var(--white);
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+            color: var(--white);
+        }
+    }
+
+    .checkmark {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        flex-shrink: 0;
+        border: 2px solid var(--black);
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 9px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M11.7212 0.278745C11.3499 -0.093032 10.747 -0.0927976 10.3752 0.278745L4.31744 6.33674L1.62503 3.64435C1.25325 3.27257 0.650609 3.27257 0.278832 3.64435C-0.0929441 4.01613 -0.0929441 4.61877 0.278832 4.99055L3.6442 8.35592C3.82998 8.54169 4.07357 8.63481 4.31719 8.63481C4.5608 8.63481 4.80463 8.54192 4.9904 8.35592L11.7212 1.62492C12.0929 1.2534 12.0929 0.650498 11.7212 0.278745Z" fill="%23F5F5F5"/></svg>')
+                center no-repeat;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    }
+}
+
+// Кастомна радіокнопка
+.custom-radio {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin: 0;
+
+    // Скидання дефолтного інпута
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &__text {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 117%;
+        text-align: right;
+        color: var(--black);
+        transition: color 0.3s ease;
+    }
+
+    // Зовнішнє коло (Рамка)
+    &__mark {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid var(--secondary);
+        transition:
+            border-color 0.3s ease,
+            background-color 0.3s ease;
+
+        &::after {
+            content: "";
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease;
+        }
+    }
+
+    // Стан при наведенні (опціонально)
+    @media (any-hover: hover) {
+        &:hover {
+            .custom-radio__text {
+                color: var(--black);
+            }
+            .custom-radio__mark {
+                border-color: var(--black);
+            }
+        }
+    }
+
+    // --- СТАН, КОЛИ ВИБРАНО (CHECKED) ---
+    &:has(input[type="radio"]:checked) {
+        .custom-radio__mark {
+            // border-color: var(--black);
+
+            &::after {
+                background-color: var(--black);
+            }
+        }
+    }
+}
+
+.phone-error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 12px;
+    color: red;
+}
+
+.form-options {
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 2px solid var(--black);
+    background: var(--black);
+
+    &.is-open {
+        .form-options__body {
+            opacity: 1;
+        }
+
+        .form-options__trigger .icon {
+            transform: rotate(-180deg);
+        }
+    }
+
+    // .form-options__trigger
+
+    &__trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 0;
+        font-weight: 500;
+        min-height: 44px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--black);
+            }
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: var(--black);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    // .form-options__body
+
+    &__body {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition:
+            max-height 0.3s ease,
+            opacity 0.3s ease;
+    }
+
+    // .form-options__content
+
+    &__content {
+        border-top: 2px solid var(--black);
+        padding-top: 8px;
+        padding-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 6px;
+    }
+}
+
+// ----------------------------------------------------------------
+// Слайдер
+.swiper-pagination {
+    --swiper-pagination-color: var(--light-blue);
+    --swiper-pagination-left: auto;
+    --swiper-pagination-right: 8px;
+    --swiper-pagination-bottom: 8px;
+    --swiper-pagination-top: auto;
+    --swiper-pagination-fraction-color: inherit;
+    --swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.25);
+    --swiper-pagination-progressbar-size: 4px;
+    --swiper-pagination-bullet-size: 8px;
+    --swiper-pagination-bullet-width: 8px;
+    --swiper-pagination-bullet-height: 8px;
+    --swiper-pagination-bullet-inactive-color: #e2e2e2;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-bullet-opacity: 1;
+    --swiper-pagination-bullet-horizontal-gap: 4px;
+    --swiper-pagination-bullet-vertical-gap: 6px;
+
+    position: static !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1;
+
+    .swiper-pagination-bullet {
+        &.swiper-pagination-bullet-active {
+        }
+    }
+}
+
+.swiper-nav {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    gap: 10px;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: relative;
+        flex-shrink: 0;
+        margin-top: 0 !important;
+        transform: none !important;
+        left: 0 !important;
+    }
+
+    &:has(.swiper-button-lock) {
+        display: none;
+    }
+}
+
+.swiper-slide {
+    height: auto !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    --swiper-navigation-size: 50px;
+    --swiper-navigation-sides-offset: 0px;
+    --swiper-navigation-color: var(--color-white);
+    --swiper-theme-color: var(--color-white);
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 12px;
+    border: 1px solid var(--green-darker);
+    color: var(--green-darker);
+    background: var(--green);
+
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: var(--green-darker);
+        color: var(--white);
+        outline: none;
+
+        .swiper-navigation-icon,
+        .icon {
+            color: var(--white);
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    .icon {
+        width: 14px;
+        height: 14px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 4px;
+        color: var(--green-darker);
+    }
+
+    &::after {
+        display: none;
+    }
+
+    .swiper-navigation-icon,
+    .icon {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--green-darker);
+        transition: color 0.3s ease;
+    }
+
+    &.swiper-button-disabled {
+        pointer-events: none;
+        opacity: 1 !important;
+        background: var(--blue-gray-light);
+        color: var(--blue-gray);
+        border-color: var(--blue-gray);
+
+        .swiper-navigation-icon,
+        .icon {
+            color: var(--blue-gray);
+        }
+    }
+
+    &.swiper-button-lock {
+        display: none;
+    }
+}
+
+button[hidden] {
+    display: none !important;
+}
+button[disabled] {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.swiper-watch-progress {
+    overflow: visible;
+
+    .swiper-slide {
+        opacity: 1;
+        height: auto !important;
+
+        &:not(.swiper-slide-visible) {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+    }
+}
+
+[data-anim],
+[data-anim-stagger] > * {
+    opacity: 0;
+    visibility: hidden;
+    // will-change: transform, opacity; // Опціонально для продуктивності
+}
+
+@media (scripting: none) {
+    .title,
+    [data-anim],
+    [data-anim-stagger] > * {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+html.lock-scroll,
+body.lock-scroll {
+    overflow: hidden !important;
+    height: 100% !important;
+    width: 100% !important;
+    position: fixed !important;
+    left: 0;
+    top: 0;
+}
+
+// ----------------------------------------------------------------
+
+.js-faq-wrap {
+    &.is-open {
+        .js-faq-body {
+            opacity: 1;
+        }
+
+        .arrow {
+            transform: rotate(-180deg);
+        }
+    }
+
+    .arrow {
+        transition: transform 0.3s ease;
+    }
+}
+
+.js-faq-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.js-quote-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease;
+}
+.js-quote-wrap {
+    &.is-open {
+        .js-quote-body {
+            opacity: 1;
+        }
+
+        .icon {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+.quote__decor-item img,
+.about__decor img,
+.different__decor img,
+.area-services__decor img {
+    will-change: transform;
+}
+
+.lg-backdrop {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
+    border-color: var(--blue-light) !important;
+}
+
+.lg-img-wrap img {
+    border-radius: 20px;
+}
