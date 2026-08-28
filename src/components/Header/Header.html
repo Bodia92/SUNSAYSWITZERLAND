@@ -1,215 +1,226 @@
 <header class="header">
-    <div class="header__main">
-        <div class="header__container header__bar">
-            <a href="/" class="header__logo">
-                <img src="@img/logo.svg" alt="SUNSAY NRG" width="170" height="40" />
-            </a>
+    <div class="header__container">
+        <a href="/" class="header__logo">
+            <img src="@img/logo.svg" alt="SUNSAY NRG" width="170" height="40" />
+        </a>
 
-            <div class="header__navbar">
-                {{!-- WP: theme_location = header_top + header_regions + language switcher --}}
-                <div class="header__top">
-                    <div class="header__top-row">
-                        <div class="header__regions">
+        <div class="header__navbar">
+            <div class="header__top">
+                <div class="header__top-row">
+                    <div class="header__regions">
+                        <ul class="menu">
+                            <li class="menu-item menu-item-has-children js-header-submenu">
+                                <div class="header__nav-parent">
+                                    <a href="#">
+                                        <svg class="icon header__pin" aria-hidden="true">
+                                            <use href="@img/sprite.svg#icon-location"></use>
+                                        </svg>
+                                        Регіони
+                                    </a>
+                                    {{> Ui/NavChevron }}
+                                </div>
+                                <ul class="sub-menu js-header-submenu-body">
+                                    <li class="menu-item current-menu-item">
+                                        <a href="#">Івано-Франківська</a>
+                                    </li>
+                                    <li class="menu-item"><a href="#">Вінницька</a></li>
+                                    <li class="menu-item"><a href="#">Житомирська</a></li>
+                                    <li class="menu-item"><a href="#">Запорізька</a></li>
+                                    <li class="menu-item"><a href="#">Миколаївська</a></li>
+                                    <li class="menu-item"><a href="#">Полтавська</a></li>
+                                    <li class="menu-item"><a href="#">Сумська</a></li>
+                                    <li class="menu-item"><a href="#">Харківська</a></li>
+                                    <li class="menu-item"><a href="#">Хмельницька</a></li>
+                                    <li class="menu-item"><a href="#">Чернівецька</a></li>
+                                    <li class="menu-item"><a href="#">Київська</a></li>
+                                    <li class="menu-item"><a href="#">Волинська</a></li>
+                                    <li class="menu-item"><a href="#">Дніпропетровська</a></li>
+                                    <li class="menu-item"><a href="#">Закарпатська</a></li>
+                                    <li class="menu-item"><a href="#">Кіровоградська</a></li>
+                                    <li class="menu-item"><a href="#">Одеська</a></li>
+                                    <li class="menu-item"><a href="#">Рівненська</a></li>
+                                    <li class="menu-item"><a href="#">Тернопільська</a></li>
+                                    <li class="menu-item"><a href="#">Черкаська</a></li>
+                                    <li class="menu-item"><a href="#">Чернігівська</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <nav class="header__top-nav" aria-label="Додаткова навігація">
+                        <ul class="menu">
+                            <li class="menu-item"><a href="#">Про нас</a></li>
+                            <li class="menu-item"><a href="#">Проєкти</a></li>
+                            <li class="menu-item"><a href="#">Блог</a></li>
+                            <li class="menu-item"><a href="#">Кар’єра</a></li>
+                            <li class="menu-item"><a href="#">Партнерам</a></li>
+                            <li class="menu-item"><a href="#">Контакти</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__top-aside">
+                        <a href="mailto:hello@sunsayenergy.com" class="header__contact">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="@img/sprite.svg#icon-mail"></use>
+                            </svg>
+                            <span>hello@sunsayenergy.com</span>
+                        </a>
+                        <a href="tel:+380939145010" class="header__contact">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="@img/sprite.svg#icon-phone"></use>
+                            </svg>
+                            <span>+38 093 914 50 10</span>
+                        </a>
+
+                        <div class="header__lang">
                             <ul class="menu">
-                                <li class="menu-item menu-item-has-children js-header-submenu">
+                                <li class="menu-item menu-item-has-children lang-item current-lang js-header-submenu">
                                     <div class="header__nav-parent">
-                                        <a href="#">
-                                            <svg class="icon header__pin" aria-hidden="true">
-                                                <use href="@img/sprite.svg#icon-location"></use>
-                                            </svg>
-                                            Регіони
-                                        </a>
+                                        <a href="#" aria-label="Мова">UA</a>
                                         {{> Ui/NavChevron }}
                                     </div>
                                     <ul class="sub-menu js-header-submenu-body">
-                                        <li class="menu-item current-menu-item">
-                                            <a href="#">Івано-Франківська</a>
+                                        <li class="menu-item lang-item current-lang">
+                                            <a href="#"><b>UA</b> - Українська</a>
                                         </li>
-                                        <li class="menu-item"><a href="#">Вінницька</a></li>
-                                        <li class="menu-item"><a href="#">Житомирська</a></li>
-                                        <li class="menu-item"><a href="#">Запорізька</a></li>
-                                        <li class="menu-item"><a href="#">Миколаївська</a></li>
-                                        <li class="menu-item"><a href="#">Полтавська</a></li>
-                                        <li class="menu-item"><a href="#">Сумська</a></li>
-                                        <li class="menu-item"><a href="#">Харківська</a></li>
-                                        <li class="menu-item"><a href="#">Хмельницька</a></li>
-                                        <li class="menu-item"><a href="#">Чернівецька</a></li>
-                                        <li class="menu-item"><a href="#">Київська</a></li>
-                                        <li class="menu-item"><a href="#">Волинська</a></li>
-                                        <li class="menu-item"><a href="#">Дніпропетровська</a></li>
-                                        <li class="menu-item"><a href="#">Закарпатська</a></li>
-                                        <li class="menu-item"><a href="#">Кіровоградська</a></li>
-                                        <li class="menu-item"><a href="#">Одеська</a></li>
-                                        <li class="menu-item"><a href="#">Рівненська</a></li>
-                                        <li class="menu-item"><a href="#">Тернопільська</a></li>
-                                        <li class="menu-item"><a href="#">Черкаська</a></li>
-                                        <li class="menu-item"><a href="#">Чернігівська</a></li>
+                                        <li class="menu-item lang-item">
+                                            <a href="#"><b>EN</b> - English</a>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
-                        </div>
-
-                        <nav class="header__top-nav" aria-label="Додаткова навігація">
-                            <ul class="menu">
-                                <li class="menu-item"><a href="#">Про нас</a></li>
-                                <li class="menu-item"><a href="#">Проєкти</a></li>
-                                <li class="menu-item"><a href="#">Блог</a></li>
-                                <li class="menu-item"><a href="#">Кар’єра</a></li>
-                                <li class="menu-item"><a href="#">Партнерам</a></li>
-                                <li class="menu-item"><a href="#">Контакти</a></li>
-                            </ul>
-                        </nav>
-
-                        <div class="header__top-aside">
-                            <a href="mailto:hello@sunsayenergy.com" class="header__contact">
-                                <svg class="icon" aria-hidden="true">
-                                    <use href="@img/sprite.svg#icon-mail"></use>
-                                </svg>
-                                <span>hello@sunsayenergy.com</span>
-                            </a>
-                            <a href="tel:+380939145010" class="header__contact">
-                                <svg class="icon" aria-hidden="true">
-                                    <use href="@img/sprite.svg#icon-phone"></use>
-                                </svg>
-                                <span>+38 093 914 50 10</span>
-                            </a>
-
-                            <div class="header__lang">
-                                <ul class="menu">
-                                    <li class="menu-item menu-item-has-children lang-item current-lang js-header-submenu">
-                                        <div class="header__nav-parent">
-                                            <a href="#" aria-label="Мова">UA</a>
-                                            {{> Ui/NavChevron }}
-                                        </div>
-                                        <ul class="sub-menu js-header-submenu-body">
-                                            <li class="menu-item lang-item current-lang">
-                                                <a href="#"><b>UA</b> - Українська</a>
-                                            </li>
-                                            <li class="menu-item lang-item">
-                                                <a href="#"><b>EN</b> - English</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
-
-                {{!-- WP: theme_location = header_primary. Icon classes: menu-item--icon-business|services|service|equipment|calculator --}}
-                <nav class="header__nav" aria-label="Основна навігація">
-                    <ul class="menu">
-                        <li class="menu-item menu-item-has-children menu-item--icon-business js-header-submenu">
-                            <div class="header__nav-parent">
-                                <a href="#">Рішення</a>
-                                {{> Ui/NavChevron }}
-                            </div>
-                            <ul class="sub-menu js-header-submenu-body">
-                                <li class="menu-item menu-item-has-children js-header-submenu">
-                                    <div class="header__nav-parent">
-                                        <a href="#">СЕС для бізнесу</a>
-                                        {{> Ui/NavChevron }}
-                                    </div>
-                                    <ul class="sub-menu js-header-submenu-body">
-                                        <li class="menu-item"><a href="#">СЕС 100 кВт</a></li>
-                                        <li class="menu-item"><a href="#">СЕС 150 кВт</a></li>
-                                        <li class="menu-item"><a href="#">СЕС 200 кВт</a></li>
-                                        <li class="menu-item"><a href="#">СЕС 500 кВт</a></li>
-                                        <li class="menu-item"><a href="#">СЕС 1 МВт</a></li>
-                                        <li class="menu-item"><a href="#">Для агробізнесу</a></li>
-                                        <li class="menu-item"><a href="#">Для підприємств</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children js-header-submenu">
-                                    <div class="header__nav-parent">
-                                        <a href="#">Установки зберігання енергії (УЗЕ)</a>
-                                        {{> Ui/NavChevron }}
-                                    </div>
-                                    <ul class="sub-menu js-header-submenu-body">
-                                        <li class="menu-item"><a href="#">УЗЕ для бізнесу</a></li>
-                                        <li class="menu-item"><a href="#">УЗЕ для підприємств</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children js-header-submenu">
-                                    <div class="header__nav-parent">
-                                        <a href="#">Гібридні системи (СЕС + УЗЕ)</a>
-                                        {{> Ui/NavChevron }}
-                                    </div>
-                                    <ul class="sub-menu js-header-submenu-body">
-                                        <li class="menu-item"><a href="#">Гібридні рішення для бізнесу</a></li>
-                                        <li class="menu-item"><a href="#">СЕС + УЗЕ під ключ</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="menu-item menu-item-has-children menu-item--icon-services js-header-submenu">
-                            <div class="header__nav-parent">
-                                <a href="#">Послуги</a>
-                                {{> Ui/NavChevron }}
-                            </div>
-                            <ul class="sub-menu js-header-submenu-body">
-                                <li class="menu-item"><a href="#">СЕС під ключ</a></li>
-                                <li class="menu-item"><a href="#">Фінансування</a></li>
-                                <li class="menu-item"><a href="#">Страхування</a></li>
-                                <li class="menu-item"><a href="#">Net billing (активний споживач)</a></li>
-                                <li class="menu-item"><a href="#">Проєктування</a></li>
-                                <li class="menu-item"><a href="#">Монтаж та підключення</a></li>
-                                <li class="menu-item"><a href="#">Пусконалагодження</a></li>
-                                <li class="menu-item"><a href="#">Збільшення потужності СЕС</a></li>
-                                <li class="menu-item"><a href="#">Демонтаж і перенесення</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="menu-item menu-item-has-children menu-item--icon-service js-header-submenu">
-                            <div class="header__nav-parent">
-                                <a href="#">Сервіс</a>
-                                {{> Ui/NavChevron }}
-                            </div>
-                            <ul class="sub-menu js-header-submenu-body">
-                                <li class="menu-item"><a href="#">Гарантійне обслуговування</a></li>
-                                <li class="menu-item"><a href="#">Технічний супровід</a></li>
-                                <li class="menu-item"><a href="#">Моніторинг станцій</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="menu-item menu-item-has-children menu-item--icon-equipment js-header-submenu">
-                            <div class="header__nav-parent">
-                                <a href="#">Обладнання</a>
-                                {{> Ui/NavChevron }}
-                            </div>
-                            <ul class="sub-menu js-header-submenu-body">
-                                <li class="menu-item"><a href="#">Сонячні панелі</a></li>
-                                <li class="menu-item"><a href="#">Інвертори</a></li>
-                                <li class="menu-item"><a href="#">Системи зберігання енергії</a></li>
-                                <li class="menu-item"><a href="#">Кріплення та комплектуючі</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="menu-item menu-item-has-children menu-item--icon-calculator js-header-submenu">
-                            <div class="header__nav-parent">
-                                <a href="#">Калькулятор прибутку</a>
-                                {{> Ui/NavChevron }}
-                            </div>
-                            <ul class="sub-menu js-header-submenu-body">
-                                <li class="menu-item"><a href="#">Калькулятор СЕС</a></li>
-                                <li class="menu-item"><a href="#">Калькулятор УЗЕ</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="header__actions">
-                    <a href="#" class="header__btn btn btn-outline" data-popup-target="#contact-us">
-                        <span>Залишити заявку</span>
-                        {{> Ui/ArrowIcon }}
-                    </a>
-                </div>
             </div>
 
-            <button class="header__burger js-menu-trigger" type="button" aria-label="Відкрити меню" aria-expanded="false">
-                <span></span>
-            </button>
+            <nav class="header__nav" aria-label="Основна навігація">
+                <ul class="menu">
+                    <li class="menu-item menu-item-has-children js-header-submenu">
+                        <div class="header__nav-parent">
+                            <a href="#">
+                                <img src="@img/icons/business.svg" alt="Рішення" width="20" height="20" />
+                                <span></span>Рішення</span>
+                            </a>
+                            {{> Ui/NavChevron }}
+                        </div>
+                        <ul class="sub-menu js-header-submenu-body">
+                            <li class="menu-item menu-item-has-children js-header-submenu">
+                                <div class="header__nav-parent">
+                                    <a href="#">СЕС для бізнесу</a>
+                                    {{> Ui/NavChevron }}
+                                </div>
+                                <ul class="sub-menu js-header-submenu-body">
+                                    <li class="menu-item"><a href="#">СЕС 100 кВт</a></li>
+                                    <li class="menu-item"><a href="#">СЕС 150 кВт</a></li>
+                                    <li class="menu-item"><a href="#">СЕС 200 кВт</a></li>
+                                    <li class="menu-item"><a href="#">СЕС 500 кВт</a></li>
+                                    <li class="menu-item"><a href="#">СЕС 1 МВт</a></li>
+                                    <li class="menu-item"><a href="#">Для агробізнесу</a></li>
+                                    <li class="menu-item"><a href="#">Для підприємств</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-has-children js-header-submenu">
+                                <div class="header__nav-parent">
+                                    <a href="#">Установки зберігання енергії (УЗЕ)</a>
+                                    {{> Ui/NavChevron }}
+                                </div>
+                                <ul class="sub-menu js-header-submenu-body">
+                                    <li class="menu-item"><a href="#">УЗЕ для бізнесу</a></li>
+                                    <li class="menu-item"><a href="#">УЗЕ для підприємств</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-has-children js-header-submenu">
+                                <div class="header__nav-parent">
+                                    <a href="#">Гібридні системи (СЕС + УЗЕ)</a>
+                                    {{> Ui/NavChevron }}
+                                </div>
+                                <ul class="sub-menu js-header-submenu-body">
+                                    <li class="menu-item"><a href="#">Гібридні рішення для бізнесу</a></li>
+                                    <li class="menu-item"><a href="#">СЕС + УЗЕ під ключ</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item menu-item-has-children js-header-submenu">
+                        <div class="header__nav-parent">
+                            <a href="#">
+                                <img src="@img/icons/moremenu.svg" alt="Послуги" width="20" height="20" />
+                                <span>Послуги</span>
+                            </a>
+                            {{> Ui/NavChevron }}
+                        </div>
+                        <ul class="sub-menu js-header-submenu-body">
+                            <li class="menu-item"><a href="#">СЕС під ключ</a></li>
+                            <li class="menu-item"><a href="#">Фінансування</a></li>
+                            <li class="menu-item"><a href="#">Страхування</a></li>
+                            <li class="menu-item"><a href="#">Net billing (активний споживач)</a></li>
+                            <li class="menu-item"><a href="#">Проєктування</a></li>
+                            <li class="menu-item"><a href="#">Монтаж та підключення</a></li>
+                            <li class="menu-item"><a href="#">Пусконалагодження</a></li>
+                            <li class="menu-item"><a href="#">Збільшення потужності СЕС</a></li>
+                            <li class="menu-item"><a href="#">Демонтаж і перенесення</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item menu-item-has-children js-header-submenu">
+                        <div class="header__nav-parent">
+                            <a href="#">
+                                <img src="@img/icons/helmet.svg" alt="Сервіс" width="20" height="20" />
+                                <span>Сервіс</span>
+                            </a>
+                            {{> Ui/NavChevron }}
+                        </div>
+                        <ul class="sub-menu js-header-submenu-body">
+                            <li class="menu-item"><a href="#">Гарантійне обслуговування</a></li>
+                            <li class="menu-item"><a href="#">Технічний супровід</a></li>
+                            <li class="menu-item"><a href="#">Моніторинг станцій</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item menu-item-has-children js-header-submenu">
+                        <div class="header__nav-parent">
+                            <a href="#">
+                                <img src="@img/icons/solar.svg" alt="Обладнання" width="20" height="20" />
+                                <span>Обладнання</span>
+                            </a>
+                            {{> Ui/NavChevron }}
+                        </div>
+                        <ul class="sub-menu js-header-submenu-body">
+                            <li class="menu-item"><a href="#">Сонячні панелі</a></li>
+                            <li class="menu-item"><a href="#">Інвертори</a></li>
+                            <li class="menu-item"><a href="#">Системи зберігання енергії</a></li>
+                            <li class="menu-item"><a href="#">Кріплення та комплектуючі</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item menu-item-has-children js-header-submenu">
+                        <div class="header__nav-parent">
+                            <a href="#">
+                                <img src="@img/icons/calculate.svg" alt="Калькулятор прибутку" width="20" height="20" />
+                                <span>Калькулятор прибутку</span>
+                            </a>
+                            {{> Ui/NavChevron }}
+                        </div>
+                        <ul class="sub-menu js-header-submenu-body">
+                            <li class="menu-item"><a href="#">Калькулятор СЕС</a></li>
+                            <li class="menu-item"><a href="#">Калькулятор УЗЕ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <a href="#" class="header__btn btn btn-outline" data-popup-target="#contact-us">
+                    <span>Залишити заявку</span>
+                    {{> Ui/ArrowIcon }}
+                </a>
+            </div>
         </div>
+
+        <button class="header__burger js-menu-trigger" type="button" aria-label="Відкрити меню" aria-expanded="false">
+            <span></span>
+        </button>
     </div>
 </header>

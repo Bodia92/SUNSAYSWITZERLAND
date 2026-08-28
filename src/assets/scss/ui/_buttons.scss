@@ -24,9 +24,9 @@
 
 @mixin btn-base {
     --btn-height: 48px;
-    --btn-pad-x: 20px;
-    --btn-pad-end: 8px;
-    --btn-icon-size: 32px;
+    --btn-pad-x: 24px;
+    --btn-pad-end: 14px;
+    --btn-icon-size: 20px;
     --btn-bg: var(--yellow-brand);
     --btn-color: var(--black);
     --btn-border: var(--yellow-brand);
@@ -72,8 +72,8 @@
         transition: transform 0.3s ease;
 
         .icon {
-            width: 14px;
-            height: 14px;
+            width: 10px;
+            height: 10px;
         }
     }
 

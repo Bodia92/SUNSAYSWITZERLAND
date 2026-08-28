@@ -3,9 +3,9 @@ body.menu-open {
 }
 
 .header {
-    --header-top-h: 44px;
+    --header-top-h: 52px;
     --header-dropdown-radius: 16px;
-    --header-item-radius: 10px;
+    --header-item-radius: 12px;
     --header-caret: var(--yellow-brand);
 
     position: sticky;
@@ -13,7 +13,7 @@ body.menu-open {
     left: 0;
     z-index: 1000;
     width: 100%;
-    background: var(--white);
+    background: var(--bg);
     color: var(--black);
     padding-top: env(safe-area-inset-top);
     transition: box-shadow 0.3s ease;
@@ -31,8 +31,8 @@ body.menu-open {
         background: var(--white);
     }
 
-    // .header__bar
-    &__bar {
+    // .header__container
+    &__container {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -42,8 +42,8 @@ body.menu-open {
 
         @include mq(xl) {
             gap: 24px;
-            padding-top: 16px;
-            padding-bottom: 16px;
+            padding-top: 12px;
+            padding-bottom: 20px;
         }
     }
 
@@ -55,10 +55,6 @@ body.menu-open {
         display: flex;
         align-items: center;
         height: 40px;
-
-        @include mq(xl) {
-            height: 48px;
-        }
 
         img {
             height: 100%;
@@ -116,20 +112,31 @@ body.menu-open {
             z-index: 40;
             width: 100%;
             background: var(--bg);
-            border-bottom: 1px solid var(--stroke-line);
         }
     }
 
     // .header__top-row
     &__top-row {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 16px;
 
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - var(--padding-container) * 2);
+            height: 1px;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
         @include mq(xl) {
             flex-direction: row;
             align-items: center;
-            gap: 24px;
+            gap: 48px;
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 var(--padding-container);
@@ -139,10 +146,12 @@ body.menu-open {
 
     // .header__top-nav
     &__top-nav {
+        margin-left: auto;
+
         .menu {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px 20px;
+            gap: 8px 40px;
 
             @include mq-down(xl) {
                 flex-direction: column;
@@ -153,9 +162,9 @@ body.menu-open {
         a {
             display: inline-flex;
             align-items: center;
-            min-height: 32px;
-            font-size: 14px;
-            font-weight: 500;
+            min-height: 24px;
+            font-size: 16px;
+            font-weight: 400;
             line-height: 1.2;
             color: var(--gray-brand);
             transition: color 0.2s ease;
@@ -168,7 +177,7 @@ body.menu-open {
 
             @media (any-hover: hover) {
                 &:hover {
-                    color: var(--black);
+                    color: var(--yellow-brand);
                 }
             }
         }
@@ -179,10 +188,9 @@ body.menu-open {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 12px 20px;
+        gap: 12px 24px;
 
         @include mq(xl) {
-            margin-left: auto;
             flex-wrap: nowrap;
             gap: 16px 20px;
         }
@@ -195,19 +203,19 @@ body.menu-open {
         gap: 8px;
         font-size: 14px;
         font-weight: 500;
-        line-height: 1.2;
+        line-height: 1.25;
         color: var(--gray-brand);
         transition: color 0.2s ease;
 
         .icon {
             width: 16px;
             height: 16px;
-            color: var(--dark);
+            color: var(--gray-brand);
         }
 
         @media (any-hover: hover) {
             &:hover {
-                color: var(--black);
+                color: var(--yellow-brand);
             }
         }
     }
@@ -216,7 +224,7 @@ body.menu-open {
     &__pin.icon {
         width: 16px;
         height: 16px;
-        color: var(--yellow-brand);
+        color: var(--gray-color);
     }
 
     // ----------------------------------------------------------------
@@ -225,7 +233,7 @@ body.menu-open {
     &__nav-parent {
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 8px;
     }
 
     &__submenu-toggle {
@@ -233,8 +241,8 @@ body.menu-open {
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        width: 24px;
-        height: 24px;
+        width: 12px;
+        height: 12px;
         padding: 0;
         border: none;
         background: transparent;
@@ -263,7 +271,7 @@ body.menu-open {
     // ----------------------------------------------------------------
     // Regions
     // ----------------------------------------------------------------
-    &__regions {
+    .header__regions {
         .menu {
             display: flex;
             align-items: center;
@@ -278,10 +286,10 @@ body.menu-open {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            min-height: 32px;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1.2;
+            min-height: 24px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.25;
             color: var(--black);
         }
 
@@ -305,20 +313,20 @@ body.menu-open {
                 grid-template-columns: 1fr 1fr;
                 grid-auto-flow: column;
                 grid-template-rows: repeat(10, auto);
-                column-gap: 40px;
-                row-gap: 2px;
-                min-width: 520px;
-                padding: 20px 24px;
+                column-gap: 24px;
+                row-gap: 8px;
+                min-width: 392px;
+                padding: 24px;
             }
 
             a {
                 display: inline-flex;
                 align-items: center;
-                gap: 10px;
-                padding: 6px 0;
-                font-size: 14px;
-                font-weight: 500;
-                line-height: 1.3;
+                gap: 8px;
+                padding: 0;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.25;
                 color: var(--black);
                 background: transparent;
                 border-radius: 0;
@@ -333,13 +341,18 @@ body.menu-open {
                     flex-shrink: 0;
                     border-radius: 50%;
                     background: var(--yellow-brand);
+                    transition: background 0.2s ease;
                 }
             }
 
             .current-menu-item > a,
             a:hover {
                 color: var(--yellow-brand);
-                box-shadow: inset 0 -1px 0 var(--yellow-brand);
+                text-decoration: underline;
+
+                &::before {
+                    background: var(--gray-brand);
+                }
             }
         }
     }
@@ -347,7 +360,9 @@ body.menu-open {
     // ----------------------------------------------------------------
     // Language (WPML / Polylang)
     // ----------------------------------------------------------------
-    &__lang {
+    .header__lang {
+        margin-left: 30px;
+
         .menu {
             display: flex;
             align-items: center;
@@ -356,39 +371,43 @@ body.menu-open {
         > .menu > .menu-item-has-children {
             position: relative;
         }
+        .header__submenu-toggle {
+            color: var(--black);
+        }
 
         .header__nav-parent > a,
         > .menu > .menu-item-has-children > a {
             display: inline-flex;
             align-items: center;
-            min-height: 32px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            color: var(--black);
+            min-height: 24px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--gray-brand);
         }
 
         .sub-menu {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 4px;
 
             @include mq(xl) {
                 right: 0;
                 left: auto;
                 min-width: 200px;
-                padding: 10px;
+                padding: 8px;
             }
 
             a {
                 display: block;
-                padding: 8px 12px;
-                border-radius: 8px;
-                font-size: 14px;
+                padding: 16px 20px;
+                border-radius: 12px;
+                font-size: 16px;
                 font-weight: 400;
-                line-height: 1.3;
+                line-height: 1.25;
                 color: var(--black);
-                background: var(--bg);
+                background: #fafafa;
+                transition: background 0.2s ease;
 
                 b,
                 strong {
@@ -420,8 +439,8 @@ body.menu-open {
         }
 
         @include mq(xl) {
-            flex: 1 1 auto;
             min-width: 0;
+            margin-left: auto;
         }
 
         > .menu {
@@ -434,7 +453,7 @@ body.menu-open {
                 flex-wrap: nowrap;
                 align-items: center;
                 justify-content: center;
-                gap: 4px 20px;
+                gap: 4px 24px;
             }
         }
 
@@ -448,14 +467,21 @@ body.menu-open {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            min-height: 40px;
+            min-height: 32px;
             padding: 4px 0;
             font-size: 16px;
-            font-weight: 600;
-            line-height: 1.2;
+            font-weight: 400;
+            line-height: 1.25;
             color: var(--black);
             white-space: nowrap;
             transition: color 0.2s ease;
+
+            img {
+                width: 20px;
+                height: 20px;
+                flex-shrink: 0;
+                object-fit: scale-down;
+            }
 
             @include mq-down(xl) {
                 font-size: 18px;
@@ -467,26 +493,6 @@ body.menu-open {
         > .menu > .menu-item-has-children:focus-within > .header__nav-parent .header__nav-arrow,
         > .menu > .js-header-submenu.is-open > .header__nav-parent .header__nav-arrow {
             transform: rotate(180deg);
-        }
-    }
-
-    // Іконки пунктів нижнього меню (WP CSS class на li)
-    $nav-icons: (
-        "business": "business.svg",
-        "services": "moremenu.svg",
-        "service": "helmet.svg",
-        "equipment": "solar.svg",
-        "calculator": "calculate.svg",
-    );
-
-    @each $name, $file in $nav-icons {
-        .menu-item--icon-#{$name} > a::before,
-        .menu-item--icon-#{$name} > .header__nav-parent > a::before {
-            content: "";
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            background: url("../../assets/images/icons/#{$file}") center / contain no-repeat;
         }
     }
 
@@ -508,11 +514,11 @@ body.menu-open {
             top: calc(100% + 12px);
             left: 0;
             z-index: 30;
-            min-width: 260px;
-            padding: 12px;
+            min-width: 350px;
+            padding: 8px;
             background: var(--white);
             border-radius: var(--header-dropdown-radius);
-            box-shadow: 0 12px 40px rgba(20, 20, 20, 0.12);
+            box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.06);
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
@@ -535,7 +541,7 @@ body.menu-open {
                 content: "";
                 position: absolute;
                 top: -8px;
-                left: 24px;
+                left: 42px;
                 display: block;
                 width: 14px;
                 height: 8px;
@@ -592,21 +598,24 @@ body.menu-open {
     &__nav .sub-menu {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 4px;
 
         @include mq(xl) {
-            min-width: 280px;
+            min-width: 350px;
         }
 
         > .menu-item {
             position: relative;
+            background: #fafafa;
+            border-radius: var(--header-item-radius);
         }
 
         > .menu-item > a,
         > .menu-item > .header__nav-parent {
             width: 100%;
             border-radius: var(--header-item-radius);
-            background: var(--bg);
+            background: #fafafa;
+            padding-right: 20px;
             transition: background-color 0.2s ease;
         }
 
@@ -615,16 +624,17 @@ body.menu-open {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 8px;
             width: 100%;
-            padding: 10px 14px;
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.3;
+            padding: 16px 0 16px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.25;
             color: var(--black);
             white-space: normal;
             text-align: left;
             background: transparent;
+            transition: background 0.2s ease;
         }
 
         > .menu-item:hover > a,
@@ -638,17 +648,20 @@ body.menu-open {
 
         > .menu-item-has-children > .header__nav-parent {
             .header__submenu-toggle {
-                color: var(--dark);
+                color: var(--gray-color);
             }
         }
 
         // L2 flyout
         .sub-menu {
             @include mq(xl) {
-                top: 0;
-                left: calc(100% + 8px);
+                top: -8px;
+                left: calc(100% + 12px);
                 z-index: 32;
-                min-width: 240px;
+                min-width: 350px;
+                border-radius: 16px;
+                background: var(--white);
+                box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.06);
 
                 &::before {
                     top: 0;
@@ -682,13 +695,22 @@ body.menu-open {
         }
 
         @include mq(xl) {
-            margin-left: auto;
             flex-shrink: 0;
         }
     }
 
     &__btn.btn {
+        --btn-height: 40px;
+        --btn-pad-x: 20px;
+        --btn-pad-end: 10px;
         white-space: nowrap;
+        background: transparent;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background: var(--yellow-brand);
+            }
+        }
 
         @include mq-down(xl) {
             width: 100%;
