@@ -1,0 +1,175 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.we-offer {
+    position: relative;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    background:
+        linear-gradient(72deg, #3f4649 23.48%, #ffd100 196.09%),
+        radial-gradient(243.08% 347.76% at 3.89% -201.26%, #3f4649 66.59%);
+
+    @media (max-width: 991.98px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    // .we-offer__bg
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 100%;
+            max-width: 1361px;
+            height: auto;
+
+            aspect-ratio: 1361 / 548;
+            object-fit: cover;
+        }
+
+        pointer-events: none;
+    }
+
+    // .we-offer__container
+    &__container {
+        position: relative;
+        z-index: 2;
+    }
+
+    // .we-offer__label
+    &__label {
+        text-align: center;
+        color: var(--white);
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    // .we-offer__title
+    &__title {
+        text-align: center;
+        color: var(--white);
+        &:not(:last-child) {
+            margin-bottom: 68px;
+        }
+    }
+
+    // .we-offer__items
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 73px 24px;
+        justify-content: space-evenly;
+        align-items: center;
+
+        counter-reset: item;
+    }
+
+    // .we-offer__item
+    &__item {
+        isolation: isolate;
+        position: relative;
+        max-width: 328px;
+        width: 100%;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 32px;
+        min-height: 176px;
+
+        @media (max-width: 991.98px) {
+            padding: 24px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            padding: 1px;
+            border-radius: inherit;
+            pointer-events: none;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.18) 32%,
+                rgba(255, 255, 255, 0) 58%
+            );
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+        }
+    }
+    // .we-offer__item-wrapper
+    &__item-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
+    // .we-offer__item-icon
+    &__item-icon {
+        position: absolute;
+        z-index: 3;
+        top: 12px;
+        right: 12px;
+
+        display: flex;
+        width: 40px;
+        height: 40px;
+        padding: 2px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 100px;
+        background: var(--yellow-brand);
+
+        .icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    // .we-offer__item-title
+    &__item-title {
+        position: relative;
+        z-index: 3;
+        flex: 1 1 auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        row-gap: 24px;
+
+        color: var(--white);
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        @include av("font-size", 32, 24);
+        counter-increment: item;
+
+        &::before {
+            content: counter(item, decimal-leading-zero);
+            color: var(--yellow-brand);
+            font-family: var(--font-roboto);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            @include av("font-size", 24, 18);
+        }
+    }
+}

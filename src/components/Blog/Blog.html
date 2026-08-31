@@ -1,0 +1,40 @@
+<section class="section blog">
+    <div class="blog__container">
+        <p class="blog__label title-label">Блог</p>
+        <h2 class="blog__title title"><span>Новини</span> та публікації</h2>
+
+        <div class="blog__grid">
+            {{> Blog/BlogCard
+                image="blog/01.jpg"
+                title="SUNSAY NRG на бізнес конференції «Українська стійкість»"
+                href="#"
+            }}
+            {{> Blog/BlogCard
+                image="blog/02.jpg"
+                date="22.03.2026"
+                title="Сонячні станції"
+                text="Як власна генерація знижує витрати бізнесу та підвищує енергонезалежність підприємства."
+                href="#"
+            }}
+            {{> Blog/BlogCard
+                image="blog/03.jpg"
+                date="18.03.2026"
+                title="Системи накопичення"
+                text="Резервне живлення, згладжування піків і оптимізація споживання за допомогою УЗЕ."
+                href="#"
+            }}
+            {{> Blog/BlogCard
+                image="blog/04.jpg"
+                date="10.03.2026"
+                title="Сервіс і моніторинг"
+                text="Регулярне обслуговування СЕС та УЗЕ, щоб система працювала стабільно весь рік."
+                href="#"
+            }}
+        </div>
+
+        <a href="#" class="blog__more btn btn-secondary">
+            <span>Дивитись більше</span>
+            {{> Ui/ArrowIcon }}
+        </a>
+    </div>
+</section>

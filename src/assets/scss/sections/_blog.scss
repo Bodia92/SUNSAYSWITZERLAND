@@ -1,0 +1,111 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.blog {
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    @media (max-width: 991.98px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    // .blog__label
+    &__label {
+        justify-content: center;
+    }
+
+    // .blog__title
+    &__title {
+        text-align: center;
+    }
+
+    // .blog__grid
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 24px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+
+            > :first-child {
+                grid-column: 1;
+                grid-row: 1 / -1;
+            }
+
+            > :nth-child(n + 2) {
+                grid-column: 2;
+            }
+        }
+
+        > :first-child {
+            isolation: isolate;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 320px;
+            padding: 16px;
+            background: transparent;
+
+            @media (min-width: 992px) {
+                min-height: 0;
+                height: 100%;
+            }
+
+            .blog-card__media {
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+                width: auto;
+                border-radius: 24px;
+            }
+
+            .blog-card__content {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                padding: 20px 56px 20px 24px;
+                background: rgba(20, 20, 20, 0.42);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.16);
+                border-radius: 16px;
+            }
+
+            .blog-card__go {
+                top: 20px;
+                right: 20px;
+            }
+
+            .blog-card__date,
+            .blog-card__text {
+                display: none;
+            }
+
+            .blog-card__title {
+                margin-bottom: 0;
+                font-weight: 600;
+                line-height: 1.15;
+                color: var(--white);
+                @include av("font-size", 24, 18);
+            }
+        }
+    }
+
+    // .blog__more
+    &__more.btn {
+        display: flex;
+        margin-inline: auto;
+    }
+}

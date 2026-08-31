@@ -1,0 +1,23 @@
+<a class="blog-card" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+    <span class="blog-card__media">
+        <img src="@img/{{image}}" alt="{{title}}" />
+    </span>
+
+    <span class="blog-card__content">
+        <span class="blog-card__go" aria-hidden="true">
+            {{> Ui/ArrowIcon }}
+        </span>
+
+        {{#if date}}
+        <span class="blog-card__date">{{date}}</span>
+        {{/if}}
+
+        {{#if title}}
+        <span class="blog-card__title">{{title}}</span>
+        {{/if}}
+
+        {{#if text}}
+        <span class="blog-card__text">{{text}}</span>
+        {{/if}}
+    </span>
+</a>

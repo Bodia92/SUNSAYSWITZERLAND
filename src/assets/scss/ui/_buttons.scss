@@ -106,7 +106,7 @@
 }
 
 @mixin btn-secondary {
-    --btn-bg: var(--white);
+    --btn-bg: transparent;
     --btn-color: var(--black);
     --btn-border: var(--stroke);
     --btn-icon-bg: var(--yellow-brand);

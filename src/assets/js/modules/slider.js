@@ -6,49 +6,44 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+function getSliderNav(root) {
+    const nav = root?.querySelector(".swiper-nav");
+    if (!nav) return undefined;
+
+    return {
+        nextEl: nav.querySelector(".swiper-button-next"),
+        prevEl: nav.querySelector(".swiper-button-prev"),
+    };
+}
+
 function initReviewsSlider() {
-    const sliderEl = document.querySelector(".reviews__slider");
-    if (!sliderEl) return;
+    const sliders = [...document.querySelectorAll(".reviews__slider")];
+    if (!sliders.length) return;
 
-    const wrapEl = sliderEl.closest(".reviews__slider-wrap");
-    if (!wrapEl) return;
+    sliders.forEach((sliderEl) => {
+        const wrapEl = sliderEl.closest(".reviews__wrap");
+        if (!wrapEl) return;
 
-    const sectionEl = wrapEl.closest(".reviews") || wrapEl;
-
-    new Swiper(sliderEl, {
-        modules: [Navigation, Pagination],
-        speed: 600,
-        spaceBetween: 20,
-        slidesPerView: "auto",
-        watchOverflow: true,
-        watchSlidesProgress: true,
-        grabCursor: true,
-        pagination: {
-            el: sectionEl.querySelector(".reviews__pagination"),
-            clickable: true,
-        },
-        // breakpoints: {
-        //     0: {
-        //         slidesPerView: 1.15,
-        //         spaceBetween: 16,
-        //     },
-        //     576: {
-        //         slidesPerView: 2.15,
-        //         spaceBetween: 16,
-        //     },
-        //     768: {
-        //         slidesPerView: 3.15,
-        //         spaceBetween: 20,
-        //     },
-        //     1100: {
-        //         slidesPerView: 4.2,
-        //         spaceBetween: 20,
-        //     },
-        //     1280: {
-        //         slidesPerView: 5,
-        //         spaceBetween: 20,
-        //     },
-        // },
+        new Swiper(sliderEl, {
+            modules: [Navigation],
+            speed: 600,
+            spaceBetween: 16,
+            slidesPerView: 1,
+            watchOverflow: true,
+            watchSlidesProgress: true,
+            grabCursor: true,
+            navigation: getSliderNav(wrapEl),
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                },
+            },
+        });
     });
 }
 

@@ -1,0 +1,189 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.project-card {
+    display: flex;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    align-items: stretch;
+
+    @media (any-hover: hover) {
+        &:hover .project-card__media img,
+        &:focus-visible .project-card__media img {
+            transform: scale(1.04);
+        }
+
+        &:hover .project-card__btn,
+        &:focus-visible .project-card__btn {
+            --btn-bg: var(--black);
+            --btn-color: var(--white);
+            --btn-border: var(--black);
+            --btn-icon-bg: var(--yellow-brand);
+
+            .arrow-icon {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    // .project-card__media
+    &__media {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        width: 50%;
+        aspect-ratio: 787/ 444;
+        margin: 40px 0;
+        border-radius: 24px 0 0 24px;
+
+        img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s ease;
+        }
+    }
+
+    // .project-card__content
+    &__content {
+        position: relative;
+        flex-shrink: 0;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 0;
+        padding: 32px;
+        background: var(--white);
+        border-radius: 24px;
+
+        @media (max-width: 991.98px) {
+            padding: 20px;
+        }
+    }
+
+    // .project-card__head
+    &__head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    // .project-card__title
+    &__title {
+        display: block;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        color: var(--black);
+        @include av("font-size", 40, 24);
+
+        @media (max-width: 991.98px) {
+            line-height: 1.12;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    // .project-card__subtitle
+    &__subtitle {
+        display: block;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--black);
+
+        &:not(:last-child) {
+            margin-bottom: 12px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    // .project-card__location
+    &__location {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        @include av("font-size", 16, 14);
+        font-weight: 400;
+        line-height: 1.25;
+        color: var(--black);
+
+        .icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--yellow-brand);
+
+            @media (max-width: 991.98px) {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    // .project-card__specs
+    &__specs {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    // .project-card__row
+    &__row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+        font-size: 16px;
+        color: var(--black);
+        line-height: 1.25;
+        border-bottom: 1px solid var(--stroke-line);
+
+        &:first-child {
+            border-top: 1px solid var(--stroke-line);
+        }
+
+        > span:first-child {
+            flex: 1 1 auto;
+        }
+
+        > span:last-child {
+            width: 50%;
+            font-weight: 700;
+        }
+    }
+
+    // .project-card__btn
+    &__btn.btn {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-bottom: -24px;
+    }
+}

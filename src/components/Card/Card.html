@@ -1,0 +1,27 @@
+<a class="card" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+    <span class="card__media">
+        <img src="@img/{{image}}" alt="" />
+    </span>
+
+    <span class="card__go" aria-hidden="true">
+        {{> Ui/ArrowIcon }}
+    </span>
+
+    <span class="card__body">
+        {{#if title}}
+        <span class="card__title">{{title}}</span>
+        {{/if}}
+
+        {{#if text}}
+        <span class="card__text">{{text}}</span>
+        {{/if}}
+
+        {{#if tag}}
+        <span class="card__tags">
+            <span class="card__tag">{{tag}}</span>
+            {{#if tag2}}<span class="card__tag">{{tag2}}</span>{{/if}}
+            {{#if tag3}}<span class="card__tag">{{tag3}}</span>{{/if}}
+        </span>
+        {{/if}}
+    </span>
+</a>

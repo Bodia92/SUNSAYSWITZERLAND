@@ -1,0 +1,42 @@
+<section class="section reviews">
+    <div class="reviews__container">
+        <p class="reviews__label title-label">Результати нашої роботи</p>
+        <h2 class="reviews__title title"><span>Відгуки</span> наших клієнтів</h2>
+
+        <div class="reviews__wrap">
+            <div class="reviews__slider swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        {{> Review/ReviewCard
+                            avatar="user/01.png"
+                            brand="brands/01.png"
+                            name="Євген Дричак"
+                            role="Заступник директора «Eco-Autotechnics»"
+                            text="Працюємо з SUNSAY NRG не перший рік. Команда закрила проєкт під ключ: від енергоаудиту до запуску станції. Генерація відповідає розрахункам, сервіс реагує швидко, а економіка проєкту прозора на кожному етапі."
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Review/ReviewCard
+                            avatar="user/02.png"
+                            brand="brands/02.png"
+                            name="Мортен Альбертсен"
+                            role="Енергетичний проджект-менеджер компанії Goodvalley"
+                            text="Для нас важлива передбачуваність витрат на електроенергію. Після запуску СЕС бачимо стабільну економію і зрозумілу аналітику. SUNSAY NRG — надійний технічний партнер, який думає категоріями бізнесу, а не лише обладнання."
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Review/ReviewCard
+                            avatar="user/03.png"
+                            brand="brands/03.png"
+                            name="В’ячеслав Єжов"
+                            role="Головний енергетик групи компаній «АТБ»"
+                            text="Масштаб мережі вимагає рішень, які працюють без простоїв. SUNSAY NRG запропонували конфігурацію під наші об’єкти, вписали її в економіку проєкту і супроводжують систему після запуску. Результат відповідає очікуванням."
+                        }}
+                    </div>
+                </div>
+            </div>
+
+            {{> Ui/SliderNav }}
+        </div>
+    </div>
+</section>

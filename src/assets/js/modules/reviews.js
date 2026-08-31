@@ -75,12 +75,21 @@ function getReviewData(source) {
         type: source.dataset.reviewMedia || (mediaSrc ? "single" : "none"),
         images: mediaSrc || source.dataset.reviewImages || "",
         videoUrl: source.dataset.reviewVideo || "",
-        name: source.dataset.reviewName || "",
+        name:
+            source.dataset.reviewName ||
+            card?.querySelector(".review-card__name")?.textContent.trim() ||
+            "",
         avatar: avatarSrc || source.dataset.reviewAvatar || "",
-        service: source.dataset.reviewService || "",
+        service:
+            source.dataset.reviewService ||
+            card?.querySelector(".review-card__role")?.textContent.trim() ||
+            "",
         date: source.dataset.reviewDate || "",
         rating: source.dataset.reviewRating || "5",
-        text: source.dataset.reviewText || "",
+        text:
+            source.dataset.reviewText ||
+            card?.querySelector(".review-card__text")?.textContent.trim() ||
+            "",
     };
 }
 

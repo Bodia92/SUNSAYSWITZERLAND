@@ -11,16 +11,19 @@
                 <div class="hero__container">
                     <div class="hero__banner">
                         <div class="hero__media">
-                            <img src="@img/hero.jpg" alt="Сонячна електростанція SUNSAY NRG" width="1920" height="1080" />
+                            <img src="@img/hero.jpg" alt="Сонячна електростанція SUNSAY NRG" width="1920"
+                                height="1080" />
                         </div>
                         <div class="hero__content">
                             <h1 class="hero__title" data-anim="fade-up">
-                                Ваш експерт з енергоефективності
+                                Ваш експерт <br>з енергоефективності
                             </h1>
                             <p class="hero__text" data-anim="fade-up" data-anim-delay="0.1">
-                                Наша мета – створювати для бізнесу керовану, прогнозовану та економічно ефективну енергетичну інфраструктуру.
+                                Наша мета – створювати для бізнесу керовану, прогнозовану та економічно ефективну
+                                енергетичну інфраструктуру.
                             </p>
-                            <a href="#" class="hero__btn btn btn-main" data-popup-target="#contact-us" data-anim="fade-up" data-anim-delay="0.15">
+                            <a href="#" class="hero__btn btn btn-main" data-popup-target="#contact-us"
+                                data-anim="fade-up" data-anim-delay="0.15">
                                 <span>Замовити консультацію</span>
                                 {{> Ui/ArrowIcon }}
                             </a>
@@ -37,6 +40,95 @@
                 </div>
             </section>
 
+
+            {{> Offers/Offers }}
+
+            <section class="section about-us">
+                <div class="about-us__container">
+                    <div class="about-us__content">
+                        <h2 class="about-us__title">Про нас</h2>
+                        <p class="about-us__text">SUNSAY NRG — команда експертів з енергоефективності, що впроваджує
+                            комплексні енергетичні рішення для бізнесу, поєднуючи сонячну генерацію, системи накопичення
+                            енергії (BESS) та системи управління енергоспоживанням (EMS) в єдину керовану енергетичну
+                            інфраструктуру</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section we-offer">
+                <div class="we-offer__bg">
+                    <img src="@img/bg-decor.svg" alt="Напрямки нашої діяльності" width="1920" height="1080" />
+                </div>
+                <div class="we-offer__container">
+                    <div class="we-offer__label title-label">Що ми пропонуємо?</div>
+                    <h2 class="we-offer__title title"><span>Напрямки</span> нашої діяльності</h2>
+                    <ul class="we-offer__items">
+                        <li class="we-offer__item">
+                            <div class="we-offer__item-wrapper">
+                                <div class="we-offer__item-icon">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-arrow-rotate"></use>
+                                    </svg>
+                                </div>
+                                <h3 class="we-offer__item-title">аналіз та розробка</h3>
+                            </div>
+                        </li>
+                        <li class="we-offer__item">
+                            <div class="we-offer__item-wrapper">
+                                <div class="we-offer__item-icon">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-arrow-rotate"></use>
+                                    </svg>
+                                </div>
+                                <h3 class="we-offer__item-title">Проєктування та будівництво</h3>
+                            </div>
+                        </li>
+                        <li class="we-offer__item">
+                            <div class="we-offer__item-wrapper">
+                                <div class="we-offer__item-icon">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-arrow-rotate"></use>
+                                    </svg>
+                                </div>
+                                <h3 class="we-offer__item-title">впровадження систем</h3>
+                            </div>
+                        </li>
+                        <li class="we-offer__item">
+                            <div class="we-offer__item-wrapper">
+                                <div class="we-offer__item-icon">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-arrow-rotate"></use>
+                                    </svg>
+                                </div>
+                                <h3 class="we-offer__item-title">Обслуговування</h3>
+                            </div>
+                        </li>
+                        <li class="we-offer__item">
+                            <div class="we-offer__item-wrapper">
+                                <div class="we-offer__item-icon">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-arrow-rotate"></use>
+                                    </svg>
+                                </div>
+                                <h3 class="we-offer__item-title">Інтеграція</h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            {{> Projects/Projects }}
+
+            {{> Why/Why }}
+
+            {{> Calculate/Calculate }}
+
+            {{> Reviews/Reviews }}
+
+            {{> Question/Question }}
+
+            {{> Blog/Blog }}
 
             {{> Contacts/Contacts }}
 

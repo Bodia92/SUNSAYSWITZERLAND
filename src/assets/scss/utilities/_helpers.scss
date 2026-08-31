@@ -9,8 +9,8 @@
 }
 
 .section {
-    @include av("padding-top", 50, 30);
-    @include av("padding-bottom", 50, 30);
+    @include av("padding-top", 48, 24);
+    @include av("padding-bottom", 48, 24);
 }
 
 .desktop {

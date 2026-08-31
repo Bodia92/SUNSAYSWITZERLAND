@@ -1,0 +1,105 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.blog-card {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: 148px;
+    padding: 12px;
+    gap: 16px;
+    color: inherit;
+    text-decoration: none;
+    background: var(--bg);
+    border-radius: 24px;
+    cursor: pointer;
+
+    @media (any-hover: hover) {
+        &:hover .blog-card__media img {
+            transform: scale(1.04);
+        }
+
+        &:hover .blog-card__go .arrow-icon {
+            transform: rotate(45deg);
+        }
+    }
+
+    // .blog-card__media
+    &__media {
+        overflow: hidden;
+        flex-shrink: 0;
+        width: 140px;
+        border-radius: 16px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s ease;
+        }
+    }
+
+    // .blog-card__content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 8px 48px 8px 0;
+    }
+
+    // .blog-card__go
+    &__go {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        pointer-events: none;
+
+        .arrow-icon {
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    // .blog-card__date
+    &__date {
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--gray-brand);
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    // .blog-card__title
+    &__title {
+        display: block;
+        font-family: var(--font-roboto);
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--black);
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    // .blog-card__text
+    &__text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.3;
+        color: var(--gray-brand);
+        @include ellipsis(2);
+    }
+}

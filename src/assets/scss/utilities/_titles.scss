@@ -1,16 +1,28 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: var(--font-roboto);
     color: var(--black);
-    @include af(28, 24);
+    @include af(56, 32);
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+
+    @media (max-width: 991.98px) {
+        line-height: 1.12;
+    }
+
+    span {
+        color: var(--yellow-brand);
+    }
 
     &:not(:last-child) {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
+
+        @media (max-width: 991.98px) {
+            margin-bottom: 20px;
+        }
     }
 }
 
@@ -18,11 +30,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    font-size: 19px;
+    gap: 10px;
+    font-weight: 600;
+    @include af(16, 14);
     line-height: 120%;
+    text-transform: uppercase;
     color: var(--black);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+
+    &::before,
+    &::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: var(--yellow-brand);
+    }
 }
 
 .page-title {

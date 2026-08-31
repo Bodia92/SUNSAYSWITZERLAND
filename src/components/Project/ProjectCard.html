@@ -1,0 +1,76 @@
+<a class="project-card" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+    <span class="project-card__media">
+        <img src="@img/{{image}}" alt="{{title}}" />
+    </span>
+
+    <span class="project-card__content">
+        <span class="project-card__head">
+            {{#if title}}
+            <span class="project-card__title">{{title}}</span>
+            {{/if}}
+
+            {{#if subtitle}}
+            <span class="project-card__subtitle">{{subtitle}}</span>
+            {{/if}}
+
+            {{#if location}}
+            <span class="project-card__location">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-location"></use>
+                </svg>
+                <span>{{location}}</span>
+            </span>
+            {{/if}}
+        </span>
+
+        {{#if spec1}}
+        <span class="project-card__specs">
+            <span class="project-card__row">
+                <span>{{spec1}}</span>
+                <span>{{spec1val}}</span>
+            </span>
+            {{#if spec2}}
+            <span class="project-card__row">
+                <span>{{spec2}}</span>
+                <span>{{spec2val}}</span>
+            </span>
+            {{/if}}
+            {{#if spec3}}
+            <span class="project-card__row">
+                <span>{{spec3}}</span>
+                <span>{{spec3val}}</span>
+            </span>
+            {{/if}}
+            {{#if spec4}}
+            <span class="project-card__row">
+                <span>{{spec4}}</span>
+                <span>{{spec4val}}</span>
+            </span>
+            {{/if}}
+            {{#if spec5}}
+            <span class="project-card__row">
+                <span>{{spec5}}</span>
+                <span>{{spec5val}}</span>
+            </span>
+            {{/if}}
+            {{#if spec6}}
+            <span class="project-card__row">
+                <span>{{spec6}}</span>
+                <span>{{spec6val}}</span>
+            </span>
+            {{/if}}
+            {{#if spec7}}
+            <span class="project-card__row">
+                <span>{{spec7}}</span>
+                <span>{{spec7val}}</span>
+            </span>
+            {{/if}}
+        </span>
+        {{/if}}
+
+        <span class="project-card__btn btn btn-main">
+            <span>{{#if link}}{{link}}{{else}}Докладніше{{/if}}</span>
+            {{> Ui/ArrowIcon }}
+        </span>
+    </span>
+</a>
