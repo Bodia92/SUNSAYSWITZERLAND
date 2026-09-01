@@ -8,6 +8,7 @@ h5,
 h6 {
     font-weight: 600;
     line-height: 1.2;
+    font-family: var(--font-roboto);
 }
 
 a {
@@ -35,10 +36,13 @@ a {
     h4,
     h5 {
         font-weight: 600;
-        line-height: 1.25;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: var(--black);
 
         &:not(:first-child) {
-            margin-top: 32px;
+            margin-top: 40px;
         }
 
         &:not(:last-child) {
@@ -47,23 +51,23 @@ a {
     }
 
     h1 {
-        @include af(57, 40);
+        @include af(56, 28);
     }
 
     h2 {
-        @include af(40, 28);
+        @include af(40, 32);
     }
 
     h3 {
-        @include af(28, 20);
+        @include af(32, 24);
     }
 
     h4 {
-        @include af(20, 18);
+        @include af(24, 20);
     }
 
     h5 {
-        font-size: 16px;
+        @include af(20, 16);
     }
 
     ul,
@@ -133,7 +137,7 @@ a {
         @media (any-hover: hover) {
             &:hover {
                 text-decoration: none;
-                color: var(--blue-primary);
+                color: var(--yellow-brand);
             }
         }
     }
@@ -188,16 +192,27 @@ a {
     }
 
     table tr:nth-child(even) td {
-        background-color: var(--input-border);
+        background-color: #fafafa;
     }
 
     table td a {
-        color: var(--blue-primary);
+        color: var(--yellow-brand);
         text-decoration: underline;
     }
 
     table td a:hover {
         text-decoration: none;
+    }
+}
+
+.seo-section {
+    .seo-section__content {
+        padding-right: 10px;
+        max-height: 168px;
+        overflow-y: auto;
+        color: var(--gray-color);
+
+        @include thin-scrollbar($width: 2px);
     }
 }
 
@@ -232,7 +247,7 @@ a {
         margin-bottom: 28px;
         font-size: 14px;
         line-height: 1.4;
-        color: var(--grey);
+        color: var(--gray-brand);
     }
 
     // .content__line
@@ -246,6 +261,6 @@ a {
     }
 
     .editor {
-        color: var(--text);
+        color: var(--gray-color);
     }
 }

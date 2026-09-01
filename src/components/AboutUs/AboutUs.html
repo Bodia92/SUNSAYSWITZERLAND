@@ -1,0 +1,105 @@
+<section class="section about-us">
+    <div class="about-us__container">
+        <h2 class="about-us__title title-label">Про нас</h2>
+        <p class="about-us__text">SUNSAY NRG — команда експертів з енергоефективності, що впроваджує
+            комплексні енергетичні рішення для бізнесу, поєднуючи сонячну генерацію, системи накопичення
+            енергії (BESS) та системи управління енергоспоживанням (EMS) в єдину керовану енергетичну
+            інфраструктуру</p>
+
+        <div class="about-us__wrapper">
+            <div class="about-us__path" aria-hidden="true">
+                <svg class="about-us__path-svg" fill="none">
+                    <path class="about-us__path-line" />
+                </svg>
+            </div>
+
+            <div class="about-us__decor">
+                <img src="@img/decor-logo.svg" alt="" width="251" height="251" />
+            </div>
+
+            <div class="about-us__stage">
+                <div class="about-us__slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            {{> AboutUs/AboutCard
+                            theme="yellow"
+                            icon="solar"
+                            value="500"
+                            unit="проєктів"
+                            caption="реалізовано нами"
+                            image="articles/01.jpg"
+                            alt="Реалізовані проєкти SUNSAY NRG"
+                            }}
+                        </div>
+                        <div class="swiper-slide">
+                            {{> AboutUs/AboutCard
+                            theme="light"
+                            icon="helmet"
+                            prefix=">"
+                            value="178+"
+                            unit="спеціалістів"
+                            caption="налічує штат компанії"
+                            image="why.jpg"
+                            alt="Команда SUNSAY NRG"
+                            }}
+                        </div>
+                        <div class="swiper-slide">
+                            {{> AboutUs/AboutCard
+                            theme="yellow"
+                            icon="solar"
+                            value="80+"
+                            unit="МВт"
+                            caption="встановленої потужності"
+                            image="projects/01.jpg"
+                            alt="Сонячна електростанція SUNSAY NRG"
+                            }}
+                        </div>
+                        <div class="swiper-slide">
+                            {{> AboutUs/AboutCard
+                            theme="light"
+                            icon="helmet"
+                            value="3"
+                            unit="роки"
+                            caption="середня окупність проєкту"
+                            image="articles/02.jpg"
+                            alt="Енергетичні рішення для бізнесу"
+                            }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-us__progress" data-about-progress>
+            <div class="about-us__sticks" data-about-sticks></div>
+            <span class="about-us__bolt" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="52" viewBox="0 0 33 52" fill="none">
+                    <path
+                        d="M32.1708 19.9317C32.0763 19.7649 31.9393 19.6262 31.7737 19.5298C31.6082 19.4333 31.4199 19.3824 31.2283 19.3824H17.0366L19.4159 1.20327C19.4414 0.959968 19.3843 0.715156 19.2538 0.508248C19.1233 0.301341 18.927 0.144377 18.6964 0.0626309C18.4658 -0.0191156 18.2144 -0.0208884 17.9827 0.0575979C17.751 0.136084 17.5525 0.290263 17.4191 0.495309L0.160472 30.7317C0.0595485 30.8958 0.00423498 31.0839 0.000233648 31.2766C-0.00376768 31.4692 0.043688 31.6595 0.137708 31.8277C0.231729 31.9959 0.368911 32.1359 0.535109 32.2335C0.701308 32.331 0.890508 32.3824 1.0832 32.3824H15.0628L13.1773 50.5889C13.1587 50.8314 13.2218 51.0731 13.3565 51.2755C13.4912 51.478 13.6897 51.6296 13.9205 51.7062C14.1512 51.7829 14.401 51.7801 14.6301 51.6984C14.8591 51.6168 15.0542 51.4608 15.1844 51.2554L32.1578 21.0223C32.2562 20.8579 32.3093 20.6703 32.3116 20.4787C32.3139 20.2871 32.2653 20.0984 32.1708 19.9317Z"
+                        fill="black" />
+                </svg>
+            </span>
+        </div>
+
+        <div class="about-us__cta">
+            <div class="about-us__lead">
+                <h3 class="about-us__lead-title">Прорахувати вартість СЕС під ваші потреби</h3>
+                <form class="about-us__form" action="#" method="post" id="about-us-form">
+                    <div class="form-group">
+                        <label class="visually-hidden" for="about-us-form-phone">Ваш номер телефону</label>
+                        <input class="form-input" type="tel" name="your-phone" id="about-us-form-phone"
+                            placeholder="Ваш номер телефону" autocomplete="tel" required>
+                    </div>
+                    <button type="submit" class="btn btn-dark">
+                        <span>Надіслати запит</span>
+                        {{> Ui/ArrowIcon }}
+                    </button>
+                </form>
+            </div>
+
+            <div class="about-us__brand" aria-hidden="true">
+                <img src="@img/nrg.svg" alt="" width="1359" height="282" />
+            </div>
+        </div>
+    </div>
+</section>

@@ -68,8 +68,10 @@ function getReviewData(source) {
     const card = source.closest(".review-card");
     const mediaImg = card?.querySelector(".review-card__media img");
     const avatarImg = card?.querySelector(".review-card__avatar img");
+    const brandImg = card?.querySelector(".review-card__brand img");
     const mediaSrc = mediaImg?.currentSrc || mediaImg?.src || "";
     const avatarSrc = avatarImg?.currentSrc || avatarImg?.src || "";
+    const brandSrc = brandImg?.currentSrc || brandImg?.src || "";
 
     return {
         type: source.dataset.reviewMedia || (mediaSrc ? "single" : "none"),
@@ -80,6 +82,7 @@ function getReviewData(source) {
             card?.querySelector(".review-card__name")?.textContent.trim() ||
             "",
         avatar: avatarSrc || source.dataset.reviewAvatar || "",
+        brand: brandSrc || source.dataset.reviewBrand || "",
         service:
             source.dataset.reviewService ||
             card?.querySelector(".review-card__role")?.textContent.trim() ||
@@ -236,11 +239,13 @@ function fillReviewPopup(source, options = {}) {
     if (!popup || !data) return;
 
     const base = getImagesBase();
-    const { type, images, videoUrl, name, avatar, service, date, rating, text } = data;
+    const { type, images, videoUrl, name, avatar, brand, service, date, rating, text } = data;
 
     const mediaEl = popup.querySelector("[data-review-popup-media]");
     const nameEl = popup.querySelector("[data-review-popup-name]");
     const avatarEl = popup.querySelector("[data-review-popup-avatar]");
+    const brandEl = popup.querySelector("[data-review-popup-brand]");
+    const roleEl = popup.querySelector("[data-review-popup-role]");
     const badgeEl = popup.querySelector("[data-review-popup-badge]");
     const dateEl = popup.querySelector("[data-review-popup-date]");
     const starsEl = popup.querySelector("[data-review-popup-stars]");
@@ -265,6 +270,16 @@ function fillReviewPopup(source, options = {}) {
     if (avatarEl) {
         const avatarUrl = resolveAssetUrl(avatar, base);
         avatarEl.innerHTML = avatarUrl ? `<img src="${avatarUrl}" alt="" />` : "";
+        avatarEl.hidden = !avatarUrl;
+    }
+    if (brandEl) {
+        const brandUrl = resolveAssetUrl(brand, base);
+        brandEl.innerHTML = brandUrl ? `<img src="${brandUrl}" alt="" />` : "";
+        brandEl.hidden = !brandUrl;
+    }
+    if (roleEl) {
+        roleEl.textContent = service;
+        roleEl.hidden = !service;
     }
     if (badgeEl) {
         badgeEl.textContent = service;

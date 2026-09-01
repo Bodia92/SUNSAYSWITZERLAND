@@ -7,6 +7,7 @@ import "../../components/Features/_features.scss";
 // Імпорт загальних модулів
 import { fixMobileVh } from "./modules/utils.js";
 import { initSliderObserver } from "./modules/slider.js";
+import { initAboutUs } from "./modules/about-us.js";
 import { initReviewsPopup } from "./modules/reviews.js";
 import { initBlogLikes } from "./modules/blog-likes.js";
 import { initIncludesPopup } from "./modules/includes-popup.js";
@@ -31,6 +32,7 @@ import { initFancybox } from "./modules/fancybox.js";
 document.addEventListener("DOMContentLoaded", () => {
     fixMobileVh();
     initSliderObserver();
+    initAboutUs();
     initReviewsPopup();
     initBlogLikes();
     initIncludesPopup();

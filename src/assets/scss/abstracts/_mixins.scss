@@ -54,8 +54,8 @@
 @mixin thin-scrollbar($width: 4px) {
     @media (min-width: 992px) {
         $scroll-width: $width;
-        $scroll-thumb-color: var(--color-primary);
-        $scroll-color: var(--color-gray-light);
+        $scroll-thumb-color: #ffd100;
+        $scroll-color: #dcdcdc;
 
         &,
         * {

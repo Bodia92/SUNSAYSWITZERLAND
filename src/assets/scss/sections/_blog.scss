@@ -3,6 +3,7 @@
 .blog {
     padding-top: 96px;
     padding-bottom: 96px;
+    background: var(--white);
 
     @media (max-width: 991.98px) {
         padding-top: 48px;
@@ -23,19 +24,19 @@
     &__grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 8px 16px;
 
         &:not(:last-child) {
             margin-bottom: 40px;
 
             @media (max-width: 991.98px) {
-                margin-bottom: 24px;
+                margin-bottom: 20px;
             }
         }
 
         @media (min-width: 992px) {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: minmax(350px, 557px) minmax(0, 1fr);
+            grid-template-rows: repeat(3, 180px);
 
             > :first-child {
                 grid-column: 1;
@@ -75,17 +76,20 @@
                 position: relative;
                 z-index: 1;
                 width: 100%;
-                padding: 20px 56px 20px 24px;
-                background: rgba(20, 20, 20, 0.42);
+                height: fit-content;
+                padding: 80px 24px 24px;
+                min-height: 165px;
+                flex: 0 0 auto;
+                border-radius: 24px;
+                background: rgba(255, 255, 255, 0.1);
                 backdrop-filter: blur(12px);
                 -webkit-backdrop-filter: blur(12px);
                 border: 1px solid rgba(255, 255, 255, 0.16);
-                border-radius: 16px;
             }
 
             .blog-card__go {
-                top: 20px;
-                right: 20px;
+                top: 12px;
+                right: 12px;
             }
 
             .blog-card__date,
@@ -96,9 +100,11 @@
             .blog-card__title {
                 margin-bottom: 0;
                 font-weight: 600;
-                line-height: 1.15;
+                line-height: 1;
+                text-transform: uppercase;
+                letter-spacing: -0.04em;
                 color: var(--white);
-                @include av("font-size", 24, 18);
+                @include av("font-size", 30, 18);
             }
         }
     }

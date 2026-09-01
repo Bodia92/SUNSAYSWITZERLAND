@@ -82,28 +82,15 @@
 <div id="review-popup" class="popup popup--review" aria-hidden="true">
     <div class="popup__wrapper">
         <div class="popup__content">
-            <button class="popup__close" data-close-popup aria-label="Close" type="button"></button>
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button"></button>
             <div class="review-popup">
-                <div class="review-popup__layout" data-review-popup-layout>
-                    <div class="review-popup__media" data-review-popup-media></div>
-                    <div class="review-popup__body">
-                        <div class="review-popup__head">
-                            <div class="review-popup__user">
-                                <span class="review-popup__avatar" data-review-popup-avatar aria-hidden="true"></span>
-                                <div class="review-popup__meta">
-                                    <div class="review-popup__name" data-review-popup-name></div>
-                                    <div class="review-popup__stars" data-review-popup-stars></div>
-                                    <div class="review-popup__badge" data-review-popup-badge hidden></div>
-                                </div>
-                            </div>
-                            <time class="review-popup__date" data-review-popup-date datetime=""></time>
-                        </div>
-                        <div class="review-popup__text" data-review-popup-text></div>
-                        <div class="review-popup__logo">
-                            <img src="@img/logo.svg" alt="Nail" />
-                        </div>
-                    </div>
+                <div class="review-popup__head">
+                    <span class="review-popup__avatar" data-review-popup-avatar hidden></span>
+                    <span class="review-popup__brand" data-review-popup-brand hidden></span>
                 </div>
+                <h3 class="review-popup__name" data-review-popup-name></h3>
+                <p class="review-popup__role" data-review-popup-role hidden></p>
+                <div class="review-popup__text" data-review-popup-text></div>
             </div>
         </div>
     </div>

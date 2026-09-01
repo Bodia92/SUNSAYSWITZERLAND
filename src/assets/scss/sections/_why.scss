@@ -59,6 +59,7 @@
     &__title {
         text-align: center;
         color: var(--white);
+        @include af(72, 32);
 
         &:not(:last-child) {
             margin-bottom: 48px;

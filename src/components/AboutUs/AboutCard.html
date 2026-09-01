@@ -1,0 +1,23 @@
+<article class="about-us-card about-us-card--{{theme}}">
+    <div class="about-us-card__body">
+        {{#if icon}}
+        <span class="about-us-card__icon" aria-hidden="true">
+            <img src="@img/icons/{{icon}}.svg" alt="" width="48" height="48" />
+        </span>
+        {{/if}}
+        <p class="about-us-card__value">
+            <span class="about-us-card__num">{{#if prefix}}{{prefix}}{{/if}}{{value}}</span>
+            {{#if unit}}
+            <span class="about-us-card__unit">{{unit}}</span>
+            {{/if}}
+        </p>
+        {{#if caption}}
+        <p class="about-us-card__caption">{{caption}}</p>
+        {{/if}}
+    </div>
+    {{#if image}}
+    <div class="about-us-card__media">
+        <img src="@img/{{image}}" alt="{{alt}}" />
+    </div>
+    {{/if}}
+</article>
