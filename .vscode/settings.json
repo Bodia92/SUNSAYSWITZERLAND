@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "**/src/**/*.html": "handlebars"
+    },
+    "[handlebars]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "html.format.templating": true,
+    "html.format.indentHandlebars": true,
+    "html.format.wrapLineLength": 0
+}

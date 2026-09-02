@@ -1,0 +1,19 @@
+<li class="utp-card">
+    <div class="utp-card__head">
+        {{#if label}}
+        <p class="utp-card__label">{{label}}</p>
+        {{/if}}
+
+        {{#if icon}}
+        <span class="utp-card__icon" aria-hidden="true">
+            <img src="@img/icons/{{icon}}.svg" alt="" width="32" height="32" />
+        </span>
+        {{/if}}
+    </div>
+
+    {{#if value}}
+    <p class="utp-card__value">
+        {{value}}{{#if unit}} <span class="utp-card__unit">{{unit}}</span>{{/if}}
+    </p>
+    {{/if}}
+</li>

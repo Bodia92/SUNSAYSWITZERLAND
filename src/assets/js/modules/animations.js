@@ -16,6 +16,8 @@ export function initScrollAnimations() {
     const animElements = document.querySelectorAll("[data-anim]");
 
     animElements.forEach((el) => {
+        if (el.closest(".hero")) return;
+
         const type = el.getAttribute("data-anim");
         const delay = parseFloat(el.getAttribute("data-anim-delay")) || 0;
 

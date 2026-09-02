@@ -1,0 +1,107 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.feature-block {
+    position: relative;
+    overflow: hidden;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    background:
+        linear-gradient(72deg, #3f4649 23.48%, #ffd100 196.09%),
+        radial-gradient(243.08% 347.76% at 3.89% -201.26%, #3f4649 66.59%);
+
+    // .feature-block--photo
+    &--photo {
+        background: none;
+    }
+
+    @media (max-width: 991.98px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    // .feature-block__bg
+    &__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.48) 100%);
+        }
+    }
+
+    // .feature-block__decor
+    &__decor {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+
+        img {
+            width: 100%;
+            max-width: 1361px;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    // .feature-block__container
+    &__container {
+        position: relative;
+        z-index: 2;
+    }
+
+    // .feature-block__label
+    &__label {
+        color: var(--white);
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    // .feature-block__title
+    &__title {
+        @include af(72, 32);
+        text-align: center;
+        color: var(--white);
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    // .feature-block__list
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        list-style: none;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}

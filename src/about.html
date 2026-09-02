@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+{{> Head/Head title="SUNSAYENERGY" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--about">
+            <section class="hero">
+                <div class="hero__container">
+                    <div class="hero__banner">
+                        <div class="hero__media">
+                            <img src="@img/hero2.jpg" alt="Сонячна електростанція SUNSAY NRG" width="1920" height="1080" />
+                        </div>
+                        <div class="hero__content">
+                            <h1 class="hero__title">
+                                sunsay NRG
+                            </h1>
+                            <p class="hero__text">
+                                Українська інжинірингова компанія, яка впроваджує сонячні електростанції
+                                та установки зберігання енергії для бізнесу.
+                            </p>
+                            <div class="hero__benefits">
+                                <ul class="hero__pills">
+                                    <li>Працюємо під ключ: від технічного аудиту до сервісного обслуговування</li>
+                                    <li>Фокус — B2B-проєкти в Україні </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section offers">
+                <div class="offers__container">
+                    <div class="offers__head">
+                        <p class="offers__label title-label">Напрямки рішень</p>
+                        <h2 class="offers__title title"><span>Що</span> ми робимо?</h2>
+                    </div>
+
+                    <div class="offers__grid">
+                        {{> Card/Card
+                        image="articles/01.jpg"
+                        title="Сонячні станції для бізнесу СЕС"
+                        text="Власна генерація електроенергії для зниження витрат та підвищення енергонезалежності."
+                        tag="Від 100 кВт"
+                        href="#"
+                        }}
+                        {{> Card/Card
+                        image="articles/02.jpg"
+                        title="Установки зберігання енергії"
+                        text="Резервне живлення, керування піковими навантаженнями та оптимізація витрат на
+                        електроенергію."
+                        tag="BESS Huawei LUNA"
+                        tag2="УЗЕ"
+                        tag3="BESS Huawei LUNA"
+                        href="#"
+                        }}
+                        {{> Card/Card
+                        image="articles/04.jpg"
+                        title="Гібридні рішення сес+узе"
+                        text="Комплексне будівництво - проєктування, інжиніринг, поставка обладнання, будівництво та
+                        введення в
+                        експлуатацію"
+                        href="#"
+                        }}
+                        {{> Card/Card
+                        image="articles/03.jpg"
+                        title="Проєктування, монтаж, сервіс"
+                        text="Комплексне будівництво - проєктування, інжиніринг, поставка обладнання, будівництво та
+                        введення в
+                        експлуатацію"
+                        href="#"
+                        }}
+                        {{> Card/Card
+                        image="articles/05.jpg"
+                        title="Комерційне та технічне консультування"
+                        text="Комплексне будівництво - проєктування, інжиніринг, поставка обладнання, будівництво та
+                        введення в
+                        експлуатацію"
+                        href="#"
+                        }}
+                    </div>
+                </div>
+            </section>
+
+            {{#> FeatureBlock/FeatureBlock
+            label="Результат"
+            title="Наш підхід"
+            decor="bg-decor.svg"
+            }}
+                {{> FeatureBlock/FeatureCard
+            icon="fild"
+            title="Технічна точність і прозора логіка реалізації"
+            text="Кожен етап проєкту базується на технічних розрахунках, реальних потребах бізнесу та зрозумілій логіці впровадження."
+            }}
+                {{> FeatureBlock/FeatureCard
+            icon="check"
+            title="Повна відповідальність за проєкт і результат"
+            text="Супроводжуємо проєкт на всіх етапах — від аудиту та проєктування до запуску й сервісного обслуговування."
+            }}
+                {{> FeatureBlock/FeatureCard
+            icon="pazl"
+            title="Жодних шаблонів — лише індивідуальні рішення"
+            text="Підбираємо конфігурацію системи відповідно до особливостей об’єкта, споживання та задач підприємства."
+            }}
+                {{> FeatureBlock/FeatureCard
+            icon="filter"
+            title="Мінімальна участь клієнта, максимальний контроль з нашого боку"
+            text="Беремо на себе організацію процесів, координацію робіт і контроль реалізації, щоб клієнт міг зосередитися на бізнесі."
+            }}
+                {{/FeatureBlock/FeatureBlock}}
+
+
+                {{#> Utp/Utp
+            label="Актуальність"
+            title="sunsay nrg"
+            accent="в цифрах"
+            }}
+                    {{> Utp/UtpCard
+            icon="volt"
+            label="на ринку України"
+            value="7"
+            unit="років"
+            }}
+                    {{> Utp/UtpCard
+            icon="volt"
+            label="найвищий клас складності проєктів"
+            value="СС3"
+            }}
+                    {{> Utp/UtpCard
+            icon="volt"
+            label="об’єктів по всій Україні"
+            value="500+"
+            }}
+                    {{> Utp/UtpCard
+            icon="volt"
+            label="впроваджених рішень"
+            value="80+"
+            unit="МВт"
+            }}
+                    {{/Utp/Utp}}
+
+                    {{#> FeatureBlock/FeatureBlock
+            modifier="photo"
+            label="Експертиза"
+            title="Якість і гарантії"
+            image="why.jpg"
+            }}
+                        {{> FeatureBlock/FeatureCard
+            icon="settings"
+            title="Проєктуємо під ваш бізнес"
+            text="Розробляємо технічні рішення на основі практичного досвіду реалізації комерційних енергетичних проєктів."
+            }}
+                        {{> FeatureBlock/FeatureCard
+            icon="solar"
+            title="Працюємо лише з обладнанням Tier 1"
+            text="Співпрацюємо напряму з виробниками та офіційними партнерами, що гарантує якість обладнання й стабільність поставок."
+            }}
+                        {{> FeatureBlock/FeatureCard
+            icon="list"
+            title="Контролюємо якість на кожному етапі"
+            text="Працюємо з обладнанням світових виробників, яке підтвердило надійність та ефективність у реальних умовах експлуатації."
+            }}
+                        {{> FeatureBlock/FeatureCard
+            icon="volt"
+            title="ГАРАНТІЯ ДО 15 РОКІВ НА ОБЛАДНАННЯ"
+            text="Надаємо гарантію на реалізовані рішення та забезпечуємо сервісну підтримку після введення системи в експлуатацію."
+            }}
+                        {{/FeatureBlock/FeatureBlock}}
+
+                        {{#> MediaSlider/MediaSlider
+                        label="Керівництво"
+                        accent="Наша"
+                        title="команда"
+                        }}
+                            {{> MediaSlider/MediaSlide
+                        image="teams/01.jpg"
+                        title="Дмитро Зінкевич"
+                        text="CEO SUNSAY NRG Suisse AG"
+                        }}
+                            {{> MediaSlider/MediaSlide
+                        image="teams/02.jpg"
+                        title="Сергій Зінкевич"
+                        text="CEO SUNSAY NRG Ukraine"
+                        }}
+                            {{> MediaSlider/MediaSlide
+                        image="teams/03.jpg"
+                        title="Олександр Бут"
+                        text="CTO"
+                        }}
+                            {{> MediaSlider/MediaSlide
+                        image="teams/01.jpg"
+                        title="Сергій Зінкевич"
+                        text="CEO SUNSAY NRG Ukraine"
+                        }}
+                            {{> MediaSlider/MediaSlide
+                        image="teams/02.jpg"
+                        title="Дмитро Зінкевич"
+                        text="CEO SUNSAY NRG Suisse AG"
+                        }}
+                            {{> MediaSlider/MediaSlide
+                        image="teams/03.jpg"
+                        title="Олександр Бут"
+                        text="CTO"
+                        }}
+                            {{/MediaSlider/MediaSlider}}
+
+
+                            <section class="section trust">
+                                <div class="trust__container">
+                                    <div class="trust__head">
+                                        <p class="trust__label title-label">Ми пропонуємо</p>
+                                        <h2 class="trust__title title"><span>Чому</span> нам довіряють?</h2>
+                                        <p class="trust__text">SUNSAY NRG реалізує комплексні енергетичні рішення для бізнесу: від технічного аудиту та проєктування до сервісного супроводу. Ми поєднуємо інженерну експертизу, прозорі процеси та практичний досвід реалізації комерційних проєктів по всій Україні.</p>
+                                    </div>
+                                    <div class="trust__grid">
+                                        <div class="trust__item">Інженерна експертиза</div>
+                                        <div class="trust__item">Стандарти EPC-процесу</div>
+                                        <div class="trust__item">Прозора економіка</div>
+                                        <div class="trust__item">Супровід після реалізації</div>
+                                        <div class="trust__item">Сильна внутрішня команда</div>
+                                    </div>
+                            </section>
+
+
+                            {{#> MediaSlider/MediaSlider
+                        label="Надійність"
+                        accent="Відзнаки"
+                        title="та досягнення"
+                        }}
+                                {{> MediaSlider/MediaSlide
+                        image="certificate.png"
+                        title="Solution Partner Photomate"
+                        text="Підписали меморандум про співпрацю з Photomate Ukraine та отримали статус офіційного Solution Partner. Німеччина, 2025"
+                        }}
+                                {{> MediaSlider/MediaSlide
+                        image="certificate.png"
+                        title="Наша інновація"
+                        text="Розробка SUNSAY NRG: безшовний перехід між різними джерелами живлення — СЕС, УЗЕ, генератором та мережею. Україна, 2025"
+                        }}
+                                {{> MediaSlider/MediaSlide
+                        image="certificate.png"
+                        title="Перемога в номінації «Вдалий політ»"
+                        text="Відзнака Спілки українських підприємців за динамічний розвиток компанії. Україна, 2025"
+                        }}
+                                {{> MediaSlider/MediaSlide
+                        image="certificate.png"
+                        title="3-тє місце у Best Installer Contest"
+                        text="Нагорода 5-го Глобального саміту інсталяторів Huawei Digital Power. Українська команда вперше увійшла до числа переможців конкурсу. Китай, 2025"
+                        }}
+                                {{> MediaSlider/MediaSlide
+                        image="certificate.png"
+                        title="Партнерство з виробниками Tier 1"
+                        text="Розширили пряму співпрацю з виробниками обладнання та офіційними дистриб’юторами для стабільних поставок."
+                        }}
+                                {{> MediaSlider/MediaSlide
+                        image="certificate.png"
+                        title="Гарантія якості реалізації"
+                        text="Забезпечуємо контроль на всіх етапах — від аудиту та проєктування до запуску й сервісного обслуговування."
+                        }}
+                                {{/MediaSlider/MediaSlider}}
+
+                                {{> Partners/Partners }}
+
+                                {{> Reviews/Reviews }}
+
+                                {{> Question/Question }}
+
+                                <section class="section seo-section">
+                                    <div class="seo-section__container">
+                                        <div class="seo-section__content editor">
+                                            <h2>Як сонячна електростанція оптимізує витрати бізнесу</h2>
+                                            <p> Сонячна електростанція дозволяє бізнесу зменшити залежність від коливань тарифів та частково
+                                                компенсувати власне споживання електроенергії. Найбільший ефект досягається для підприємств
+                                                зі
+                                                стабільним денним навантаженням, де значна частина генерації використовується одразу в
+                                                момент
+                                                виробництва.</p>
+                                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                                установок
+                                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                                установок
+                                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                                        </div>
+                                    </div>
+                                </section>
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

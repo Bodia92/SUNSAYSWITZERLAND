@@ -19,8 +19,10 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@poliklot/prettier-plugin-handlebars": "^0.4.0",
         "postcss": "^8.5.6",
         "postcss-pxtorem": "^6.1.0",
+        "prettier": "^3.9.6",
         "sass": "^1.97.0",
         "stylelint": "^17.1.1",
         "stylelint-config-standard": "^40.0.0",

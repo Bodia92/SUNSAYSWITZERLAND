@@ -9,14 +9,18 @@
 }
 
 .section {
-    @include av("padding-top", 48, 24);
-    @include av("padding-bottom", 48, 24);
+    @include av("padding-top", 96, 48);
+    @include av("padding-bottom", 96, 48);
 }
 
 .desktop {
     @media (max-width: 991.98px) {
         display: none !important;
     }
+}
+
+.bg-white {
+    background: var(--white) !important;
 }
 
 .mobile {

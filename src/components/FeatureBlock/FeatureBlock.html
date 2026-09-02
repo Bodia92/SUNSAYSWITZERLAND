@@ -1,0 +1,27 @@
+<section class="section feature-block{{#if modifier}} feature-block--{{modifier}}{{/if}}">
+    {{#if image}}
+    <div class="feature-block__bg">
+        <img src="@img/{{image}}" alt="" />
+    </div>
+    {{/if}}
+
+    {{#if decor}}
+    <div class="feature-block__decor">
+        <img src="@img/{{decor}}" alt="" />
+    </div>
+    {{/if}}
+
+    <div class="feature-block__container">
+        {{#if label}}
+        <p class="feature-block__label title-label">{{label}}</p>
+        {{/if}}
+
+        {{#if title}}
+        <h2 class="feature-block__title title">{{title}}</h2>
+        {{/if}}
+
+        <ul class="feature-block__list">
+            {{> @partial-block }}
+        </ul>
+    </div>
+</section>

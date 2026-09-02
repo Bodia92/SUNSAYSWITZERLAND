@@ -99,8 +99,8 @@ function layoutAboutPath(section) {
     const body1 = localRect(card1, origin, shiftX);
     const body2 = card2 ? localRect(card2, origin, shiftX) : null;
 
-    const xLeft = body1.left + half;
-    const xRight = body2 ? body2.left + half : width * 0.76;
+    const xLeft = body1.left + body1.width / 2;
+    const xRight = body2 ? body2.left + body2.width / 2 : width * 0.76;
     const xLogo = decorBox.left + decorBox.width;
     const xOff = width + stroke;
     const yCenter = decorBox.top + decorBox.height / 2;
@@ -114,7 +114,8 @@ function layoutAboutPath(section) {
         slider.getBoundingClientRect().bottom - origin.top,
     ].filter((value) => Number.isFinite(value));
 
-    const yBottom = Math.max(...bottoms) + half;
+    const gap = desktop ? 72 : 40;
+    const yBottom = Math.max(...bottoms) + half + gap;
 
     const r = Math.min(
         desktop ? 48 : 28,

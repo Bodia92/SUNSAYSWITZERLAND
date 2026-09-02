@@ -1,0 +1,75 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.trust {
+    background: var(--white);
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+
+        @media (max-width: 991.98px) {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            row-gap: 32px;
+        }
+    }
+
+    // .trust__label
+    &__label {
+        text-align: left;
+        justify-content: flex-start;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    // .trust__title
+    &__title {
+        text-align: left;
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    // .trust__text
+    &__text {
+        max-width: 622px;
+        color: var(--gray-color);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    // .trust__grid
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    // .trust__item
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 24px 32px;
+        border-radius: 24px;
+        background: var(--bg);
+        font-family: var(--font-roboto);
+        @include af(24, 16);
+        font-weight: 400;
+        line-height: 1.25;
+        color: var(--black);
+
+        &:before {
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: var(--yellow-brand);
+        }
+    }
+}

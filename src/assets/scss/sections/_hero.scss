@@ -1,12 +1,6 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .hero {
-    padding-bottom: 48px;
-
-    @media (max-width: 992px) {
-        padding-bottom: 24px;
-    }
-
     // .hero__banner
     &__banner {
         position: relative;
@@ -64,6 +58,7 @@
         text-transform: uppercase;
         color: var(--white);
         @include av("font-size", 72, 36);
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 
         &:not(:last-child) {
             margin-bottom: 20px;
@@ -82,6 +77,7 @@
         line-height: 1.25;
         color: var(--white);
         @include av("font-size", 20, 14);
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s both;
 
         &:not(:last-child) {
             margin-bottom: 28px;
@@ -94,6 +90,8 @@
 
     // .hero__btn
     &__btn.btn {
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
+
         &:not(:last-child) {
             margin-bottom: 44px;
 
@@ -110,6 +108,7 @@
         align-items: center;
         width: 100%;
         margin-top: auto;
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s both;
     }
 
     // .hero__benefits-label
@@ -164,5 +163,26 @@
                 background: var(--yellow-brand);
             }
         }
+    }
+}
+
+@keyframes hero-fade-up {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero__title,
+    .hero__text,
+    .hero__btn.btn,
+    .hero__benefits {
+        animation: none;
     }
 }
