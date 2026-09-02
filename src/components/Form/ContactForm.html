@@ -14,15 +14,17 @@
             </div>
         </div>
 
+        {{#unless compact}}
         <div class="form-group">
             <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email">Email <span>*</span></label>
             <input class="form-input" type="email" name="your-email"
                 id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email" placeholder="Email" autocomplete="email"
                 required>
         </div>
+        {{/unless}}
 
         <div class="form-group">
-            <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message">Повідомлення</label>
+            <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message">{{#if messageLabel}}{{messageLabel}}{{else}}Повідомлення{{/if}}</label>
             <textarea class="form-input" name="your-message"
                 id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message" rows="4"
                 placeholder="Напишіть"></textarea>

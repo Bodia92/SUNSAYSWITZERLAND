@@ -1,28 +1,83 @@
 <div id="contact-us" class="popup" aria-hidden="true">
     <div class="popup__wrapper">
         <div class="popup__content">
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
             <div class="popup__body">
-                <button class="popup__close" data-close-popup aria-label="Закрити" type="button"></button>
+                <h2 class="popup__title title">Отримайте <span>інженерну консультацію</span> для вашого об'єкта</h2>
+                <p class="popup__lead">Напишіть нам і ми вас проконсультуємо</p>
                 {{> Form/QuoteForm formId="popup" }}
             </div>
         </div>
     </div>
 </div>
 
-<div id="popup-success" class="popup" aria-hidden="true">
+<div id="popup-question" class="popup" aria-hidden="true">
     <div class="popup__wrapper">
-
         <div class="popup__content">
-            <button class="popup__close close-popup" data-close-popup aria-label="Close" type="button"></button>
-
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
             <div class="popup__body">
-                <h2 class="popup__title">
-                    Дякуємо!
-                </h2>
-                <div class="popup__text">
-                    <p>Ми звʼяжемось з вами протягом 24 годин</p>
+                <h2 class="popup__title title">Поставити <span>запитання</span></h2>
+                <p class="popup__lead">Напишіть нам і ми вас проконсультуємо</p>
+                {{> Form/ContactForm formId="popup-question" compact=true messageLabel="Ваше запитання" }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-success" class="popup popup--status" aria-hidden="true">
+    <div class="popup__wrapper">
+        <div class="popup__content">
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup__body">
+                <span class="popup__icon popup__icon--success" aria-hidden="true">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="40" fill="#22C55E" />
+                        <path d="M24 41.2l10.2 10.2L56.8 28.8" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <h2 class="popup__title title">Дякуємо за ваш запит</h2>
+                <p class="popup__lead">Ми вже опрацьовуємо ваш запит і зв’яжемось з вами найближчим часом</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-error" class="popup popup--status" aria-hidden="true">
+    <div class="popup__wrapper">
+        <div class="popup__content">
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup__body">
+                <span class="popup__icon popup__icon--error" aria-hidden="true">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 8L74 70H6L40 8Z" fill="#FF8A00" />
+                        <rect x="37" y="30" width="6" height="22" rx="3" fill="#fff" />
+                        <rect x="37" y="56" width="6" height="6" rx="3" fill="#fff" />
+                    </svg>
+                </span>
+                <h2 class="popup__title title">Щось пішло не так...</h2>
+                <p class="popup__lead">Ваш запит не був відправлений з невідомих причин. Повторіть спробу будь ласка ще раз</p>
+                <div class="popup__actions">
+                    <a href="#" class="btn btn-main" data-popup-target="#contact-us">
+                        <span>Повторити спробу</span>
+                        {{> Ui/ArrowIcon }}
+                    </a>
                 </div>
-                <button class="btn btn--no-icon" type="button" data-close-popup>Ок</button>
             </div>
         </div>
     </div>
@@ -31,7 +86,11 @@
 <div id="includes-popup" class="popup popup--includes" aria-hidden="true">
     <div class="popup__wrapper">
         <div class="popup__content">
-            <button class="popup__close" data-close-popup aria-label="Close" type="button"></button>
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
             <div class="includes-popup">
                 <div class="includes-popup__media">
                     <img src="" alt="" data-includes-popup-image width="520" height="520">
@@ -53,7 +112,11 @@
 <div id="course-popup" class="popup popup--course" aria-hidden="true">
     <div class="popup__wrapper">
         <div class="popup__content">
-            <button class="popup__close" data-close-popup aria-label="Close" type="button"></button>
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
             <div class="course-popup">
                 <div class="course-popup__media">
                     <img src="" alt="" data-course-popup-image width="520" height="520">
@@ -82,7 +145,11 @@
 <div id="review-popup" class="popup popup--review" aria-hidden="true">
     <div class="popup__wrapper">
         <div class="popup__content">
-            <button class="popup__close" data-close-popup aria-label="Закрити" type="button"></button>
+            <button class="popup__close" data-close-popup aria-label="Закрити" type="button">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
             <div class="review-popup">
                 <div class="review-popup__head">
                     <span class="review-popup__avatar" data-review-popup-avatar hidden></span>

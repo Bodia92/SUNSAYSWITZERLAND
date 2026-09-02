@@ -133,9 +133,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Redirect to thank-you page after successful CF7 submit
 document.addEventListener("wpcf7mailsent", function () {
-    window.location.href = "/thank-you.html";
+    if (typeof window.popupOpen === "function") {
+        window.popupOpen("#popup-success");
+    }
+});
+
+document.addEventListener("wpcf7mailfailed", function () {
+    if (typeof window.popupOpen === "function") {
+        window.popupOpen("#popup-error");
+    }
 });
 // скрол бар ширина
 function setScrollbarWidth() {
