@@ -1,0 +1,46 @@
+<section class="section objects-map" data-objects-map>
+
+
+    <div class="objects-map__container">
+        {{#if label}}
+            <p class="objects-map__label title-label">{{label}}</p>
+        {{/if}}
+
+        {{#if title}}
+            <h2 class="objects-map__title title">{{title}}{{#if accent}} <span>{{accent}}</span>{{/if}}</h2>
+        {{/if}}
+
+        <div class="objects-map__canvas">
+            {{> Map/UkraineSvg }}
+
+            <div class="objects-map__popup" data-map-popup aria-hidden="true">
+                <button class="objects-map__close" type="button" data-map-close aria-label="Закрити">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="@img/sprite.svg#icon-close"></use>
+                    </svg>
+                </button>
+
+                <div class="objects-map__popup-media">
+                    <img src="" alt="" data-map-image width="220" height="160" />
+                </div>
+
+                <div class="objects-map__popup-body">
+                    <p class="objects-map__popup-title" data-map-title></p>
+                    <p class="objects-map__popup-location" data-map-location></p>
+                    <a class="objects-map__popup-btn btn btn-main btn--sm" href="#" data-map-link>
+                        <span>Докладніше</span>
+                        {{> Ui/ArrowIcon }}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <ul class="objects-map__data" hidden data-map-items>
+            {{> @partial-block }}
+        </ul>
+
+        <div class="objects-map__watermark" aria-hidden="true">
+            <img src="@img/nrg-white.svg" alt="NRG" width="1359" height="281" loading="lazy" />
+        </div>
+    </div>
+</section>

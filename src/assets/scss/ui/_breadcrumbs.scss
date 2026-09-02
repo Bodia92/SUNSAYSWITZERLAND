@@ -1,0 +1,114 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.breadcrumbs {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--black);
+    font-size: 14px;
+
+    // .breadcrumbs__list
+    // WP: yoast_breadcrumb / rank_math wrap inner HTML in nav.breadcrumbs
+    &__list,
+    ol,
+    ul,
+    p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    a,
+    &__link {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--yellow-brand);
+            }
+        }
+    }
+
+    .is-current,
+    .breadcrumb_last,
+    [aria-current="page"] {
+        color: inherit;
+        pointer-events: none;
+    }
+
+    &__item,
+    li {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        &:first-child {
+            text-transform: uppercase;
+        }
+
+        &.is-current {
+            color: #565a5c;
+        }
+    }
+
+    &__item + &__item::before,
+    li + li::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: var(--yellow-brand);
+    }
+
+    &__sep,
+    .separator,
+    .sep {
+        display: block;
+        width: 4px;
+        height: 4px;
+        flex-shrink: 0;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        color: transparent;
+        border-radius: 50%;
+        background: var(--yellow-brand);
+    }
+}
+
+.hero {
+    position: relative;
+
+    .breadcrumbs {
+        position: absolute;
+        z-index: 10;
+        top: 32px;
+        left: 0;
+        width: 100%;
+        color: var(--white);
+        justify-content: center;
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+
+        .breadcrumbs__item.is-current {
+            color: #bfbfbf;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+}

@@ -205,6 +205,14 @@ a {
     }
 }
 
+.page {
+    &:has(.seo-section) {
+        .question {
+            padding-bottom: 0;
+        }
+    }
+}
+
 .seo-section {
     .seo-section__content {
         padding-right: 10px;

@@ -1,4 +1,6 @@
 @use "buttons";
+@use "breadcrumbs";
+@use "pagination";
 @use "card";
 @use "project-card";
 @use "review-card";
@@ -7,6 +9,7 @@
 @use "feature-card";
 @use "utp-card";
 @use "media-slide";
+@use "object-card";
 @use "forms";
 @use "select";
 @use "tabs";

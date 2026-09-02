@@ -252,10 +252,12 @@ input.btn[type="submit"],
     }
 
     &.btn--sm {
-        --btn-height: 40px;
-        --btn-pad-x: 16px;
+        --btn-height: 32px;
+        --btn-pad-x: 14px;
         --btn-pad-end: 6px;
-        --btn-icon-size: 28px;
+        --btn-icon-size: 14px;
+        padding: 6px 14px 6px 20px;
+
         font-size: 14px;
 
         .arrow-icon .icon {

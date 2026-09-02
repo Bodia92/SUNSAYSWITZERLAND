@@ -1,0 +1,66 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.object-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    background: var(--white);
+    border-radius: 24px;
+
+    @media (max-width: 991.98px) {
+        border-radius: 16px;
+    }
+
+    // .object-card__media
+    &__media {
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 328 / 230;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    // .object-card__body
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+
+        @media (max-width: 991.98px) {
+            padding: 20px;
+        }
+    }
+
+    // .object-card__title
+    &__title {
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        line-height: 1.25;
+        text-transform: uppercase;
+        color: var(--black);
+        font-size: 24px;
+
+        @media (max-width: 991.98px) {
+            letter-spacing: -0.04em;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    // .object-card__text
+    &__text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.25;
+        color: var(--black);
+    }
+}

@@ -1,0 +1,123 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.pagination,
+.navigation.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .screen-reader-text {
+        position: absolute !important;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+        width: 1px;
+        height: 1px;
+        word-wrap: normal;
+    }
+
+    .nav-links,
+    ul.page-numbers {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
+
+.page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 48px;
+    padding: 0 4px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--black);
+    text-decoration: none;
+    border-radius: 50%;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+
+    &:not(.dots):not(.prev):not(.next) {
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--yellow-brand);
+            }
+        }
+    }
+
+    &.current {
+        background: var(--yellow-brand);
+        color: var(--black);
+        pointer-events: none;
+    }
+
+    &.dots {
+        min-width: auto;
+        height: auto;
+        padding: 0 4px;
+        font-weight: 400;
+        color: var(--black);
+        pointer-events: none;
+    }
+
+    &.prev,
+    &.next {
+        flex-shrink: 0;
+        font-size: 0;
+        line-height: 0;
+        color: var(--black);
+
+        &::before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            border-style: solid;
+            border-color: currentColor;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--yellow-brand);
+                background: transparent;
+            }
+        }
+    }
+
+    &.prev::before {
+        border-width: 0 0 2px 2px;
+        transform: rotate(45deg);
+        margin-left: 2px;
+    }
+
+    &.next::before {
+        border-width: 0 0 2px 2px;
+        transform: rotate(-135deg);
+        margin-right: 2px;
+    }
+}
+
+a.page-numbers.prev,
+a.page-numbers.next,
+span.page-numbers.prev,
+span.page-numbers.next {
+    &.current,
+    &[aria-disabled="true"] {
+        opacity: 0.28;
+        pointer-events: none;
+    }
+}

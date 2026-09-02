@@ -1,0 +1,30 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.objects {
+    background: var(--bg);
+
+    // .objects__label
+    &__label {
+    }
+
+    // .objects__title
+    &__title {
+        text-align: center;
+    }
+
+    // .objects__list
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        list-style: none;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+}

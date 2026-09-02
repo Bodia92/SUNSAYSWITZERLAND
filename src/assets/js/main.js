@@ -12,6 +12,7 @@ import { initReviewsPopup } from "./modules/reviews.js";
 import { initBlogLikes } from "./modules/blog-likes.js";
 import { initIncludesPopup } from "./modules/includes-popup.js";
 import { initCourses } from "./modules/courses.js";
+import { initObjectsMap } from "./modules/objects-map.js";
 import { initProjectsFilter } from "./modules/projects-filter.js";
 import { initFaqShowMore } from "./modules/faq-more.js";
 import { initScrollAnimations } from "./modules/animations.js";
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initIncludesPopup();
     initCourses();
     initProjectsFilter();
+    initObjectsMap();
     initFaqShowMore();
     initShowMore();
     initMarquee();

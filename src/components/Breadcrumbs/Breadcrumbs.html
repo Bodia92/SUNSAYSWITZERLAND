@@ -1,0 +1,17 @@
+<nav class="breadcrumbs" aria-label="Хлібні крихти">
+    <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{#if homeUrl}}{{homeUrl}}{{else}}/{{/if}}">{{#if home}}{{home}}{{else}}SUNSAY NRG{{/if}}</a>
+        </li>
+        {{#if parent}}
+        <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{parentUrl}}">{{parent}}</a>
+        </li>
+        {{/if}}
+        {{#if current}}
+        <li class="breadcrumbs__item is-current" aria-current="page">
+            <span class="breadcrumbs__current">{{current}}</span>
+        </li>
+        {{/if}}
+    </ol>
+</nav>

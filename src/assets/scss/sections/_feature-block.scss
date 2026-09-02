@@ -53,9 +53,10 @@
 
         img {
             width: 100%;
-            max-width: 1361px;
-            height: auto;
-            object-fit: contain;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            object-position: center;
         }
     }
 

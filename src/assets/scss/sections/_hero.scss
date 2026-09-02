@@ -1,6 +1,10 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .hero {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
     // .hero__banner
     &__banner {
         position: relative;
@@ -182,7 +186,8 @@
     .hero__title,
     .hero__text,
     .hero__btn.btn,
-    .hero__benefits {
+    .hero__benefits,
+    .hero .breadcrumbs {
         animation: none;
     }
 }
