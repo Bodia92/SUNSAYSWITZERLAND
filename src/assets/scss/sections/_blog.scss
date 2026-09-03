@@ -1,6 +1,16 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
+.page--main {
+    .blog {
+        margin-top: 96px;
+        @media (max-width: 991.98px) {
+            margin-top: 48px;
+        }
+    }
+}
+
 .blog {
+    --blog-rows: 3;
     padding-top: 96px;
     padding-bottom: 96px;
     background: var(--white);
@@ -36,7 +46,7 @@
 
         @media (min-width: 992px) {
             grid-template-columns: minmax(350px, 557px) minmax(0, 1fr);
-            grid-template-rows: repeat(3, 180px);
+            grid-template-rows: repeat(var(--blog-rows), 180px);
 
             > :first-child {
                 grid-column: 1;
@@ -61,7 +71,8 @@
 
             @media (min-width: 992px) {
                 min-height: 0;
-                height: 100%;
+                aspect-ratio: 1;
+                height: fit-content;
             }
 
             .blog-card__media {
@@ -113,5 +124,31 @@
     &__more.btn {
         display: flex;
         margin-inline: auto;
+    }
+
+    &--listing {
+        --blog-rows: 9;
+
+        .breadcrumbs {
+            justify-content: flex-start;
+
+            &:not(:last-child) {
+                margin-bottom: 24px;
+
+                @media (max-width: 991.98px) {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+
+        .blog__title {
+            text-align: left;
+        }
+
+        @media (max-width: 991.98px) {
+            .blog-card:not(:first-child) .blog-card__text {
+                display: none;
+            }
+        }
     }
 }

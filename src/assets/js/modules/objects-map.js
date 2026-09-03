@@ -1,5 +1,6 @@
 const PIN_PATH =
-    "M12 0c-4.793 0-8.692 3.899-8.692 8.692 0 5.948 7.778 14.68 8.11 15.049 0.311 0.346 0.854 0.346 1.165 0 0.331-0.369 8.11-9.101 8.11-15.049-0-4.793-3.899-8.692-8.692-8.692zM12 13.065c-2.411 0-4.373-1.962-4.373-4.373s1.962-4.373 4.373-4.373c2.411 0 4.373 1.962 4.373 4.373s-1.962 4.373-4.373 4.373z";
+    "M0 0c-6.39 0-11.59 5.199-11.59 11.589 0 7.931 10.372 19.573 10.814 20.065 0.415 0.462 1.139 0.461 1.553 0C1.218 31.162 11.59 19.52 11.59 11.589 11.589 5.199 6.391 0 0 0Zm0 17.42c-3.215 0-5.83-2.616-5.83-5.831S-3.215 5.758 0 5.758 5.831 8.374 5.831 11.589 3.215 17.42 0 17.42Z";
+const PIN_HEIGHT = 31.654;
 
 export function initObjectsMap() {
     document.querySelectorAll("[data-objects-map]").forEach(initOne);
@@ -20,6 +21,15 @@ function initOne(root) {
         itemsByRegion.set(region, item);
     });
 
+    svg.querySelectorAll(".objects-map__pin[data-region]").forEach((pin) => {
+        const region = pin.dataset.region;
+        if (!itemsByRegion.has(region)) return;
+
+        pin.classList.add("is-interactive");
+        pin.setAttribute("tabindex", "0");
+        pin.setAttribute("role", "button");
+    });
+
     itemsByRegion.forEach((_, region) => {
         const path = svg.querySelector(`.objects-map__region[data-region="${region}"]`);
         if (!path) return;
@@ -29,7 +39,8 @@ function initOne(root) {
         path.setAttribute("role", "button");
         path.setAttribute("aria-expanded", "false");
 
-        if (pinsGroup) {
+        const hasPin = svg.querySelector(`.objects-map__pin[data-region="${region}"]`);
+        if (!hasPin && pinsGroup) {
             pinsGroup.appendChild(createPin(path, region));
         }
     });
@@ -78,8 +89,9 @@ function initOne(root) {
         path.parentNode.appendChild(path);
         path.setAttribute("aria-expanded", "true");
 
-        const pin = svg.querySelector(`.objects-map__pin[data-region="${region}"]`);
-        pin?.classList.add("is-active");
+        svg.querySelectorAll(`.objects-map__pin[data-region="${region}"]`).forEach((pin) => {
+            pin.classList.add("is-active");
+        });
 
         popup.classList.add("is-open");
         popup.setAttribute("aria-hidden", "false");
@@ -92,11 +104,8 @@ function initOne(root) {
             return;
         }
 
-        const target = e.target.closest("[data-region]");
+        const target = e.target.closest("[data-region].is-interactive");
         if (!target || !root.contains(target)) return;
-        if (!target.classList.contains("is-interactive") && !target.classList.contains("objects-map__pin")) {
-            return;
-        }
 
         const region = target.dataset.region;
         if (!currentItem(region)) return;
@@ -128,17 +137,12 @@ function createPin(path, region) {
     const box = path.getBBox();
     const cx = box.x + box.width / 2;
     const cy = box.y + box.height / 2;
-    const size = 22;
-
-    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    g.setAttribute("class", "objects-map__pin is-interactive");
-    g.setAttribute("data-region", region);
-    g.setAttribute("transform", `translate(${cx - size / 2} ${cy - size + 2})`);
 
     const pin = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    pin.setAttribute("class", "objects-map__pin is-interactive");
+    pin.setAttribute("data-region", region);
+    pin.setAttribute("transform", `translate(${cx} ${cy - PIN_HEIGHT})`);
     pin.setAttribute("d", PIN_PATH);
-    pin.setAttribute("transform", `scale(${size / 24})`);
-    g.appendChild(pin);
 
-    return g;
+    return pin;
 }

@@ -110,11 +110,17 @@ export function initGallery() {
     }
 
     document.querySelectorAll("[data-gallery-more]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const panel = btn.closest("[data-tabs-panel]");
-            const viewport = panel?.querySelector(".gallery__viewport");
-            const list = panel?.querySelector("[data-gallery]");
+        btn.addEventListener("click", (event) => {
+            event.preventDefault();
 
+            const root =
+                btn.closest("[data-gallery-root]") ||
+                btn.closest(".gallery") ||
+                btn.closest("[data-tabs-panel]");
+            const viewport = root?.querySelector(".gallery__viewport");
+            const list = root?.querySelector("[data-gallery]");
+
+            root?.classList.add("is-expanded");
             viewport?.classList.add("is-expanded");
             list?.classList.add("is-expanded");
             btn.hidden = true;

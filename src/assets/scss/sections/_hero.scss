@@ -168,6 +168,31 @@
             }
         }
     }
+
+    // .hero__actions
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px 16px;
+
+        .btn {
+            flex-shrink: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 0px;
+            }
+
+            &.btn-secondary {
+                color: var(--white);
+
+                &:hover {
+                    color: var(--black);
+                }
+            }
+        }
+    }
 }
 
 @keyframes hero-fade-up {

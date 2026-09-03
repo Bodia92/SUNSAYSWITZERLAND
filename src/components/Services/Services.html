@@ -1,0 +1,36 @@
+<section class="section services">
+    <div class="services__container">
+        <div class="services__grid">
+            <div class="services__intro">
+                {{#if label}}
+                <p class="services__label title-label">{{label}}</p>
+                {{/if}}
+
+                {{#if title}}
+                <h2 class="services__title title">{{#if accent}}<span>{{accent}}</span> {{/if}}{{title}}</h2>
+                {{/if}}
+
+                {{#if text}}
+                <p class="services__text">{{text}}</p>
+                {{/if}}
+
+                {{#if ctaTitle}}
+                <div class="services__cta">
+                    <h3 class="services__cta-title">{{ctaTitle}}</h3>
+                    {{#if ctaText}}
+                    <p class="services__cta-text">{{ctaText}}</p>
+                    {{/if}}
+                    <a href="#" class="services__cta-btn btn btn-main" data-popup-target="#contact-us">
+                        <span>{{#if ctaBtn}}{{ctaBtn}}{{else}}Залишити заявку{{/if}}</span>
+                        {{> Ui/ArrowIcon }}
+                    </a>
+                </div>
+                {{/if}}
+            </div>
+
+            <ul class="services__list">
+                {{> @partial-block }}
+            </ul>
+        </div>
+    </div>
+</section>

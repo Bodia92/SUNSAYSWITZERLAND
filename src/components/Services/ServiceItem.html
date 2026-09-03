@@ -1,0 +1,13 @@
+<li>
+    <a class="services__item" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+        <span class="services__item-go" aria-hidden="true">
+            {{> Ui/ArrowIcon }}
+        </span>
+        {{#if title}}
+        <h3 class="services__item-title">{{title}}</h3>
+        {{/if}}
+        {{#if text}}
+        <p class="services__item-text">{{text}}</p>
+        {{/if}}
+    </a>
+</li>

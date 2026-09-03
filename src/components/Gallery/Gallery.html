@@ -1,0 +1,20 @@
+<section class="section gallery" data-gallery-root>
+    <div class="gallery__container">
+        {{#if label}}
+        <p class="gallery__label title-label">{{label}}</p>
+        {{/if}}
+
+        {{#if title}}
+        <h2 class="gallery__title title">{{#if accent}}<span>{{accent}}</span> {{/if}}{{title}}</h2>
+        {{/if}}
+
+        <ul class="gallery__list" data-gallery>
+            {{> @partial-block }}
+        </ul>
+
+        <button type="button" class="gallery__more btn btn-secondary" data-gallery-more>
+            <span>{{#if more}}{{more}}{{else}}Показати більше{{/if}}</span>
+            {{> Ui/ArrowIcon }}
+        </button>
+    </div>
+</section>

@@ -54,7 +54,7 @@
 
     // .objects-map__region
     &__region {
-        fill: #e8e8e8;
+        fill: #eaeaea;
         stroke: var(--white);
         stroke-width: 1.2;
         stroke-linejoin: round;
@@ -87,14 +87,23 @@
     // .objects-map__pin
     &__pin {
         fill: var(--black);
-        cursor: pointer;
         outline: none;
+        pointer-events: none;
         transition: fill 0.25s ease;
 
-        @media (any-hover: hover) {
-            &:hover {
-                fill: var(--dark);
+        &.is-interactive {
+            pointer-events: auto;
+            cursor: pointer;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    fill: var(--dark);
+                }
             }
+        }
+
+        &.is-active {
+            fill: var(--dark);
         }
     }
 

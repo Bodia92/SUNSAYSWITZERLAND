@@ -116,6 +116,27 @@ function initTeamSlider() {
     });
 }
 
+function initProjectsCardSliders() {
+    const wraps = [...document.querySelectorAll("[data-projects-slider]")];
+    if (!wraps.length) return;
+
+    wraps.forEach((wrapEl) => {
+        const sliderEl = wrapEl.querySelector(".swiper");
+        if (!sliderEl) return;
+
+        new Swiper(sliderEl, {
+            modules: [Navigation],
+            speed: 600,
+            spaceBetween: 16,
+            slidesPerView: 1,
+            watchOverflow: true,
+            watchSlidesProgress: true,
+            grabCursor: true,
+            navigation: getSliderNav(wrapEl),
+        });
+    });
+}
+
 function initProjectsSlider() {
     const sliderEl = document.querySelector(".projects__slider");
     if (!sliderEl) return;
@@ -413,6 +434,7 @@ export function initSliderObserver() {
     initMediaSliders();
     initTeamSlider();
     initProjectsSlider();
+    initProjectsCardSliders();
     initProjectGallerySlider();
     initCertsSlider();
     initGallerySliders();

@@ -36,13 +36,46 @@
                 </div>
             </section>
 
-            <section class="section projects">
-                <div class="projects__container">
-                    <p class="projects__label title-label">Кейси</p>
-                    <h2 class="projects__title title"><span>Реалізовані</span> проєкти</h2>
 
-                    <div class="projects__list">
-                        {{> Project/ProjectCard
+            {{#> Utp/Utp
+            label="Наші досягнення"
+            title="Чому нам "
+            accent="можна довіряти?"
+            }}
+                {{> Utp/UtpCard
+            icon="volt"
+            label="Кількість 
+реалізованих проєктів"
+            value="500"
+            }}
+                {{> Utp/UtpCard
+            icon="money"
+            label="Загальна
+потужність"
+            value="120"
+              unit="МВт"
+            }}
+                {{> Utp/UtpCard
+            icon="list"
+            label="Кількість
+регіонів"
+            value="17"
+            }}
+                {{> Utp/UtpCard
+            icon="helmet"
+            label="Кількість
+галузей"
+            value="8"
+            }}
+                {{/Utp/Utp}}
+
+                <section class="section projects">
+                    <div class="projects__container">
+                        <p class="projects__label title-label">Кейси</p>
+                        <h2 class="projects__title title"><span>Реалізовані</span> проєкти</h2>
+
+                        <div class="projects__list">
+                            {{> Project/ProjectCard
             image="projects/01.jpg"
             title="Епіцентр К"
             subtitle="Логістично-фасувальний центр"
@@ -63,7 +96,7 @@
             spec7val="≈ 26-31 млн грн"
             href="#"
             }}
-                        {{> Project/ProjectCard
+                            {{> Project/ProjectCard
             image="projects/02.jpg"
             title="ФАВОРИТ ПЛЮС"
             subtitle="М’ЯСНА ФАБРИКА"
@@ -84,7 +117,7 @@
             spec7val="≈ 19-23 млн грн"
             href="#"
             }}
-                        {{> Project/ProjectCard
+                            {{> Project/ProjectCard
             image="projects/03.jpg"
             title="ТРІУМФ-ПАК"
             subtitle="ВИРОБНИЦТВО ПАКУВАЛЬНИХ МАТЕРІАЛІВ"
@@ -105,148 +138,93 @@
             spec7val="≈ 11-13 млн грн"
             href="#"
             }}
+                        </div>
+
+                        {{> Pagination/Pagination }}
+
                     </div>
+                </section>
 
-                    {{> Pagination/Pagination }}
-
-                </div>
-            </section>
-
-            {{#> Objects/Objects
+                {{#> Objects/Objects
             label="Актуальність"
             title="Які об'єкти"
             accent="ми реалізовуємо?"
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/01.png"
             title="СЕС для бізнесу"
             text="Об'єкти зі стабільним денним споживанням електроенергії для освітлення, кондиціонування, вентиляції та роботи офісної інфраструктури."
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/02.png"
             title="УЗЕ для бізнесу"
             text="Комплекси зі стабільним споживанням електроенергії для освітлення, автоматизації, вентиляції та складської інфраструктури."
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/03.png"
             title="Гібридні системи"
             text="Об'єкти з інтенсивною роботою навантажувачів, конвеєрних систем, освітлення та логістичних процесів."
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/04.png"
             title="СЕС для підприємств"
             text="Енергоємні об'єкти з високим споживанням електроенергії для забезпечення безперервних виробничих процесів."
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/05.png"
             title="СЕС для офісних та бізнес центрів"
             text="Будівлі з активною роботою серверних кімнат, ліфтів, систем безпеки та інженерного обладнання."
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/06.png"
             title="СЕС для ТРЦ та рітейлу"
             text="Великі комерційні об'єкти з високим навантаженням на системи кондиціонування, освітлення, ескалатори та інженерну інфраструктуру."
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/07.png"
             title="СЕС для складів і логістичних центрів"
             text="Об'єкти з великими площами дахів, де власна генерація допомагає оптимізувати витрати на електроенергію та підвищити енергетичну стабільність бізнесу."
             }}
-                {{> Objects/ObjectCard
+                    {{> Objects/ObjectCard
             image="objects/08.png"
             title="СЕС для агробізнесу"
             text="Ферми та виробничі об'єкти з постійною роботою вентиляції, освітлення, насосів і систем охолодження."
             }}
-                {{/Objects/Objects}}
+                    {{/Objects/Objects}}
 
-            {{#> Map/Map
+                    {{#> Map/Map
             label="Актуальність"
             title="Карта об'єктів"
             accent="в Україні"
             }}
-                {{> Map/MapItem
-            region="dnipropetrovsk"
-            title="ТОВ «ТРІУМФ-ПАК»"
-            location="м. Дніпро"
-            image="projects/02.jpg"
-            href="#"
-            }}
-                {{> Map/MapItem
-            region="khmelnytskyi"
-            title="Епіцентр К"
-            location="Хмельницька обл."
-            image="projects/01.jpg"
-            href="#"
-            }}
-                {{> Map/MapItem
-            region="kyiv"
-            title="ТРІУМФ-ПАК"
-            location="Київська обл."
-            image="projects/03.jpg"
-            href="#"
-            }}
-                {{> Map/MapItem
-            region="lviv"
-            title="СЕС для логістики"
-            location="Львівська обл."
-            image="projects/01.jpg"
-            href="#"
-            }}
-                {{> Map/MapItem
-            region="odesa"
-            title="СЕС для портової інфраструктури"
-            location="Одеська обл."
-            image="projects/02.jpg"
-            href="#"
-            }}
-                {{> Map/MapItem
-            region="kharkiv"
-            title="СЕС для виробництва"
-            location="Харківська обл."
-            image="projects/03.jpg"
-            href="#"
-            }}
-                {{> Map/MapItem
-            region="volyn"
-            title="СЕС для агробізнесу"
-            location="Волинська обл."
-            image="projects/01.jpg"
-            href="#"
-            }}
-                {{> Map/MapItem
-            region="zaporizhzhia"
-            title="СЕС для підприємства"
-            location="Запорізька обл."
-            image="projects/02.jpg"
-            href="#"
-            }}
-            {{/Map/Map}}
+                        {{> Map/MapItems }}
+                        {{/Map/Map}}
 
-                {{> Question/Question }}
+                        {{> Question/Question }}
 
-                <section class="section seo-section">
-                    <div class="seo-section__container">
-                        <div class="seo-section__content editor">
-                            <h2>Як сонячна електростанція оптимізує витрати бізнесу</h2>
-                            <p> Сонячна електростанція дозволяє бізнесу зменшити залежність від коливань тарифів та частково
-                                компенсувати власне споживання електроенергії. Найбільший ефект досягається для підприємств
-                                зі
-                                стабільним денним навантаженням, де значна частина генерації використовується одразу в
-                                момент
-                                виробництва.</p>
-                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
-                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
-                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
-                                установок
-                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
-                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
-                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
-                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
-                                установок
-                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
-                        </div>
-                    </div>
-                </section>
+                        <section class="section seo-section">
+                            <div class="seo-section__container">
+                                <div class="seo-section__content editor">
+                                    <h2>Як сонячна електростанція оптимізує витрати бізнесу</h2>
+                                    <p> Сонячна електростанція дозволяє бізнесу зменшити залежність від коливань тарифів та частково
+                                        компенсувати власне споживання електроенергії. Найбільший ефект досягається для підприємств
+                                        зі
+                                        стабільним денним навантаженням, де значна частина генерації використовується одразу в
+                                        момент
+                                        виробництва.</p>
+                                    <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                        енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                        підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                        установок
+                                        зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                                    <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                        енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                        підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                        установок
+                                        зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                                </div>
+                            </div>
+                        </section>
         </main>
 
         {{> Footer/Footer }}
