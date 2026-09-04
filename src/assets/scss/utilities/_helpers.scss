@@ -9,8 +9,9 @@
 }
 
 .section {
-    @include av("padding-top", 96, 48);
-    @include av("padding-bottom", 96, 48);
+    &:not(:last-child) {
+        @include av("margin-bottom", 96, 48);
+    }
 }
 
 .desktop {
@@ -20,6 +21,8 @@
 }
 
 .bg-white {
+    @include av("padding-top", 96, 48);
+    @include av("padding-bottom", 96, 48);
     background: var(--white) !important;
 }
 

@@ -1,0 +1,29 @@
+<section class="section faq" id="faq">
+    <div class="faq__container">
+        <p class="faq__label title-label">{{#if label}}{{label}}{{else}}F.A.Q.{{/if}}</p>
+        <h2 class="faq__title title">
+            {{#if title}}
+            {{{title}}}{{#if accent}} <span>{{{accent}}}</span>{{/if}}
+            {{else}}
+            Часті <span>запитання</span>
+            {{/if}}
+        </h2>
+
+        <div class="faq__grid">
+            <ul class="faq__list">
+                {{> @partial-block }}
+            </ul>
+
+            <div class="faq__cta">
+                <h3 class="faq__cta-title">
+                    {{#if ctaTitle}}{{{ctaTitle}}}{{else}}Не знайшли відповідь на ваше запитання?{{/if}}
+                    <span>{{#if ctaAccent}}{{{ctaAccent}}}{{else}}Напишіть нам{{/if}}</span>
+                </h3>
+                <a class="faq__cta-btn btn btn-main" href="#" data-popup-target="#popup-question">
+                    <span>{{#if ctaBtn}}{{ctaBtn}}{{else}}Надіслати запитання{{/if}}</span>
+                    {{> Ui/ArrowIcon }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+<section class="section points{{#if decor}} points--decor{{/if}}">
+    <div class="points__container">
+        {{#if label}}
+        <p class="points__label title-label">{{label}}</p>
+        {{/if}}
+
+        {{#if title}}
+        <h2 class="points__title title">{{#if accent}}<span>{{{accent}}}</span> {{/if}}{{{title}}}</h2>
+        {{/if}}
+
+        <ul class="points__list">
+            {{> @partial-block }}
+        </ul>
+    </div>
+
+    {{#if decor}}
+    <div class="points__watermark" aria-hidden="true">
+        <img src="@img/nrg.svg" alt="" width="1359" height="282" />
+    </div>
+    {{/if}}
+</section>

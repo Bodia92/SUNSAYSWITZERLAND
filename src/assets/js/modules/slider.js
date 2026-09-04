@@ -116,6 +116,35 @@ function initTeamSlider() {
     });
 }
 
+function initObjectsCardSliders() {
+    const wraps = [...document.querySelectorAll("[data-objects-slider]")];
+    if (!wraps.length) return;
+
+    wraps.forEach((wrapEl) => {
+        const sliderEl = wrapEl.querySelector(".swiper");
+        if (!sliderEl) return;
+
+        new Swiper(sliderEl, {
+            modules: [Navigation],
+            speed: 600,
+            spaceBetween: 16,
+            slidesPerView: 1,
+            watchOverflow: true,
+            watchSlidesProgress: true,
+            grabCursor: true,
+            navigation: getSliderNav(wrapEl),
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    });
+}
+
 function initProjectsCardSliders() {
     const wraps = [...document.querySelectorAll("[data-projects-slider]")];
     if (!wraps.length) return;
@@ -435,6 +464,7 @@ export function initSliderObserver() {
     initTeamSlider();
     initProjectsSlider();
     initProjectsCardSliders();
+    initObjectsCardSliders();
     initProjectGallerySlider();
     initCertsSlider();
     initGallerySliders();

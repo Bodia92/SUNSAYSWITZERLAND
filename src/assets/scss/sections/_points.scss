@@ -1,0 +1,64 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.points {
+    overflow: hidden;
+    padding-bottom: 16px;
+
+    &:not(:last-child) {
+        margin-bottom: 0;
+    }
+
+    // .points__label
+    &__label {
+        justify-content: center;
+    }
+
+    // .points__title
+    &__title {
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    // .points__list
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+        }
+    }
+
+    // .points__watermark
+    &__watermark {
+        width: 100%;
+        margin-top: 40px;
+        pointer-events: none;
+        user-select: none;
+        opacity: 0.08;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &--decor {
+        padding-bottom: 0;
+        background: var(--white);
+
+        .point-card {
+            background: var(--bg);
+        }
+    }
+}

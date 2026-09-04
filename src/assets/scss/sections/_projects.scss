@@ -1,13 +1,6 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .projects {
-    padding-top: 0;
-    padding-bottom: 96px;
-
-    @media (max-width: 991.98px) {
-        padding-bottom: 48px;
-    }
-
     // .projects__label
     &__label {
         justify-content: center;

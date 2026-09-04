@@ -60,6 +60,11 @@ export default class Accordion {
             if (this.config.closeSelector) {
                 item.addEventListener("click", this.innerCloseHandler);
             }
+
+            if (item.classList.contains("is-open") && trigger) {
+                const body = item.querySelector(this.config.bodySelector);
+                if (body) this.open(trigger, item, body);
+            }
         });
         this.isInitialized = true;
     }

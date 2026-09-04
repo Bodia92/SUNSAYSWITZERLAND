@@ -1,0 +1,11 @@
+<li class="point-card">
+    {{#if icon}}
+    <span class="point-card__icon" aria-hidden="true">
+        <img src="@img/icons/{{icon}}.svg" alt="" width="64" height="64" />
+    </span>
+    {{/if}}
+
+    {{#if title}}
+    <h3 class="point-card__title">{{{title}}}</h3>
+    {{/if}}
+</li>

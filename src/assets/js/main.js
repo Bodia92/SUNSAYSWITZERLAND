@@ -28,6 +28,7 @@ import { initAllTabs, initTabs } from "./modules/tabs.js";
 import BACompare from "./modules/BAcompare.js";
 
 import { initFancybox } from "./modules/fancybox.js";
+import { initScrollSliders } from "./modules/scroll-slider.js";
 
 // Запуск загальних скриптів
 document.addEventListener("DOMContentLoaded", () => {
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initAllTabs();
     initSelects();
     initFancybox();
+    initScrollSliders();
     //initLightbox();
 
     const nodes = document.querySelectorAll("[data-ba-compare]");

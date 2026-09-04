@@ -5,6 +5,10 @@
     z-index: 1;
     overflow: hidden;
 
+    &:not(:last-child) {
+        @include av("margin-bottom", 96, 48);
+    }
+
     // .hero__banner
     &__banner {
         position: relative;

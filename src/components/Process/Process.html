@@ -1,0 +1,47 @@
+<section class="section process" data-process>
+    <div class="process__container" data-scroll-slider>
+        <p class="process__label title-label">{{#if label}}{{label}}{{else}}Процес{{/if}}</p>
+
+        <h2 class="process__title title">
+            {{#if title}}
+            {{{title}}}{{#if accent}} <span>{{{accent}}}</span>{{/if}}
+            {{else}}
+            Як ми <span>впроваджуємо СЕС?</span>
+            {{/if}}
+        </h2>
+
+        <div class="process__grid">
+            <div class="process__aside">
+                <p class="process__count">
+                    <span class="process__count-num" data-process-count></span>
+                    <span class="process__count-label">{{#if countLabel}}{{{countLabel}}}{{else}}Етапів до енергонезалежності{{/if}}</span>
+                </p>
+
+                <p class="process__lead">
+                    {{#if text}}
+                    {{{text}}}
+                    {{else}}
+                    Прозорий і зрозумілий процес — від аналізу вашого споживання до стабільної роботи енергосистеми на об'єкті.
+                    {{/if}}
+                </p>
+
+                <div class="process__media">
+                    <img src="@img/{{#if image}}{{image}}{{else}}why.jpg{{/if}}" alt="{{#if imageAlt}}{{imageAlt}}{{else}}Процес впровадження СЕС{{/if}}" width="800" height="560" />
+                </div>
+            </div>
+
+            <div class="process__main">
+                <ul class="process__list" data-scroll-track>
+                    {{> @partial-block }}
+                </ul>
+
+                {{> Ui/SliderNav scroll=true }}
+
+                <a class="process__btn btn btn-main" href="#" data-popup-target="#contact-us">
+                    <span>{{#if btn}}{{btn}}{{else}}Почати з технічного аудиту{{/if}}</span>
+                    {{> Ui/ArrowIcon }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

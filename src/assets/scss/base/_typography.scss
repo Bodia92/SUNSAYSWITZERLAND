@@ -206,6 +206,7 @@ a {
 }
 
 .page {
+    @include av("padding-bottom", 96, 48);
     &:has(.seo-section) {
         .question {
             padding-bottom: 0;

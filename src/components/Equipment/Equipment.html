@@ -1,0 +1,22 @@
+<section class="section equipment">
+    <div class="equipment__container">
+        <p class="equipment__label title-label">{{#if label}}{{label}}{{else}}Виробники{{/if}}</p>
+
+        <h2 class="equipment__title title">
+            {{#if title}}{{{title}}}{{else}}Обладнання{{/if}}
+        </h2>
+
+        <div class="equipment__text">
+            {{#if text}}
+            {{{text}}}
+            {{else}}
+            <p>Встановлюємо сонячні електростанції на основі перевірених рішень від провідних міжнародних брендів.</p>
+            <p>Усе обладнання сертифіковане для використання в Україні та підбирається індивідуально — під конкретні технічні умови вашого об'єкта.</p>
+            {{/if}}
+        </div>
+
+        <ul class="equipment__list">
+            {{> @partial-block }}
+        </ul>
+    </div>
+</section>

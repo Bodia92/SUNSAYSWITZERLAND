@@ -70,6 +70,15 @@ body {
         display: none;
     }
 }
+
+[data-scroll-track] {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 // ----------------------------------------------------------------
 // Загальні стилі для усього сайту
 // ----------------------------------------------------------------
