@@ -39,9 +39,14 @@
         }
     }
 
+    // .point-card__body
+    &__body {
+        margin-top: auto;
+        min-width: 0;
+    }
+
     // .point-card__title
     &__title {
-        margin-top: auto;
         font-family: var(--font-roboto);
         font-weight: 600;
         line-height: 1;
@@ -49,5 +54,17 @@
         text-transform: uppercase;
         color: var(--black);
         @include av("font-size", 32, 20);
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    // .point-card__text
+    &__text {
+        font-weight: 400;
+        line-height: 1.25;
+        color: var(--gray-color);
+        @include af(16, 14);
     }
 }

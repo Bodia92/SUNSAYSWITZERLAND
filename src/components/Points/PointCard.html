@@ -6,6 +6,11 @@
     {{/if}}
 
     {{#if title}}
-    <h3 class="point-card__title">{{{title}}}</h3>
+    <div class="point-card__body">
+        <h3 class="point-card__title">{{{title}}}</h3>
+        {{#if text}}
+        <p class="point-card__text">{{{text}}}</p>
+        {{/if}}
+    </div>
     {{/if}}
 </li>

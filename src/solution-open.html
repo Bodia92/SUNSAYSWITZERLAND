@@ -175,7 +175,36 @@
             btn="Розрахувати окупність"
             }}
 
-
+                        {{#> Points/Points
+            label="Актуальність"
+            title="SUNSAY NRG — ваш надійний партнер"
+            decor=true
+            row=true
+            }}
+                            {{> Points/PointCard
+            icon="solar"
+            title="Гарантія"
+            text="(від 5 до 15 років)"
+            }}
+                            {{> Points/PointCard
+            icon="list"
+            title="Гарантія на монтаж та налаштування"
+            text="від SUNSAY NRG"
+            }}
+                            {{> Points/PointCard
+            icon="helmet"
+            title="Технічна підтримка та сервіс 24/7"
+            text="Опційно"
+            }}
+                            {{> Points/PointCard
+            icon="speed"
+            title="Доступ до системи онлайн-моніторингу"
+            }}
+                            {{> Points/PointCard
+            icon="settings"
+            title="Гарантійне обслуговування"
+            }}
+                        {{/Points/Points}}
 
                         {{#> Faq/Faq }}
                             {{> Faq/FaqItem

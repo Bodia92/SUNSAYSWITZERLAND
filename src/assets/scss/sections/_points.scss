@@ -61,4 +61,78 @@
             background: var(--bg);
         }
     }
+
+    &--row {
+        position: relative;
+        background: var(--white);
+
+        @include av("padding-top", 96, 48);
+        @include av("padding-bottom", 96, 48);
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            @include av("height", 96, 48);
+            background: var(--bg);
+        }
+
+        .points__label {
+            color: var(--yellow-brand);
+        }
+
+        .points__list {
+            grid-template-columns: 1fr;
+            gap: 8px;
+
+            @media (min-width: 992px) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+
+                > .point-card:last-child:nth-child(odd) {
+                    grid-column: 1 / -1;
+                    width: calc((100% - 8px) / 2);
+                    justify-self: center;
+                }
+            }
+        }
+
+        .point-card {
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+            padding: 24px;
+            background: var(--bg);
+            min-height: 98px;
+
+            @media (min-width: 992px) {
+                gap: 20px;
+                padding: 32px;
+                background: var(--bg);
+                min-height: 128px;
+            }
+
+            .point-card__icon {
+                width: 32px;
+                height: 32px;
+
+                @media (min-width: 992px) {
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+
+            .point-card__body {
+                margin-top: 0;
+                align-self: flex-start;
+            }
+
+            .point-card__title {
+                @include av("font-size", 24, 20);
+            }
+        }
+    }
 }
