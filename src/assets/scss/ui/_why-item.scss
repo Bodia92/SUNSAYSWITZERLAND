@@ -100,8 +100,17 @@
         color: var(--white);
         @include av("font-size", 30, 20);
 
+        @media (max-width: 991.98px) {
+            line-height: 1.2;
+            letter-spacing: normal;
+        }
+
         &:not(:last-child) {
             margin-bottom: 12px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 8px;
+            }
         }
     }
 

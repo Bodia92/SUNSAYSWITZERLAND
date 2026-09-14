@@ -1,9 +1,9 @@
 <section class="section projects">
-    <div class="projects__container">
+    <div class="projects__container" data-scroll-slider data-scroll-autoplay="false">
         <p class="projects__label title-label">Кейси</p>
         <h2 class="projects__title title"><span>Реалізовані</span> проєкти</h2>
 
-        <div class="projects__list">
+        <div class="projects__list" data-scroll-track>
             {{> Project/ProjectCard
             image="projects/01.jpg"
             title="Епіцентр К"
@@ -68,6 +68,8 @@
             href="#"
             }}
         </div>
+
+        {{> Ui/SliderNav scroll=true }}
 
         <a href="#" class="projects__more btn btn-secondary">
             <span>Дивитись більше проєктів</span>

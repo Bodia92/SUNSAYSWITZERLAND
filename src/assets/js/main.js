@@ -68,7 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
         bodySelector: ".js-quote-body",
     });
 
-    new Accordion(".js-faq-wrap");
+    new Accordion(".project-card__specs", {
+        triggerSelector: ".project-card__specs-toggle",
+        bodySelector: ".project-card__specs-body",
+        media: "(max-width: 991.98px)",
+        oneOpen: false,
+    });
 
     new Accordion(".form-options", {
         triggerSelector: ".form-options__trigger",

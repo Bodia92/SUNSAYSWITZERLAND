@@ -8,6 +8,11 @@
     text-decoration: none;
     cursor: pointer;
 
+    @media (max-width: 991.98px) {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     @media (any-hover: hover) {
         &:hover .project-card__media img,
         &:focus-visible .project-card__media img {
@@ -32,11 +37,18 @@
         position: relative;
         display: block;
         overflow: hidden;
-        width: calc(50% + 100px);
-        min-height: 444px;
-        aspect-ratio: 787/ 444;
-        margin-right: -100px;
-        border-radius: 24px;
+        width: 100%;
+        min-height: 220px;
+        aspect-ratio: 39/22;
+        border-radius: 0;
+
+        @media (min-width: 992px) {
+            width: calc(50% + 100px);
+            min-height: 444px;
+            aspect-ratio: 787 / 444;
+            margin-right: -100px;
+            border-radius: 24px;
+        }
 
         img {
             position: absolute;
@@ -52,19 +64,24 @@
     // .project-card__content
     &__content {
         position: relative;
+        z-index: 1;
         flex-shrink: 0;
-        width: 50%;
+        width: calc(100% - 40px);
         height: fit-content;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         min-width: 0;
-        padding: 32px;
+        margin: -24px auto 0;
+        padding: 20px;
         background: var(--white);
-        border-radius: 24px;
+        border-radius: 16px;
 
-        @media (max-width: 991.98px) {
-            padding: 20px;
+        @media (min-width: 992px) {
+            width: 50%;
+            margin: 0;
+            padding: 32px;
+            border-radius: 24px;
         }
     }
 
@@ -117,6 +134,8 @@
 
             @media (max-width: 991.98px) {
                 margin-bottom: 16px;
+                letter-spacing: 0.04em;
+                font-size: 14px;
             }
         }
     }
@@ -151,6 +170,56 @@
         width: 100%;
     }
 
+    // .project-card__specs-toggle
+    &__specs-toggle {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        color: var(--gray-color);
+        transition: all 0.3s ease;
+
+        @media (max-width: 991.98px) {
+            display: flex;
+        }
+
+        .icon {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            color: var(--gray-color);
+            transition: transform 0.3s ease;
+        }
+
+        &.is-active .icon {
+            transform: rotate(180deg);
+        }
+    }
+
+    // .project-card__specs-body
+    &__specs-body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+
+        @media (min-width: 992px) {
+            max-height: none !important;
+        }
+
+        @media (max-width: 991.98px) {
+            max-height: 0;
+
+            .is-open & {
+                padding-top: 12px;
+            }
+        }
+    }
+
     // .project-card__row
     &__row {
         display: flex;
@@ -158,9 +227,10 @@
         justify-content: space-between;
         gap: 16px;
         padding: 12px 0;
-        font-size: 16px;
+        @include af(16, 12);
         color: var(--black);
         line-height: 1.25;
+        font-weight: 400;
         border-bottom: 1px solid var(--stroke-line);
 
         &:first-child {
@@ -174,14 +244,30 @@
         > span:last-child {
             width: 50%;
             font-weight: 700;
+
+            @media (max-width: 991.98px) {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
         }
     }
 
     // .project-card__btn
     &__btn.btn {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        margin-bottom: -24px;
+        position: static;
+        margin-top: 16px;
+
+        @media (min-width: 992px) {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-top: 0;
+            margin-bottom: -24px;
+        }
     }
 }

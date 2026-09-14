@@ -9,6 +9,7 @@ export default class Header {
         if (!this.el) return;
 
         this.burger = this.el.querySelector(".js-menu-trigger");
+        this.navbar = this.el.querySelector("#mobile-menu");
         this.init();
     }
 
@@ -17,6 +18,7 @@ export default class Header {
         this.initSubmenuAccordion();
         this.initClickListeners();
         this.initScrollWatcher();
+        this.syncNavbarA11y();
     }
 
     initSubmenuAccordion() {
@@ -81,15 +83,24 @@ export default class Header {
 
     initClickListeners() {
         document.addEventListener("click", (e) => {
+            const regionsBtn = e.target.closest(".js-menu-regions");
+            if (regionsBtn) {
+                e.preventDefault();
+                this.openMobileMenu();
+                this.openRegionsAccordion();
+                return;
+            }
+
             const menuBtnTrigger = e.target.closest(".js-menu-trigger");
 
             if (menuBtnTrigger) {
-                const isOpen = document.body.classList.toggle("menu-open");
-                menuBtnTrigger.classList.toggle("is-active", isOpen);
-                menuBtnTrigger.setAttribute("aria-expanded", String(isOpen));
-                menuBtnTrigger.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
+                const isOpen = document.body.classList.contains("menu-open");
+                if (isOpen) this.closeMobileMenu();
+                else this.openMobileMenu();
+                return;
+            }
 
-                if (!isOpen) this.closeAllSubmenus();
+            if (this.isMobileMenu() && this.toggleParentHashLink(e)) {
                 return;
             }
 
@@ -113,7 +124,22 @@ export default class Header {
             if (!this.isMobileMenu() && document.body.classList.contains("menu-open")) {
                 this.closeMobileMenu();
             }
+            this.syncNavbarA11y();
         });
+    }
+
+    syncNavbarA11y() {
+        if (!this.navbar) return;
+
+        if (!this.isMobileMenu()) {
+            this.navbar.setAttribute("aria-hidden", "false");
+            return;
+        }
+
+        this.navbar.setAttribute(
+            "aria-hidden",
+            document.body.classList.contains("menu-open") ? "false" : "true",
+        );
     }
 
     isLeafNavLink(target) {
@@ -133,16 +159,56 @@ export default class Header {
         });
     }
 
-    closeMobileMenu() {
-        document.body.classList.remove("menu-open");
+    toggleParentHashLink(e) {
+        const parentLink = e.target.closest(".header__nav-parent > a");
+        if (!parentLink) return false;
+
+        const href = parentLink.getAttribute("href");
+        if (href && href !== "#") return false;
+
+        e.preventDefault();
+        const trigger = parentLink.parentElement?.querySelector(":scope > .js-header-submenu-trigger");
+        trigger?.click();
+        requestAnimationFrame(() => this.syncOpenSubmenuHeights());
+        return true;
+    }
+
+    setMenuOpen(isOpen) {
+        document.body.classList.toggle("menu-open", isOpen);
+        this.navbar?.setAttribute("aria-hidden", this.isMobileMenu() ? String(!isOpen) : "false");
 
         if (this.burger) {
-            this.burger.classList.remove("is-active");
-            this.burger.setAttribute("aria-expanded", "false");
-            this.burger.setAttribute("aria-label", "Відкрити меню");
+            this.burger.classList.toggle("is-active", isOpen);
+            this.burger.setAttribute("aria-expanded", String(isOpen));
+            this.burger.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
         }
+    }
 
+    openMobileMenu() {
+        this.setMenuOpen(true);
+    }
+
+    closeMobileMenu() {
+        this.setMenuOpen(false);
         this.closeAllSubmenus();
+    }
+
+    openRegionsAccordion() {
+        const item = this.el.querySelector(".js-header-regions");
+        if (!item) return;
+
+        const trigger = item.querySelector(":scope > .header__nav-parent .js-header-submenu-trigger");
+        const body = item.querySelector(":scope > .js-header-submenu-body, :scope > .sub-menu");
+        if (!trigger || !body) return;
+
+        requestAnimationFrame(() => {
+            item.classList.add("is-open");
+            trigger.classList.add("is-active");
+            trigger.setAttribute("aria-expanded", "true");
+            body.style.maxHeight = `${body.scrollHeight}px`;
+            this.syncOpenSubmenuHeights();
+            item.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        });
     }
 
     closeAllSubmenus() {

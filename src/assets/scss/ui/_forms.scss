@@ -107,7 +107,8 @@ form {
     height: 42px;
     letter-spacing: 0;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.5;
     border: none;
     border-radius: 10px;
     box-shadow: 0px 0px 14px 0px #0000001a;
@@ -115,7 +116,6 @@ form {
     align-items: center;
     gap: 8px;
     width: 100%;
-    line-height: 100%;
     color: var(--black);
     caret-color: var(--black);
     background: var(--white);
@@ -657,8 +657,15 @@ textarea.form-input {
         height: 100px;
         padding-top: 12px;
         padding-left: 16px;
+
+        @media (max-width: 991.98px) {
+            padding-top: 16px;
+            padding-left: 16px;
+            height: 92px;
+        }
     }
 
+    // .contact-form__consent
     &__consent {
         max-width: 560px;
         margin-left: auto;

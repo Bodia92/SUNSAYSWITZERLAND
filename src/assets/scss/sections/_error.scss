@@ -7,65 +7,170 @@
 
 .error {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     flex: 1 1 auto;
     width: 100%;
-    min-height: 700px;
-    @include av("padding-top", 80, 48);
-    @include av("padding-bottom", 80, 48);
-    background: #faf8f6;
+    @include av("padding-top", 0, 0);
+    @include av("padding-bottom", 48, 24);
 
-    @media (max-width: 575.98px) {
-        min-height: 500px;
+    @media (max-width: 991.98px) {
+        padding-bottom: 0;
     }
 
     // .error__container
     &__container {
+        display: flex;
+        flex-direction: column;
         width: 100%;
+        flex: 1 1 auto;
+
+        @media (max-width: 991.98px) {
+            padding: 0;
+        }
+    }
+
+    // .error__banner
+    &__banner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: calc(100dvh - 180px);
+        padding: 80px 20px;
+        overflow: hidden;
+        border-radius: 24px;
+
+        @media (max-width: 991.98px) {
+            min-height: calc(100dvh - 88px);
+            padding: 48px 20px 64px;
+            border-radius: 0;
+        }
+    }
+
+    // .error__media
+    &__media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.52) 100%);
+        }
     }
 
     // .error__content
     &__content {
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
-        max-width: 596px;
+        width: 100%;
+        max-width: 760px;
+        min-width: 0;
         margin: 0 auto;
+        text-align: center;
+        color: var(--white);
+        box-sizing: border-box;
+
+        @media (max-width: 991.98px) {
+            padding-inline: 4px;
+        }
+    }
+
+    // .error__label
+    &__label {
+        color: var(--white);
     }
 
     // .error__code
     &__code {
-        margin: 0 0 10px;
-        font-family: var(--font-madinah);
-        font-weight: 400;
-        line-height: 100%;
-        text-align: center;
-        vertical-align: middle;
-
-        @include af(60, 40);
+        margin: 0 0 16px;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        line-height: 0.85;
+        letter-spacing: -0.06em;
+        color: var(--yellow-brand);
+        @include af(180, 96);
     }
 
     // .error__title
-    &__title {
-        margin: 0 0 50px;
-        font-family: var(--font-playfair);
-        font-weight: 400;
-        line-height: 1.2;
-        @include af(23, 18);
+    &__title.title {
+        color: var(--white);
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
 
-        @media (max-width: 575.98px) {
-            margin-bottom: 24px;
+        @media (max-width: 991.98px) {
+            font-size: 32px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 12px;
+            }
         }
     }
 
     // .error__text
     &__text {
+        width: 100%;
+        max-width: min(480px, 100%);
+        min-width: 0;
         margin: 0;
-        font-family: var(--font-main);
         font-weight: 400;
-        line-height: 1.2;
-        @include af(16, 14);
+        line-height: 1.35;
+        color: var(--white);
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+        @include af(18, 16);
+
+        @media (max-width: 991.98px) {
+            max-width: 100%;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 32px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    // .error__actions
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        .btn {
+            max-width: 100%;
+        }
+
+        @media (max-width: 575.98px) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }

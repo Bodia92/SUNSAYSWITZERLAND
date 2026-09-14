@@ -8,7 +8,6 @@ h5,
 h6 {
     font-weight: 600;
     line-height: 1.2;
-    font-family: var(--font-roboto);
 }
 
 a {
@@ -40,6 +39,7 @@ a {
         letter-spacing: -0.04em;
         text-transform: uppercase;
         color: var(--black);
+        font-family: var(--font-roboto);
 
         &:not(:first-child) {
             margin-top: 40px;
@@ -222,6 +222,10 @@ a {
         color: var(--gray-color);
 
         @include thin-scrollbar($width: 2px);
+
+        @media (max-width: 991.98px) {
+            max-height: min(496px, 50vh);
+        }
     }
 }
 

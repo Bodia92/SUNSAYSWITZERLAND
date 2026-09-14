@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="en">
-{{> Head/Head title="404 — Nail" }}
+<html lang="uk">
+{{> Head/Head title="404 — SUNSAY NRG" }}
 
 <body>
     <div class="wrapper" id="main">
@@ -9,11 +9,27 @@
         <main class="page page--error">
             <section class="error">
                 <div class="error__container">
-                    <div class="error__content" data-anim="fade-up">
-                        <h1 class="error__code">404</h1>
-                        <p class="error__title">Lorem ipsum dolor sit amet consectetur.</p>
-                        <p class="error__text">Lorem ipsum dolor sit amet consectetur. Id sed morbi massa
-                            pellentesque. Odio maecenas vitae eu nulla a.</p>
+                    <div class="error__banner">
+                        <div class="error__media" aria-hidden="true">
+                            <img src="@img/hero.jpg" alt="" width="1920" height="1080" />
+                        </div>
+
+                        <div class="error__content">
+                            <p class="error__label title-label">Помилка</p>
+                            <p class="error__code">404</p>
+                            <h1 class="error__title title">Сторінку<br><span>не знайдено</span></h1>
+                            <p class="error__text">Сторінка не існує або була переміщена. Поверніться на головну.</p>
+                            <div class="error__actions">
+                                <a href="/" class="btn btn-main">
+                                    <span>На головну</span>
+                                    {{> Ui/ArrowIcon }}
+                                </a>
+                                <a href="#" class="btn btn-outline-white" data-popup-target="#contact-us">
+                                    <span>Замовити консультацію</span>
+                                    {{> Ui/ArrowIcon }}
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

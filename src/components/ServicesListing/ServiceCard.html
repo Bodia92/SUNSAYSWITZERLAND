@@ -1,0 +1,21 @@
+<li class="service-card">
+    <a class="service-card__link" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+        {{#if image}}
+            <div class="service-card__media">
+                <img src="@img/{{image}}" alt="" width="640" height="400" />
+                <span class="service-card__go" aria-hidden="true">
+                    {{> Ui/ArrowIcon }}
+                </span>
+            </div>
+        {{/if}}
+
+        <div class="service-card__body">
+            {{#if title}}
+                <h2 class="service-card__title">{{title}}</h2>
+            {{/if}}
+            {{#if text}}
+                <p class="service-card__text">{{text}}</p>
+            {{/if}}
+        </div>
+    </a>
+</li>

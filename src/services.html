@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+{{> Head/Head title="Послуги — SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--services">
+            <section class="hero">
+                {{> Breadcrumbs/Breadcrumbs
+                            home="SUNSAY NRG"
+                            homeUrl="/"
+                            current="Послуги"
+                            }}
+                <div class="hero__container">
+                    <div class="hero__banner">
+                        <div class="hero__media">
+                            <img src="@img/hero7.jpg" alt="Послуги SUNSAY NRG" width="1920" height="1080" />
+                        </div>
+                        <div class="hero__content">
+                            <h1 class="hero__title">Послуги</h1>
+                            <p class="hero__text">
+                                Пропонуємо комплексні рішення для бізнесу та промислових об’єктів: від проєктування та підбору обладнання до професійного монтажу й запуску СЕС. Працюємо з сучасними технологіями та гарантуємо надійність системи, її ефективність і довготривалу роботу.
+                            </p>
+                            <a href="#" class="hero__btn btn btn-main" data-popup-target="#contact-us">
+                                <span>Замовити консультацію</span>
+                                {{> Ui/ArrowIcon }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {{#> ServicesListing/ServicesListing }}
+                {{> ServicesListing/ServiceCard
+            image="services/01.jpg"
+            title="СЕС під ключ"
+            text="Повний цикл реалізації СЕС: від аудиту та проєктування до монтажу, запуску та сервісного супроводу."
+            }}
+                {{> ServicesListing/ServiceCard
+            image="services/02.jpg"
+            title="Фінансування"
+            text="Підбираємо фінансові рішення для реалізації енергетичних проєктів вашого бізнесу."
+            }}
+                {{> ServicesListing/ServiceCard
+            image="services/03.jpg"
+            title="АКТИВНИЙ СПОЖИВАЧ"
+            text="Допомагаємо бізнесу отримати статус активного споживача та працювати з власною генерацією."
+            }}
+                {{> ServicesListing/ServiceCard
+            image="services/04.jpg"
+            title="Проєктування"
+            text="Розробляємо технічні рішення для ефективної та стабільної роботи сонячної станції."
+            }}
+                {{> ServicesListing/ServiceCard
+            image="services/05.jpg"
+            title="Монтаж та підключення"
+            text="Виконуємо професійний монтаж обладнання та підключення СЕС до інфраструктури."
+            }}
+                {{> ServicesListing/ServiceCard
+            image="services/06.jpg"
+            title="Пусконалагодження"
+            text="Налаштовуємо та тестуємо систему для безпечної й стабільної роботи СЕС."
+            }}
+                {{> ServicesListing/ServiceCard
+            image="services/07.jpg"
+            title="ЗБІЛЬШЕННЯ ПОТУЖНОСТІ СЕС"
+            text="Модернізуємо СЕС та збільшуємо її потужність відповідно до нових потреб бізнесу."
+            }}
+            {{/ServicesListing/ServicesListing}}
+
+            {{> Calculate/Calculate
+            modifier="center"
+            image="banner01.jpg"
+            title="Скільки може"
+            accent="зекономити<br>"
+            after="ваша компанія"
+            btn="Залишити заявку на розрахунок"
+            }}
+
+            <section class="section seo-section">
+                <div class="seo-section__container">
+                    <div class="seo-section__content editor">
+                        <h2>Як сонячна електростанція оптимізує витрати бізнесу</h2>
+                        <p> Сонячна електростанція дозволяє бізнесу зменшити залежність від коливань тарифів та частково
+                            компенсувати власне споживання електроенергії. Найбільший ефект досягається для підприємств
+                            зі
+                            стабільним денним навантаженням, де значна частина генерації використовується одразу в
+                            момент
+                            виробництва.</p>
+                        <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                            енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                            підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                            установок
+                            зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                        <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                            енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                            підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                            установок
+                            зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

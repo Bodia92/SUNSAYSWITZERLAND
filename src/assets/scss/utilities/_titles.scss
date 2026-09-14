@@ -37,6 +37,11 @@
     text-transform: uppercase;
     color: var(--black);
     margin-bottom: 16px;
+    font-family: var(--font-main);
+
+    @media (max-width: 991.98px) {
+        margin-bottom: 12px;
+    }
 
     &::before,
     &::after {

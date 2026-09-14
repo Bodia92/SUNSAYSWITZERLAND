@@ -34,7 +34,7 @@
     &__grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px 16px;
+        gap: 12px;
 
         &:not(:last-child) {
             margin-bottom: 40px;
@@ -47,6 +47,7 @@
         @media (min-width: 992px) {
             grid-template-columns: minmax(350px, 557px) minmax(0, 1fr);
             grid-template-rows: repeat(var(--blog-rows), 180px);
+            gap: 8px 16px;
 
             > :first-child {
                 grid-column: 1;
@@ -65,14 +66,16 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            min-height: 320px;
-            padding: 16px;
+            min-height: 350px;
+            padding: 20px;
             background: transparent;
+            border-radius: 20px;
 
             @media (min-width: 992px) {
                 min-height: 0;
                 aspect-ratio: 1;
                 height: fit-content;
+                border-radius: 24px;
             }
 
             .blog-card__media {
@@ -81,6 +84,11 @@
                 z-index: 0;
                 width: auto;
                 border-radius: 24px;
+
+                @media (max-width: 991.98px) {
+                    border-radius: 20px;
+                    aspect-ratio: 1;
+                }
             }
 
             .blog-card__content {
@@ -96,11 +104,22 @@
                 backdrop-filter: blur(12px);
                 -webkit-backdrop-filter: blur(12px);
                 border: 1px solid rgba(255, 255, 255, 0.16);
+
+                @media (max-width: 991.98px) {
+                    border-radius: 16px;
+                    padding: 16px;
+                    min-height: 92px;
+                }
             }
 
             .blog-card__go {
                 top: 12px;
                 right: 12px;
+
+                @media (max-width: 991.98px) {
+                    top: 8px;
+                    right: 8px;
+                }
             }
 
             .blog-card__date,
@@ -115,7 +134,7 @@
                 text-transform: uppercase;
                 letter-spacing: -0.04em;
                 color: var(--white);
-                @include av("font-size", 30, 18);
+                @include av("font-size", 30, 20);
             }
         }
     }

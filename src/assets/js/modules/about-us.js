@@ -32,6 +32,22 @@ function round(value) {
     return Math.round(value * 10) / 10;
 }
 
+function buildMobilePath({ xLogo, yLogo, xLeft, xRight, yTop, yBottom, r }) {
+    const t = r * CORNER_T;
+    const hook = Math.min(56, Math.max(32, (yBottom - yTop) * 0.12));
+
+    return [
+        `M${round(xLogo)} ${round(yLogo)}`,
+        `L${round(xLeft + r)} ${round(yTop)}`,
+        `C${round(xLeft + t)} ${round(yTop)} ${round(xLeft)} ${round(yTop + t)} ${round(xLeft)} ${round(yTop + r)}`,
+        `L${round(xLeft)} ${round(yBottom - r)}`,
+        `C${round(xLeft)} ${round(yBottom - t)} ${round(xLeft + t)} ${round(yBottom)} ${round(xLeft + r)} ${round(yBottom)}`,
+        `L${round(xRight - r)} ${round(yBottom)}`,
+        `C${round(xRight - t)} ${round(yBottom)} ${round(xRight)} ${round(yBottom - t)} ${round(xRight)} ${round(yBottom - r)}`,
+        `L${round(xRight)} ${round(yBottom - r - hook)}`,
+    ].join(" ");
+}
+
 function buildTrackPath({ xLeft, xRight, xLogo, xOff, yTopL, yTopR, yBottom, r }) {
     const t = r * CORNER_T;
 
@@ -82,7 +98,7 @@ function layoutAboutPath(section) {
 
     const shiftX = wrapper ? getTranslateX(wrapper) : 0;
     const desktop = isDesktop();
-    const stroke = desktop ? 24 : 16;
+    const stroke = desktop ? 24 : 12;
     const half = stroke / 2;
 
     const decorBox = localRect(decor, origin);
@@ -99,11 +115,40 @@ function layoutAboutPath(section) {
     const body1 = localRect(card1, origin, shiftX);
     const body2 = card2 ? localRect(card2, origin, shiftX) : null;
 
+    const xOff = width + stroke;
+    const yCenter = decorBox.top + decorBox.height / 2;
+
+    if (!desktop) {
+        const pad = half + 10;
+        const media1 = mediaBoxes[0];
+        const xLeft = body1.left + Math.min(24, body1.width * 0.12);
+        const xRight = Math.min(width - half, (media1?.right ?? body1.right) + pad);
+        const xLogo = decorBox.left + decorBox.width / 2;
+        const yLogo = yCenter;
+        const yTop = yLogo;
+        const yBottom = Math.max(body1.bottom, media1?.bottom ?? body1.bottom) + pad;
+        const spanX = Math.max(1, xRight - xLeft);
+        const spanY = Math.max(1, yBottom - yTop);
+        const r = Math.min(40, Math.max(24, Math.min(spanX / 4, spanY / 6)));
+
+        path.setAttribute(
+            "d",
+            buildMobilePath({
+                xLogo,
+                yLogo,
+                xLeft,
+                xRight,
+                yTop,
+                yBottom,
+                r,
+            }),
+        );
+        return;
+    }
+
     const xLeft = body1.left + body1.width / 2;
     const xRight = body2 ? body2.left + body2.width / 2 : width * 0.76;
     const xLogo = decorBox.left + decorBox.width;
-    const xOff = width + stroke;
-    const yCenter = decorBox.top + decorBox.height / 2;
     const yTopL = yCenter;
     const yTopR = yCenter;
 
@@ -114,11 +159,9 @@ function layoutAboutPath(section) {
         slider.getBoundingClientRect().bottom - origin.top,
     ].filter((value) => Number.isFinite(value));
 
-    const gap = desktop ? 72 : 40;
-    const yBottom = Math.max(...bottoms) + half + gap;
-
+    const yBottom = Math.max(...bottoms) + half + 72;
     const r = Math.min(
-        desktop ? 48 : 28,
+        48,
         Math.abs(xRight - xLeft) / 4,
         Math.max(16, (yBottom - yTopL) / 5),
         Math.max(16, (yBottom - yTopR) / 5),

@@ -101,6 +101,7 @@ export default class Accordion {
         if (!trigger.contains(e.target) && trigger !== e.target) return;
 
         e.preventDefault();
+        e.stopPropagation();
 
         if (this.config.oneOpen && !wrap.classList.contains("is-open")) {
             this.closeAll();

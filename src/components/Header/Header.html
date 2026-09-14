@@ -4,12 +4,12 @@
             <img src="@img/logo.svg" alt="SUNSAY NRG" width="170" height="40" />
         </a>
 
-        <div class="header__navbar">
+        <div class="header__navbar" id="mobile-menu">
             <div class="header__top">
                 <div class="header__top-row">
                     <div class="header__regions">
                         <ul class="menu">
-                            <li class="menu-item menu-item-has-children js-header-submenu">
+                            <li class="menu-item menu-item-has-children js-header-submenu js-header-regions">
                                 <div class="header__nav-parent">
                                     <a href="#">
                                         <svg class="icon header__pin" aria-hidden="true">
@@ -94,13 +94,13 @@
                 </div>
             </div>
 
-            <nav class="header__nav" aria-label="Основна навігація">
+            <nav class="header__nav" aria-label="Основна навігація" id="mobile-nav">
                 <ul class="menu">
                     <li class="menu-item menu-item-has-children js-header-submenu">
                         <div class="header__nav-parent">
                             <a href="#">
                                 <img src="@img/icons/business.svg" alt="Рішення" width="20" height="20" />
-                                <span></span>Рішення</span>
+                                <span>Рішення</span>
                             </a>
                             {{> Ui/NavChevron }}
                         </div>
@@ -145,7 +145,7 @@
 
                     <li class="menu-item menu-item-has-children js-header-submenu">
                         <div class="header__nav-parent">
-                            <a href="#">
+                            <a href="services.html">
                                 <img src="@img/icons/moremenu.svg" alt="Послуги" width="20" height="20" />
                                 <span>Послуги</span>
                             </a>
@@ -219,7 +219,20 @@
             </div>
         </div>
 
-        <button class="header__burger js-menu-trigger" type="button" aria-label="Відкрити меню" aria-expanded="false">
+        <div class="header__tools">
+            <button class="header__tool js-menu-regions" type="button" aria-label="Обрати регіон">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-location"></use>
+                </svg>
+            </button>
+            <a class="header__tool" href="tel:+380939145010" aria-label="Зателефонувати">
+                <svg class="icon" aria-hidden="true">
+                    <use href="@img/sprite.svg#icon-phone"></use>
+                </svg>
+            </a>
+        </div>
+
+        <button class="header__burger js-menu-trigger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-menu">
             <span></span>
         </button>
     </div>

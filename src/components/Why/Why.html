@@ -3,11 +3,11 @@
         <img src="@img/why.jpg" alt="" />
     </div>
 
-    <div class="why__container">
+    <div class="why__container" data-scroll-slider data-scroll-autoplay="false">
         <p class="why__label title-label">Наші переваги</p>
         <h2 class="why__title title">Чому <span>SUNSAY NRG</span>?</h2>
 
-        <ul class="why__list">
+        <ul class="why__list" data-scroll-track>
             {{> Why/WhyItem
             title="Інженерна експертиза"
             text="Реалізовуємо комерційні енергетичні проєкти з урахуванням технічних особливостей підприємства, графіка
@@ -34,6 +34,8 @@
             роботи підприємства."
             }}
         </ul>
+
+        {{> Ui/SliderNav scroll=true light=true }}
 
         <a href="#" class="why__more btn btn-main">
             <span>Дізнатись більше</span>

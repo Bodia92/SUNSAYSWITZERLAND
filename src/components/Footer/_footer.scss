@@ -8,7 +8,7 @@
     color: var(--white);
 
     @include mq-down(md) {
-        padding-top: 40px;
+        padding-top: 48px;
     }
 
     // .footer__container
@@ -34,7 +34,7 @@
             display: flex;
             flex-direction: column;
             row-gap: 0;
-            padding-bottom: 8px;
+            padding-bottom: 20px;
         }
     }
 
@@ -48,6 +48,7 @@
 
         @include mq-down(md) {
             gap: 24px;
+            width: 100%;
             padding-bottom: 24px;
             margin-bottom: 24px;
             border-bottom: 1px solid var(--footer-line);
@@ -61,7 +62,7 @@
         max-width: 100%;
 
         @include mq-down(md) {
-            width: 180px;
+            width: 340px;
         }
 
         img {
@@ -81,8 +82,7 @@
 
         @include mq-down(md) {
             width: 100%;
-            justify-content: space-between;
-            max-width: 280px;
+            justify-content: center;
         }
     }
 
@@ -126,10 +126,18 @@
         min-width: 0;
 
         @include mq-down(md) {
-            gap: 12px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 104px minmax(0, 1fr);
+            gap: 16px;
             padding-bottom: 24px;
             margin-bottom: 24px;
             border-bottom: 1px solid var(--footer-line);
+
+            .footer__label {
+                padding-top: 6px;
+                font-size: 14px;
+            }
         }
     }
 
@@ -169,6 +177,10 @@
         }
 
         .footer__nav--services & {
+            @include mq-down(md) {
+                gap: 12px;
+            }
+
             a {
                 font-family: var(--font-roboto);
                 font-weight: 500;
@@ -182,7 +194,8 @@
                 }
 
                 @include mq-down(md) {
-                    font-size: 22px;
+                    font-size: 32px;
+                    letter-spacing: 0;
                 }
             }
         }
@@ -212,6 +225,10 @@
         padding: 0;
         list-style: none;
 
+        @include mq-down(md) {
+            margin: 16px 0 0;
+        }
+
         li:first-child {
             .footer__contact {
                 border-top: 1px solid var(--footer-line);
@@ -229,6 +246,10 @@
         border-bottom: 1px solid var(--footer-line);
         color: var(--white);
         transition: color 0.3s ease;
+
+        @include mq-down(md) {
+            gap: 10px;
+        }
 
         @media (any-hover: hover) {
             &:hover {
@@ -278,7 +299,7 @@
 
     // .footer__contact-label
     &__contact-label {
-        font-size: 16px;
+        @include af(16, 12);
         font-weight: 400;
         line-height: 1.25;
         color: var(--footer-muted);
@@ -287,7 +308,7 @@
 
     // .footer__contact-value
     &__contact-value {
-        font-size: 20px;
+        @include af(20, 16);
         font-weight: 500;
         line-height: 1.25;
         color: inherit;
@@ -299,7 +320,6 @@
         margin-top: 20px;
 
         @include mq-down(md) {
-            width: 100%;
             justify-content: space-between;
         }
     }
@@ -316,7 +336,7 @@
 
         @include mq-down(sm) {
             flex-wrap: wrap;
-            padding: 16px 0 24px;
+            padding: 24px 0;
         }
     }
 
@@ -334,11 +354,16 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-size: 14px;
+        @include af(14, 12);
         font-weight: 400;
         line-height: 1.5;
         color: var(--white);
         transition: opacity 0.3s ease;
+
+        @include mq-down(md) {
+            line-height: 1;
+            max-width: 124px;
+        }
 
         img {
             display: block;
