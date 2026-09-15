@@ -185,6 +185,11 @@
             border-radius: 100px;
             white-space: nowrap;
 
+            @media (max-width: 991.98px) {
+                white-space: normal;
+                flex-shrink: 1;
+            }
+
             &::before {
                 content: "";
                 width: 8px;

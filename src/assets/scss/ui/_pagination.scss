@@ -39,11 +39,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 48px;
-    height: 48px;
+    min-width: 40px;
+    height: 40px;
     padding: 0 4px;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 1.5;
     color: var(--black);
     text-decoration: none;
@@ -84,8 +84,8 @@
 
         &::before {
             content: "";
-            width: 16px;
-            height: 16px;
+            width: 10px;
+            height: 10px;
             border-style: solid;
             border-color: currentColor;
         }

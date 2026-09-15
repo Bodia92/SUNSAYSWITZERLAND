@@ -1,5 +1,5 @@
 <section class="section objects">
-    <div class="objects__container">
+    <div class="objects__container" data-scroll-slider data-scroll-autoplay="false">
         {{#if label}}
         <p class="objects__label title-label">{{label}}</p>
         {{/if}}
@@ -8,8 +8,10 @@
         <h2 class="objects__title title">{{title}}{{#if accent}} <span>{{accent}}</span>{{/if}}</h2>
         {{/if}}
 
-        <ul class="objects__list">
+        <ul class="objects__list" data-scroll-track>
             {{> @partial-block }}
         </ul>
+
+        {{> Ui/SliderNav scroll=true }}
     </div>
 </section>

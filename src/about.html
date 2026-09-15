@@ -34,13 +34,13 @@
 
 
             <section class="section offers">
-                <div class="offers__container">
+                <div class="offers__container" data-scroll-slider data-scroll-autoplay="true">
                     <div class="offers__head">
                         <p class="offers__label title-label">Напрямки рішень</p>
                         <h2 class="offers__title title"><span>Що</span> ми робимо?</h2>
                     </div>
 
-                    <div class="offers__grid">
+                    <div class="offers__grid" data-scroll-track>
                         {{> Card/Card
                         image="articles/01.jpg"
                         title="Сонячні станції для бізнесу СЕС"
@@ -83,6 +83,7 @@
                         href="#"
                         }}
                     </div>
+                    {{> Ui/SliderNav scroll=true }}
                 </div>
             </section>
 
@@ -169,7 +170,13 @@
             title="ГАРАНТІЯ ДО 15 РОКІВ НА ОБЛАДНАННЯ"
             text="Надаємо гарантію на реалізовані рішення та забезпечуємо сервісну підтримку після введення системи в експлуатацію."
             }}
+
                         {{/FeatureBlock/FeatureBlock}}
+
+
+                        {{> Reviews/Reviews }}
+
+                        {{> Partners/Partners }}
 
                         {{#> MediaSlider/MediaSlider
                         label="Керівництво"
@@ -207,7 +214,6 @@
                         text="CTO"
                         }}
                             {{/MediaSlider/MediaSlider}}
-
 
                             <section class="section trust">
                                 <div class="trust__container">
@@ -262,10 +268,6 @@
                         text="Забезпечуємо контроль на всіх етапах — від аудиту та проєктування до запуску й сервісного обслуговування."
                         }}
                                 {{/MediaSlider/MediaSlider}}
-
-                                {{> Partners/Partners }}
-
-                                {{> Reviews/Reviews }}
 
                                 {{> Question/Question }}
 

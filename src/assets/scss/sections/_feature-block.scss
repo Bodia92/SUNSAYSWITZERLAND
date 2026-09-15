@@ -96,13 +96,42 @@
 
     // .feature-block__list
     &__list {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-wrap: nowrap;
         gap: 16px;
         list-style: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
 
-        @media (min-width: 768px) {
+        > .feature-card {
+            flex: 0 0 100%;
+            width: 100%;
+            min-width: 0;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        @media (min-width: 992px) {
+            display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
+            flex-wrap: unset;
+            overflow: visible;
+            scroll-snap-type: none;
+
+            > .feature-card {
+                flex: none;
+                width: auto;
+                scroll-snap-align: unset;
+            }
+        }
+    }
+
+    .swiper-nav {
+        @media (min-width: 992px) {
+            display: none;
         }
     }
 }

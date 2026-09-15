@@ -1,7 +1,14 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .gallery {
+    padding-top: 96px;
+    padding-bottom: 96px;
     background: var(--white);
+
+    @media (max-width: 991.98px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
 
     // .gallery__label
     &__label {

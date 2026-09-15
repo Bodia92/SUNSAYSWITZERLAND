@@ -19,6 +19,14 @@
         gap: 16px;
         padding: 24px;
         border-radius: 16px;
+
+        &:has(.feature-card__text) {
+            flex-direction: column;
+
+            .feature-card__body {
+                margin-top: auto;
+            }
+        }
     }
 
     &::after {

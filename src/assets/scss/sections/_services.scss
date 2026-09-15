@@ -1,7 +1,14 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .services {
+    padding-top: 96px;
+    padding-bottom: 96px;
     background: var(--white);
+
+    @media (max-width: 991.98px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
 
     // .services__grid
     &__grid {
@@ -13,7 +20,8 @@
         @media (max-width: 991.98px) {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            align-items: stretch;
+            gap: 20px;
         }
     }
 
@@ -58,8 +66,6 @@
 
     // .services__cta
     &__cta {
-        margin-top: auto;
-        margin-bottom: auto;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -70,8 +76,8 @@
         color: var(--white);
 
         @media (max-width: 991.98px) {
-            padding: 24px;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 16px;
         }
     }
 
@@ -111,13 +117,62 @@
         }
     }
 
+    // .services__cta-btn
+    &__cta-btn.btn-main {
+        @media (max-width: 991.98px) {
+            font-size: 16px;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 14px 12px 24px;
+        }
+    }
+
+    // .services__list-wrap
+    &__list-wrap {
+        width: 100%;
+    }
+
     // .services__list
     &__list {
         display: flex;
-        flex-direction: column;
+        flex-wrap: nowrap;
         gap: 16px;
+        width: 100%;
         min-width: 0;
         list-style: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+
+        > li {
+            flex: 0 0 100%;
+            width: 100%;
+            min-width: 0;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        @media (min-width: 992px) {
+            flex-direction: column;
+            flex-wrap: unset;
+            overflow: visible;
+            scroll-snap-type: none;
+            grid-row: span 2 / span 2;
+
+            > li {
+                flex: none;
+                width: auto;
+                scroll-snap-align: unset;
+            }
+        }
+    }
+
+    .swiper-nav {
+        @media (min-width: 992px) {
+            display: none;
+        }
     }
 
     // .services__item
@@ -138,6 +193,7 @@
         @media (max-width: 991.98px) {
             padding: 24px;
             border-radius: 16px;
+            height: 100%;
         }
 
         @media (any-hover: hover) {
@@ -173,6 +229,7 @@
 
     // .services__item-title
     &__item-title {
+        padding-right: 24px;
         font-family: var(--font-roboto);
         font-weight: 600;
         line-height: 1.2;

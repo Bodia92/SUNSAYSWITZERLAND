@@ -63,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
         media: "(max-width: 992px)",
     });
 
+    new Accordion(".js-faq-wrap");
+
     new Accordion(".js-quote-wrap", {
         triggerSelector: ".js-quote-trigger",
         bodySelector: ".js-quote-body",

@@ -1,15 +1,19 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
+.page--solutions {
+    .objects-map {
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+}
+
 .objects-map {
     position: relative;
     overflow: hidden;
     background: var(--white);
     padding-bottom: 0;
     @include av("padding-top", 96, 48);
-
-    &:not(:last-child) {
-        margin-bottom: 0px;
-    }
 
     // .objects-map__watermark
     &__watermark {

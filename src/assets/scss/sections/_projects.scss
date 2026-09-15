@@ -1,6 +1,10 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .projects {
+    .projects__container {
+        padding: 0;
+    }
+
     // .projects__label
     &__label {
         justify-content: center;
@@ -25,6 +29,10 @@
             }
         }
 
+        @media (max-width: 991.98px) {
+            gap: 20px;
+        }
+
         &[data-scroll-track] {
             &:not(:last-child) {
                 @media (max-width: 991.98px) {
@@ -35,9 +43,6 @@
             @media (max-width: 991.98px) {
                 flex-direction: row;
                 gap: 0;
-                width: calc(100% + var(--padding-container) * 2);
-                margin-left: calc(var(--padding-container) * -1);
-                margin-right: calc(var(--padding-container) * -1);
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
                 scroll-behavior: smooth;

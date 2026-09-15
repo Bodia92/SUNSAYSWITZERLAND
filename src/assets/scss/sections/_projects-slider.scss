@@ -10,6 +10,10 @@
 .projects-slider {
     overflow: hidden;
 
+    .projects-slider__container {
+        padding: 0;
+    }
+
     // .projects-slider__label
     &__label {
         justify-content: center;
