@@ -1,23 +1,23 @@
 <section class="section feature-block{{#if modifier}} feature-block--{{modifier}}{{/if}}">
     {{#if image}}
-    <div class="feature-block__bg">
-        <img src="@img/{{image}}" alt="" />
-    </div>
+        <div class="feature-block__bg">
+            <img src="@img/{{image}}" alt="" />
+        </div>
     {{/if}}
 
     {{#if decor}}
-    <div class="feature-block__decor">
-        <img src="@img/{{decor}}" alt="" />
-    </div>
+        <div class="feature-block__decor">
+            <img src="@img/{{decor}}" alt="" />
+        </div>
     {{/if}}
 
     <div class="feature-block__container" data-scroll-slider data-scroll-autoplay="false">
         {{#if label}}
-        <p class="feature-block__label title-label">{{label}}</p>
+            <p class="feature-block__label title-label">{{label}}</p>
         {{/if}}
 
         {{#if title}}
-        <h2 class="feature-block__title title">{{title}}</h2>
+            <h2 class="feature-block__title title">{{title}}{{#if accent}} <span>{{accent}}</span>{{/if}}</h2>
         {{/if}}
 
         <ul class="feature-block__list" data-scroll-track>
@@ -26,4 +26,10 @@
 
         {{> Ui/SliderNav scroll=true light=true }}
     </div>
+    {{#if more}}
+        <a href="#" class="feature-block__more btn btn-main">
+            <span>Дізнатись більше</span>
+            {{> Ui/ArrowIcon }}
+        </a>
+    {{/if}}
 </section>

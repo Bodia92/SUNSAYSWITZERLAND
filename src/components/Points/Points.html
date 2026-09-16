@@ -1,21 +1,23 @@
-<section class="section points{{#if decor}} points--decor{{/if}}{{#if row}} points--row{{/if}}">
-    <div class="points__container">
+<section class="section points{{#if bg}} points--bg{{/if}}{{#if decor}} points--decor{{/if}}{{#if row}} points--row{{/if}}">
+    <div class="points__container" data-scroll-slider data-scroll-autoplay="false">
         {{#if label}}
-        <p class="points__label title-label">{{label}}</p>
+            <p class="points__label title-label">{{label}}</p>
         {{/if}}
 
         {{#if title}}
-        <h2 class="points__title title">{{#if accent}}<span>{{{accent}}}</span> {{/if}}{{{title}}}</h2>
+            <h2 class="points__title title">{{#if accent}}<span>{{{accent}}}</span> {{/if}}{{{title}}}</h2>
         {{/if}}
 
-        <ul class="points__list">
+        <ul class="points__list" data-scroll-track>
             {{> @partial-block }}
         </ul>
+
+        {{> Ui/SliderNav scroll=true }}
     </div>
 
     {{#if decor}}
-    <div class="points__watermark" aria-hidden="true">
-        <img src="@img/nrg.svg" alt="" width="1359" height="282" />
-    </div>
+        <div class="points__watermark" aria-hidden="true">
+            <img src="@img/nrg.svg" alt="" width="1359" height="282" />
+        </div>
     {{/if}}
 </section>

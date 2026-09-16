@@ -72,6 +72,15 @@
         @media (max-width: 991.98px) {
             flex-grow: 1;
             min-height: 100%;
+            justify-content: center;
+        }
+    }
+
+    &:has(.hero__benefits) {
+        .hero__title {
+            @media (max-width: 991.98px) {
+                margin-top: auto;
+            }
         }
     }
 
@@ -85,10 +94,6 @@
         color: var(--white);
         @include av("font-size", 72, 34);
         animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-
-        @media (max-width: 991.98px) {
-            margin-top: auto;
-        }
 
         &:not(:last-child) {
             margin-bottom: 20px;

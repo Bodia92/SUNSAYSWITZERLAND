@@ -1,33 +1,40 @@
-<section class="section process" data-process>
+<section class="section process {{#if modifier}}process--modifier{{/if}}" data-process>
     <div class="process__container" data-scroll-slider>
-        <p class="process__label title-label">{{#if label}}{{label}}{{else}}Процес{{/if}}</p>
-
-        <h2 class="process__title title">
-            {{#if title}}
-            {{{title}}}{{#if accent}} <span>{{{accent}}}</span>{{/if}}
-            {{else}}
-            Як ми <span>впроваджуємо СЕС?</span>
-            {{/if}}
-        </h2>
-
+        {{#if label}}
+            <p class="process__label title-label">{{{label}}}</p>
+        {{/if}}
+        {{#if title}}
+            <h2 class="process__title title">
+                {{{title}}}{{#if accent}} <span>{{{accent}}}</span>{{/if}}
+            </h2>
+        {{/if}}
         <div class="process__grid">
             <div class="process__aside">
-                <p class="process__count">
-                    <span class="process__count-num" data-process-count></span>
-                    <span class="process__count-label">{{#if countLabel}}{{{countLabel}}}{{else}}Етапів до енергонезалежності{{/if}}</span>
-                </p>
+                {{#if count}}
+                    <p class="process__count">
+                        <span class="process__count-num" data-process-count></span>
+                        <span class="process__count-label">{{#if countLabel}}{{{countLabel}}}{{else}}Етапів до енергонезалежності{{/if}}</span>
+                    </p>
+                {{/if}}
+                {{#if text}}
+                    <p class="process__lead">
+                        {{{text}}}
+                    </p>
+                {{/if}}
+                {{#if sublabel}}
+                    <div class="process__sublabel title-label">
+                        {{{sublabel}}}
+                    </div>
+                {{/if}}
+                {{#if subtitle}}
+                    <p class="process__subtitle title">{{#if subtitleAccent}}<span>{{{subtitleAccent}}}</span>{{/if}}{{{subtitle}}} {{#if subtitleAccentRight}}<span>{{{subtitleAccentRight}}}</span>{{/if}}</p>
+                {{/if}}
 
-                <p class="process__lead">
-                    {{#if text}}
-                    {{{text}}}
-                    {{else}}
-                    Прозорий і зрозумілий процес — від аналізу вашого споживання до стабільної роботи енергосистеми на об'єкті.
-                    {{/if}}
-                </p>
-
-                <div class="process__media">
-                    <img src="@img/{{#if image}}{{image}}{{else}}why.jpg{{/if}}" alt="{{#if imageAlt}}{{imageAlt}}{{else}}Процес впровадження СЕС{{/if}}" width="800" height="560" />
-                </div>
+                {{#if image}}
+                    <div class="process__media">
+                        <img src="@img/{{#if image}}{{image}}{{else}}why.jpg{{/if}}" alt="{{#if imageAlt}}{{imageAlt}}{{else}}Процес впровадження СЕС{{/if}}" width="800" height="560" />
+                    </div>
+                {{/if}}
             </div>
 
             <div class="process__main">
@@ -36,11 +43,12 @@
                 </ul>
 
                 {{> Ui/SliderNav scroll=true }}
-
-                <a class="process__btn btn btn-main" href="#" data-popup-target="#contact-us">
-                    <span>{{#if btn}}{{btn}}{{else}}Почати з технічного аудиту{{/if}}</span>
-                    {{> Ui/ArrowIcon }}
-                </a>
+                {{#if btn}}
+                    <a class="process__btn btn btn-main" href="#" data-popup-target="#contact-us">
+                        <span>{{{btn}}}</span>
+                        {{> Ui/ArrowIcon }}
+                    </a>
+                {{/if}}
             </div>
         </div>
     </div>

@@ -53,6 +53,23 @@
         -webkit-mask-composite: xor;
     }
 
+    // нумерація замість іконки (01, 02…)
+    &:not(:has(.feature-card__icon)) {
+        counter-increment: feature-card;
+
+        &::before {
+            content: counter(feature-card, decimal-leading-zero);
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+            font-family: var(--font-roboto);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--yellow-brand);
+            @include av("font-size", 24, 16);
+        }
+    }
+
     // .feature-card__icon
     &__icon {
         position: relative;

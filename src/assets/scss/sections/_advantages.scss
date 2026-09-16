@@ -1,0 +1,60 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.advantages {
+    // .advantages__label
+    &__label {
+        justify-content: center;
+    }
+
+    // .advantages__title
+    &__title {
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    // .advantages__list
+    &__list {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        align-items: stretch;
+        gap: 16px;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+
+        > .advantage-card {
+            min-width: 0;
+            height: auto;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-auto-flow: row;
+            grid-auto-columns: unset;
+            gap: 16px;
+            overflow: visible;
+            scroll-snap-type: none;
+
+            > .advantage-card {
+                height: 100%;
+                scroll-snap-align: unset;
+            }
+        }
+    }
+
+    .swiper-nav {
+        @media (min-width: 992px) {
+            display: none;
+        }
+    }
+}
