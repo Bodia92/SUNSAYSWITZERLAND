@@ -17,7 +17,7 @@
         {{/if}}
 
         {{#if title}}
-            <h2 class="feature-block__title title">{{title}}{{#if accent}} <span>{{accent}}</span>{{/if}}</h2>
+            <h2 class="feature-block__title title">{{#if accentLeft}} <span>{{accentLeft}}</span>{{/if}} {{title}}{{#if accentRight}} <span>{{accentRight}}</span>{{/if}}</h2>
         {{/if}}
 
         <ul class="feature-block__list" data-scroll-track>

@@ -144,6 +144,14 @@
         width: 100%;
         margin-top: auto;
         animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s both;
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 24px;
+            }
+        }
     }
 
     // .hero__benefits-label
