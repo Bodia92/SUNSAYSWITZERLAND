@@ -65,6 +65,15 @@
         text-transform: uppercase;
         color: var(--black);
         @include af(48, 32);
+
+        span {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: var(--black);
+        }
     }
 
     // .utp-card__unit
@@ -75,5 +84,22 @@
         letter-spacing: -0.02em;
         text-transform: uppercase;
         color: var(--black);
+    }
+
+    // .utp-card__text
+    &__text {
+        @include af(32, 20);
+        font-weight: 700;
+        font-family: var(--font-roboto);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--black);
+
+        span {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1;
+        }
     }
 }

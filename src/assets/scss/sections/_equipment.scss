@@ -5,6 +5,16 @@
     @include av("padding-top", 96, 48);
     @include av("padding-bottom", 96, 48);
 
+    &--bg {
+        background: var(--bg);
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .equipment__item {
+            background: var(--white);
+        }
+    }
+
     // .equipment__label
     &__label {
         justify-content: center;

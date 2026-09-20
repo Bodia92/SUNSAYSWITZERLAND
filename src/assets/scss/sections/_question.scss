@@ -79,6 +79,7 @@
     // .question__title
     &__title {
         text-align: center;
+        text-wrap: balance;
 
         &:not(:last-child) {
             margin-bottom: 8px;

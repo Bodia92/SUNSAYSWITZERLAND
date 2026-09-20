@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+{{> Head/Head title="SUNSAYENERGY" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--electricity">
+            <section class="hero">
+                {{> Breadcrumbs/Breadcrumbs
+                            home="SUNSAY NRG"
+                            homeUrl="/"
+                            current="Гібридні рішення для бізнесу СЕС + УЗЕ "
+                            }}
+                <div class="hero__container">
+                    <div class="hero__banner">
+                        <div class="hero__media">
+                            <img src="@img/hero11.jpg" alt="Сонячна електростанція SUNSAY NRG" width="1920" height="1080" />
+                        </div>
+                        <div class="hero__content">
+                            <h1 class="hero__title">
+                                Гібридні рішення для бізнесу
+                                СЕС + УЗЕ
+                            </h1>
+                            <p class="hero__text">Зменшуйте витрати на електроенергію від 30% та забезпечуйте безперебійну роботу підприємства.</p>
+
+                            <a href="#" class="hero__btn btn btn-main" data-popup-target="#contact-us">
+                                <span>Отримати розрахунок</span>
+                                {{> Ui/ArrowIcon }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {{#> Benefits/Benefits 
+                label="Переваги"
+                title="<span>проблема,</span> яку вирішує гібридна система"
+            }}
+
+                {{> Why/WhyItem
+            title="ВИСОКІ ВИТРАТИ НА ЕЛЕКТРОЕНЕРГІЮ"
+            text="Вартість електроенергії постійно зростає, а пікові тарифи збільшують витрати підприємства. СЕС разом з УЗЕ допомагають суттєво скоротити витрати та ефективніше використовувати власну генерацію."
+            }}
+                {{> Why/WhyItem
+            title="Відключення = простій і втрати"
+            text="Навіть короткочасна відсутність електроенергії може призвести до зупинки виробництва, втрати продукції та фінансових збитків. УЗЕ забезпечує резервне живлення критично важливого обладнання."
+            }}
+                {{> Why/WhyItem
+            title="СОНЯЧНА ЕНЕРГІЯ ВДЕНЬ, СПОЖИВАННЯ — У ПІКИ"
+            text="Найбільше споживання часто припадає на ранкові та вечірні години, коли генерація СЕС нижча. Установка зберігання енергії накопичує надлишок вдень і віддає його тоді, коли він найбільше потрібен."
+            }}
+                {{> Why/WhyItem
+            title="НЕПОВНЕ ВИКОРИСТАННЯ ВЛАСНОЇ ГЕНЕРАЦІЇ"
+            text="Без накопичення частина виробленої електроенергії використовується не максимально ефективно. УЗЕ дозволяє зберігати надлишок і використовувати його у години дорогих тарифів або під час перебоїв із мережею."
+            }}
+            {{/Benefits/Benefits}}
+
+            {{#> Process/Process
+            label="Процес"
+            title="Як це <span>працює?</span>"
+            compareImage="energy-balance.svg"
+            }}
+                {{> Process/ProcessStep
+            title="Вдень СЕС виробляє енергію, коли тариф найнижчий"
+            text="Сонячна електростанція забезпечує підприємство власною
+електроенергією. Надлишок, який не використовується одразу,
+автоматично спрямовується до установки зберігання енергії."
+            }}
+                {{> Process/ProcessStep
+            title="Надлишок накопичується в УЗЕ"
+            text="Установка зберігання енергії накопичує вироблену вдень
+електроенергію та зберігає її до моменту, коли вона потрібна
+найбільше."
+            }}
+                {{> Process/ProcessStep
+            title="УВЕЧЕРІ, У ПІКОВІ ГОДИНИ
+ТА ПІД ЧАС ВІДКЛЮЧЕНЬ ПРАЦЮЄ УЗЕ"
+            text="Накопичена енергія використовується у години дорогих тарифів
+або під час перебоїв з електропостачанням, забезпечуючи
+безперервну роботу підприємства."
+            }}
+                {{> Process/ProcessStep
+            title="НАДЛИШОК МОЖНА ПРОДАТИ В МЕРЕЖУ (ОПЦІЙНО)"
+            text="Якщо є надлишок електроенергії, його можна реалізувати в мережу
+за моделлю активного споживача та отримувати додатковий дохід."
+            }}
+                {{/Process/Process}}
+
+                <section class="section compare">
+                    <div class="compare__container">
+                        <p class="compare__label title-label">Порівняння</p>
+                        <h2 class="compare__title title">Порівняння <span>СЕС, УЗЕ та СЕС+УЗЕ</span></h2>
+
+                        <div class="compare__layout">
+                            <div class="compare__scroll" data-compare-scroll>
+                                <div class="compare__table-wrap" data-compare-track>
+                                    <table class="compare__table">
+                                        <thead>
+                                            <tr>
+                                                <th class="compare__criterion" scope="col">Критерій</th>
+                                                <th class="compare__col" scope="col">СЕС</th>
+                                                <th class="compare__col" scope="col">УЗЕ</th>
+                                                <th class="compare__col" scope="col">СЕС+УЗЕ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Генерація власної енергії</th>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--no" aria-label="Ні">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M3 3l6 6M9 3 3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Накопичення енергії</th>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--no" aria-label="Ні">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M3 3l6 6M9 3 3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Робота під час відключень</th>
+                                                <td class="compare__col">Частково</td>
+                                                <td class="compare__col">Повністю</td>
+                                                <td class="compare__col">Повністю</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Автономність / незалежність від мережі</th>
+                                                <td class="compare__col">Низька</td>
+                                                <td class="compare__col">Середня</td>
+                                                <td class="compare__col">Висока</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Оптимізація пікових навантажень</th>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--no" aria-label="Ні">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M3 3l6 6M9 3 3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Арбітраж тарифів</th>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--no" aria-label="Ні">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M3 3l6 6M9 3 3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Окупність інвестицій</th>
+                                                <td class="compare__col">До 3 років</td>
+                                                <td class="compare__col">4–5 років</td>
+                                                <td class="compare__col">3–4 роки</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Рівень економії</th>
+                                                <td class="compare__col">Середній</td>
+                                                <td class="compare__col">Середній</td>
+                                                <td class="compare__col">Максимальний</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Можливість продажу в мережу</th>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--no" aria-label="Ні">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M3 3l6 6M9 3 3 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                                <td class="compare__col">
+                                                    <span class="compare__icon compare__icon--yes" aria-label="Так">
+                                                        <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                                            <path d="M2 6.2 4.6 8.8 10 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="compare__criterion" scope="row">Вартість впровадження</th>
+                                                <td class="compare__col">Нижча</td>
+                                                <td class="compare__col">Середня</td>
+                                                <td class="compare__col">Вища</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="compare__bar" data-compare-bar aria-hidden="true">
+                                    <span class="compare__bar-fill" data-compare-fill></span>
+                                    <span class="compare__bar-thumb" data-compare-thumb></span>
+                                </div>
+                            </div>
+
+                            <div class="compare__aside">
+                                <h3 class="compare__aside-title">
+                                    ЧОМУ КОМБІНАЦІЯ СЕС + УЗЕ ДАЄ БІЛЬШЕ, НІЖ КОЖНЕ РІШЕННЯ ОКРЕМО?
+                                </h3>
+                                <div class="compare__aside-text">
+                                    <p>
+                                        Сонячна електростанція виробляє дешеву електроенергію, а установка зберігання енергії дозволяє використовувати її саме тоді, коли це найбільш вигідно. Разом вони зменшують витрати на електроенергію, знижують навантаження на мережу та забезпечують резервне живлення під час аварійних відключень.
+                                    </p>
+                                    <p>
+                                        Комбінація СЕС та УЗЕ відкриває додаткові можливості для бізнесу: енергетичний арбітраж, оптимізацію пікових навантажень, роботу за моделлю активного споживача та продаж надлишкової електроенергії в мережу. Саме комплексне рішення забезпечує максимальну економічну ефективність, швидшу окупність інвестицій і більшу енергетичну незалежність підприємства.
+                                    </p>
+                                </div>
+                                <a href="#" class="compare__btn btn btn-main" data-popup-target="#contact-us">
+                                    <span>Отримати консультацію</span>
+                                    {{> Ui/ArrowIcon }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {{#> Points/Points
+            label="Актуальність"
+            title="Що отримує бізнес?"
+            decor=true
+            row=true
+            }}
+                    {{> Points/PointCard
+            icon="econom"
+            title="ЕКОНОМІЯ ДО 30%"
+            text="Середня економія на витратах на електроенергію завдяки поєднанню сонячної електростанції та установки зберігання енергії становить близько 30%. Фактичний результат залежить від особливостей роботи підприємства."
+            }}
+                    {{> Points/PointCard
+            icon="24h"
+            title="Безперебійна робота 24/7 "
+            text="Система автоматично забезпечує резервне живлення критично важливого обладнання під час аварійних відключень, допомагаючи уникнути простоїв і виробничих втрат."
+            }}
+                    {{> Points/PointCard
+            icon="graf3"
+            title="Контроль пікових навантажень"
+            text="Установка зберігання енергії покриває пікове споживання, зменшуючи навантаження на мережу та витрати на електроенергію."
+            }}
+                    {{> Points/PointCard
+            icon="rotate"
+            title="Часткова або повна автономія"
+            text="EMS автоматично керує потоками енергії між СЕС, УЗЕ, мережею та споживачами, забезпечуючи максимальну економію, ефективність і безперервність роботи."
+            }}
+
+                    {{> Points/PointCard
+            icon="filter"
+            title="РОЗУМНЕ УПРАВЛІННЯ ЕНЕРГІЄЮ"
+            text="Система може забезпечувати резервне живлення окремих критичних споживачів або всього підприємства — залежно від ваших потреб і конфігурації рішення."
+            }}
+                    {{/Points/Points}}
+
+                    {{#> Process/Process
+            label="Процес"
+            title="Як ми <span>впроваджуємо</span> СЕС та УЗЕ"
+            count=true
+            countLabel="Етапів до енергонезалежності"
+            text="Прозорий і зрозумілий процес — від аналізу вашого споживання до стабільної роботи енергосистеми на об'єкті."
+            image="articles/05.jpg"
+            btn="Почати з технічного аудиту"
+            }}
+                        {{> Process/ProcessStep
+            title="Технічний аудит"
+            text="Аналізуємо енергоспоживання, особливості об'єкта та визначаємо оптимальну конфігурацію рішення."
+            }}
+                        {{> Process/ProcessStep
+            title="Розрахунок і комерційна пропозиція"
+            text="Готуємо фінансову модель із прогнозом економії, термінами окупності та підбираємо оптимальне рішення під ваш бізнес."
+            }}
+                        {{> Process/ProcessStep
+            title="Проєкт і дозвільна документація"
+            text="Розробляємо проєкт відповідно до норм і супроводжуємо отримання всіх необхідних погоджень."
+            }}
+                        {{> Process/ProcessStep
+            title="Поставка і монтаж"
+            text="Постачаємо обладнання та виконуємо монтаж із урахуванням безпеки й без зупинки роботи об'єкта."
+            }}
+                        {{> Process/ProcessStep
+            title="Введення в експлуатацію, сервіс, моніторинг"
+            text="Запускаємо систему, налаштовуємо моніторинг і забезпечуємо технічну підтримку для стабільної роботи."
+            }}
+                        {{/Process/Process}}
+                        {{> Projects/Projects }}
+
+                        {{#> Process/Process
+            sublabel="Гарантії та сервіс"
+            subtitle="<span>Гарантії</span> та супровід"
+            textSide="Ми відповідаємо не лише за якісний монтаж, а й за стабільну роботу системи протягом усього терміну експлуатації. Забезпечуємо гарантійне обслуговування, онлайн-моніторинг та сервісну підтримку, щоб ваше підприємство отримувало максимальну ефективність від інвестицій."
+            }}
+                            {{> Process/ProcessStep
+            title="Гарантії на компоненти: до 15 років"
+            text="Використовуємо обладнання Tier 1 від провідних світових виробників
+із тривалою офіційною гарантією та підтвердженою надійністю."
+            }}
+                            {{> Process/ProcessStep
+            title="Гарантія на монтаж  "
+            text="Надаємо гарантію на виконані монтажні роботи та відповідаємо
+за якість реалізації проєкту на кожному етапі."
+            }}
+                            {{> Process/ProcessStep
+            title="Онлайн-моніторинг"
+            text="У режимі реального часу контролюйте виробіток СЕС, заряд УЗЕ,
+споживання та ключові показники роботи системи через зручний застосунок."
+            }}
+                            {{> Process/ProcessStep
+            title="Сервісна підтримка 24/7 (опційно)"
+            text="За потреби забезпечуємо цілодобовий моніторинг, оперативну
+технічну підтримку та швидке реагування на будь-які несправності."
+            }}
+                            {{/Process/Process}}
+
+
+                            {{> Why/Why }}
+
+                            {{#> Faq/Faq }}
+                                {{> Faq/FaqItem
+      
+            question="Скільки коштує СЕС для підприємства?"
+            answer="Для більшості бізнесів термін окупності становить 2-3 роки. Це залежить від профілю споживання, тарифів та сценарію використання електроенергії. Після цього станція фактично починає генерувати чисту економію."
+            }}
+                                {{> Faq/FaqItem
+            question="Яка окупність СЕС та УЗЕ?"
+            answer="Мережева СЕС без накопичення під час відключень не працює — це вимога безпеки. Якщо потрібне живлення при блекауті, використовуємо гібридну систему з УЗЕ: станція продовжує забезпечувати критичні навантаження."
+            }}
+                                {{> Faq/FaqItem
+            question="Чи можна встановити лише УЗЕ без СЕС?"
+            answer="Економія залежить від денного споживання, тарифу та потужності станції. Для більшості підприємств СЕС покриває значну частину денного навантаження і знижує витрати на електроенергію до 50%. Точні цифри рахуємо після аналізу вашого профілю споживання."
+            }}
+                                {{> Faq/FaqItem
+            question="Скільки часу триває реалізація проєкту під ключ?"
+            answer="Ні, монтаж зазвичай не зупиняє виробництво. Роботи ведуться на даху, навісах або вільній території, а підключення узгоджуємо так, щоб не переривати робочі процеси підприємства."
+            }}
+                                {{> Faq/FaqItem
+            question="Чи працюватиме система під час відключень електроенергії?"
+            answer="Так. СЕС інтегрується з мережею, генераторами та установками зберігання енергії. Гібридна схема дає стабільне живлення, гнучке управління споживанням і резерв на випадок відключень."
+            }}
+                                {{> Faq/FaqItem
+            question="Хто займається погодженнями та документами?"
+            answer="Наші спеціалісти аналізують ваші потреби, розробляють проєкт, отримують необхідні погодження та забезпечують безперебійну роботу системи протягом усього терміну експлуатації."
+            }}
+
+                                {{> Faq/FaqItem
+            question="Що таке статус активного споживача та навіщо він потрібний?"
+            answer="Наші спеціалісти аналізують ваші потреби, розробляють проєкт, отримують необхідні погодження та забезпечують безперебійну роботу системи протягом усього терміну експлуатації."
+            }}
+                                {{> Faq/FaqItem
+            question="Які гарантії на обладнання?"
+            answer="Наші спеціалісти аналізують ваші потреби, розробляють проєкт, отримують необхідні погодження та забезпечують безперебійну роботу системи протягом усього терміну експлуатації."
+            }}
+
+                                {{> Faq/FaqItem
+            question="Чи потрібна окрема територія під станцію?"
+            answer="Наші спеціалісти аналізують ваші потреби, розробляють проєкт, отримують необхідні погодження та забезпечують безперебійну роботу системи протягом усього терміну експлуатації."
+            }}
+
+                            {{/Faq/Faq}}
+
+                            {{> Question/Question
+                        quote=true
+                        formId="question-quote"
+                        title="Отримайте"
+                        accent="інженерну консультацію"
+                        after="для вашого об'єкта"
+                        }}
+
+                            <section class="section seo-section">
+                                <div class="seo-section__container">
+                                    <div class="seo-section__content editor">
+                                        <h2>Як сонячна електростанція оптимізує витрати бізнесу</h2>
+                                        <p> Сонячна електростанція дозволяє бізнесу зменшити залежність від коливань тарифів та частково
+                                            компенсувати власне споживання електроенергії. Найбільший ефект досягається для підприємств
+                                            зі
+                                            стабільним денним навантаженням, де значна частина генерації використовується одразу в
+                                            момент
+                                            виробництва.</p>
+                                        <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                            енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                            підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                            установок
+                                            зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                                        <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                            енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                            підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                            установок
+                                            зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                                    </div>
+                                </div>
+                            </section>
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

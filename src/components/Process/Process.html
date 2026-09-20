@@ -1,4 +1,4 @@
-<section class="section process {{#if modifier}}process--modifier{{/if}}" data-process>
+<section class="section process {{#if modifier}}process--modifier{{/if}} {{#if mod}}process--{{mod}} {{/if}}" data-process>
     <div class="process__container" data-scroll-slider>
         {{#if label}}
             <p class="process__label title-label">{{{label}}}</p>
@@ -30,9 +30,25 @@
                     <p class="process__subtitle title">{{#if subtitleAccent}}<span>{{{subtitleAccent}}}</span> {{/if}}{{{subtitle}}} {{#if subtitleAccentRight}}<span>{{{subtitleAccentRight}}}</span>{{/if}}</p>
                 {{/if}}
 
+                {{#if textSide}}
+                    <p class="process__text-side">{{{textSide}}}</p>
+                {{/if}}
+
                 {{#if image}}
                     <div class="process__media">
                         <img src="@img/{{#if image}}{{image}}{{else}}why.jpg{{/if}}" alt="{{#if imageAlt}}{{imageAlt}}{{else}}Процес впровадження СЕС{{/if}}" width="800" height="560" />
+                    </div>
+                {{/if}}
+
+                {{#if compareImage}}
+                    <div class="process__compare-image" data-compare-scroll>
+                        <div class="process__compare-track" data-compare-track>
+                            <img src="@img/{{compareImage}}" alt="{{#if compareImageAlt}}{{compareImageAlt}}{{else}}Як це працює{{/if}}" width="672" height="771" />
+                        </div>
+                        <div class="process__compare-bar" data-compare-bar aria-hidden="true">
+                            <span class="process__compare-bar-fill" data-compare-fill></span>
+                            <span class="process__compare-bar-thumb" data-compare-thumb></span>
+                        </div>
                     </div>
                 {{/if}}
             </div>
@@ -51,5 +67,11 @@
                 {{/if}}
             </div>
         </div>
+
+        {{#if decor}}
+            <div class="process__watermark" aria-hidden="true">
+                <img src="@img/nrg.svg" alt="" width="1359" height="282" />
+            </div>
+        {{/if}}
     </div>
 </section>
