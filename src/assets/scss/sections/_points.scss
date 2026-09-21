@@ -81,8 +81,16 @@
     }
 
     &--decor {
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
         background: var(--white);
+
+        &::before {
+            display: none;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
 
         .point-card {
             background: var(--bg);

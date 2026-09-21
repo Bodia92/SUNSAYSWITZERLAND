@@ -80,6 +80,7 @@
     &__title {
         text-align: center;
         text-wrap: balance;
+        @include af(40, 32);
 
         &:not(:last-child) {
             margin-bottom: 8px;
