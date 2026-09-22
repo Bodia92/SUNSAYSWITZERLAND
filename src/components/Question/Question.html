@@ -22,6 +22,8 @@
                 {{> Form/DiagnosticForm formId=formId }}
                 {{else if quote}}
                 {{> Form/QuoteForm formId=formId }}
+                {{else if estimate}}
+                {{> Form/EstimateForm formId=formId }}
                 {{else}}
                 {{> Form/ContactForm formId=formId }}
                 {{/if}}

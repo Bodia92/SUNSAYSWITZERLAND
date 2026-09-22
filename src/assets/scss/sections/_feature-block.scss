@@ -143,14 +143,6 @@
         overscroll-behavior-x: contain;
         counter-reset: feature-card;
 
-        &:not(:last-child) {
-            margin-bottom: 48px;
-
-            @media (max-width: 991.98px) {
-                margin-bottom: 32px;
-            }
-        }
-
         > .feature-card {
             flex: 0 0 100%;
             width: 100%;
@@ -182,16 +174,24 @@
     }
 
     .swiper-nav {
+        margin-top: 32px;
+
         @media (min-width: 992px) {
             display: none;
         }
     }
 
     // .feature-block__more
-    &__more {
+    .feature-block__more {
         position: relative;
         z-index: 2;
+        margin-top: 48px;
         margin-left: auto;
         margin-right: auto;
+
+        @media (max-width: 991.98px) {
+            margin-top: 20px;
+            display: none;
+        }
     }
 }
