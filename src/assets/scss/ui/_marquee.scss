@@ -1,5 +1,5 @@
 [data-marquee] {
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     width: 100%;
 
@@ -14,20 +14,25 @@
 
 .marquee-track {
     display: flex;
-    width: max-content; // Трек розтягується на всю ширину контенту
+    width: max-content;
     flex-shrink: 0;
-
-    // Анімація завжди йде до -50%
-    // Тому що у нас є 2 однакові групи. Коли перша повністю виїхала (-50%),
-    // друга стоїть рівно на місці першої. В цей момент анімація стрибає в 0.
-    animation: marquee-scroll var(--marquee-duration) linear infinite;
-
-    // Оптимізація
+    animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
     will-change: transform;
+    backface-visibility: hidden;
 
-    // Пауза при наведенні (опціонально)
-    &:hover {
-        animation-play-state: paused;
+    [data-marquee].is-reverse & {
+        animation-name: marquee-scroll-reverse;
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none !important;
+        transform: none !important;
     }
 }
 
@@ -35,9 +40,6 @@
     display: flex;
     flex-shrink: 0;
     align-items: center;
-
-    img {
-    }
 }
 
 @keyframes marquee-scroll {
@@ -45,8 +47,16 @@
         transform: translate3d(0, 0, 0);
     }
     100% {
-        // Рухаємо рівно на ширину однієї групи
         transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@keyframes marquee-scroll-reverse {
+    0% {
+        transform: translate3d(-50%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
     }
 }
 

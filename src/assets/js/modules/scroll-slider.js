@@ -2,6 +2,13 @@ export function initScrollSliders() {
     document.querySelectorAll("[data-scroll-slider]").forEach(initOne);
 }
 
+function parseAutoplayMs(attr) {
+    if (attr === "false" || attr === "0") return 0;
+    if (attr == null || attr === "" || attr === "true") return 4000;
+    const n = Number.parseInt(attr, 10);
+    return Number.isFinite(n) && n > 0 ? n : 4000;
+}
+
 function initOne(root) {
     const track = root.querySelector("[data-scroll-track]");
     const prev = root.querySelector("[data-scroll-prev]");
@@ -10,15 +17,16 @@ function initOne(root) {
 
     if (!track) return;
 
-    const autoplayAttr = root.getAttribute("data-scroll-autoplay");
-    const autoplayMs =
-        autoplayAttr === "false" ? 0 : Number.parseInt(autoplayAttr || "4000", 10) || 4000;
+    const autoplayMs = parseAutoplayMs(root.getAttribute("data-scroll-autoplay"));
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let autoplayTimer = null;
     let resumeTimer = null;
+    let programmatic = false;
+    let programmaticTimer = null;
+    let visible = true;
 
-    const items = () => [...track.children];
+    const items = () => [...track.children].filter((el) => el.nodeType === 1);
 
     function itemOffset(item) {
         return item.offsetLeft - (Number.parseFloat(getComputedStyle(track).paddingLeft) || 0);
@@ -45,7 +53,9 @@ function initOne(root) {
     }
 
     function navIsVisible() {
-        return Boolean(nav && nav.offsetParent !== null);
+        if (!nav) return false;
+        // display:none → offsetParent null; також ловимо visibility через розміри
+        return nav.offsetParent !== null && nav.getClientRects().length > 0;
     }
 
     function update() {
@@ -57,12 +67,36 @@ function initOne(root) {
         next?.classList.toggle("swiper-button-disabled", !overflow || x >= max - 2);
     }
 
+    function markProgrammatic(duration = 700) {
+        programmatic = true;
+        clearTimeout(programmaticTimer);
+        programmaticTimer = window.setTimeout(() => {
+            programmatic = false;
+        }, duration);
+    }
+
     function go(dir, { loop = false } = {}) {
         const children = items();
-        if (!children.length) return;
+        if (!children.length || !canScroll()) return;
 
-        let index = currentIndex() + dir;
+        const from = currentIndex();
+        let index = from + dir;
+
         if (loop) {
+            if (dir > 0 && from >= children.length - 1) {
+                // Миттєвий wrap на початок — smooth + scroll-snap часто «зависає» на останньому
+                markProgrammatic(50);
+                track.scrollTo({ left: 0, behavior: "auto" });
+                update();
+                return;
+            }
+            if (dir < 0 && from <= 0) {
+                const last = children[children.length - 1];
+                markProgrammatic(50);
+                track.scrollTo({ left: itemOffset(last), behavior: "auto" });
+                update();
+                return;
+            }
             index = (index + children.length) % children.length;
         } else {
             index = Math.min(children.length - 1, Math.max(0, index));
@@ -71,43 +105,52 @@ function initOne(root) {
         const target = children[index];
         if (!target) return;
 
+        markProgrammatic();
         track.scrollTo({
             left: itemOffset(target),
-            behavior: "smooth",
+            behavior: reduceMotion ? "auto" : "smooth",
         });
     }
 
     function shouldAutoplay() {
         return Boolean(
-            autoplayMs && !reduceMotion && !document.hidden && navIsVisible() && canScroll(),
+            autoplayMs &&
+                !reduceMotion &&
+                !document.hidden &&
+                visible &&
+                navIsVisible() &&
+                canScroll(),
         );
     }
 
     function stopAutoplay() {
         if (autoplayTimer) {
-            clearInterval(autoplayTimer);
+            clearTimeout(autoplayTimer);
             autoplayTimer = null;
         }
     }
 
-    function startAutoplay() {
-        if (autoplayTimer || !shouldAutoplay()) return;
+    function scheduleAutoplay() {
+        stopAutoplay();
+        if (!shouldAutoplay()) return;
 
-        autoplayTimer = window.setInterval(() => {
-            if (!shouldAutoplay()) {
-                stopAutoplay();
-                return;
-            }
+        autoplayTimer = window.setTimeout(() => {
+            autoplayTimer = null;
+            if (!shouldAutoplay()) return;
             go(1, { loop: true });
+            // Наступний тік плануємо завжди — навіть після wrap
+            scheduleAutoplay();
         }, autoplayMs);
     }
 
     function syncAutoplay() {
-        if (shouldAutoplay()) startAutoplay();
+        if (shouldAutoplay()) scheduleAutoplay();
         else stopAutoplay();
     }
 
     function bumpAutoplay() {
+        // Ігноруємо програмний скрол, інакше автоплей глушиться після першого кроку
+        if (programmatic) return;
         stopAutoplay();
         clearTimeout(resumeTimer);
         resumeTimer = window.setTimeout(syncAutoplay, autoplayMs);
@@ -127,6 +170,13 @@ function initOne(root) {
 
     track.addEventListener("scroll", update, { passive: true });
     track.addEventListener("pointerdown", bumpAutoplay);
+    track.addEventListener(
+        "touchstart",
+        () => {
+            bumpAutoplay();
+        },
+        { passive: true },
+    );
     track.addEventListener("wheel", bumpAutoplay, { passive: true });
 
     document.addEventListener("visibilitychange", syncAutoplay);
@@ -143,6 +193,22 @@ function initOne(root) {
         }).observe(track);
     }
 
+    if (typeof IntersectionObserver !== "undefined") {
+        const io = new IntersectionObserver(
+            (entries) => {
+                visible = entries.some((entry) => entry.isIntersecting && entry.intersectionRatio > 0.2);
+                syncAutoplay();
+            },
+            { threshold: [0, 0.2, 0.5] },
+        );
+        io.observe(root);
+    }
+
     update();
-    syncAutoplay();
+    // Старт після layout / картинок
+    requestAnimationFrame(() => {
+        update();
+        syncAutoplay();
+    });
+    window.addEventListener("load", syncAutoplay, { once: true });
 }

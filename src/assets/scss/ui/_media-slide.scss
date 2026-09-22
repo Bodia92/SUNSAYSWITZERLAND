@@ -15,6 +15,9 @@
 
         @media (max-width: 991.98px) {
             border-radius: 20px;
+            // Запас під хедер, заголовок секції, текст картки і swiper-nav
+            aspect-ratio: 400 / 520;
+            max-height: calc(var(--vh, 1vh) * 100 - 22rem);
         }
 
         img {
@@ -22,6 +25,10 @@
             height: auto;
             object-fit: cover;
             object-position: center;
+
+            @media (max-width: 991.98px) {
+                height: 100%;
+            }
         }
 
         &:not(:last-child) {

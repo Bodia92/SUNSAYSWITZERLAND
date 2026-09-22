@@ -1,5 +1,24 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
+.page--business {
+    .feature-block {
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+
+    .utp,
+    .faq {
+        @include av("padding-top", 96, 48);
+    }
+
+    .process {
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+}
+
 .feature-block {
     position: relative;
     overflow: hidden;

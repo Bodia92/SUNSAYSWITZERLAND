@@ -3,16 +3,12 @@
         data-marquee: ініціалізує скрипт
         data-marquee-speed="60": швидкість у пікселях на секунду (опціонально, дефолт 50)
         data-marquee-space="30": відступ між елементами в пікселях (опціонально, дефолт 30)
+        data-marquee-reverse: рух у зворотний бік (опціонально)
     <div class="marquee__content" data-marquee data-marquee-speed="60" data-marquee-space="40">
-        
-       Твої елементи (скільки завгодно) 
+
+       Твої елементи (скільки завгодно)
         <img src="@img/brands/01.svg" alt="logo">
         <img src="@img/brands/02.svg" alt="logo">
-        <img src="@img/brands/03.svg" alt="logo">
-        <img src="@img/brands/04.svg" alt="logo">
-        
-      Можна вставляти не тільки картинки, а й блоки 
-        <div class="item">Text</div> 
 
     </div>
 </div> */
@@ -23,38 +19,32 @@ export function initMarquee() {
 
     if (!marquees.length) return;
 
-    // Зберігаємо попередню ширину екрану для перевірки
     let windowWidth = window.innerWidth;
 
-    const resizeObserver = new ResizeObserver((entries) => {
-        entries.forEach((entry) => {
-            // ФІКС 1: Оновлюємо тривалість ТІЛЬКИ якщо змінилася ШИРИНА екрану (наприклад, перевернули телефон).
-            // Ігноруємо зміну висоти при скролі на мобільних!
-            if (window.innerWidth !== windowWidth) {
-                windowWidth = window.innerWidth;
-                calculateDuration(entry.target);
-            }
-        });
+    const resizeObserver = new ResizeObserver(() => {
+        // Оновлюємо тривалість лише при зміні ширини (не висоти при моб. скролі)
+        if (window.innerWidth === windowWidth) return;
+        windowWidth = window.innerWidth;
+        marquees.forEach((wrapper) => calculateDuration(wrapper));
     });
 
     const intersectionObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            // ФІКС 2: Ставити на паузу треба трек, а не обгортку, бо анімація висить на треку!
             const track = entry.target.querySelector(".marquee-track");
-            if (track) {
-                if (entry.isIntersecting) {
-                    track.style.animationPlayState = "running";
-                } else {
-                    track.style.animationPlayState = "paused";
-                }
-            }
+            if (!track) return;
+            track.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
         });
     });
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     marquees.forEach((wrapper) => {
         buildMarquee(wrapper);
 
-        // Чекаємо завантаження картинок, щоб правильно порахувати ширину
+        if (wrapper.hasAttribute("data-marquee-reverse")) {
+            wrapper.classList.add("is-reverse");
+        }
+
         Promise.all(
             Array.from(wrapper.querySelectorAll("img")).map((img) => {
                 if (img.complete) return Promise.resolve();
@@ -64,7 +54,11 @@ export function initMarquee() {
             }),
         ).then(() => {
             calculateDuration(wrapper);
-            wrapper.classList.add("is-initialized"); // Показуємо тільки коли все готово
+            if (reducedMotion.matches) {
+                const track = wrapper.querySelector(".marquee-track");
+                if (track) track.style.animationPlayState = "paused";
+            }
+            wrapper.classList.add("is-initialized");
         });
 
         resizeObserver.observe(wrapper);
@@ -80,40 +74,53 @@ function buildMarquee(wrapper) {
 
     const track = document.createElement("div");
     track.classList.add("marquee-track");
-    // ФІКС 3: Забираємо gap з треку, він тут ламає математику -50%
-    // track.style.gap = `${gap}px`;
 
     const group = document.createElement("div");
     group.classList.add("marquee-group");
     group.style.gap = `${gap}px`;
-
-    // ФІКС 4: Додаємо padding-right рівний gap, щоб друга група приклеїлась ідеально рівно
+    // padding-right = gap, щоб друга група стикувалась без ривка
     group.style.paddingRight = `${gap}px`;
 
     while (wrapper.firstChild) {
+        if (wrapper.firstChild.nodeType === Node.TEXT_NODE && !wrapper.firstChild.textContent.trim()) {
+            wrapper.removeChild(wrapper.firstChild);
+            continue;
+        }
         group.appendChild(wrapper.firstChild);
     }
 
     const originalChildren = Array.from(group.children);
-    const fragment = document.createDocumentFragment();
+    if (!originalChildren.length) return;
 
-    const minWidth = window.innerWidth * 1.5;
-    let currentWidth = 0;
-    let cloneCount = 0;
+    // Дублюємо елементи всередині групи, поки стрічка не буде ширша за в’юпорт
+    const minWidth = Math.max(window.innerWidth * 1.5, 600);
+    let guard = 0;
 
-    // Створюємо достатньо клонів
-    while (cloneCount < 2 || currentWidth < minWidth) {
+    while (guard < 12) {
+        // Тимчасово в DOM для вимірювання
+        wrapper.appendChild(track);
+        track.appendChild(group);
+        const width = group.scrollWidth;
+        track.removeChild(group);
+        wrapper.removeChild(track);
+
+        if (width >= minWidth && guard >= 1) break;
+
         originalChildren.forEach((child) => {
-            fragment.appendChild(child.cloneNode(true));
-            currentWidth += 150 + gap; // Приблизна ширина, цього достатньо
+            group.appendChild(child.cloneNode(true));
         });
-        cloneCount++;
+        guard += 1;
     }
-    group.appendChild(fragment);
+
     track.appendChild(group);
 
     const groupClone = group.cloneNode(true);
     groupClone.setAttribute("aria-hidden", "true");
+    // Прибираємо фокус з клонованих лінків
+    groupClone.querySelectorAll("a, button, [tabindex]").forEach((el) => {
+        el.setAttribute("tabindex", "-1");
+        if (el.tagName === "A") el.setAttribute("aria-hidden", "true");
+    });
     track.appendChild(groupClone);
 
     wrapper.appendChild(track);

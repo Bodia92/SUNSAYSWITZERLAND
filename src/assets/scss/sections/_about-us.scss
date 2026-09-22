@@ -1,7 +1,6 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .about-us {
-    overflow-x: clip;
     background: var(--bg);
     padding-bottom: 0;
 
@@ -37,13 +36,34 @@
         }
     }
 
+    // .about-us__pin — висота задається JS під горизонтальний travel слайдера
+    &__pin {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: 96px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 48px;
+            }
+        }
+    }
+
+    // .about-us__pin-sticky
+    &__pin-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        // без overflow: clip/hidden — інакше ріжуться слайди й body з від’ємним margin
+    }
+
     // .about-us__wrapper
     &__wrapper {
         position: relative;
         isolation: isolate;
 
         &:not(:last-child) {
-            margin-bottom: 122px;
+            margin-bottom: 48px;
 
             @media (max-width: 991.98px) {
                 margin-bottom: 24px;
@@ -55,7 +75,7 @@
         }
 
         @media (min-width: 992px) {
-            padding-bottom: 112px;
+            padding-bottom: 48px;
         }
     }
 
@@ -167,14 +187,6 @@
         border-radius: 24px;
         background: var(--white);
         overflow: visible;
-
-        &:not(:last-child) {
-            margin-bottom: 96px;
-
-            @media (max-width: 991.98px) {
-                margin-bottom: 48px;
-            }
-        }
 
         @media (max-width: 991.98px) {
             gap: 5px;

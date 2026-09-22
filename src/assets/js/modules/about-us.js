@@ -159,7 +159,7 @@ function layoutAboutPath(section) {
         slider.getBoundingClientRect().bottom - origin.top,
     ].filter((value) => Number.isFinite(value));
 
-    const yBottom = Math.max(...bottoms) + half + 72;
+    const yBottom = Math.max(...bottoms) + half + 28;
     const r = Math.min(
         48,
         Math.abs(xRight - xLeft) / 4,
@@ -295,6 +295,129 @@ function updateSticks(track, progress) {
     });
 }
 
+function initScrollDrive(section, swiper) {
+    const pin = section.querySelector("[data-about-pin]");
+    const sticky = section.querySelector("[data-about-sticky]");
+    if (!pin || !sticky) {
+        return { update() {}, destroy() {} };
+    }
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let ticking = false;
+    let pathRaf = 0;
+    let updating = false;
+
+    const headerOffset = () => {
+        const header = document.querySelector(".header");
+        if (!header) return 0;
+        // bottom у viewport — реальна межа під sticky-хедером
+        return Math.max(0, Math.round(header.getBoundingClientRect().bottom));
+    };
+
+    // Верх фактичного контенту слайдера (з урахуванням margin-top: -107px у карток)
+    const contentOffset = () => {
+        const stickyRect = sticky.getBoundingClientRect();
+        const nodes = sticky.querySelectorAll(".about-us-card, .about-us-card__body, .about-us-card__media");
+        let minTop = Infinity;
+
+        nodes.forEach((el) => {
+            const top = el.getBoundingClientRect().top - stickyRect.top;
+            if (top < minTop) minTop = top;
+        });
+
+        if (Number.isFinite(minTop)) return minTop;
+
+        const stage = sticky.querySelector(".about-us__stage");
+        return stage ? stage.offsetTop : 0;
+    };
+
+    const travel = () => Math.abs(swiper.maxTranslate());
+
+    const updatePinSize = () => {
+        if (updating) return;
+        updating = true;
+
+        swiper.update();
+
+        const range = travel();
+        if (reducedMotion.matches || range < 8) {
+            pin.style.height = "";
+            sticky.style.top = "";
+            pin.classList.remove("is-scrollable");
+            swiper.allowTouchMove = true;
+            updating = false;
+            return;
+        }
+
+        const headerBottom = headerOffset();
+        const offset = contentOffset();
+
+        // Слайдер (з «виступами» карток) стартує під хедером
+        const top = headerBottom + 20 - offset;
+        sticky.style.top = `${Math.round(top)}px`;
+
+        const stickyH = sticky.offsetHeight;
+        const runway = Math.round(range * 1.2);
+        const nextHeight = `${stickyH + runway}px`;
+        if (pin.style.height !== nextHeight) {
+            pin.style.height = nextHeight;
+        }
+        pin.classList.add("is-scrollable");
+        swiper.allowTouchMove = false;
+        updating = false;
+    };
+
+    const schedulePath = () => {
+        cancelAnimationFrame(pathRaf);
+        pathRaf = requestAnimationFrame(() => layoutAboutPath(section));
+    };
+
+    const syncFromScroll = () => {
+        const range = travel();
+        if (range < 8 || reducedMotion.matches) return;
+
+        const runway = pin.offsetHeight - sticky.offsetHeight;
+        if (runway <= 0) return;
+
+        // З урахуванням від’ємного sticky top
+        const stickyTop = parseFloat(sticky.style.top) || 0;
+        const pinTop = pin.getBoundingClientRect().top;
+        const scrolled = Math.min(runway, Math.max(0, stickyTop - pinTop));
+        const progress = scrolled / runway;
+
+        swiper.setProgress(progress, 0);
+        schedulePath();
+    };
+
+    const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            ticking = false;
+            syncFromScroll();
+        });
+    };
+
+    const update = () => {
+        updatePinSize();
+        syncFromScroll();
+    };
+
+    update();
+    window.addEventListener("load", update, { once: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update);
+
+    return {
+        update,
+        destroy() {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", update);
+            cancelAnimationFrame(pathRaf);
+        },
+    };
+}
+
 function initAboutSlider(section) {
     const sliderEl = section.querySelector(".about-us__slider");
     const sticksEl = section.querySelector("[data-about-sticks]");
@@ -336,11 +459,14 @@ function initAboutSlider(section) {
 
     updateSticks(sticksEl, swiper.progress || 0);
 
+    const scrollDrive = initScrollDrive(section, swiper);
+
     const resizeObserver = new ResizeObserver(() => {
         rebuild();
         swiper.update();
         updateSticks(sticksEl, swiper.progress || 0);
         layoutAboutPath(section);
+        scrollDrive.update();
     });
 
     resizeObserver.observe(sticksEl);
