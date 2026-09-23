@@ -147,4 +147,84 @@
             display: none;
         }
     }
+
+    // .blog-card--cover — велика картка (лістинг / сайдбар статті)
+    &--cover {
+        isolation: isolate;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 350px;
+        padding: 20px;
+        background: transparent;
+        border-radius: 20px;
+
+        @media (min-width: 992px) {
+            min-height: 0;
+            aspect-ratio: 1;
+            height: fit-content;
+            border-radius: 24px;
+        }
+
+        .blog-card__media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: auto;
+            aspect-ratio: auto;
+            border-radius: 24px;
+
+            @media (max-width: 991.98px) {
+                border-radius: 20px;
+            }
+        }
+
+        .blog-card__content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: fit-content;
+            padding: 80px 24px 24px;
+            min-height: 165px;
+            flex: 0 0 auto;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+
+            @media (max-width: 991.98px) {
+                border-radius: 16px;
+                padding: 16px;
+                min-height: 92px;
+            }
+        }
+
+        .blog-card__go {
+            top: 12px;
+            right: 12px;
+
+            @media (max-width: 991.98px) {
+                top: 8px;
+                right: 8px;
+            }
+        }
+
+        .blog-card__date,
+        .blog-card__text {
+            display: none;
+        }
+
+        .blog-card__title {
+            margin-bottom: 0;
+            font-weight: 600;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            color: var(--white);
+            @include av("font-size", 30, 20);
+        }
+    }
 }
