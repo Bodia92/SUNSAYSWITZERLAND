@@ -75,6 +75,13 @@
         background: var(--gray-brand);
         color: var(--white);
 
+        @media (min-width: 992px) {
+            position: sticky;
+            top: 140px;
+            z-index: 1;
+            max-width: 500px;
+        }
+
         @media (max-width: 991.98px) {
             padding: 20px;
             border-radius: 16px;

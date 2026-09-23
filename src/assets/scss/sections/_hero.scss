@@ -1,5 +1,30 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
+.page--warehouse {
+    .hero {
+        &:not(:last-child) {
+            margin-bottom: 0px;
+        }
+        .hero__content {
+            max-width: 100%;
+        }
+
+        .hero__text {
+            max-width: 1000px;
+        }
+    }
+
+    .process {
+        &:not(:last-child) {
+            margin-bottom: 0px;
+        }
+    }
+
+    .projects {
+        @include av("padding-top", 96, 48);
+    }
+}
+
 .hero {
     position: relative;
     z-index: 1;

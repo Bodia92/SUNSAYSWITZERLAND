@@ -51,6 +51,20 @@
                         </div>
                     </div>
                 {{/if}}
+
+
+                {{#if ctaTitle}}
+                    <div class="process__cta">
+                        <h3 class="process__cta-title">{{ctaTitle}}</h3>
+                        {{#if ctaText}}
+                            <p class="process__cta-text">{{ctaText}}</p>
+                        {{/if}}
+                        <a href="#" class="process__cta-btn btn btn-main" data-popup-target="#contact-us">
+                            <span>{{#if ctaBtn}}{{ctaBtn}}{{else}}Залишити заявку{{/if}}</span>
+                            {{> Ui/ArrowIcon }}
+                        </a>
+                    </div>
+                {{/if}}
             </div>
 
             <div class="process__main">

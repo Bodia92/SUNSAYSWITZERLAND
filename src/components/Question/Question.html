@@ -24,6 +24,8 @@
                 {{> Form/QuoteForm formId=formId }}
                 {{else if estimate}}
                 {{> Form/EstimateForm formId=formId }}
+                {{else if warehouse}}
+                {{> Form/WarehouseForm formId=formId }}
                 {{else}}
                 {{> Form/ContactForm formId=formId }}
                 {{/if}}
