@@ -4,9 +4,9 @@ export function initScrollSliders() {
 
 function parseAutoplayMs(attr) {
     if (attr === "false" || attr === "0") return 0;
-    if (attr == null || attr === "" || attr === "true") return 4000;
+    if (attr == null || attr === "" || attr === "true") return 2000;
     const n = Number.parseInt(attr, 10);
-    return Number.isFinite(n) && n > 0 ? n : 4000;
+    return Number.isFinite(n) && n > 0 ? n : 2000;
 }
 
 function initOne(root) {
@@ -115,11 +115,11 @@ function initOne(root) {
     function shouldAutoplay() {
         return Boolean(
             autoplayMs &&
-                !reduceMotion &&
-                !document.hidden &&
-                visible &&
-                navIsVisible() &&
-                canScroll(),
+            !reduceMotion &&
+            !document.hidden &&
+            visible &&
+            navIsVisible() &&
+            canScroll(),
         );
     }
 
@@ -196,7 +196,9 @@ function initOne(root) {
     if (typeof IntersectionObserver !== "undefined") {
         const io = new IntersectionObserver(
             (entries) => {
-                visible = entries.some((entry) => entry.isIntersecting && entry.intersectionRatio > 0.2);
+                visible = entries.some(
+                    (entry) => entry.isIntersecting && entry.intersectionRatio > 0.2,
+                );
                 syncAutoplay();
             },
             { threshold: [0, 0.2, 0.5] },
