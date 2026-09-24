@@ -30,6 +30,7 @@ import BACompare from "./modules/BAcompare.js";
 import { initFancybox } from "./modules/fancybox.js";
 import { initScrollSliders } from "./modules/scroll-slider.js";
 import { initCompareScroll } from "./modules/compare-scroll.js";
+import { initQuiz } from "./modules/quiz.js";
 
 // Запуск загальних скриптів
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initFancybox();
     initScrollSliders();
     initCompareScroll();
+    initQuiz();
     //initLightbox();
 
     const nodes = document.querySelectorAll("[data-ba-compare]");

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="uk">
+{{> Head/Head title="Новини та публікації — SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--catalog">
+
+            <section class="section catalog">
+                <div class="catalog__container">
+                    {{> Breadcrumbs/Breadcrumbs
+                                home="SUNSAY NRG"
+                                homeUrl="/"
+                                parent="Блог"
+                                parentUrl="blog.html"
+                                current="СЕС для агропідприємств і фермерських господарств "
+                            }}
+                    <h1 class="catalog__title title">Обладнання для сонячних електростанцій</h1>
+
+                    <ul class="catalog__list">
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/speed-3.svg" alt="Низьковольтна продукція" width="64" height="64">
+                                <span class="catalog__title">Низьковольтна продукція</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/solar-2.svg" alt="Готові комплекти сонячних електростанцій під ключ" width="64" height="64">
+                                <span class="catalog__title">Готові комплекти сонячних електростанцій під ключ</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/charging.svg" alt="Портативні зарядні станції" width="64" height="64">
+                                <span class="catalog__title">Портативні зарядні станції</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/on.svg" alt="Мережеві інвертори для промислових та комерційниї сес" width="64" height="64">
+                                <span class="catalog__title">Мережеві інвертори для промислових та комерційниї сес</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/battery-2.svg" alt="Гібридні інвертори для сонячних станцій" width="64" height="64">
+                                <span class="catalog__title">Гібридні інвертори для сонячних станцій</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/solar.svg" alt="Сонячні панелі" width="64" height="64">
+                                <span class="catalog__title">Сонячні панелі</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/energy.svg" alt="Акумулятори для сонячних станцій" width="64" height="64">
+                                <span class="catalog__title">Акумулятори для сонячних станцій</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <a class="catalog__link" href="#">
+                                {{> Ui/ArrowIcon }}
+                                <img class="catalog__icon" src="@img/icons/charged.svg" alt="Системи накопичення електроенергії ESS/bess" width="64" height="64">
+                                <span class="catalog__title">Системи накопичення електроенергії ESS/bess</span>
+                            </a>
+                        </li>
+                        <li class="catalog__item">
+                            <div class="catalog__cta">
+                                {{> Ui/ArrowIcon }}
+
+                                <h3 class="catalog__cta-title">Маєте запитання?</h3>
+                                <p class="catalog__cta-text">Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. </p>
+                                <a href="#" class="catalog__cta-btn btn btn-main" data-popup-target="#contact-us">
+                                    <span>Поставити запитання</span>
+                                    {{> Ui/ArrowIcon }}
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            {{> Calculate/Calculate
+            modifier="center"
+            image="banner01.jpg"
+            title="Скільки може"
+            accent="заощадити<br>"
+            after="ваша компанія"
+            btn="Розрахувати СЕС"
+            }}
+
+            {{#> Process/Process
+            label="Процес"
+            title="Як ми <span>впроваджуємо СЕС?</span>"
+            count=true
+            countLabel="Етапів до енергонезалежності"
+            text="Реалізуємо проєкти під ключ» — від аналізу потреб підприємства до введення установки зберігання енергії в експлуатацію. На кожному етапі забезпечуємо технічний супровід, контроль якості та відповідність усім вимогам."
+            image="articles/05.jpg"
+            btn="Почати з технічного обстеження"
+            }}
+                {{> Process/ProcessStep
+            title="Технічне обстеження "
+            text="Аналізуємо енергоспоживання підприємства, потужність приєднання,
+графіки навантаження та визначаємо оптимальну конфігурацію
+УЗЕ для ваших завдань."
+            }}
+                {{> Process/ProcessStep
+            title="інженерне проєктування"
+            text="Розробляємо технічне рішення, виконуємо проєктування, інтеграцію
+з наявною інфраструктурою та готуємо всю необхідну документацію."
+            }}
+                {{> Process/ProcessStep
+            title="Постачання і монтаж  "
+            text="Постачаємо сертифіковане обладнання, виконуємо монтаж, підключення та інтеграцію установки зберігання енергії з електромережею підприємства."
+            }}
+                {{> Process/ProcessStep
+            title="Пусконалагоджувальні роботи"
+            text="Проводимо тестування системи, налаштовуємо EMS, перевіряємо
+всі режими роботи та вводимо УЗЕ в промислову експлуатацію."
+            }}
+                {{/Process/Process}}
+
+
+                {{#> Faq/Faq }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+
+                {{/Faq/Faq}}
+
+                {{> Question/Question}}
+                <section class="section seo-section">
+                    <div class="seo-section__container">
+                        <div class="seo-section__content editor">
+                            <h2>Як сонячна електростанція оптимізує витрати бізнесу</h2>
+                            <p> Сонячна електростанція дозволяє бізнесу зменшити залежність від коливань тарифів та частково
+                                компенсувати власне споживання електроенергії. Найбільший ефект досягається для підприємств
+                                зі
+                                стабільним денним навантаженням, де значна частина генерації використовується одразу в
+                                момент
+                                виробництва.</p>
+                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                установок
+                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                установок
+                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                        </div>
+                    </div>
+                </section>
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

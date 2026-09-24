@@ -431,6 +431,21 @@
             padding: 12px 14px 12px 24px;
         }
     }
+
+    // .process__content
+    &__content {
+        padding-left: 16px;
+        padding-right: 10px;
+        color: var(--gray-color);
+        max-height: min(100svh - 200px, 712px);
+        overflow-y: auto;
+        @include thin-scrollbar(2px);
+
+        @media (max-width: 992px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 .process-step {

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="uk">
+{{> Head/Head title="Розрахунок окупності енергосистеми — SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--quiz">
+
+
+            <section class="section quiz">
+                <div class="quiz__container">
+                    <div class="quiz__wrapper">
+                        <div class="quiz__bg">
+                            <img src="@img/bg-sunsay.svg" alt="Розрахунок прибутковості енергосистеми" width="1920" height="1080">
+                        </div>
+
+                        <div class="quiz__content">
+                            {{> Breadcrumbs/Breadcrumbs
+                                home="SUNSAY NRG"
+                                homeUrl="/"
+                                current="Розрахунок прибутковості енергосистеми"
+                            }}
+
+                            <h1 class="quiz__title title">розрахунок <span>окупності енергосистеми</span></h1>
+
+                            <div class="quiz__form">
+                                {{> Quiz/QuizForm }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {{#> Process/Process
+                sublabel="Про проєкт"
+                subtitle="<span>як</span> розрахувати СЕС? "
+                textSide="Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at."
+                image="articles/05.jpg"
+                content=true
+            }}
+                {{/Process/Process}}
+
+
+                {{#> Faq/Faq }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+                    {{> Faq/FaqItem
+                    question="Приклад частого запитання стосовно енергетичної незалежності для бізнесу"
+                    answer="Приклад відповіді на часто задаване запитання стосовно енергетичної незалежності для бізнесу."
+                }}
+
+                {{/Faq/Faq}}
+
+                {{> Question/Question}}
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

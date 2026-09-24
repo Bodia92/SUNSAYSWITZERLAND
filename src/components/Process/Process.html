@@ -68,11 +68,25 @@
             </div>
 
             <div class="process__main">
-                <ul class="process__list" data-scroll-track>
-                    {{> @partial-block }}
-                </ul>
+                {{#if content}}
+                    <div class="process__content editor">
+                        <h2>Визначення потреб</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at. Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at.</p>
+                        <h3>розрахунок потужності сес</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at. Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at.</p>
+                        <h4>замовлення реалізації</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at. Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at.</p>
+                    </div>
+                {{else}}
+                    <ul class="process__list" data-scroll-track>
+                        {{> @partial-block }}
+                    </ul>
 
-                {{> Ui/SliderNav scroll=true }}
+                    {{> Ui/SliderNav scroll=true }}
+                {{/if}}
                 {{#if btn}}
                     <a class="process__btn btn btn-main" href="#" data-popup-target="#contact-us">
                         <span>{{{btn}}}</span>
