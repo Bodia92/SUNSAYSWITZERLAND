@@ -132,15 +132,59 @@ export default class Accordion {
     }
 
     open(trigger, wrap, body) {
+        this._cancelTransition(body);
+
         wrap.classList.add("is-open");
         trigger.classList.add("is-active");
-        body.style.maxHeight = body.scrollHeight + "px";
+        trigger.setAttribute("aria-expanded", "true");
+        body.hidden = false;
+
+        const prevTransition = body.style.transition;
+        body.style.transition = "none";
+        body.style.maxHeight = "none";
+        const height = body.scrollHeight;
+        body.style.maxHeight = "0px";
+        void body.offsetHeight;
+        body.style.transition = prevTransition;
+
+        body.style.maxHeight = `${height}px`;
+
+        body._accordionOnEnd = (e) => {
+            if (e.target !== body || e.propertyName !== "max-height") return;
+            if (wrap.classList.contains("is-open")) {
+                body.style.maxHeight = "none";
+            }
+            this._cancelTransition(body);
+        };
+        body.addEventListener("transitionend", body._accordionOnEnd);
     }
 
     close(trigger, wrap, body) {
+        this._cancelTransition(body);
+
+        // Lock current height, then collapse — spacing stays on children, no end jump
+        body.style.maxHeight = `${body.scrollHeight}px`;
+        void body.offsetHeight;
+
         wrap.classList.remove("is-open");
         trigger.classList.remove("is-active");
-        body.style.maxHeight = null;
+        trigger.setAttribute("aria-expanded", "false");
+
+        body.style.maxHeight = "0px";
+
+        body._accordionOnEnd = (e) => {
+            if (e.target !== body || e.propertyName !== "max-height") return;
+            body.style.maxHeight = null;
+            this._cancelTransition(body);
+        };
+        body.addEventListener("transitionend", body._accordionOnEnd);
+    }
+
+    _cancelTransition(body) {
+        if (body._accordionOnEnd) {
+            body.removeEventListener("transitionend", body._accordionOnEnd);
+            body._accordionOnEnd = null;
+        }
     }
 
     closeAll() {

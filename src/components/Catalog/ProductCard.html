@@ -1,0 +1,15 @@
+<article class="product-card">
+    <a class="product-card__link" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+        <div class="product-card__media">
+            <img class="product-card__image" src="@img/product/{{#if image}}{{image}}{{else}}01.png{{/if}}" alt="{{#if title}}{{title}}{{else}}Товар{{/if}}" width="400" height="400" loading="lazy">
+        </div>
+        <span class="product-card__content">
+            <h3 class="product-card__title">{{#if title}}{{title}}{{else}}DAHAI 590 ВТ СОНЯЧНА ПАНЕЛЬ DHM72D30-TP BIFACIAL{{/if}}</h3>
+            <span class="product-card__btn" aria-hidden="true">
+                <svg class="icon" width="14" height="14">
+                    <use href="@img/sprite.svg#icon-arrow-rotate"></use>
+                </svg>
+            </span>
+        </span>
+    </a>
+</article>

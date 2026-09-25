@@ -239,6 +239,35 @@ a {
             max-height: min(496px, 50vh);
         }
     }
+
+    .catalog-listing__seo {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        gap: 24px;
+        align-items: start;
+
+        @media (max-width: 1199.98px) {
+            grid-template-columns: 280px minmax(0, 1fr);
+        }
+
+        @media (max-width: 991.98px) {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .seo-section__content {
+            max-height: min(572px, 50vh);
+
+            @media (min-width: 992px) {
+                grid-column: 2 / 3;
+            }
+
+            @media (max-width: 991.98px) {
+                max-height: min(496px, 50vh);
+            }
+        }
+    }
 }
 
 .page--privacy {
