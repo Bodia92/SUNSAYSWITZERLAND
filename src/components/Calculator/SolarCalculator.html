@@ -1,0 +1,166 @@
+<div class="solar-calc" data-solar-calc id="calculator-solar-form">
+    <div class="solar-calc__layout">
+        <div class="solar-calc__inputs">
+            <h3 class="solar-calc__panel-title">Вкажіть об’єм вашого споживання</h3>
+
+            <div class="solar-calc__field">
+                <p class="solar-calc__label"><span>01</span> Місцезнаходження підприємства</p>
+                <div class="form-group solar-calc__select">
+                    <label class="visually-hidden" for="solar-calc-region">Область</label>
+                    <select class="js-select" name="solar_region" id="solar-calc-region" data-solar-region required>
+                        <option value="" disabled selected>Оберіть область</option>
+                        <option value="vinnytsia">Вінницька область</option>
+                        <option value="volyn">Волинська область</option>
+                        <option value="dnipro">Дніпропетровська область</option>
+                        <option value="donetsk">Донецька область</option>
+                        <option value="zhytomyr">Житомирська область</option>
+                        <option value="zakarpattia">Закарпатська область</option>
+                        <option value="zaporizhzhia">Запорізька область</option>
+                        <option value="ivano-frankivsk">Івано-Франківська область</option>
+                        <option value="kyiv">Київська область</option>
+                        <option value="kirovohrad">Кіровоградська область</option>
+                        <option value="luhansk">Луганська область</option>
+                        <option value="lviv">Львівська область</option>
+                        <option value="mykolaiv">Миколаївська область</option>
+                        <option value="odesa">Одеська область</option>
+                        <option value="poltava">Полтавська область</option>
+                        <option value="rivne">Рівненська область</option>
+                        <option value="sumy">Сумська область</option>
+                        <option value="ternopil">Тернопільська область</option>
+                        <option value="kharkiv">Харківська область</option>
+                        <option value="kherson">Херсонська область</option>
+                        <option value="khmelnytskyi">Хмельницька область</option>
+                        <option value="cherkasy">Черкаська область</option>
+                        <option value="chernivtsi">Чернівецька область</option>
+                        <option value="chernihiv">Чернігівська область</option>
+                    </select>
+                </div>
+                <div class="solar-calc__quick" data-solar-region-quick>
+                    <button type="button" class="solar-calc__quick-btn" data-solar-quick="kyiv">Київська обл.</button>
+                    <button type="button" class="solar-calc__quick-btn" data-solar-quick="lviv">Львівська обл.</button>
+                    <button type="button" class="solar-calc__quick-btn" data-solar-quick="rivne">Рівненська обл.</button>
+                </div>
+            </div>
+
+            <div class="solar-calc__field">
+                <p class="solar-calc__label"><span>02</span> Потужність майбутньої СЕС</p>
+                <div class="solar-calc__range" data-solar-range="power">
+                    <div class="solar-calc__value-wrap">
+                        <input class="solar-calc__value" type="text" name="solar_power_display" value="10 000" inputmode="numeric" autocomplete="off" data-solar-power-display>
+                        <span class="solar-calc__unit">кВт</span>
+                    </div>
+                    <input class="solar-calc__slider" type="range" name="solar_power" min="0" max="100000" step="50" value="10000" data-solar-power>
+                    <div class="solar-calc__scale">
+                        <span>0</span>
+                        <span>100 000 кВт</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solar-calc__field">
+                <p class="solar-calc__label"><span>03</span> Тариф на електроенергію</p>
+                <div class="solar-calc__tariff-row">
+                    <div class="solar-calc__value-wrap">
+                        <input class="solar-calc__value" type="text" name="solar_tariff_display" value="6,50" inputmode="decimal" autocomplete="off" data-solar-tariff-display>
+                        <span class="solar-calc__unit">грн/кВт·г</span>
+                    </div>
+                    <div class="solar-calc__toggle" role="radiogroup" aria-label="Тип тарифу">
+                        <label class="solar-calc__toggle-item">
+                            <input type="radio" name="solar_tariff_type" value="fixed" checked data-solar-tariff-type>
+                            <span>Фіксований</span>
+                        </label>
+                        <label class="solar-calc__toggle-item">
+                            <input type="radio" name="solar_tariff_type" value="rdn" data-solar-tariff-type>
+                            <span>РДН</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="solar-calc__range">
+                    <input class="solar-calc__slider" type="range" name="solar_tariff" min="2.64" max="20" step="0.01" value="6.5" data-solar-tariff>
+                    <div class="solar-calc__scale">
+                        <span>2.64 грн/кВт·г</span>
+                        <span>20 грн/кВт·г</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-main solar-calc__submit" data-solar-calculate disabled>
+                <span>Розрахувати</span>
+                {{> Ui/ArrowIcon }}
+            </button>
+        </div>
+        <div class="solar-calc__presets">
+            <div class="solar-calc__presets-copy">
+                <h3 class="solar-calc__presets-title">Або оберіть необхідну потужність</h3>
+                <p class="solar-calc__presets-text">Швидкий вибір типових конфігурацій СЕС для попередньої оцінки окупності.</p>
+            </div>
+            <div class="solar-calc__presets-list" role="group" aria-label="Типові потужності СЕС">
+                <button type="button" class="solar-calc__preset" data-solar-preset="100">СЕС 100кВт</button>
+                <button type="button" class="solar-calc__preset" data-solar-preset="150">СЕС 150кВт</button>
+                <button type="button" class="solar-calc__preset" data-solar-preset="200">СЕС 200кВт</button>
+                <button type="button" class="solar-calc__preset" data-solar-preset="500">СЕС 500кВт</button>
+                <button type="button" class="solar-calc__preset" data-solar-preset="1000">СЕС 1мВт</button>
+            </div>
+        </div>
+        <div class="solar-calc__aside">
+            <div class="solar-calc__results" data-solar-results>
+                <h3 class="solar-calc__panel-title solar-calc__panel-title--dark">Орієнтовний результат</h3>
+
+                <div class="solar-calc__chart" data-solar-chart>
+                    <div class="solar-calc__chart-plot">
+                        <div class="solar-calc__chart-y" data-solar-chart-y aria-hidden="true"></div>
+                        <div class="solar-calc__chart-area">
+                            <div class="solar-calc__chart-grid" data-solar-chart-grid aria-hidden="true"></div>
+                            <div class="solar-calc__chart-bars" data-solar-chart-bars role="img" aria-label="Помісячна генерація"></div>
+                        </div>
+                    </div>
+                    <div class="solar-calc__chart-x" data-solar-chart-x aria-hidden="true"></div>
+                </div>
+
+                <div class="solar-calc__metrics">
+                    <article class="solar-calc__metric">
+                        <p class="solar-calc__metric-value" data-solar-metric="generation">0</p>
+                        <p class="solar-calc__metric-label">Прогнозована генерація за рік</p>
+                    </article>
+                    <article class="solar-calc__metric">
+                        <p class="solar-calc__metric-value" data-solar-metric="savings">0</p>
+                        <p class="solar-calc__metric-label">Прогнозована економія за рік</p>
+                    </article>
+                    <article class="solar-calc__metric">
+                        <p class="solar-calc__metric-value" data-solar-metric="cost">0</p>
+                        <p class="solar-calc__metric-label">Орієнтовна вартість СЕС</p>
+                    </article>
+                    <article class="solar-calc__metric">
+                        <p class="solar-calc__metric-value" data-solar-metric="payback">0</p>
+                        <p class="solar-calc__metric-label">Термін окупності</p>
+                    </article>
+                </div>
+
+                <form class="solar-calc__lead" action="#" method="post" data-solar-lead novalidate>
+                    <h3 class="solar-calc__lead-title">Отримати <span>деталізований прорахунок</span></h3>
+                    <p class="solar-calc__lead-text">Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at</p>
+                    <div class="solar-calc__lead-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="solar-calc-name">Ім’я <span>*</span></label>
+                            <input class="form-input" type="text" name="your-name" id="solar-calc-name" placeholder="Олександр" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="solar-calc-phone">Номер телефону <span>*</span></label>
+                            <input class="form-input" type="tel" name="your-phone" id="solar-calc-phone" placeholder="+380 73 333 33 33" autocomplete="tel" required>
+                        </div>
+                    </div>
+                    <input type="hidden" name="solar_region_result" data-solar-lead-region value="">
+                    <input type="hidden" name="solar_power_result" data-solar-lead-power value="">
+                    <input type="hidden" name="solar_tariff_result" data-solar-lead-tariff value="">
+                    <input type="hidden" name="solar_tariff_type_result" data-solar-lead-tariff-type value="">
+                    <input type="hidden" name="solar_generation_result" data-solar-lead-generation value="">
+                    <input type="hidden" name="solar_payback_result" data-solar-lead-payback value="">
+                    <button type="submit" class="btn btn-main solar-calc__lead-btn" data-solar-lead-submit>
+                        <span>Надіслати заявку</span>
+                        {{> Ui/ArrowIcon }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1191 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.calculator {
+    position: relative;
+    overflow: hidden;
+    @include av("padding-top", 96, 48);
+    @include av("padding-bottom", 96, 48);
+    background:
+        linear-gradient(72deg, #3f4649 23.48%, #ffd100 196.09%),
+        radial-gradient(243.08% 347.76% at 3.89% -201.26%, #3f4649 66.59%);
+
+    .breadcrumbs {
+        justify-content: flex-start;
+    }
+
+    // .calculator__bg
+    &__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    // .calculator__label
+    &__label {
+        color: var(--white);
+    }
+
+    // .calculator__title
+    &__title {
+        text-align: center;
+        color: var(--white);
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media (max-width: 767.98px) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    // .calculator__form
+    &__form {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.solar-calc {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &:has(.solar-calc__presets) {
+        .solar-calc__aside {
+            @media (min-width: 992px) {
+                grid-row: span 2 / span 2;
+                grid-column-start: 2;
+                grid-row-start: 1;
+            }
+        }
+
+        .solar-calc__presets {
+            @media (min-width: 992px) {
+                grid-column-start: 1;
+                grid-row-start: 2;
+            }
+        }
+    }
+
+    // .solar-calc__layout
+    &__layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+
+        @media (max-width: 1199.98px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // .solar-calc__inputs
+    &__inputs {
+        position: relative;
+        isolation: isolate;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 32px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        color: var(--white);
+
+        // Градієнтний бордер: світло зверху-зліва → прозорий вниз-вправо
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.55) 0%,
+                rgba(255, 255, 255, 0.22) 28%,
+                rgba(255, 255, 255, 0.06) 55%,
+                rgba(255, 255, 255, 0) 78%
+            );
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 767.98px) {
+            padding: 20px 16px;
+            border-radius: 20px;
+            gap: 20px;
+        }
+    }
+
+    // .solar-calc__panel-title
+    &__panel-title {
+        margin: 0;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        @include af(32, 22);
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: var(--white);
+
+        &--dark {
+            color: var(--black);
+        }
+    }
+
+    // .solar-calc__field
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &:has(.nice-select) {
+            position: relative;
+            z-index: 100;
+        }
+    }
+
+    // .solar-calc__label
+    &__label {
+        margin: 0;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: var(--white);
+
+        span {
+            color: var(--yellow-brand);
+            margin-right: 8px;
+        }
+    }
+
+    // .solar-calc__select
+    &__select {
+        margin-bottom: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+
+        .nice-select {
+            height: 48px;
+            min-height: 48px;
+            padding: 0 44px 0 16px;
+            border: 0;
+            border-radius: 12px;
+            background: var(--white);
+            box-shadow: none;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 48px;
+            color: var(--black);
+            font-family: var(--font-main);
+            transition: box-shadow 0.2s ease;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    box-shadow: 0 0 0 1px var(--yellow-brand);
+                }
+            }
+
+            &.open,
+            &:active,
+            &:focus {
+                border-color: transparent;
+                box-shadow: 0 0 0 1px var(--yellow-brand);
+            }
+
+            &::after {
+                top: 50%;
+                right: 16px;
+                margin-top: 0;
+                width: 16px;
+                height: 16px;
+                border: none;
+                transform: translateY(-50%);
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00258 11.6004C7.76362 11.6004 7.52469 11.5092 7.3425 11.3271L1.60946 5.59395C1.24476 5.22925 1.24476 4.63796 1.60946 4.27341C1.97401 3.90886 2.56518 3.90886 2.92991 4.27341L8.00258 9.34638L13.0753 4.27359C13.44 3.90904 14.0311 3.90904 14.3956 4.27359C14.7605 4.63814 14.7605 5.22943 14.3956 5.59413L8.66266 11.3272C8.48038 11.5094 8.24145 11.6004 8.00258 11.6004Z" fill="black"/></svg>')
+                    center no-repeat;
+                transform-origin: center;
+            }
+
+            &.open::after {
+                transform: translateY(-50%) rotate(-180deg);
+            }
+
+            .nice-select-dropdown {
+                margin-top: 8px;
+                border: 0;
+                border-radius: 12px;
+                box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+            }
+
+            .list .option {
+                background: #f8f8f8;
+                border-radius: 8px;
+
+                &.selected,
+                &.focus,
+                &:hover {
+                    background: var(--yellow-brand) !important;
+                }
+            }
+        }
+    }
+
+    // .solar-calc__quick
+    &__quick {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        margin-top: 8px;
+    }
+
+    // .solar-calc__quick-btn
+    &__quick-btn {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--white);
+        font-size: 14px;
+        line-height: 1.42;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--yellow-brand);
+            }
+        }
+    }
+
+    // .solar-calc__value-wrap
+    &__value-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 50px;
+        padding: 0 16px;
+        border-radius: 12px;
+        background: var(--white);
+        color: var(--black);
+        transition:
+            background-color 0.2s ease,
+            box-shadow 0.2s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                box-shadow: 0 0 0 1px var(--yellow-brand);
+            }
+        }
+
+        &:focus-visible {
+            box-shadow: 0 0 0 1px var(--yellow-brand);
+            outline: none;
+        }
+    }
+
+    // .solar-calc__value
+    &__value {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        height: 50px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--black);
+        outline: none;
+    }
+
+    // .solar-calc__unit
+    &__unit {
+        flex-shrink: 0;
+        margin-left: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gray-brand);
+        white-space: nowrap;
+    }
+
+    // .solar-calc__tariff-row
+    &__tariff-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: stretch;
+
+        @media (max-width: 575.98px) {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+
+    // .solar-calc__toggle
+    &__toggle {
+        display: inline-flex;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    // .solar-calc__toggle-item
+    &__toggle-item {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        padding: 0 24px;
+        min-height: 48px;
+        border-radius: 12px;
+        cursor: pointer;
+        user-select: none;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--white);
+        transition:
+            background 0.3s ease,
+            color 0.3s ease;
+
+        input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        span {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        &:has(input:checked) {
+            background: var(--yellow-brand);
+            color: var(--black);
+        }
+    }
+
+    // .solar-calc__range
+    &__range {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    // .solar-calc__slider
+    &__slider {
+        --solar-range-progress: 0%;
+        margin-top: 16px;
+        appearance: none;
+        width: 100%;
+        height: 9px;
+        border-radius: 9px;
+        background: linear-gradient(
+            90deg,
+            var(--white) 0%,
+            var(--white) var(--solar-range-progress),
+            rgba(255, 255, 255, 0.16) var(--solar-range-progress),
+            rgba(255, 255, 255, 0.16) 100%
+        );
+        outline: none;
+        cursor: pointer;
+
+        &::-webkit-slider-runnable-track {
+            height: 9px;
+            border-radius: 9px;
+            background: transparent;
+        }
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            box-sizing: border-box;
+            width: 24px;
+            height: 24px;
+            margin-top: -7.5px;
+            border-radius: 50%;
+            background: var(--yellow-brand);
+            border: 0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
+
+        &::-moz-range-track {
+            height: 9px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        &::-moz-range-progress {
+            height: 9px;
+            border-radius: 9px;
+            background: var(--yellow-brand);
+        }
+
+        &::-moz-range-thumb {
+            box-sizing: border-box;
+            width: 24px;
+            height: 24px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--yellow-brand);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
+    }
+
+    // .solar-calc__scale
+    &__scale {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--white);
+    }
+
+    .solar-calc__submit {
+        width: 100%;
+
+        @media (min-width: 992px) {
+            min-height: 64px;
+            font-size: 20px;
+            gap: 10px;
+
+            .arrow-icon {
+                width: 24px;
+                height: 24px;
+
+                .icon {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+    }
+
+    // .solar-calc__results
+    &__results {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px;
+        border-radius: 24px;
+        background: var(--white);
+        color: var(--black);
+
+        @media (max-width: 767.98px) {
+            padding: 20px 16px;
+            border-radius: 20px;
+            gap: 16px;
+        }
+    }
+
+    // .solar-calc__chart
+    &__chart {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 20px;
+        border-radius: 20px;
+        background: #fafafa;
+        box-sizing: border-box;
+
+        @media (max-width: 575.98px) {
+            padding: 12px;
+            border-radius: 16px;
+            gap: 8px;
+        }
+    }
+
+    // .solar-calc__chart-plot
+    &__chart-plot {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 8px;
+        height: 112px;
+
+        @media (max-width: 575.98px) {
+            grid-template-columns: auto minmax(0, 1fr);
+        }
+    }
+
+    // .solar-calc__chart-y
+    &__chart-y {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1;
+        font-family: var(--font-roboto);
+        letter-spacing: -0.04em;
+        color: #a0a0a0;
+        user-select: none;
+
+        @media (max-width: 575.98px) {
+            font-size: 10px;
+        }
+    }
+
+    // .solar-calc__chart-area
+    &__chart-area {
+        position: relative;
+        height: 100%;
+        min-width: 0;
+    }
+
+    // .solar-calc__chart-grid
+    &__chart-grid {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        pointer-events: none;
+    }
+
+    // .solar-calc__chart-line
+    &__chart-line {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #ededed;
+    }
+
+    // .solar-calc__chart-bars
+    &__chart-bars {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+    }
+
+    // .solar-calc__bar
+    &__bar {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 20px;
+        flex: 0 0 20px;
+        height: 100%;
+
+        @media (max-width: 575.98px) {
+            width: 14px;
+            flex: 0 0 14px;
+        }
+
+        span {
+            display: block;
+            width: 20px;
+            height: var(--bar-h, 0%);
+            min-height: 0;
+            border-radius: 6px 6px 0 0;
+            background: var(--yellow-brand);
+            transform-origin: bottom center;
+            transition: height 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+
+            @media (max-width: 575.98px) {
+                width: 14px;
+            }
+        }
+    }
+
+    // .solar-calc__chart-x
+    &__chart-x {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 8px;
+        font-size: 12px;
+        line-height: 1;
+        font-weight: 400;
+        font-family: var(--font-roboto);
+        letter-spacing: -0.04em;
+        color: #a0a0a0;
+        text-transform: uppercase;
+        user-select: none;
+
+        @media (max-width: 575.98px) {
+            font-size: 10px;
+        }
+    }
+
+    // .solar-calc__chart-x-spacer — вирівнює місяці під бари (ширина як у Y)
+    &__chart-x-spacer {
+        visibility: hidden;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    // .solar-calc__chart-x-months
+    &__chart-x-months {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            width: 20px;
+            flex: 0 0 20px;
+            text-align: center;
+            overflow: visible;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 575.98px) {
+            font-size: 9px;
+        }
+    }
+
+    // .solar-calc__metrics
+    &__metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+
+        @media (max-width: 575.98px) {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+
+    // .solar-calc__metric
+    &__metric {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 20px;
+        border-radius: 16px;
+        border-left: 4px solid var(--yellow-brand);
+        background: #f9f9f9;
+
+        @media (max-width: 575.98px) {
+            padding: 16px;
+        }
+    }
+
+    // .solar-calc__metric-value
+    &__metric-value {
+        margin: 0;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        @include af(32, 24);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: var(--black);
+    }
+
+    // .solar-calc__metric-label
+    &__metric-label {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: 400;
+        font-family: var(--font-main);
+        letter-spacing: -0.04em;
+        color: var(--gray-color);
+    }
+
+    // .solar-calc__metrics--uze
+    &__metrics--uze {
+        .solar-calc__metric--wide {
+            grid-column: 1 / -1;
+        }
+    }
+
+    // .solar-calc__derived — автопотужність УЗЕ
+    &__derived {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 72px;
+        padding: 20px 28px 20px 24px;
+        border-radius: 16px;
+        border-left: 4px solid var(--yellow-brand);
+        background: rgba(255, 255, 255, 0.08);
+
+        color: var(--white);
+    }
+
+    // .solar-calc__derived-value
+    &__derived-value {
+        margin: 0;
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        @include af(32, 24);
+        line-height: 1;
+        letter-spacing: -0.04em;
+    }
+
+    // .solar-calc__derived-unit
+    &__derived-unit {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: var(--yellow-brand);
+    }
+
+    // .solar-calc__derived-info
+    &__derived-info {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: var(--yellow-brand);
+        cursor: pointer;
+
+        .icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (any-hover: hover) {
+            &:hover,
+            &:focus-visible {
+                .solar-calc__tip {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translate(-50%, 0);
+                    pointer-events: auto;
+                }
+            }
+        }
+
+        &.is-open .solar-calc__tip {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+            pointer-events: auto;
+        }
+    }
+
+    // .solar-calc__tip
+    &__tip {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        z-index: 20;
+        width: max-content;
+        max-width: min(260px, 70vw);
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: var(--white);
+        color: var(--black);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.35;
+        text-align: left;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate(-50%, 4px);
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease,
+            visibility 0.2s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            border: 6px solid transparent;
+            border-top-color: var(--white);
+            transform: translateX(-50%);
+        }
+    }
+
+    // .solar-calc__scenarios
+    &__scenarios {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+
+        @media (max-width: 575.98px) {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+
+    // .solar-calc__scenario
+    &__scenario {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        min-height: 100%;
+        padding: 16px 20px;
+        border-radius: 19px;
+        background: rgba(255, 255, 255, 0.08);
+        cursor: pointer;
+        transition:
+            border-color 0.2s ease,
+            background-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+
+        @media (max-width: 575.98px) {
+            padding: 12px 16px;
+            gap: 8px;
+        }
+
+        input {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        &:hover,
+        &:focus-visible {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+        }
+
+        &:has(input:checked) {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.08);
+
+            .solar-calc__scenario-mark {
+                border-color: var(--yellow-brand);
+                background: var(--yellow-brand);
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    // .solar-calc__scenario-mark
+    &__scenario-mark {
+        position: relative;
+        z-index: 0;
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+        border: 1.5px solid var(--white);
+        border-radius: 4px;
+        background: transparent;
+        transition:
+            border-color 0.2s ease,
+            background-color 0.2s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><g clip-path="url(%23clip0_2671_75186)"><path d="M11.7212 1.96136C11.3499 1.58959 10.747 1.58982 10.3752 1.96136L4.31744 8.01936L1.62503 5.32697C1.25325 4.95519 0.650609 4.95519 0.278832 5.32697C-0.0929441 5.69874 -0.0929441 6.30139 0.278832 6.67316L3.6442 10.0385C3.82998 10.2243 4.07357 10.3174 4.31719 10.3174C4.5608 10.3174 4.80463 10.2245 4.9904 10.0385L11.7212 3.30753C12.0929 2.93602 12.0929 2.33311 11.7212 1.96136Z" fill="%23141414"/></g><defs><clipPath id="clip0_2671_75186"><rect width="12" height="12" fill="white"/></clipPath></defs></svg>')
+                center center / contain no-repeat;
+        }
+    }
+
+    // .solar-calc__scenario-body
+    &__scenario-body {
+        position: relative;
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    // .solar-calc__scenario-title
+    &__scenario-title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        color: var(--white);
+    }
+
+    // .solar-calc__scenario-text
+    &__scenario-text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: var(--white);
+    }
+
+    // .solar-calc__lead
+    &__lead {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px;
+        border-radius: 20px;
+        background: var(--gray-brand);
+
+        @media (max-width: 767.98px) {
+            padding: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            margin-bottom: 4px;
+            font-weight: 700;
+            @include af(16, 14);
+            line-height: 1.5;
+            color: var(--white);
+
+            span {
+                color: var(--yellow-brand);
+            }
+        }
+
+        .form-input {
+            height: 50px;
+            border: 0;
+            padding: 0 16px;
+            border-radius: 12px;
+            background: var(--white);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: none;
+            color: var(--black);
+
+            &::placeholder {
+                color: #ababab;
+            }
+        }
+    }
+
+    // .solar-calc__lead-title
+    &__lead-title {
+        margin: 0;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: var(--white);
+
+        span {
+            color: var(--yellow-brand);
+        }
+    }
+
+    // .solar-calc__lead-text
+    &__lead-text {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: var(--white);
+    }
+
+    // .solar-calc__lead-grid
+    &__lead-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+
+        @media (max-width: 575.98px) {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+    }
+
+    .solar-calc__lead-btn {
+        margin-top: 8px;
+        margin-left: 0;
+
+        @media (min-width: 992px) {
+            min-height: 64px;
+            font-size: 20px;
+            gap: 10px;
+            padding: 18px 20px 18px 32px;
+
+            .arrow-icon {
+                width: 24px;
+                height: 24px;
+
+                .icon {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            width: 100%;
+        }
+    }
+
+    // .solar-calc__presets
+    &__presets {
+        position: relative;
+        isolation: isolate;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        color: var(--white);
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.55) 0%,
+                rgba(255, 255, 255, 0.22) 28%,
+                rgba(255, 255, 255, 0.06) 55%,
+                rgba(255, 255, 255, 0) 78%
+            );
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 991.98px) {
+            grid-template-columns: 1fr;
+            padding: 20px 16px;
+            border-radius: 20px;
+        }
+    }
+
+    // .solar-calc__presets-title
+    &__presets-title {
+        margin: 0 0 10px;
+        font-family: var(--font-roboto);
+        font-weight: 600;
+        @include af(32, 24);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: var(--white);
+    }
+
+    // .solar-calc__presets-text
+    &__presets-text {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--white);
+    }
+
+    // .solar-calc__presets-list
+    &__presets-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    // .solar-calc__preset
+    &__preset {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 38px;
+        padding: 10px 16px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            color 0.2s ease;
+
+        &.is-active,
+        &:hover {
+            border-color: var(--yellow-brand);
+            background: var(--yellow-brand);
+            color: var(--black);
+        }
+    }
+}

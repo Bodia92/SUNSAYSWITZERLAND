@@ -31,6 +31,8 @@ import { initFancybox } from "./modules/fancybox.js";
 import { initScrollSliders } from "./modules/scroll-slider.js";
 import { initCompareScroll } from "./modules/compare-scroll.js";
 import { initQuiz } from "./modules/quiz.js";
+import { initSolarCalculator } from "./modules/solar-calculator.js";
+import { initUzeCalculator } from "./modules/uze-calculator.js";
 
 // Запуск загальних скриптів
 document.addEventListener("DOMContentLoaded", () => {
@@ -53,6 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollSliders();
     initCompareScroll();
     initQuiz();
+    initSolarCalculator();
+    initUzeCalculator();
     //initLightbox();
 
     const nodes = document.querySelectorAll("[data-ba-compare]");
