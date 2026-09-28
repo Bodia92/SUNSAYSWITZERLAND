@@ -80,10 +80,7 @@ export function initProductTabs() {
 
                 e.preventDefault();
                 tabs.forEach((t) => t.classList.toggle("is-active", t === tab));
-
-                const headerOffset = 96;
-                const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
-                window.scrollTo({ top, behavior: "smooth" });
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
             });
         });
     });
