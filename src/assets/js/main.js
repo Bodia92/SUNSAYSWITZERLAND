@@ -34,6 +34,7 @@ import { initQuiz } from "./modules/quiz.js";
 import { initSolarCalculator } from "./modules/solar-calculator.js";
 import { initUzeCalculator } from "./modules/uze-calculator.js";
 import { initCatalogListing } from "./modules/catalog-filter.js";
+import { initProductGallery, initProductTabs } from "./modules/product-gallery.js";
 
 // Запуск загальних скриптів
 document.addEventListener("DOMContentLoaded", () => {
@@ -59,6 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initSolarCalculator();
     initUzeCalculator();
     initCatalogListing();
+    initProductGallery();
+    initProductTabs();
     //initLightbox();
 
     const nodes = document.querySelectorAll("[data-ba-compare]");
