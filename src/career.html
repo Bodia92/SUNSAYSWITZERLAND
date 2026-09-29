@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="uk">
+{{> Head/Head title="Мережева СЕС Huawei 900 кВт — SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--career">
+
+            <section class="hero">
+                {{> Breadcrumbs/Breadcrumbs
+                            home="SUNSAY NRG"
+                            homeUrl="/"
+                            current="Кар’єра в Sunsay NRG"
+                            }}
+                <div class="hero__container">
+                    <div class="hero__banner">
+                        <div class="hero__media">
+                            <img src="@img/hero18.jpg" alt="Сонячна електростанція SUNSAY NRG" width="1920" height="1080" />
+                        </div>
+                        <div class="hero__content">
+                            <h1 class="hero__title">
+                                Кар’єра в Sunsay NRG
+                            </h1>
+                            <p class="hero__text">
+                                Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at.
+                            </p>
+                            <a href="#vacancies" class="hero__btn btn btn-main">
+                                <span>Переглянут вакансії</span>
+                                {{> Ui/ArrowIcon }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section vacancies" id="vacancies" data-vacancies>
+                <div class="vacancies__container">
+                    <p class="vacancies__label title-label">Вакансії</p>
+                    <h2 class="vacancies__title title"><span>Наразі шукаємо</span> наступних спеціалістів</h2>
+
+                    <div class="vacancies__grid">
+                        <aside class="vacancies__aside">
+                            <div class="vacancies__nav" aria-label="Відділи">
+                                <button type="button" class="vacancies__nav-btn is-active" data-vacancy-department="admin" aria-pressed="true">
+                                    <span>Адміністративний персонал</span>
+                                    {{> Ui/ArrowIcon }}
+                                </button>
+                                <button type="button" class="vacancies__nav-btn" data-vacancy-department="finance" aria-pressed="false">
+                                    <span>Бухгалтерія та фінанси</span>
+                                    {{> Ui/ArrowIcon }}
+                                </button>
+                                <button type="button" class="vacancies__nav-btn" data-vacancy-department="marketing" aria-pressed="false">
+                                    <span>Маркетинг</span>
+                                    {{> Ui/ArrowIcon }}
+                                </button>
+                                <button type="button" class="vacancies__nav-btn" data-vacancy-department="commercial" aria-pressed="false">
+                                    <span>Комерційний відділ</span>
+                                    {{> Ui/ArrowIcon }}
+                                </button>
+                                <button type="button" class="vacancies__nav-btn" data-vacancy-department="projects" aria-pressed="false">
+                                    <span>Управління проєктами</span>
+                                    {{> Ui/ArrowIcon }}
+                                </button>
+                                <button type="button" class="vacancies__nav-btn" data-vacancy-department="construction" aria-pressed="false">
+                                    <span>Будівництво та управління нерухомості</span>
+                                    {{> Ui/ArrowIcon }}
+                                </button>
+                            </div>
+                        </aside>
+                        <div class="vacancies__main">
+                            <div class="vacancies__tags" role="group" aria-label="Тип вакансії">
+                                <button type="button" class="vacancies__tag is-active" data-vacancy-tag="all" aria-pressed="true"><span>Всі вакансії</span></button>
+                                <button type="button" class="vacancies__tag" data-vacancy-tag="students" aria-pressed="false"><span>Студентам</span></button>
+                                <button type="button" class="vacancies__tag" data-vacancy-tag="disability" aria-pressed="false"><span>Для людей з інвалідністю</span></button>
+                                <button type="button" class="vacancies__tag" data-vacancy-tag="internship" aria-pressed="false"><span>Програми стажування</span></button>
+                            </div>
+
+                            <div class="vacancies__list" data-vacancies-list>
+                                {{> Vacancies/VacancyCard
+                                    department="admin"
+                                    tags="hot remote"
+                                    image="hero18.jpg"
+                                    title="Провідний фахівець відділу з управління проєктуванням"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Гаряча вакансія"
+                                    badge2="Віддалена робота"
+                                    badge3="Віддалена робота"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="admin"
+                                    tags="students"
+                                    image="articles/05.jpg"
+                                    title="Офіс-менеджер"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Для студентів"
+                                    badge2="Офіс"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="admin"
+                                    tags="disability remote"
+                              image="hero18.jpg"
+                                    title="Спеціаліст з документообігу"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Для людей з інвалідністю"
+                                    badge2="Віддалена робота"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="admin"
+                                    tags="internship"
+                                   image="articles/05.jpg"
+                                    title="Стажер адміністративного відділу"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Стажування"
+                                    badge2="Офіс"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="admin"
+                                    tags="hot"
+                             image="hero18.jpg"
+                                    title="Помічник керівника"
+                                    location="м. Львів"
+                                    badge1="Гаряча вакансія"
+                                    badge2="Повна зайнятість"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="admin"
+                                    tags="remote"
+                                    image="articles/05.jpg"
+                                    title="HR-спеціаліст"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Віддалена робота"
+                                    badge2="Повна зайнятість"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="admin"
+                                    tags="students internship"
+                                    image="teams/03.jpg"
+                                    title="Асистент адміністратора"
+                                    location="м. Київ"
+                                    badge1="Для студентів"
+                                    badge2="Стажування"
+                                    href="#"
+                                }}
+
+                                {{> Vacancies/VacancyCard
+                                    department="finance"
+                                    tags="hot"
+                             image="hero18.jpg"
+                                    title="Головний бухгалтер"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Гаряча вакансія"
+                                    badge2="Повна зайнятість"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="finance"
+                                    tags="remote"
+                      image="articles/05.jpg"
+                                    title="Фінансовий аналітик"
+                                    location="м. Львів"
+                                    badge1="Віддалена робота"
+                                    badge2="Повна зайнятість"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="finance"
+                                    tags="internship students"
+                                    image="teams/02.jpg"
+                                    title="Стажер фінансового відділу"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Стажування"
+                                    badge2="Для студентів"
+                                    href="#"
+                                }}
+
+                                {{> Vacancies/VacancyCard
+                                    department="marketing"
+                                    tags="hot remote"
+                        image="hero18.jpg"
+                                    title="SMM-менеджер"
+                                    location="м. Київ"
+                                    badge1="Гаряча вакансія"
+                                    badge2="Віддалена робота"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="marketing"
+                                    tags="disability"
+                            image="articles/05.jpg"
+                                    title="Контент-менеджер"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Для людей з інвалідністю"
+                                    badge2="Гібрид"
+                                    href="#"
+                                }}
+
+                                {{> Vacancies/VacancyCard
+                                    department="commercial"
+                                    tags="hot"
+                                    image="hero18.jpg"
+                                    title="Менеджер з продажу"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Гаряча вакансія"
+                                    badge2="Повна зайнятість"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="commercial"
+                                    tags="students"
+                           image="hero18.jpg"
+                                    title="Менеджер з роботи з клієнтами"
+                                    location="м. Львів"
+                                    badge1="Для студентів"
+                                    badge2="Офіс"
+                                    href="#"
+                                }}
+
+                                {{> Vacancies/VacancyCard
+                                    department="projects"
+                                    tags="hot"
+                                    image="teams/03.jpg"
+                                    title="Провідний фахівець відділу з управління проєктуванням"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Гаряча вакансія"
+                                    badge2="Віддалена робота"
+                                    badge3="Віддалена робота"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="projects"
+                                    tags="remote internship"
+                            image="hero18.jpg"
+                                    title="Project Manager"
+                                    location="м. Київ"
+                                    badge1="Віддалена робота"
+                                    badge2="Стажування"
+                                    href="#"
+                                }}
+
+                                {{> Vacancies/VacancyCard
+                                    department="construction"
+                                    tags="hot"
+                                    image="teams/01.jpg"
+                                    title="Інженер з будівництва СЕС"
+                                    location="м. Івано-Франківськ"
+                                    badge1="Гаряча вакансія"
+                                    badge2="Виїзди на обʼєкти"
+                                    href="#"
+                                }}
+                                {{> Vacancies/VacancyCard
+                                    department="construction"
+                                    tags="disability"
+                                image="hero18.jpg"
+                                    title="Спеціаліст з управління нерухомістю"
+                                    location="м. Львів"
+                                    badge1="Для людей з інвалідністю"
+                                    badge2="Офіс"
+                                    href="#"
+                                }}
+                            </div>
+
+                            <div class="vacancies__more-wrap">
+                                <button type="button" class="btn btn-outline vacancies__more" data-vacancies-more aria-expanded="false">
+                                    <span>Дивитись більше</span>
+                                    {{> Ui/ArrowIcon }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {{> Calculate/Calculate
+            modifier="center"
+            image="banner01.jpg"
+            text="Lorem ipsum dolor sit amet consectetur. Nam donec at non urna pellentesque commodo purus nec metus. At elementum iaculis ut molestie ornare auctor. Enim in condimentum tellus nibh nulla morbi ornare at"
+            title="Не знайшли що шукали?
+<span>Надсилайте нам своє резюме</span>"
+            btn="Надіслати резюме"
+            }}
+
+
+            {{#> Advantages/Advantages
+            label="Чому ми"
+            title=" <span>переваги</span> роботи в sunsay NRG"
+            }}
+                {{> Advantages/AdvantageCard
+            icon="friends"
+            title="Адаптація та підтримка"
+            text="У нас розроблений план введення в посаду, є база професійних знань та Політик, постійна підтримка з боку керівника на адаптаційному періоді"
+            }}
+                {{> Advantages/AdvantageCard
+            icon="compare"
+            title="Офіційне працевлаштування 
+та фінансова стабільність"
+            text="Ставка + Бонус за виконання KPI.Офіційне оформлення з першого дня, виплата заробітної плати 2 рази на місяць без затримок"
+            }}
+                {{> Advantages/AdvantageCard
+            icon="like"
+            title="Програма нематеріальної мотивації"
+            text="Це командоутворюючі заходи, матеріальна допомога, вітамінні дні та інше."
+            }}
+                {{> Advantages/AdvantageCard
+            icon="up-2"
+            title="Професійний розвиток"
+            text="Ми навчаємо наших співробітників всередині компанії (семінари та тренінги), а також надаємо грант на зовнішнє професійне навчання."
+            }}
+
+                {{> Advantages/AdvantageCard
+            icon="line"
+            title="Гнучкий графік роботи"
+            text="Для нас головне результат, тому час початку робочого дня можна обирати."
+            }}
+
+                {{> Advantages/AdvantageCard
+            icon="people"
+            title="Дружній колектив"
+            text="Ми вважаємо, що відкрита комунікація, побудована на довірі може допомогти вирішити будь-яке питання. Кожен наш співробітник — цінний і окрім спільних завдань, ми виконуємо головне — завжди підтримуємо один одного."
+            }}
+                {{/Advantages/Advantages}}
+
+                {{> Question/Question}}
+                <section class="section seo-section">
+                    <div class="seo-section__container">
+                        <div class="seo-section__content editor">
+                            <h2>Як сонячна електростанція оптимізує витрати бізнесу</h2>
+                            <p> Сонячна електростанція дозволяє бізнесу зменшити залежність від коливань тарифів та частково
+                                компенсувати власне споживання електроенергії. Найбільший ефект досягається для підприємств
+                                зі
+                                стабільним денним навантаженням, де значна частина генерації використовується одразу в
+                                момент
+                                виробництва.</p>
+                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                установок
+                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                            <p>Для багатьох компаній СЕС стає не лише інструментом економії, а й частиною довгострокової
+                                енергетичної стратегії. Власна генерація допомагає прогнозувати витрати на електроенергію,
+                                підвищує енергетичну стійкість підприємства та створює основу для подальшої інтеграції
+                                установок
+                                зберігання енергії (УЗЕ), EMS та резервних джерел живлення.</p>
+                        </div>
+                    </div>
+                </section>
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>
