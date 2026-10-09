@@ -6,6 +6,10 @@
     @include av("padding-top", 96, 48);
     @include av("padding-bottom", 96, 48);
 
+    @media (max-width: 991.98px) {
+        padding-top: 220px;
+    }
+
     &:not(:last-child) {
         margin-bottom: 0;
     }
@@ -22,6 +26,10 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+
+            @media (max-width: 991.98px) {
+                object-position: 87% 50%;
+            }
         }
 
         &::after {
@@ -55,7 +63,7 @@
         @media (max-width: 991.98px) {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 14px;
         }
     }
 
@@ -113,6 +121,7 @@
         @media (max-width: 991.98px) {
             max-width: none;
             text-align: center;
+            text-wrap: balance;
         }
     }
 
@@ -124,6 +133,10 @@
         margin: 0;
         padding: 0;
         list-style: none;
+
+        @media (max-width: 991.98px) {
+            width: 100%;
+        }
     }
 
     // .service-results__item
@@ -146,6 +159,7 @@
         @media (max-width: 991.98px) {
             padding: 16px;
             border-radius: 12px;
+            width: 100%;
         }
 
         &::before {

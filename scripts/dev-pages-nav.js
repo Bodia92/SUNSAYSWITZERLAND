@@ -73,6 +73,10 @@ function buildPanelMarkup(files) {
   box-shadow: -4px 4px 24px rgba(0,0,0,.35);
   transform: translateX(calc(100% - 32px));
   transition: transform 0.22s ease;
+
+       @media (max-width: 991.98px) {
+                display: none;
+            }
 }
 #me-template-dev-pages:hover {
   transform: translateX(0);

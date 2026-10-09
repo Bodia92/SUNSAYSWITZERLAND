@@ -41,14 +41,8 @@
                 {{/if}}
 
                 {{#if compareImage}}
-                    <div class="process__compare-image" data-compare-scroll>
-                        <div class="process__compare-track" data-compare-track>
-                            <img src="@img/{{compareImage}}" alt="{{#if compareImageAlt}}{{compareImageAlt}}{{else}}Як це працює{{/if}}" width="672" height="771" />
-                        </div>
-                        <div class="process__compare-bar" data-compare-bar aria-hidden="true">
-                            <span class="process__compare-bar-fill" data-compare-fill></span>
-                            <span class="process__compare-bar-thumb" data-compare-thumb></span>
-                        </div>
+                    <div class="process__compare-image">
+                        <img src="@img/{{compareImage}}" alt="{{#if compareImageAlt}}{{compareImageAlt}}{{else}}Як це працює{{/if}}" width="672" height="771" />
                     </div>
                 {{/if}}
 
