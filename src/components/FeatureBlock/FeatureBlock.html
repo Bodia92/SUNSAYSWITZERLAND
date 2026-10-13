@@ -27,7 +27,7 @@
         {{> Ui/SliderNav scroll=true light=true }}
     </div>
     {{#if more}}
-        <a href="#" class="feature-block__more btn btn-main">
+        <a href="{{#if moreHref}}{{moreHref}}{{else}}solutions.html{{/if}}" class="feature-block__more btn btn-main">
             <span>Дізнатись більше</span>
             {{> Ui/ArrowIcon }}
         </a>

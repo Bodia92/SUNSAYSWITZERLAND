@@ -57,49 +57,69 @@ function syncRange(wrap) {
 }
 
 function syncTimeline(wrap) {
-    const from = wrap.querySelector(".quiz-timeline__from");
-    const to = wrap.querySelector(".quiz-timeline__to");
-    const fill = wrap.querySelector("[data-quiz-timeline-fill]");
     const display = wrap.querySelector(".quiz-timeline__display");
-    if (!from || !to) return;
+    const segments = [...wrap.querySelectorAll("[data-quiz-timeline-segment]")];
+
+    const pairs = (segments.length
+        ? segments
+        : [wrap.querySelector(".quiz-timeline__track") || wrap]
+    )
+        .map((seg) => ({
+            from: seg.querySelector(".quiz-timeline__from"),
+            to: seg.querySelector(".quiz-timeline__to"),
+            fill: seg.querySelector("[data-quiz-timeline-fill]"),
+        }))
+        .filter((p) => p.from && p.to);
+
+    if (!pairs.length) return;
+
+    const handles = pairs.flatMap((p) => [p.from, p.to]);
 
     const paint = () => {
-        const a = Number(from.value);
-        const b = Number(to.value);
-        const min = Number(from.min) || 0;
-        const max = Number(from.max) || 24;
-        const left = ((a - min) / (max - min)) * 100;
-        const right = ((b - min) / (max - min)) * 100;
+        const parts = [];
 
-        if (fill) {
-            fill.style.left = `${left}%`;
-            fill.style.width = `${Math.max(0, right - left)}%`;
-        }
+        pairs.forEach(({ from, to, fill }) => {
+            const a = Number(from.value);
+            const b = Number(to.value);
+            const min = Number(from.min) || 0;
+            const max = Number(from.max) || 24;
+            const left = ((a - min) / (max - min)) * 100;
+            const right = ((b - min) / (max - min)) * 100;
+
+            if (fill) {
+                fill.style.left = `${left}%`;
+                fill.style.width = `${Math.max(0, right - left)}%`;
+            }
+
+            parts.push(`${padHour(a)} — ${padHour(b)}`);
+        });
+
         if (display) {
-            display.value = `${padHour(a)} — ${padHour(b)}`;
+            display.value = parts.join(", ");
         }
     };
 
     const setActive = (el) => {
-        from.classList.toggle("is-active", el === from);
-        to.classList.toggle("is-active", el === to);
+        handles.forEach((h) => h.classList.toggle("is-active", h === el));
     };
 
-    from.addEventListener("pointerdown", () => setActive(from));
-    to.addEventListener("pointerdown", () => setActive(to));
+    pairs.forEach(({ from, to }) => {
+        from.addEventListener("pointerdown", () => setActive(from));
+        to.addEventListener("pointerdown", () => setActive(to));
 
-    from.addEventListener("input", () => {
-        if (Number(from.value) > Number(to.value)) {
-            from.value = to.value;
-        }
-        paint();
-    });
+        from.addEventListener("input", () => {
+            if (Number(from.value) > Number(to.value)) {
+                from.value = to.value;
+            }
+            paint();
+        });
 
-    to.addEventListener("input", () => {
-        if (Number(to.value) < Number(from.value)) {
-            to.value = from.value;
-        }
-        paint();
+        to.addEventListener("input", () => {
+            if (Number(to.value) < Number(from.value)) {
+                to.value = from.value;
+            }
+            paint();
+        });
     });
 
     paint();
@@ -113,6 +133,16 @@ function syncReveals(form) {
             return getRadioValue(form, name) === value;
         });
         el.hidden = !visible;
+
+        // Кастомні поля («Інше») — не відправляємо, коли приховані
+        if (el.classList.contains("quiz-field__extra")) {
+            el.querySelectorAll("input, textarea, select").forEach((field) => {
+                field.disabled = !visible;
+                if (!visible && field instanceof HTMLInputElement && !field.readOnly) {
+                    field.value = "";
+                }
+            });
+        }
     });
 }
 

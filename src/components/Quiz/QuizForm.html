@@ -11,16 +11,25 @@
                         <input type="radio" name="system" value="ses" required>
                         <span class="quiz-option__mark quiz-option__mark--radio" aria-hidden="true"></span>
                         <span class="quiz-option__text">СЕС</span>
+                        <div class="quiz-option__icon">
+                            <img src="@img/icons/solar2.svg" alt="СЕС">
+                        </div>
                     </label>
                     <label class="quiz-option">
                         <input type="radio" name="system" value="uze">
                         <span class="quiz-option__mark quiz-option__mark--radio" aria-hidden="true"></span>
                         <span class="quiz-option__text">УЗЕ</span>
+                        <div class="quiz-option__icon">
+                            <img src="@img/icons/energy.svg" alt="УЗЕ">
+                        </div>
                     </label>
                     <label class="quiz-option">
                         <input type="radio" name="system" value="ses-uze">
                         <span class="quiz-option__mark quiz-option__mark--radio" aria-hidden="true"></span>
                         <span class="quiz-option__text">СЕС + УЗЕ</span>
+                        <div class="quiz-option__icon">
+                            <img src="@img/icons/mark.svg" alt="СЕС">
+                        </div>
                     </label>
                 </div>
 
@@ -178,6 +187,17 @@
                             <span class="quiz-option__text">Інше / не знаю</span>
                         </label>
                     </div>
+                    <div class="quiz-field__extra" data-quiz-reveal="roof_cover:other" hidden>
+                        <label class="visually-hidden" for="quiz-roof-cover-other">Ваш варіант покриття даху</label>
+                        <input
+                            class="form-input"
+                            type="text"
+                            name="roof_cover_other"
+                            id="quiz-roof-cover-other"
+                            placeholder="Вкажіть свій варіант"
+                            autocomplete="off"
+                        >
+                    </div>
                 </div>
 
                 <div class="quiz-form__actions">
@@ -213,11 +233,18 @@
                 <div class="quiz-field">
                     <p class="quiz-field__label"><span>02</span> Робочий графік підприємства</p>
                     <div class="quiz-timeline" data-quiz-timeline>
-                        <input class="quiz-timeline__display form-input" type="text" name="schedule_display" value="07:00 — 21:00" readonly tabindex="-1">
+                        <input class="quiz-timeline__display form-input" type="text" name="schedule_display" value="07:00 — 14:00, 18:00 — 24:00" readonly tabindex="-1">
                         <div class="quiz-timeline__track">
-                            <input class="quiz-timeline__from" type="range" name="schedule_from" min="0" max="24" step="1" value="7" aria-label="Початок робочого дня">
-                            <input class="quiz-timeline__to" type="range" name="schedule_to" min="0" max="24" step="1" value="21" aria-label="Кінець робочого дня">
-                            <div class="quiz-timeline__fill" data-quiz-timeline-fill></div>
+                            <div class="quiz-timeline__segment" data-quiz-timeline-segment>
+                                <input class="quiz-timeline__from" type="range" name="schedule_a_from" min="0" max="24" step="1" value="7" aria-label="Початок першої зміни">
+                                <input class="quiz-timeline__to" type="range" name="schedule_a_to" min="0" max="24" step="1" value="14" aria-label="Кінець першої зміни">
+                                <div class="quiz-timeline__fill" data-quiz-timeline-fill></div>
+                            </div>
+                            <div class="quiz-timeline__segment" data-quiz-timeline-segment>
+                                <input class="quiz-timeline__from" type="range" name="schedule_b_from" min="0" max="24" step="1" value="18" aria-label="Початок другої зміни">
+                                <input class="quiz-timeline__to" type="range" name="schedule_b_to" min="0" max="24" step="1" value="24" aria-label="Кінець другої зміни">
+                                <div class="quiz-timeline__fill" data-quiz-timeline-fill></div>
+                            </div>
                         </div>
                         <div class="quiz-timeline__scale" aria-hidden="true">
                             <span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
@@ -378,7 +405,7 @@
             {{!-- 7. Контакти --}}
             <div class="quiz-form__step" data-quiz-step="contacts" data-quiz-when="*" hidden>
                 <h2 class="quiz-form__heading">Ваш персоналізований розрахунок готовий!</h2>
-                <p class="quiz-form__lead">Щоб підготувати детальний техніко-економічний розрахунок, залиште контактні дані</p>
+                <p class="quiz-form__lead">Щоб отримати детальний техніко-економічний розрахунок, залиште контактні дані</p>
 
                 <div class="quiz-form__grid">
                     <div class="form-group">
