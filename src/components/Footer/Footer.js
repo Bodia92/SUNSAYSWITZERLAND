@@ -1,8 +1,8 @@
 export default class Footer {
     constructor() {
-        const yearEl = document.querySelector("[data-year]");
-        if (yearEl) {
-            yearEl.textContent = new Date().getFullYear();
-        }
+        const year = String(new Date().getFullYear());
+        document.querySelectorAll("[data-year]").forEach((el) => {
+            el.textContent = year;
+        });
     }
 }

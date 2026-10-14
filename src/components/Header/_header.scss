@@ -19,10 +19,6 @@ body.menu-open {
     padding-top: env(safe-area-inset-top);
     transition: box-shadow 0.3s ease;
 
-    @include mq(xl) {
-        padding-top: calc(var(--header-top-h) + env(safe-area-inset-top));
-    }
-
     &.scroll-header {
         box-shadow: 0 8px 24px rgba(20, 20, 20, 0.08);
     }
@@ -720,6 +716,11 @@ body.menu-open {
     // CTA
     // ----------------------------------------------------------------
     &__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+
         @include mq-down(xl) {
             order: 3;
             flex-shrink: 0;
@@ -728,7 +729,31 @@ body.menu-open {
         }
 
         @include mq(xl) {
+            flex-direction: row;
             flex-shrink: 0;
+            align-items: center;
+            gap: 16px 20px;
+            margin-left: auto;
+        }
+
+        .header__lang {
+            @include mq(xl) {
+                margin-left: 0;
+            }
+        }
+
+        .header__contact {
+            @include mq-down(xl) {
+                min-height: 44px;
+                font-size: 16px;
+                color: var(--black);
+
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    color: var(--yellow-brand);
+                }
+            }
         }
     }
 
