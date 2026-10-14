@@ -1,7 +1,8 @@
 <header class="header">
     <div class="header__container">
         <a href="/" class="header__logo">
-            <img src="@img/logo.svg" alt="SUNSAY NRG" width="170" height="40" />
+            <img class="header__logo-img" src="@img/logo.svg" alt="SUNSAY NRG" width="166" height="40" />
+            <img class="header__logo-img-white" src="@img/logo-white.svg" alt="SUNSAY NRG" width="166" height="40" />
         </a>
 
         <div class="header__navbar" id="mobile-menu">
@@ -15,6 +16,7 @@
                         </div>
                         <ul class="sub-menu js-header-submenu-body">
                             <li class="menu-item"><a href="#">Development portfolio</a></li>
+                            <li class="menu-item"><a href="#">Investment portfolio</a></li>
                         </ul>
                     </li>
                     <li class="menu-item"><a href="#">About us</a></li>
@@ -22,47 +24,226 @@
                 </ul>
             </nav>
 
-            <div class="header__actions">
-                <div class="header__lang">
-                    <ul class="menu">
-                        <li class="menu-item menu-item-has-children lang-item current-lang js-header-submenu">
-                            <div class="header__nav-parent">
-                                <a href="#" aria-label="Language">EN</a>
-                                {{> Ui/NavChevron }}
-                            </div>
-                            <ul class="sub-menu js-header-submenu-body">
-                                <li class="menu-item lang-item current-lang">
-                                    <a href="#"><b>EN</b> — English</a>
-                                </li>
-                                <li class="menu-item lang-item">
-                                    <a href="#"><b>DE</b> — Deutsch</a>
-                                </li>
-                            </ul>
+            <div class="header__contacts" data-tabs>
+                <p class="header__contacts-title">Contacts</p>
+
+                <div class="header__contacts-countries" data-tabs-nav role="tablist" aria-label="Office location">
+                    <button class="header__contacts-country is-active" type="button" data-tab="ch" data-tabs-btn role="tab" aria-selected="true">
+                        Switzerland
+                    </button>
+                    <button class="header__contacts-country" type="button" data-tab="ua" data-tabs-btn role="tab" aria-selected="false" tabindex="-1">
+                        Ukraine
+                    </button>
+                    <button class="header__contacts-country" type="button" data-tab="de" data-tabs-btn role="tab" aria-selected="false" tabindex="-1">
+                        Germany
+                    </button>
+                </div>
+
+                <div class="header__contacts-panel is-active is-visible" data-tab="ch" data-tabs-panel role="tabpanel">
+                    <ul class="header__contacts-list">
+                        <li>
+                            <a href="tel:+41784478806" class="header__contacts-item">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-phone"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Phone</span>
+                                    <span class="header__contacts-value">+41 78 447 88 06</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@sunsay.ch" class="header__contacts-item">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-mail"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Email</span>
+                                    <span class="header__contacts-value">info@sunsay.ch</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://maps.google.com/?q=Grafenaustrasse+7,+6300+Zug,+Switzerland" class="header__contacts-item" target="_blank" rel="noopener noreferrer">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-location"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Location</span>
+                                    <span class="header__contacts-value">SUNSAY NRG Suisse AG, c/o Fellmann &amp; Partner AG, Grafenaustrasse 7, 6300 Zug, Switzerland</span>
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
 
-                <a href="tel:+41441234567" class="header__contact">
-                    <svg class="icon" aria-hidden="true">
-                        <use href="@img/sprite.svg#icon-phone"></use>
-                    </svg>
-                    <span>+41 44 123 45 67</span>
-                </a>
+                <div class="header__contacts-panel" data-tab="ua" data-tabs-panel role="tabpanel" aria-hidden="true">
+                    <ul class="header__contacts-list">
+                        <li>
+                            <a href="tel:+380939145010" class="header__contacts-item">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-phone"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Phone</span>
+                                    <span class="header__contacts-value">+38 093 914 50 10</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@sunsay.ua" class="header__contacts-item">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-mail"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Email</span>
+                                    <span class="header__contacts-value">info@sunsay.ua</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="header__contacts-item" target="_blank" rel="noopener noreferrer">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-location"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Location</span>
+                                    <span class="header__contacts-value">SUNSAY NRG Suisse AG, c/o Fellmann & Partner AG, Grafenaustrasse 7, 6300 Zug, Switzerland</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-                <a href="#" class="header__btn btn btn-outline" data-popup-target="#contact-us">
-                    <span>Contact us</span>
-                    {{> Ui/ArrowIcon }}
-                </a>
+                <div class="header__contacts-panel" data-tab="de" data-tabs-panel role="tabpanel" aria-hidden="true">
+                    <ul class="header__contacts-list">
+                        <li>
+                            <a href="tel:+490000000000" class="header__contacts-item">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-phone"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Phone</span>
+                                    <span class="header__contacts-value">+49 00 0000 0000</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@sunsay.de" class="header__contacts-item">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-mail"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Email</span>
+                                    <span class="header__contacts-value">info@sunsay.de</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="header__contacts-item" target="_blank" rel="noopener noreferrer">
+                                <span class="header__contacts-icon" aria-hidden="true">
+                                    <svg class="icon">
+                                        <use href="@img/sprite.svg#icon-location"></use>
+                                    </svg>
+                                </span>
+                                <span class="header__contacts-body">
+                                    <span class="header__contacts-label">Location</span>
+                                    <span class="header__contacts-value">Germany</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="header__contacts-socials">
+                    <a href="#" class="header__contacts-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <g clip-path="url(#clip0_2952_18349)">
+                                <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0B69C7" />
+                                <path d="M9.31598 7.63737C9.31629 7.96166 9.2204 8.27875 9.04043 8.54851C8.86046 8.81828 8.6045 9.02859 8.30496 9.15284C8.00542 9.27708 7.67575 9.30967 7.35768 9.24648C7.03961 9.18329 6.74743 9.02716 6.51812 8.79786C6.28882 8.56855 6.13269 8.27637 6.0695 7.9583C6.00631 7.64023 6.0389 7.31056 6.16315 7.01102C6.28739 6.71148 6.4977 6.45552 6.76747 6.27556C7.03723 6.09559 7.35433 5.99969 7.67861 6C8.11274 6.00042 8.52897 6.17306 8.83595 6.48004C9.14292 6.78701 9.31556 7.20324 9.31598 7.63737Z" fill="white" />
+                                <path d="M8.54113 9.95703H6.81692C6.59281 9.95703 6.41113 10.1387 6.41113 10.3628V17.5928C6.41113 17.8169 6.59281 17.9986 6.81692 17.9986H8.54113C8.76524 17.9986 8.94692 17.8169 8.94692 17.5928V10.3628C8.94692 10.1387 8.76524 9.95703 8.54113 9.95703Z" fill="white" />
+                                <path d="M17.9605 14.1269V17.6275C17.9605 17.7263 17.9213 17.8211 17.8514 17.8909C17.7815 17.9608 17.6867 18.0001 17.5879 18.0001H15.7374C15.6385 18.0001 15.5438 17.9608 15.4739 17.8909C15.404 17.8211 15.3647 17.7263 15.3647 17.6275V14.2359C15.3647 13.729 15.5116 12.0254 14.0416 12.0254C12.9016 12.0254 12.6695 13.1969 12.6205 13.7227V17.6354C12.6185 17.7323 12.5787 17.8246 12.5098 17.8927C12.4408 17.9608 12.348 17.9993 12.2511 18.0001H10.4605C10.4115 18.0003 10.363 17.9908 10.3177 17.9721C10.2724 17.9535 10.2312 17.9261 10.1966 17.8914C10.1619 17.8568 10.1345 17.8156 10.1158 17.7703C10.0972 17.725 10.0877 17.6765 10.0879 17.6275V10.3327C10.0877 10.2837 10.0972 10.235 10.1158 10.1896C10.1344 10.1442 10.1619 10.103 10.1965 10.0682C10.2311 10.0334 10.2722 10.0058 10.3176 9.98702C10.3629 9.9682 10.4115 9.95851 10.4605 9.95851H12.2511C12.3007 9.95767 12.3501 9.96673 12.3962 9.98516C12.4423 10.0036 12.4843 10.031 12.5198 10.0659C12.5552 10.1007 12.5833 10.1422 12.6025 10.188C12.6217 10.2339 12.6316 10.283 12.6316 10.3327V10.9643C13.0547 10.3327 13.6832 9.84009 15.0205 9.84009C17.9779 9.83851 17.9605 12.6064 17.9605 14.1269Z" fill="white" />
+                            </g>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+
+                <div class="header__contacts-files">
+                    <a href="#" class="header__contacts-file" download>
+                        <span class="header__contacts-file-icon header__contacts-file-icon--report" aria-hidden="true">
+                            <svg class="icon">
+                                <use href="@img/sprite.svg#icon-report"></use>
+                            </svg>
+                        </span>
+                        <span class="header__contacts-file-body">
+                            <span class="header__contacts-file-title">Download sustainability report</span>
+                            <span class="header__contacts-file-size">343.0 KiB</span>
+                        </span>
+                        <span class="header__contacts-file-action" aria-hidden="true">
+                            <svg class="icon">
+                                <use href="@img/sprite.svg#icon-download"></use>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="#" class="header__contacts-file" download>
+                        <span class="header__contacts-file-icon header__contacts-file-icon--conduct" aria-hidden="true">
+                            <svg class="icon">
+                                <use href="@img/sprite.svg#icon-shield"></use>
+                            </svg>
+                        </span>
+                        <span class="header__contacts-file-body">
+                            <span class="header__contacts-file-title">Download Code of Conduct</span>
+                            <span class="header__contacts-file-size">212.7 Kb</span>
+                        </span>
+                        <span class="header__contacts-file-action header__contacts-file-action--muted" aria-hidden="true">
+                            <svg class="icon">
+                                <use href="@img/sprite.svg#icon-download"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="header__tools">
-            <a class="header__tool" href="tel:+41441234567" aria-label="Call">
-                <svg class="icon" aria-hidden="true">
-                    <use href="@img/sprite.svg#icon-phone"></use>
-                </svg>
-            </a>
+        <div class="header__lang">
+            <ul class="lang">
+                <li class="lang-item active">
+                    <a href="#" aria-label="German">DE</a>
+                </li>
+                <li class="lang-item">
+                    <a href="#" aria-label="English">EN</a>
+                </li>
+            </ul>
         </div>
+
+        <a href="tel:+41441234567" class="header__phone">
+            <svg class="icon" aria-hidden="true">
+                <use href="@img/sprite.svg#icon-phone"></use>
+            </svg>
+            <span>+41 44 123 45 67</span>
+        </a>
+
+        <a href="#" class="header__btn btn btn-outline" data-popup-target="#contact-us">
+            <span>Contact us</span>
+            {{> Ui/ArrowIcon }}
+        </a>
 
         <button class="header__burger js-menu-trigger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
             <span></span>
