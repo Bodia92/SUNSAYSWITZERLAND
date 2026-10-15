@@ -8,20 +8,439 @@
 
         <main class="page page--main">
             <section class="hero">
+                <div class="hero__bg">
+                    <img src="@img/hero/01.jpg" alt="SUNSAY NRG" width="1920" height="1080" />
+                </div>
                 <div class="hero__container">
-                    <div class="hero__banner">
-                        <div class="hero__media">
-                            <img src="@img/hero.jpg" alt="SUNSAY NRG" width="1920" height="1080" />
+                    <h1 class="hero__title">
+                        We are developing
+                        <span>the power grid of the future</span>
+                    </h1>
+                    <p class="hero__text">SUNSAY NRG develops utility-scale solar PV and battery storage projects from origination to Ready-to-Build for investors, developers and utilities</p>
+
+                    <div class="hero__actions">
+                        <a href="#" class="hero__action btn btn-main">
+                            <span>Explore how it work</span>
+                            {{> Ui/ArrowIcon }}
+                        </a>
+                        <a href="#" class="hero__action btn btn-outline-white">
+                            <span>OUR PROJECTS</span>
+                            {{> Ui/ArrowIcon }}
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section utility">
+                <div class="utility__container">
+                    <h2 class="utility__title title">
+                        WHAT IS BESS AND <span>WHO IS INVOLVED</span>
+                    </h2>
+                    <div class="utility__text text">A utility-scale battery energy storage system (BESS) draws power from the grid and releases it at peak demand — the backbone of a modern energy system. Every project brings together three main parties. SUNSAY NRG is the developer that connects them and carries the project from the first parcel of land to a ready-to-build state</div>
+                </div>
+
+                <div class="utility__block" data-utility>
+                    <div class="utility__image">
+                        <img src="@img/img02.jpg" alt="Utility Scale BESS" width="1920" height="1080" loading="lazy" />
+                    </div>
+
+                    <svg class="utility__lines" data-utility-lines aria-hidden="true"></svg>
+
+                    <div class="utility__points">
+                        <button class="utility__point" type="button" data-utility-point data-id="land-owner" data-x="18" data-y="46" aria-label="Land Owner"></button>
+                        <button class="utility__point" type="button" data-utility-point data-id="investor" data-x="42" data-y="40" aria-label="Investor"></button>
+                        <button class="utility__point" type="button" data-utility-point data-id="grid-operator" data-x="78" data-y="48" aria-label="Grid Operator"></button>
+                    </div>
+
+                    <div class="utility__container">
+                        <h3 class="utility__subtitle">
+                            Utility <span>Scale BESS</span>
+                        </h3>
+
+                        <ul class="utility__list" data-utility-list>
+                            <li class="utility__item" data-utility-card data-id="land-owner">
+                                <div class="utility__item-icon">
+                                    <img src="@img/icons/01.svg" alt="" width="48" height="48" />
+                                </div>
+                                <div class="utility__item-content">
+                                    <h4 class="utility__item-title">Land Owner</h4>
+                                    <div class="utility__item-text">Provides land for projects under a long-term lease and receives stable rent payments with no operational involvement</div>
+                                </div>
+                            </li>
+                            <li class="utility__item" data-utility-card data-id="investor">
+                                <div class="utility__item-icon">
+                                    <img src="@img/icons/02.svg" alt="" width="48" height="48" />
+                                </div>
+                                <div class="utility__item-content">
+                                    <h4 class="utility__item-title">Investor</h4>
+                                    <div class="utility__item-text">Provides project funding and receives a return on investment backed by a long-life infrastructure asset</div>
+                                </div>
+                            </li>
+                            <li class="utility__item" data-utility-card data-id="grid-operator">
+                                <div class="utility__item-icon">
+                                    <img src="@img/icons/03.svg" alt="" width="48" height="48" />
+                                </div>
+                                <div class="utility__item-content">
+                                    <h4 class="utility__item-title">Grid Operator</h4>
+                                    <div class="utility__item-text">Provides grid connection and gains a flexible asset that helps balance load and absorb renewable output peaks</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section who" data-who>
+                <div class="who__container">
+                    <h2 class="who__title title">Who <span>we are</span></h2>
+                    <div class="who__text text">SUNSAY NRG is a renewable-energy developer. During the last seven years we have delivered more than 120 solar and storage projects and installed 80 MW of capacity across European markets</div>
+
+                    <ul class="who__list">
+                        <li class="who__item" data-who-stat data-value="120" data-suffix="+" data-angle="315">
+                            <div class="who__ring" aria-hidden="true">
+                                <svg class="who__ring-svg" viewBox="0 0 240 240">
+                                    <circle class="who__ring-track" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-progress" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-dot" cx="120" cy="6" r="5"></circle>
+                                </svg>
+                            </div>
+                            <div class="who__content">
+                                <span class="who__value"><span data-who-count>0+</span></span>
+                                <span class="who__label">Projects delivered</span>
+                                <span class="who__note">utility-scale and C&amp;I</span>
+                            </div>
+                        </li>
+                        <li class="who__item" data-who-stat data-value="80" data-angle="90">
+                            <div class="who__ring" aria-hidden="true">
+                                <svg class="who__ring-svg" viewBox="0 0 240 240">
+                                    <circle class="who__ring-track" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-progress" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-dot" cx="120" cy="6" r="5"></circle>
+                                </svg>
+                            </div>
+                            <div class="who__content">
+                                <span class="who__value"><span data-who-count>0</span> <span class="who__value-suffix">MW</span></span>
+                                <span class="who__label">Installed capacity</span>
+                                <span class="who__note">solar PV and storage</span>
+                            </div>
+                        </li>
+                        <li class="who__item" data-who-stat data-value="8" data-suffix="+" data-angle="180">
+                            <div class="who__ring" aria-hidden="true">
+                                <svg class="who__ring-svg" viewBox="0 0 240 240">
+                                    <circle class="who__ring-track" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-progress" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-dot" cx="120" cy="6" r="5"></circle>
+                                </svg>
+                            </div>
+                            <div class="who__content">
+                                <span class="who__value"><span data-who-count>0+</span></span>
+                                <span class="who__label">Years</span>
+                                <span class="who__note">in Development &amp; EPC</span>
+                            </div>
+                        </li>
+                        <li class="who__item" data-who-stat data-value="3" data-suffix="" data-angle="300">
+                            <div class="who__ring" aria-hidden="true">
+                                <svg class="who__ring-svg" viewBox="0 0 240 240">
+                                    <circle class="who__ring-track" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-progress" cx="120" cy="120" r="114"></circle>
+                                    <circle class="who__ring-dot" cx="120" cy="6" r="5"></circle>
+                                </svg>
+                            </div>
+                            <div class="who__content">
+                                <span class="who__value"><span data-who-count>0</span></span>
+                                <span class="who__label">Operated markets</span>
+                                <span class="who__note">Switzerland, Ukraine, Austria</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="who__actions">
+                        <a href="#" class="who__btn btn btn-outline">
+                            <span>See more</span>
+                            {{> Ui/ArrowIcon }}
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section what-we-do">
+                <div class="what-we-do__container">
+                    <h2 class="what-we-do__head title">How <span>we operate</span></h2>
+                    <div class="what-we-do__description">Four principles behind every project.</div>
+
+                    <div class="what-we-do__tabs">
+                        <div class="what-we-do__item">
+                            <button type="button" class="what-we-do__title active">
+                                <div class="tab-title">Focused market</div>
+                                <div class="tab-text">A deliberately narrow geography rather than a global platform. We work where we know the regulatory frameworks, the grid operators and the permitting timelines well enough to price risk with confidence</div>
+                            </button>
+                            <div class="what-we-do__body">
+                                <div class="what-we-do__images">
+                                    <picture>
+                                        <source srcset="@img/img03.jpg" media="(max-width: 575px)">
+                                        <img src="@img/img03.jpg" alt="img" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
                         </div>
-                        <div class="hero__content">
-                            <h1 class="hero__title">
-                                We are developing the <span>power grid of the future</span>
-                            </h1>
-                            <a href="#" class="hero__btn btn btn-main" data-popup-target="#contact-us">
-                                <span>Contact us</span>
-                                {{> Ui/ArrowIcon }}
-                            </a>
+
+                        <div class="what-we-do__item">
+                            <button type="button" class="what-we-do__title">
+                                <div class="tab-title">Single point of responsibility</div>
+                                <div class="tab-text">From origination to a completed asset, you work with one team. We coordinate engineering, financing and permitting through vetted partners, and carry accountability for the result end to end</div>
+                            </button>
+                            <div class="what-we-do__body">
+                                <div class="what-we-do__images">
+                                    <picture>
+                                        <source srcset="@img/img01.jpg" media="(max-width: 575px)">
+                                        <img src="@img/img01.jpg" alt="img" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
                         </div>
+                        <div class="what-we-do__item">
+                            <button type="button" class="what-we-do__title">
+                                <div class="tab-title">Swiss corporate structure</div>
+                                <div class="tab-text">Incorporated under Swiss law, with a dedicated entity for every project. A documented process runs from first contact to signed agreement, so ownership and accountability are clear at each stage</div>
+                            </button>
+                            <div class="what-we-do__body">
+                                <div class="what-we-do__images">
+                                    <picture>
+                                        <source srcset="@img/img01.jpg" media="(max-width: 575px)">
+                                        <img src="@img/img01.jpg" alt="img" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="what-we-do__item">
+                            <button type="button" class="what-we-do__title">
+                                <div class="tab-title">Long-term alignment</div>
+                                <div class="tab-text">We are measured by how the asset performs, not by closing a sale. That standard shapes every decision taken at the development stage, where the value of a project is largely determined</div>
+                            </button>
+                            <div class="what-we-do__body">
+                                <div class="what-we-do__images">
+                                    <picture>
+                                        <source srcset="@img/img02.jpg" media="(max-width: 575px)">
+                                        <img src="@img/img02.jpg" alt="img" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section start" id="start">
+                <div class="start__container">
+                    <h2 class="start__title title">Where should <span>you start</span></h2>
+                    <div class="start__text text">Direct contact with the partner responsible for your region</div>
+
+                    <ul class="start__list">
+                        <li class="start__card">
+                            <div class="start__photo">
+                                <img src="@img/user01.jpg" alt="Rico Keller" width="400" height="400" loading="lazy">
+                            </div>
+                            <div class="start__body">
+                                <div class="start__region">Switzerland</div>
+                                <h3 class="start__name">Rico Keller</h3>
+                                <div class="start__role">Co-founder & Board Member</div>
+                                <ul class="start__contacts">
+                                    <li>
+                                        <a href="tel:+41784478806" class="start__contact">
+                                            <span class="start__contact-icon" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use href="@img/sprite.svg#icon-phone"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="start__contact-text">
+                                                <span class="start__contact-label">Phone</span>
+                                                <span class="start__contact-value">+41 78 447 88 06</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:info@sunsay.ch" class="start__contact">
+                                            <span class="start__contact-icon" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use href="@img/sprite.svg#icon-mail"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="start__contact-text">
+                                                <span class="start__contact-label">Email</span>
+                                                <span class="start__contact-value">info@sunsay.ch</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="start__card">
+                            <div class="start__photo">
+                                <img src="@img/user02.jpg" alt="Dmytro Zinkevych" width="400" height="400" loading="lazy">
+                            </div>
+                            <div class="start__body">
+                                <div class="start__region">Austria and Ukraine</div>
+                                <h3 class="start__name">Dmytro Zinkevych</h3>
+                                <div class="start__role">Co-founder & CEO</div>
+                                <ul class="start__contacts">
+                                    <li>
+                                        <a href="tel:+41784478806" class="start__contact">
+                                            <span class="start__contact-icon" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use href="@img/sprite.svg#icon-phone"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="start__contact-text">
+                                                <span class="start__contact-label">Phone</span>
+                                                <span class="start__contact-value">+41 78 447 88 06</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:info@sunsay.ch" class="start__contact">
+                                            <span class="start__contact-icon" aria-hidden="true">
+                                                <svg class="icon">
+                                                    <use href="@img/sprite.svg#icon-mail"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="start__contact-text">
+                                                <span class="start__contact-label">Email</span>
+                                                <span class="start__contact-value">info@sunsay.ch</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section faq" id="faq" data-faq>
+                <div class="faq__container">
+                    <h2 class="faq__title title">F.A.Q.</h2>
+                    <div class="faq__text text">Common questions from investors and partners evaluating SUNSAY NRG opportunities</div>
+
+                    <ul class="faq__list">
+                        <li class="faq__item js-faq-wrap is-open">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="true">
+                                <span class="faq__question">What is the minimum ticket, and is there flexibility?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">How long does a typical process take from first contact to signing?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">How is exit structured, and is early exit possible?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">How do you manage technology risk — panel degradation, BESS lifecycle?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">What happens to the asset after 25–30 years (decommissioning)?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">Who operates the asset after Ready-to-Build?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">Can landowners participate without capital investment?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">What returns can investors expect, and over what horizon?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">How do you handle grid connection delays and curtailment risk?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="faq__item js-faq-wrap">
+                            <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="false">
+                                <span class="faq__question">Is co-investment with local municipalities or utilities possible?</span>
+                                <span class="faq__toggle" aria-hidden="true"></span>
+                            </button>
+                            <div class="faq__answer js-faq-body">
+                                <div class="faq__answer-inner">
+                                    <p>Detailed answer to be developed with client input. Answer length approximately 3—4 sentences addressing the specific question with defensible detail.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="faq__actions">
+                        <button class="faq__more btn btn-outline" type="button" data-faq-more>
+                            <span data-faq-more-label>Show more</span>
+                            {{> Ui/ArrowIcon }}
+                        </button>
                     </div>
                 </div>
             </section>

@@ -10,6 +10,10 @@ import { initSelects } from "./modules/select.js";
 import { initShowMore } from "./modules/showMore";
 import { initFancybox } from "./modules/fancybox.js";
 import { initAllTabs } from "./modules/tabs.js";
+import { initUtilityPoints } from "./modules/utility-points.js";
+import { initWhoStats } from "./modules/who-stats.js";
+import { initFaqMore } from "./modules/faq-more.js";
+import { initHome } from "./modules/home.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     fixMobileVh();
@@ -18,6 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     initAllTabs();
     initSelects();
     initFancybox();
+    initUtilityPoints();
+    initWhoStats();
+    initFaqMore();
+    initHome();
+
 
     new Accordion(".sub-in", {
         triggerSelector: ".header__arrow",

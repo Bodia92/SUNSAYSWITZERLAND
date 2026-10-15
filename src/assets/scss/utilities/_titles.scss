@@ -1,29 +1,37 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .title {
+    text-align: center;
     font-family: var(--font-roboto);
     color: var(--black);
     @include af(56, 32);
-    font-weight: 600;
-    line-height: 1;
+    font-weight: 700;
+    line-height: 1.2;
     text-transform: uppercase;
-    letter-spacing: -0.04em;
-
-    @media (max-width: 991.98px) {
-        line-height: 1.12;
-    }
 
     span {
         color: var(--yellow-brand);
     }
 
     &:not(:last-child) {
-        margin-bottom: 40px;
+        margin-bottom: 24px;
 
         @media (max-width: 991.98px) {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
     }
+}
+
+.text {
+    max-width: 1128px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--gray-color);
+    text-align: center;
+    @include af(28, 20);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 150%;
 }
 
 .title-label {
@@ -55,19 +63,25 @@
 }
 
 .page-title {
-    @include av("font-size", 60, 40);
-    font-weight: 500;
+    @include av("font-size", 90, 40);
+    font-weight: 700;
     padding: 0;
-    font-family: var(--font-playfair);
-    line-height: 1.2;
-    color: var(--black);
+    font-family: var(--font-roboto);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--white);
     text-align: left;
 
+    span {
+        display: block;
+        color: var(--yellow-brand);
+    }
+
     &:not(:last-child) {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
 
         @media (max-width: 767.98px) {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
     }
 }

@@ -2,6 +2,35 @@ body.menu-open {
     overflow: hidden;
 }
 
+body:has(.hero) {
+    .header {
+        --color-header: var(--white);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: transparent;
+
+        .header__logo .header__logo-img-white {
+            display: block;
+        }
+        .header__logo .header__logo-img {
+            display: none;
+        }
+
+        .header__container::before {
+            background: transparent;
+        }
+
+        &.scroll-header {
+            box-shadow: 0 8px 24px rgba(20, 20, 20, 0.08);
+            background: rgba(0, 0, 0, 0.48);
+        }
+    }
+}
+
 .header {
     --header-top-h: 52px;
     --header-bar-h: 76px;
@@ -9,15 +38,19 @@ body.menu-open {
     --header-item-radius: 12px;
     --header-caret: var(--yellow-brand);
 
+    --color-header: var(--black);
+
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1000;
     width: 100%;
     background: var(--bg);
-    color: var(--black);
+    color: var(--color-header);
     padding-top: env(safe-area-inset-top);
-    transition: box-shadow 0.3s ease;
+    transition:
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 
     &.scroll-header {
         box-shadow: 0 8px 24px rgba(20, 20, 20, 0.08);
@@ -150,7 +183,7 @@ body.menu-open {
         padding: 0;
         border: none;
         background: transparent;
-        color: var(--black);
+        color: var(--color-header);
         cursor: pointer;
         transition: color 0.2s ease;
 
@@ -171,7 +204,7 @@ body.menu-open {
 
         @media (any-hover: hover) {
             &:hover {
-                color: var(--black);
+                color: var(--color-header);
             }
         }
     }
@@ -200,7 +233,7 @@ body.menu-open {
         font-size: 16px;
         font-weight: 700;
         line-height: 1.5;
-        color: var(--black);
+        color: var(--color-header);
         transition: color 0.3s ease;
 
         @media (any-hover: hover) {
@@ -218,7 +251,7 @@ body.menu-open {
             justify-content: center;
             font-size: 0;
             border-radius: 50%;
-            border: 1px solid var(--black);
+            border: 1px solid var(--color-header);
             transition: all 0.3s ease;
             opacity: 1;
             visibility: visible;
@@ -248,7 +281,7 @@ body.menu-open {
             height: 40px;
             border: none;
             background: transparent;
-            color: var(--black);
+            color: var(--color-header);
             transition: color 0.3s ease;
 
             @media (any-hover: hover) {
@@ -261,7 +294,7 @@ body.menu-open {
         .icon {
             width: 20px;
             height: 20px;
-            color: var(--black);
+            color: var(--color-header);
 
             // Adaptivity
             @include mq(xl) {
@@ -313,7 +346,7 @@ body.menu-open {
             font-size: 16px;
             font-weight: 700;
             line-height: 150%;
-            color: var(--black);
+            color: var(--color-header);
             white-space: nowrap;
             transition: color 0.2s ease;
 
@@ -530,7 +563,8 @@ body.menu-open {
         --btn-height: 48px;
         --btn-pad-x: 20px;
         --btn-pad-end: 8px;
-        --btn-border: var(--black);
+        --btn-border: var(--color-header);
+        --btn-color: var(--color-header);
 
         white-space: nowrap;
         background: transparent;
@@ -538,6 +572,7 @@ body.menu-open {
         @media (any-hover: hover) {
             &:hover {
                 background: var(--yellow-brand);
+                color: var(--black);
             }
         }
 
@@ -618,7 +653,7 @@ body.menu-open {
             width: 20px;
             height: 2px;
             border-radius: 2px;
-            background: var(--black);
+            background: var(--color-header);
             transform: translate(-50%, -50%);
             transition: all 0.3s ease;
         }
@@ -1115,14 +1150,15 @@ body.menu-open {
 // .lang-item
 .lang-item {
     flex-shrink: 0;
-    color: var(--black);
+    color: var(--color-header);
 
     &.active {
         cursor: default;
         pointer-events: none;
 
         a {
-            color: var(--gray-color);
+            color: var(--color-header);
+            opacity: 0.5;
         }
     }
 
@@ -1150,7 +1186,7 @@ body.menu-open {
     }
 
     a {
-        color: var(--black);
+        color: var(--color-header);
         font-size: 16px;
         font-weight: 700;
         line-height: 1.5;

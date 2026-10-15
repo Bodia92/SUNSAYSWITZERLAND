@@ -3,7 +3,8 @@
     --secondary: #4d5156;
     --white: #ffffff;
     --stroke-line: #f1f1f1;
-    --bg: #fafafa;
+    --bg: #ffffff;
+    --light-bg: #fafafa;
     --gray-brand: #565a5c;
     --gray-color: #58585a;
     --stroke: #dcdcdc;
@@ -15,8 +16,15 @@
     --container-width: 1400px;
     --padding-container: 20px;
     --gap: 20px;
+    --radius: 40px;
 
     /* font */
     --font-main: "Nunito", sans-serif;
     --font-roboto: "RobotoCondensed", sans-serif;
+}
+
+@media (max-width: 991.98px) {
+    :root {
+        --radius: 20px;
+    }
 }

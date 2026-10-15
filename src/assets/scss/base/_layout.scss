@@ -6,7 +6,7 @@
 html {
     @include thin-scrollbar;
     scroll-behavior: smooth;
-    background: #faf8f6;
+    background: #ffffff;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     font-weight: 400;
     line-height: 120%;
 
-    background: #faf8f6;
+    background: #ffffff;
     font-variant-numeric: lining-nums proportional-nums;
     overflow-y: auto;
     overflow-x: hidden;

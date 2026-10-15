@@ -1,16 +1,7 @@
-<li class="faq__item js-faq-wrap{{#if open}} is-open{{/if}}">
-    <button class="faq__trigger js-faq-trigger" type="button">
-        <span class="faq__icon" aria-hidden="true">
-            <svg class="icon">
-                <use href="@img/sprite.svg#icon-quesiton"></use>
-            </svg>
-        </span>
+<li class="faq__item js-faq-wrap{{#if open}} is-open{{/if}}{{#if extra}} faq__item--extra{{/if}}"{{#if extra}} hidden{{/if}}>
+    <button class="faq__trigger js-faq-trigger" type="button" aria-expanded="{{#if open}}true{{else}}false{{/if}}">
         <span class="faq__question">{{question}}</span>
-        <span class="faq__chevron arrow" aria-hidden="true">
-            <svg class="icon">
-                <use href="@img/sprite.svg#icon-arrow-down"></use>
-            </svg>
-        </span>
+        <span class="faq__toggle" aria-hidden="true"></span>
     </button>
     <div class="faq__answer js-faq-body">
         <div class="faq__answer-inner">

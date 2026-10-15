@@ -1,0 +1,213 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.start {
+    background: var(--light-bg);
+    border-radius: var(--radius);
+    @include av("padding-top", 80, 56);
+    @include av("padding-bottom", 80, 56);
+
+    // .start__title
+    &__title {
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    // .start__text
+    &__text {
+        max-width: 640px;
+        @include af(16, 16);
+        line-height: 1.5;
+    }
+
+    // .start__list
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+
+        @media (max-width: 1199.98px) {
+            gap: 16px;
+        }
+
+        @media (max-width: 991.98px) {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 16px;
+        }
+    }
+
+    // .start__card
+    &__card {
+        display: grid;
+        grid-template-columns: minmax(140px, 280px) minmax(0, 1fr);
+        align-items: stretch;
+        min-width: 0;
+        overflow: hidden;
+        background: var(--white);
+        border-radius: 24px;
+
+        @media (max-width: 991.98px) {
+            display: flex;
+            flex-direction: column;
+            border-radius: 16px;
+        }
+    }
+
+    // .start__photo
+    &__photo {
+        min-width: 0;
+        min-height: 0;
+        background: var(--light-bg);
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            aspect-ratio: 280/279;
+
+            @media (max-width: 991.98px) {
+                height: auto;
+            }
+        }
+    }
+
+    // .start__body
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+        padding: 24px 24px;
+
+        @media (max-width: 1199.98px) {
+            padding: 24px 20px 20px;
+        }
+    }
+
+    // .start__region
+    &__region {
+        margin-bottom: 8px;
+        color: var(--dark);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        text-transform: uppercase;
+    }
+
+    // .start__name
+    &__name {
+        margin: 0;
+        font-family: var(--font-roboto);
+        color: var(--black);
+        @include af(32, 24);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+    }
+
+    // .start__role
+    &__role {
+        margin-top: 8px;
+        color: var(--black);
+        @include af(14, 12);
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    // .start__contacts
+    &__contacts {
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+
+        @media (max-width: 991.98px) {
+            margin-top: 16px;
+        }
+
+        > li {
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--stroke-line);
+                padding-bottom: 12px;
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    // .start__contact
+    &__contact {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.25s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                .start__contact-value {
+                    color: var(--yellow-brand);
+                }
+
+                .start__contact-icon {
+                    transform: scale(1.04);
+                }
+            }
+        }
+    }
+
+    // .start__contact-icon
+    &__contact-icon {
+        display: inline-flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--yellow-brand);
+        color: var(--black);
+        transition: transform 0.25s ease;
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    }
+
+    // .start__contact-text
+    &__contact-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+    }
+
+    // .start__contact-label
+    &__contact-label {
+        color: var(--gray-brand);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.3;
+    }
+
+    // .start__contact-value
+    &__contact-value {
+        color: var(--black);
+        @include af(16, 14);
+        font-weight: 600;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+        transition: color 0.25s ease;
+    }
+}

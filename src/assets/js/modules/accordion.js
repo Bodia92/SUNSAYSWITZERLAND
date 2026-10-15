@@ -139,15 +139,17 @@ export default class Accordion {
         trigger.setAttribute("aria-expanded", "true");
         body.hidden = false;
 
-        const prevTransition = body.style.transition;
+        // Measure without transition, then animate from 0 → height
         body.style.transition = "none";
         body.style.maxHeight = "none";
         const height = body.scrollHeight;
         body.style.maxHeight = "0px";
         void body.offsetHeight;
-        body.style.transition = prevTransition;
 
-        body.style.maxHeight = `${height}px`;
+        body.style.transition = "";
+        requestAnimationFrame(() => {
+            body.style.maxHeight = `${height}px`;
+        });
 
         body._accordionOnEnd = (e) => {
             if (e.target !== body || e.propertyName !== "max-height") return;
@@ -162,15 +164,19 @@ export default class Accordion {
     close(trigger, wrap, body) {
         this._cancelTransition(body);
 
-        // Lock current height, then collapse — spacing stays on children, no end jump
+        // Lock current height, then collapse
+        body.style.transition = "none";
         body.style.maxHeight = `${body.scrollHeight}px`;
         void body.offsetHeight;
+        body.style.transition = "";
 
         wrap.classList.remove("is-open");
         trigger.classList.remove("is-active");
         trigger.setAttribute("aria-expanded", "false");
 
-        body.style.maxHeight = "0px";
+        requestAnimationFrame(() => {
+            body.style.maxHeight = "0px";
+        });
 
         body._accordionOnEnd = (e) => {
             if (e.target !== body || e.propertyName !== "max-height") return;
