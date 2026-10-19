@@ -1,0 +1,37 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.govern {
+    // .govern__container
+    &__container {
+    }
+
+    // .govern__title
+    &__title {
+        text-align: center;
+    }
+    // .govern__text
+    &__text {
+        max-width: 800px;
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+    // .govern__decor
+    &__decor {
+        text-align: center;
+        color: #f6f6f6;
+
+        font-size: 164px;
+        font-family: var(--font-roboto);
+        font-weight: 700;
+        line-height: 0.75;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+    }
+}

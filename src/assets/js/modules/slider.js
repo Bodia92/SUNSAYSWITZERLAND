@@ -458,6 +458,34 @@ function initCommentsSlider() {
     });
 }
 
+function initBuildingSlider() {
+    const sliderEl = document.querySelector(".building__slider");
+    if (!sliderEl) return;
+
+    new Swiper(sliderEl, {
+        modules: [Navigation],
+        speed: 600,
+        spaceBetween: 24,
+        slidesPerView: 1,
+        watchOverflow: true,
+        watchSlidesProgress: true,
+        grabCursor: true,
+        navigation: {
+            nextEl: sliderEl.querySelector(".swiper-button-next"),
+            prevEl: sliderEl.querySelector(".swiper-button-prev"),
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+            },
+        },
+    });
+}
+
 export function initSliderObserver() {
     initReviewsSlider();
     initMediaSliders();
@@ -473,4 +501,5 @@ export function initSliderObserver() {
     initCommentsSlider();
     initCatalogHeroSlider();
     initRecommendedSlider();
+    initBuildingSlider();
 }

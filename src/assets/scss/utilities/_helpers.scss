@@ -20,6 +20,13 @@
     }
 }
 
+.bg-grey {
+    @include av("padding-top", 80, 56);
+    @include av("padding-bottom", 80, 56);
+    background: var(--light-bg) !important;
+    border-radius: var(--radius);
+}
+
 .bg-white {
     @include av("padding-top", 80, 56);
     @include av("padding-bottom", 80, 56);

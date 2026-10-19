@@ -34,6 +34,27 @@
     line-height: 150%;
 }
 
+.text-block {
+    text-wrap: balance;
+    max-width: 530px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--gray-color);
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 150%;
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+
+        @media (max-width: 991.98px) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
 .title-label {
     display: flex;
     align-items: center;
