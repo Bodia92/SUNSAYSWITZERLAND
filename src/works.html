@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+{{> Head/Head title="SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--works">
+            <section class="hero hero--mod">
+
+                {{> Breadcrumbs/Breadcrumbs
+        home="SUNSAY NRG"
+        homeUrl="/"
+        current="Utility scale solar & bess development"
+        }}
+
+                <div class="hero__bg">
+                    <img src="@img/hero/02.jpg" alt="SUNSAY NRG" width="1920" height="1080" />
+                </div>
+                <div class="hero__container">
+
+
+                    <h1 class="hero__title">
+                        Utility Scale BESS
+                        <span>How it works</span>
+                    </h1>
+
+                    <ul class="hero__list">
+                        <li class="hero__item">Structured long-term infrastructure investment</li>
+                        <li class="hero__item">Revenue from regulated European energy markets</li>
+                        <li class="hero__item">A single point of responsibility, from land to operations</li>
+                    </ul>
+
+                    <div class="hero__actions">
+                        <a href="#" class="hero__action btn btn-main">
+                            <span>Download development overview</span>
+                            {{> Ui/ArrowIcon }}
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section operations">
+                <div class="operations__container">
+                    <h2 class="operations__title title">Active markets & Operations</h2>
+                    <div class="operations__text text-block">BESS assets generate value by operating across multiple energy markets, including wholesale and ancillary services. This revenue stack approach diversifies risk across markets and strengthens the project's business model, supporting a more resilient and attractive return on investment</div>
+
+                    <div class="operations__row">
+                        <ul class="operations__list">
+                            <li class="operations__item">
+                                <h3 class="operations__item-title">Wholesale markets</h3>
+                                <ul class="operations__item-list">
+                                    <li class="operations__item-item">Day-Ahead</li>
+                                    <li class="operations__item-item">Intraday</li>
+                                    <li class="operations__item-item">Balancing</li>
+                                </ul>
+                            </li>
+                            <li class="operations__item">
+                                <h3 class="operations__item-title">Ancillary services</h3>
+                                <ul class="operations__item-list">
+                                    <li class="operations__item-item">FCR</li>
+                                    <li class="operations__item-item">aFRR</li>
+                                    <li class="operations__item-item">mFRR</li>
+                                </ul>
+                            </li>
+                            <li class="operations__item">
+                                <h3 class="operations__item-title">Direct services</h3>
+                                <ul class="operations__item-list">
+                                    <li class="operations__item-item">Corporate PPA</li>
+                                    <li class="operations__item-item">Peak-shaving</li>
+                                    <li class="operations__item-item">Backup supply</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="operations__divider" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section matters">
+                <div class="matters__container">
+                    <h2 class="matters__title title">Why battery storage <span>matters</span></h2>
+                    <div class="matters__row">
+                        <ul class="matters__list">
+                            <li class="matters__item">
+                                <div class="matters__item-icon">
+                                    <img src="@img/icons/04.svg" alt="img" width="40" height="40">
+                                </div>
+                                <h3 class="matters__item-title">Problem</h3>
+                                <div class="matters__item-text">European power grids face growing constraints:
+                                    peak demand gaps, frequency instability and rising curtailment of renewable output</div>
+                            </li>
+                            <li class="matters__item">
+                                <div class="matters__item-icon">
+                                    <img src="@img/icons/05.svg" alt="img" width="40" height="40">
+                                </div>
+                                <h3 class="matters__item-title">Solution</h3>
+                                <div class="matters__item-text">Utility-scale battery storage absorbs surplus
+                                    generation and releases it when the grid needs it, holding frequency and covering peak load</div>
+                            </li>
+                            <li class="matters__item">
+                                <div class="matters__item-icon">
+                                    <img src="@img/icons/06.svg" alt="img" width="40" height="40">
+                                </div>
+                                <h3 class="matters__item-title">Impact</h3>
+                                <div class="matters__item-text">More renewable energy reaches consumers,
+                                    less is curtailed, and the system relies less on
+                                    carbon-intensive peaking plants</div>
+                            </li>
+                        </ul>
+
+                        <div class="matters__image">
+                            <picture>
+                                <source srcset="@img/img04.jpg" media="(max-width: 575px)">
+                                <img src="@img/img04.jpg" alt="img" loading="lazy" width="898" height="624">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {{#> FeatureSlider/FeatureSlider
+                title="Development <span>Lifecycle</span>"
+                bg=true
+                desktop=5
+            }}
+                {{> FeatureSlider/FeatureSlide
+                    title="Planning"
+                    text="Site origination, land structuring and feasibility studies"
+                    icon="07"
+                }}
+                {{> FeatureSlider/FeatureSlide
+                    title="Engineering"
+                    text="Grid studies, system design and technical optimisation"
+                    icon="08"
+                }}
+                {{> FeatureSlider/FeatureSlide
+                    title="Permitting"
+                    text="Regulatory approvals and authority coordination"
+                    icon="09"
+                }}
+                {{> FeatureSlider/FeatureSlide
+                    title="Construction"
+                    text="Supervised delivery through vetted partners"
+                    icon="10"
+                }}
+                {{> FeatureSlider/FeatureSlide
+                    title="Operations"
+                    text="Ongoing asset management, supervised on your behalf"
+                    icon="11"
+                }}
+                {{/FeatureSlider/FeatureSlider}}
+
+                <section class="section what-we-do">
+                    <div class="what-we-do__container">
+                        <h2 class="what-we-do__head title">Who runs the asset <span>in operations</span></h2>
+
+                        <div class="what-we-do__tabs">
+                            <div class="what-we-do__item">
+                                <button type="button" class="what-we-do__title active">
+                                    <div class="tab-title">Asset Manager</div>
+                                    <div class="tab-text">Oversees project management and commercial
+                                        performance across the operating life</div>
+                                </button>
+                                <div class="what-we-do__body">
+                                    <div class="what-we-do__images">
+                                        <picture>
+                                            <source srcset="@img/img03.jpg" media="(max-width: 575px)">
+                                            <img src="@img/img03.jpg" alt="img" loading="lazy">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="what-we-do__item">
+                                <button type="button" class="what-we-do__title">
+                                    <div class="tab-title">O&M</div>
+                                    <div class="tab-text">Provides maintenance: scheduled technical
+                                        inspections, warranty service and repairs</div>
+                                </button>
+                                <div class="what-we-do__body">
+                                    <div class="what-we-do__images">
+                                        <picture>
+                                            <source srcset="@img/img01.jpg" media="(max-width: 575px)">
+                                            <img src="@img/img01.jpg" alt="img" loading="lazy">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="what-we-do__item">
+                                <button type="button" class="what-we-do__title">
+                                    <div class="tab-title">Optimizer</div>
+                                    <div class="tab-text">Runs commercial activity and secures access to
+                                        national and EU energy markets</div>
+                                </button>
+                                <div class="what-we-do__body">
+                                    <div class="what-we-do__images">
+                                        <picture>
+                                            <source srcset="@img/img02.jpg" media="(max-width: 575px)">
+                                            <img src="@img/img02.jpg" alt="img" loading="lazy">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {{#> FeatureSlider/FeatureSlider
+                title="What we bring <span>to each project</span>"
+                bg=true
+                desktop=4
+            }}
+                    {{> FeatureSlider/FeatureSlide
+                    title="Stakeholders Relations"
+                    text="Active engagement with authorities, grid operators and strategic partners"
+                    icon="12"
+                }}
+                    {{> FeatureSlider/FeatureSlide
+                    title="Project Management"
+                    text="Site origination, land structuring and feasibility studies"
+                    icon="13"
+                }}
+                    {{> FeatureSlider/FeatureSlide
+                    title="Technical Expertise"
+                    text="In-house solar and BESS engineering, and system integration capability"
+                    icon="08"
+                }}
+                    {{> FeatureSlider/FeatureSlide
+                    title="Project Finance"
+                    text="Projects aligned with institutional investment and ESG standards"
+                    icon="12"
+                }}
+                    {{/FeatureSlider/FeatureSlider}}
+
+                    {{!-- Map --}}
+                    <section class="section map" data-present-map>
+                        <div class="map__container">
+                            <h2 class="map__title title">We are <span>present in</span></h2>
+
+                            <div class="map__canvas">
+                                {{> Map/EuropeSvg }}
+
+                                <ul class="map__points">
+                                    <li class="map__points-item" style="--x: 40.14%; --y: 52.1%;">
+                                        <button
+                                            class="map__point"
+                                            type="button"
+                                            data-map-point
+                                            data-name="Rico Keller"
+                                            data-role="Co-founder & Board Member"
+                                            data-photo="@img/user01.jpg"
+                                            data-phone="+41 78 447 88 06"
+                                            data-phone-href="tel:+41784478806"
+                                            data-email="info@sunsay.ch"
+                                            data-location="SUNSAY NRG Suisse AG, c/o Fellmann &amp; Partner AG, Grafenaustrasse 7, 6300 Zug, Switzerland"
+                                            aria-expanded="false"
+                                            aria-label="Switzerland — Rico Keller"
+                                        >
+                                            <span class="map__pin" aria-hidden="true">
+                                                <img class="map__flag" src="@img/flags/swiss.svg" alt="" width="24" height="24">
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="map__points-item" style="--x: 53.33%; --y: 46.66%;">
+                                        <button
+                                            class="map__point"
+                                            type="button"
+                                            data-map-point
+                                            data-name="Dmytro Zinkevych"
+                                            data-role="Co-founder & CEO"
+                                            data-photo="@img/user02.jpg"
+                                            data-phone="+41 78 447 88 06"
+                                            data-phone-href="tel:+41784478806"
+                                            data-email="info@sunsay.ch"
+                                            data-location="SUNSAY NRG Suisse AG, c/o Fellmann &amp; Partner AG, Grafenaustrasse 7, 6300 Zug, Switzerland"
+                                            aria-expanded="false"
+                                            aria-label="Austria — Dmytro Zinkevych"
+                                        >
+                                            <span class="map__pin" aria-hidden="true">
+                                                <img class="map__flag" src="@img/flags/austria.svg" alt="" width="24" height="24">
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="map__points-item" style="--x: 85.14%; --y: 30.32%;">
+                                        <button
+                                            class="map__point"
+                                            type="button"
+                                            data-map-point
+                                            data-name="Dmytro Zinkevych"
+                                            data-role="Co-founder & CEO"
+                                            data-photo="@img/user02.jpg"
+                                            data-phone="+41 78 447 88 06"
+                                            data-phone-href="tel:+41784478806"
+                                            data-email="info@sunsay.ch"
+                                            data-location="SUNSAY NRG Suisse AG, c/o Fellmann &amp; Partner AG, Grafenaustrasse 7, 6300 Zug, Switzerland"
+                                            aria-expanded="false"
+                                            aria-label="Ukraine — Dmytro Zinkevych"
+                                        >
+                                            <span class="map__pin" aria-hidden="true">
+                                                <img class="map__flag" src="@img/flags/ukraine.svg" alt="" width="24" height="24">
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                <div class="map__popup" data-map-popup hidden aria-hidden="true">
+                                    <button class="map__popup-close" type="button" data-map-close aria-label="Close">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use href="@img/sprite.svg#icon-close"></use>
+                                        </svg>
+                                    </button>
+
+                                    <div class="map__popup-person">
+                                        <div class="map__popup-photo">
+                                            <img src="@img/user02.jpg" alt="" width="64" height="64" data-map-photo>
+                                        </div>
+                                        <div class="map__popup-person-text">
+                                            <div class="map__popup-name" data-map-name>Dmytro Zinkevych</div>
+                                            <div class="map__popup-role" data-map-role>Co-founder &amp; CEO</div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="map__popup-list">
+                                        <li>
+                                            <a class="map__popup-row" href="tel:+41784478806" data-map-phone-link>
+                                                <span class="map__popup-icon" aria-hidden="true">
+                                                    <svg class="icon"><use href="@img/sprite.svg#icon-phone"></use></svg>
+                                                </span>
+                                                <span class="map__popup-text">
+                                                    <span class="map__popup-label">Phone</span>
+                                                    <span class="map__popup-value" data-map-phone>+41 78 447 88 06</span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="map__popup-row" href="mailto:info@sunsay.ch" data-map-email-link>
+                                                <span class="map__popup-icon" aria-hidden="true">
+                                                    <svg class="icon"><use href="@img/sprite.svg#icon-mail"></use></svg>
+                                                </span>
+                                                <span class="map__popup-text">
+                                                    <span class="map__popup-label">Email</span>
+                                                    <span class="map__popup-value" data-map-email>info@sunsay.ch</span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="map__popup-row">
+                                                <span class="map__popup-icon" aria-hidden="true">
+                                                    <svg class="icon"><use href="@img/sprite.svg#icon-location"></use></svg>
+                                                </span>
+                                                <span class="map__popup-text">
+                                                    <span class="map__popup-label">Location</span>
+                                                    <span class="map__popup-value" data-map-location>SUNSAY NRG Suisse AG, c/o Fellmann &amp; Partner AG, Grafenaustrasse 7, 6300 Zug, Switzerland</span>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="banner">
+                        <div class="banner__bg">
+                            <img src="@img/img05.jpg" alt="Banner" width="1920" height="1080">
+                        </div>
+                        <div class="banner__container">
+                            <h2 class="banner__title">Renewable energy is becoming
+                                an infrastructure-driven market</h2>
+                            <div class="banner__text">Our market overview covers solar, storage, grid dynamics, and long-term investment trends across the energy sector.</div>
+                            <div class="banner__actions">
+                                <a href="#" class="banner__action btn btn-main">
+                                    <span>Download market overview</span>
+                                    {{> Ui/ArrowIcon }}
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section seo-section">
+                        <div class="seo-section__container">
+                            <div class="seo-section__content editor">
+                                <h2>SEO</h2>
+                                <p>SUNSAY NRG Suisse AG develops utility-scale solar PV and battery energy storage projects in Switzerland, Austria and Ukraine. We take projects from land origination through grid connection and permitting to Ready-to-Build, then supervise trusted partners through construction and operations while you own the asset. Investment opportunities are available to private and institutional investors, and Ready-to-Build projects to developers and utility companies.</p>
+                                <p>SUNSAY NRG Suisse AG develops utility-scale solar PV and battery energy storage projects in Switzerland, Austria and Ukraine. We take projects from land origination through grid connection and permitting to Ready-to-Build, then supervise trusted partners through construction and operations while you own the asset. Investment opportunities are available to private and institutional investors, and Ready-to-Build projects to developers and utility companies.</p>
+                            </div>
+                        </div>
+                    </section>
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

@@ -14,6 +14,7 @@ import { initUtilityPoints } from "./modules/utility-points.js";
 import { initWhoStats } from "./modules/who-stats.js";
 import { initFaqMore } from "./modules/faq-more.js";
 import { initHome } from "./modules/home.js";
+import { initPresentMap } from "./modules/present-map.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     fixMobileVh();
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initWhoStats();
     initFaqMore();
     initHome();
+    initPresentMap();
 
 
     new Accordion(".sub-in", {

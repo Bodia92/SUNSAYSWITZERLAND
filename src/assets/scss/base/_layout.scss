@@ -6,7 +6,7 @@
 html {
     @include thin-scrollbar;
     scroll-behavior: smooth;
-    background: #ffffff;
+    background: #fafafa;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     font-weight: 400;
     line-height: 120%;
 
-    background: #ffffff;
+    background: #fafafa;
     font-variant-numeric: lining-nums proportional-nums;
     overflow-y: auto;
     overflow-x: hidden;
@@ -120,4 +120,8 @@ body.lock-scroll {
     position: fixed !important;
     left: 0;
     top: 0;
+}
+
+.page--main {
+    background: var(--white);
 }

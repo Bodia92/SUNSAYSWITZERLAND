@@ -218,7 +218,7 @@ a {
 }
 
 .page {
-    @include av("padding-bottom", 96, 48);
+    @include av("padding-bottom", 80, 56);
     &:has(.seo-section) {
         .question {
             padding-bottom: 0;
@@ -227,6 +227,8 @@ a {
 }
 
 .seo-section {
+    @include av("padding-top", 80, 56);
+
     .seo-section__content {
         padding-right: 10px;
         max-height: 168px;

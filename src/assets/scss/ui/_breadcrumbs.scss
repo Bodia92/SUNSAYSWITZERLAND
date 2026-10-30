@@ -1,13 +1,20 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
 .breadcrumbs {
+    position: relative;
+    z-index: 10;
     display: flex;
     justify-content: center;
     width: 100%;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.5;
     color: var(--black);
-    font-size: 14px;
+    font-size: 16px;
+    padding: 24px 0;
+
+    @media (max-width: 991.98px) {
+        padding: 20px 0;
+    }
 
     // .breadcrumbs__list
     // WP: yoast_breadcrumb / rank_math wrap inner HTML in nav.breadcrumbs
@@ -17,9 +24,11 @@
     p {
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin: 0;
-        padding: 0;
+        gap: 6px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: var(--container-width);
+        padding: 0 var(--padding-container);
         list-style: none;
         overflow-x: auto;
         scrollbar-width: none;
@@ -53,7 +62,7 @@
     li {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         flex-shrink: 0;
 
         &:first-child {
@@ -61,7 +70,7 @@
         }
 
         &.is-current {
-            color: #565a5c;
+            color: var(--sriblo);
         }
     }
 
@@ -95,29 +104,17 @@
     position: relative;
 
     .breadcrumbs {
-        position: absolute;
-        z-index: 10;
-        top: 32px;
-        left: 0;
-        width: 100%;
+        margin-bottom: auto;
         color: var(--white);
-        justify-content: center;
+        justify-content: flex-start;
         animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-
-        @media (max-width: 991.98px) {
-            top: 24px;
-
-            .breadcrumbs__list {
-                padding: 0 24px;
-            }
-        }
 
         .breadcrumbs__item.is-current {
             color: #bfbfbf;
         }
 
         &:not(:last-child) {
-            margin-bottom: 16px;
+            margin-bottom: auto;
         }
     }
 }

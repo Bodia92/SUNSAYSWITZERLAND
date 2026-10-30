@@ -486,6 +486,53 @@ function initBuildingSlider() {
     });
 }
 
+/**
+ * Reusable feature cards slider (.js-feature-slider).
+ * data-desktop="4"|"5" — cards per row on desktop (≥992 / ≥1200).
+ * Nav is hidden via watchOverflow + .swiper-nav:has(.swiper-button-lock)
+ * when there are not enough slides to scroll.
+ */
+function initFeatureSliders() {
+    const sliders = [...document.querySelectorAll(".js-feature-slider")];
+    if (!sliders.length) return;
+
+    sliders.forEach((sliderEl) => {
+        const wrapEl = sliderEl.closest(".feature-slider__wrap");
+        if (!wrapEl) return;
+
+        const desktopCount = Number(sliderEl.dataset.desktop) === 4 ? 4 : 5;
+
+        new Swiper(sliderEl, {
+            modules: [Navigation],
+            speed: 600,
+            spaceBetween: 12,
+            slidesPerView: 1,
+            watchOverflow: true,
+            watchSlidesProgress: true,
+            grabCursor: true,
+            navigation: getSliderNav(wrapEl),
+            breakpoints: {
+                576: {
+                    slidesPerView: 2,
+                    spaceBetween: 16,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                992: {
+                    slidesPerView: Math.min(desktopCount, 4),
+                    spaceBetween: 24,
+                },
+                1200: {
+                    slidesPerView: desktopCount,
+                    spaceBetween: 24,
+                },
+            },
+        });
+    });
+}
+
 export function initSliderObserver() {
     initReviewsSlider();
     initMediaSliders();
@@ -502,4 +549,5 @@ export function initSliderObserver() {
     initCatalogHeroSlider();
     initRecommendedSlider();
     initBuildingSlider();
+    initFeatureSliders();
 }

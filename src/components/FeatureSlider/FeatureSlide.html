@@ -1,0 +1,15 @@
+<div class="swiper-slide">
+    <article class="feature-card">
+        <div class="feature-card__head">
+            <h3 class="feature-card__title">{{{title}}}</h3>
+            {{#if icon}}
+                <div class="feature-card__icon" aria-hidden="true">
+                    <img src="@img/icons/{{icon}}.svg" alt="" width="40" height="40" loading="lazy">
+                </div>
+            {{/if}}
+        </div>
+        {{#if text}}
+            <div class="feature-card__text">{{{text}}}</div>
+        {{/if}}
+    </article>
+</div>

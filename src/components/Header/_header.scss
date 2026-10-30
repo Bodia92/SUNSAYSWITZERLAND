@@ -20,13 +20,17 @@ body:has(.hero) {
             display: none;
         }
 
-        .header__container::before {
-            background: transparent;
-        }
-
         &.scroll-header {
             box-shadow: 0 8px 24px rgba(20, 20, 20, 0.08);
             background: rgba(0, 0, 0, 0.48);
+        }
+    }
+}
+
+body:has(.page-main) {
+    .header {
+        .header__container::before {
+            background: transparent;
         }
     }
 }
@@ -78,7 +82,7 @@ body:has(.hero) {
             transform: translateX(-50%);
             width: calc(100% - var(--padding-container) * 2);
             height: 1px;
-            background: var(--stroke-line);
+            background: rgba(255, 255, 255, 0.15);
 
             @include mq-down(lg) {
                 width: calc(100% + 40px);

@@ -1,0 +1,24 @@
+<section class="section feature-slider{{#if bg}} bg-grey{{/if}}{{#if className}} {{className}}{{/if}}"{{#if id}} id="{{id}}"{{/if}}>
+    <div class="feature-slider__container">
+        {{#if title}}
+            <h2 class="feature-slider__title title">{{{title}}}</h2>
+        {{/if}}
+
+        {{#if text}}
+            <div class="feature-slider__text text-block">{{{text}}}</div>
+        {{/if}}
+
+        <div class="feature-slider__wrap">
+            <div
+                class="feature-slider__slider swiper js-feature-slider"
+                data-desktop="{{#if desktop}}{{desktop}}{{else}}5{{/if}}"
+            >
+                <div class="swiper-wrapper">
+                    {{> @partial-block }}
+                </div>
+            </div>
+
+            {{> Ui/SliderNav }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,187 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.feature-slider {
+    // .feature-slider__title
+    &__title {
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    // .feature-slider__text
+    &__text {
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    // .feature-slider__wrap
+    &__wrap {
+        min-width: 0;
+    }
+
+    // .feature-slider__slider
+    // data-desktop="5" (default) | "4" — cards per row on desktop
+    &__slider {
+        overflow: hidden;
+
+        &:not(.swiper-initialized) {
+            .swiper-wrapper {
+                display: flex;
+                gap: 20px;
+            }
+
+            ~ .swiper-nav {
+                display: none;
+            }
+
+            // default / 5 cards
+            &[data-desktop="5"],
+            &:not([data-desktop]) {
+                .swiper-slide {
+                    flex: 0 0 calc((100% - 80px) / 5);
+
+                    &:nth-child(n + 6) {
+                        display: none;
+                    }
+                }
+            }
+
+            // 4 cards
+            &[data-desktop="4"] {
+                .swiper-slide {
+                    flex: 0 0 calc((100% - 60px) / 4);
+
+                    &:nth-child(n + 5) {
+                        display: none;
+                    }
+                }
+            }
+
+            @media (max-width: 1199.98px) {
+                &[data-desktop="5"],
+                &:not([data-desktop]),
+                &[data-desktop="4"] {
+                    .swiper-slide {
+                        flex: 0 0 calc((100% - 60px) / 4);
+
+                        &:nth-child(n + 5) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 991.98px) {
+                .swiper-wrapper {
+                    gap: 16px;
+                }
+
+                .swiper-slide {
+                    flex: 0 0 calc(50% - 8px) !important;
+
+                    &:nth-child(n + 3) {
+                        display: none !important;
+                    }
+
+                    &:nth-child(-n + 2) {
+                        display: block !important;
+                    }
+                }
+            }
+
+            @media (max-width: 575.98px) {
+                .swiper-slide {
+                    flex: 0 0 100% !important;
+
+                    &:nth-child(n + 2) {
+                        display: none !important;
+                    }
+
+                    &:first-child {
+                        display: block !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    min-height: 200px;
+    padding: 24px;
+    border-radius: 24px;
+    background: var(--white);
+
+    @media (max-width: 991.98px) {
+        gap: 20px;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    // .feature-card__head
+    &__head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    // .feature-card__title
+    &__title {
+        margin: 0;
+        color: var(--black);
+        font-family: var(--font-roboto);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+
+        @media (max-width: 991.98px) {
+            font-size: 28px;
+        }
+    }
+
+    // .feature-card__icon
+    &__icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+
+        @media (min-width: 992px) {
+            transform: translate(8px, -8px);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    // .feature-card__text
+    &__text {
+        margin-top: auto;
+        color: var(--black);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+}
