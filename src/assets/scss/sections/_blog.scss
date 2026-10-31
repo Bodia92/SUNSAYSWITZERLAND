@@ -1,77 +1,31 @@
 @use "@/assets/scss/abstracts/_mixins.scss" as *;
 
-.page--main {
-    .blog {
-        margin-top: 96px;
-        @media (max-width: 991.98px) {
-            margin-top: 48px;
-        }
-    }
-}
-
 .page--blog {
-    padding-bottom: 0;
 }
 
 .blog {
-    --blog-rows: 3;
-    padding-top: 96px;
-    padding-bottom: 96px;
-    background: var(--white);
-
-    @media (max-width: 991.98px) {
-        padding-top: 48px;
-        padding-bottom: 48px;
-    }
-
-    // .blog__label
-    &__label {
-        justify-content: center;
-    }
+    padding-bottom: 0;
 
     // .blog__title
-    &__title {
-        text-align: center;
+    .blog__title {
+        color: var(--black);
     }
 
     // .blog__grid
     &__grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
 
-        &:not(:last-child) {
-            margin-bottom: 40px;
-
-            @media (max-width: 991.98px) {
-                margin-bottom: 20px;
-            }
+        @media (max-width: 1199.98px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
         }
 
-        > :first-child {
-            @media (min-width: 992px) {
-                position: sticky;
-                top: 130px;
-                height: fit-content;
-            }
-        }
-
-        @media (min-width: 992px) {
-            grid-template-columns: minmax(350px, 557px) minmax(0, 1fr);
-            grid-template-rows: repeat(var(--blog-rows), 180px);
-            gap: 8px 16px;
-
-            > :first-child {
-                grid-column: 1;
-                grid-row: 1 / -1;
-                position: sticky;
-                top: 130px;
-                height: fit-content;
-            }
-
-            > :nth-child(n + 2) {
-                grid-column: 2;
-            }
+        @media (max-width: 767.98px) {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
     }
 
@@ -81,35 +35,73 @@
         margin-inline: auto;
     }
 
-    &--listing {
-        --blog-rows: 9;
-        border-radius: 40px 40px 0 0;
-        padding-top: 32px;
+    // .blog__filters
+    &__filters {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin-bottom: 24px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
 
-        @media (max-width: 991.98px) {
-            border-radius: 0;
-            padding-top: 40px;
+        &::-webkit-scrollbar {
+            display: none;
         }
 
-        .breadcrumbs {
-            justify-content: flex-start;
+        @media (max-width: 991.98px) {
+            margin-bottom: 16px;
+            margin-right: calc(var(--padding-container) * -1);
+            padding-right: var(--padding-container);
+        }
+    }
 
-            &:not(:last-child) {
-                margin-bottom: 24px;
+    // .blog__filter
+    &__filter {
+        display: inline-flex;
+        flex-shrink: 0;
+        align-items: center;
+        min-height: 32px;
+        padding: 4px 16px 4px 12px;
+        gap: 8px;
+        border-radius: 100px;
+        background: var(--white);
+        color: var(--black);
+        font-family: var(--font-roboto);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        border: 1px solid var(--white);
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+            background 0.25s ease,
+            border-color 0.25s ease,
+            color 0.25s ease;
 
-                @media (max-width: 991.98px) {
-                    margin-bottom: 16px;
-                }
+        .blog__filter-dot {
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--yellow-brand);
+            transition: background 0.25s ease;
+        }
+
+        &.is-active {
+            border-color: var(--yellow-brand);
+            background: var(--yellow-brand);
+
+            .blog__filter-dot {
+                background: var(--black);
             }
         }
 
-        .blog__title {
-            text-align: left;
-        }
-
-        @media (max-width: 991.98px) {
-            .blog-card:not(:first-child) .blog-card__text {
-                display: none;
+        @media (any-hover: hover) {
+            &:hover:not(.is-active) {
+                border-color: var(--yellow-brand);
             }
         }
     }

@@ -1,23 +1,32 @@
-<a class="blog-card{{#if cover}} blog-card--cover{{/if}}" href="{{#if href}}{{href}}{{else}}#{{/if}}">
+<a
+    class="blog-card{{#if cover}} blog-card--cover{{/if}}"
+    href="{{#if href}}{{href}}{{else}}#{{/if}}"
+    {{#if categorySlug}} data-blog-category="{{categorySlug}}"{{/if}}
+>
     <span class="blog-card__media">
-        <img src="@img/{{image}}" alt="{{title}}" />
+        <img src="@img/{{image}}" alt="{{title}}" width="436" height="280" loading="lazy" />
     </span>
 
-    <span class="blog-card__content">
-        <span class="blog-card__go" aria-hidden="true">
-            {{> Ui/ArrowIcon }}
-        </span>
-
+    <span class="blog-card__body">
         {{#if date}}
-        <span class="blog-card__date">{{date}}</span>
+            <span class="blog-card__meta">
+                <span class="blog-card__date">{{date}}</span>
+                {{#if category}}
+                    <span class="blog-card__category">{{category}}</span>
+                {{/if}}
+            </span>
         {{/if}}
 
         {{#if title}}
-        <span class="blog-card__title">{{title}}</span>
+            <span class="blog-card__title">«{{title}}»</span>
         {{/if}}
 
         {{#if text}}
-        <span class="blog-card__text">{{text}}</span>
+            <span class="blog-card__text">{{text}}</span>
         {{/if}}
+
+        <span class="blog-card__go" aria-hidden="true">
+            {{> Ui/ArrowIcon }}
+        </span>
     </span>
 </a>

@@ -18,9 +18,9 @@ a {
 }
 
 .editor {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.5;
     text-wrap: balance;
     color: var(--black);
 
@@ -35,15 +35,16 @@ a {
     h3,
     h4,
     h5 {
-        font-weight: 600;
+        font-weight: 700;
         line-height: 1;
         letter-spacing: -0.04em;
         text-transform: uppercase;
-        color: var(--black);
+        color: var(--dark);
         font-family: var(--font-roboto);
 
         &:not(:first-child) {
             margin-top: 40px;
+
             @media (max-width: 991.98px) {
                 margin-top: 20px;
             }
@@ -55,22 +56,26 @@ a {
     }
 
     h1 {
-        @include af(56, 28);
+        @include af(90, 40);
     }
 
     h2 {
-        @include af(40, 32);
+        @include af(56, 28);
     }
 
     h3 {
-        @include af(32, 24);
+        @include af(40, 32);
     }
 
     h4 {
-        @include af(24, 20);
+        @include af(32, 24);
     }
 
     h5 {
+        @include af(24, 20);
+    }
+
+    h6 {
         @include af(20, 16);
     }
 

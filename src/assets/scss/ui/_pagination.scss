@@ -5,6 +5,11 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 24px;
+
+    @media (max-width: 991.98px) {
+        margin-top: 16px;
+    }
 
     .screen-reader-text {
         position: absolute !important;
@@ -46,16 +51,19 @@
     font-weight: 500;
     line-height: 1.5;
     color: var(--black);
+    border: 1px solid transparent;
     text-decoration: none;
     border-radius: 50%;
     transition:
         color 0.3s ease,
-        background 0.3s ease;
+        background 0.3s ease,
+        border-color 0.3s ease;
 
     &:not(.dots):not(.prev):not(.next) {
         @media (any-hover: hover) {
             &:hover {
-                color: var(--yellow-brand);
+                border-color: var(--yellow-brand);
+                color: var(--black);
             }
         }
     }
@@ -67,8 +75,6 @@
     }
 
     &.dots {
-        min-width: auto;
-        height: auto;
         padding: 0 4px;
         font-weight: 400;
         color: var(--black);

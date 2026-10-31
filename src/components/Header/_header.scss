@@ -27,6 +27,12 @@ body:has(.hero) {
     }
 }
 
+body:has(.blog) {
+    .header__container::before {
+        background: var(--stroke-line);
+    }
+}
+
 body:has(.page-main) {
     .header {
         .header__container::before {

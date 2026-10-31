@@ -15,6 +15,7 @@ import { initWhoStats } from "./modules/who-stats.js";
 import { initFaqMore } from "./modules/faq-more.js";
 import { initHome } from "./modules/home.js";
 import { initPresentMap } from "./modules/present-map.js";
+import { initBlogFilters } from "./modules/blog-filters.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     fixMobileVh();
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initFaqMore();
     initHome();
     initPresentMap();
+    initBlogFilters();
 
 
     new Accordion(".sub-in", {

@@ -533,6 +533,44 @@ function initFeatureSliders() {
     });
 }
 
+/**
+ * Related insights / news slider (.js-blog-slider).
+ * data-desktop — cards per row on desktop (default 3).
+ */
+function initBlogSliders() {
+    const sliders = [...document.querySelectorAll(".js-blog-slider")];
+    if (!sliders.length) return;
+
+    sliders.forEach((sliderEl) => {
+        const wrapEl = sliderEl.closest(".blog-more__wrap");
+        if (!wrapEl) return;
+
+        const raw = Number(sliderEl.dataset.desktop);
+        const desktopCount = [2, 3, 4].includes(raw) ? raw : 3;
+
+        new Swiper(sliderEl, {
+            modules: [Navigation],
+            speed: 600,
+            spaceBetween: 12,
+            slidesPerView: 1,
+            watchOverflow: true,
+            watchSlidesProgress: true,
+            grabCursor: true,
+            navigation: getSliderNav(wrapEl),
+            breakpoints: {
+                576: {
+                    slidesPerView: 2,
+                    spaceBetween: 16,
+                },
+                992: {
+                    slidesPerView: desktopCount,
+                    spaceBetween: 24,
+                },
+            },
+        });
+    });
+}
+
 export function initSliderObserver() {
     initReviewsSlider();
     initMediaSliders();
@@ -550,4 +588,5 @@ export function initSliderObserver() {
     initRecommendedSlider();
     initBuildingSlider();
     initFeatureSliders();
+    initBlogSliders();
 }

@@ -2,44 +2,65 @@
     <div class="form-body">
         <div class="form-grid">
             <div class="form-group">
-                <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name">Ваше ім’я</label>
-                <input class="form-input" type="text" name="your-name"
-                    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name" placeholder="Ім’я" autocomplete="name">
+                <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name">Name</label>
+                <input
+                    class="form-input"
+                    type="text"
+                    name="your-name"
+                    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name"
+                    placeholder="John"
+                    autocomplete="name"
+                >
             </div>
             <div class="form-group">
-                <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-phone">Номер телефону <span>*</span></label>
-                <input class="form-input" type="tel" name="your-phone"
-                    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-phone" placeholder="+38 00 000 00 00"
-                    autocomplete="tel" required>
+                <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-phone">Phone</label>
+                <input
+                    class="form-input"
+                    type="tel"
+                    name="your-phone"
+                    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-phone"
+                    placeholder="+41 00 000 00 00"
+                    autocomplete="tel"
+                >
             </div>
         </div>
 
         {{#unless compact}}
         <div class="form-group">
             <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email">Email <span>*</span></label>
-            <input class="form-input" type="email" name="your-email"
-                id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email" placeholder="Email" autocomplete="email"
-                required>
+            <input
+                class="form-input"
+                type="email"
+                name="your-email"
+                id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email"
+                placeholder="Email"
+                autocomplete="email"
+                required
+            >
         </div>
         {{/unless}}
 
         <div class="form-group">
-            <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message">{{#if messageLabel}}{{messageLabel}}{{else}}Повідомлення{{/if}}</label>
-            <textarea class="form-input" name="your-message"
-                id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message" rows="4"
-                placeholder="Напишіть"></textarea>
+            <label class="form-label visually-hidden" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message">Message</label>
+            <textarea
+                class="form-input"
+                name="your-message"
+                id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message"
+                rows="4"
+                placeholder="{{#if messagePlaceholder}}{{messagePlaceholder}}{{else}}Your message{{/if}}"
+            ></textarea>
         </div>
     </div>
 
     <p class="contact-form__consent">
-        Натискаючи кнопку «Надіслати повідомлення», я погоджуюся з
-        <a href="privacy-policy.html">Політикою конфіденційності</a>
-        та даю згоду на обробку моїх персональних даних.
+        By clicking “Send message,” I agree to the
+        <a href="#">Privacy Policy</a>
+        and consent to the processing of my personal data.
     </p>
 
     <div class="form-actions">
         <button type="submit" class="btn btn-main">
-            <span>Надіслати</span>
+            <span>Send message</span>
             {{> Ui/ArrowIcon }}
         </button>
     </div>

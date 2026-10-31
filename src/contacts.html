@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+{{> Head/Head title="Contacts — SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--contacts">
+
+
+            <section class="hero hero--contacts">
+                {{> Breadcrumbs/Breadcrumbs
+                home="SUNSAY NRG"
+                homeUrl="/"
+                current="Contacts"
+            }}
+                <div class="hero__bg">
+                    <img src="@img/hero/04.jpg" alt="hero contacts" width="1920" height="1080" />
+                </div>
+
+                <div class="hero__container">
+                    <h1 class="hero__title">CONTACTS</h1>
+                </div>
+            </section>
+
+
+            {{> Contacts/Contacts }}
+
+            {{> Map/Map }}
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

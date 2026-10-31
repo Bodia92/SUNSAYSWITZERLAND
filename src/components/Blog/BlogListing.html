@@ -1,86 +1,98 @@
-<section class="section blog blog--listing">
+<section class="section blog" data-blog-listing>
     <div class="blog__container">
-        {{> Breadcrumbs/Breadcrumbs
-        home="SUNSAY NRG"
-        homeUrl="/"
-        current="Блог"
-        }}
+        <h1 class="blog__title page-title">Insights</h1>
 
-        <h1 class="blog__title title"><span>Новини</span> та публікації</h1>
+        <div class="blog__filters" data-blog-filters>
+            <button class="blog__filter is-active" type="button" data-blog-filter="all">
+                <span class="blog__filter-dot" aria-hidden="true"></span>
+                All
+            </button>
+            <button class="blog__filter" type="button" data-blog-filter="market-insights">
+                <span class="blog__filter-dot" aria-hidden="true"></span>
+                Market Insights
+            </button>
+            <button class="blog__filter" type="button" data-blog-filter="investment-roi">
+                <span class="blog__filter-dot" aria-hidden="true"></span>
+                Investment &amp; ROI
+            </button>
+            <button class="blog__filter" type="button" data-blog-filter="policy-regulation">
+                <span class="blog__filter-dot" aria-hidden="true"></span>
+                Policy &amp; Regulation
+            </button>
+        </div>
 
         <div class="blog__grid">
             {{> Blog/BlogCard
-            cover=true
-            image="blog/01.jpg"
-            title="Sunsay NRG на Бізнес конференції
-            “Українська стійкість”"
-            href="blog-open.html"
+                image="img01.jpg"
+                date="19.08.2026"
+                category="Market Insights"
+                categorySlug="market-insights"
+                title="Grid of tomorrow: insights into utility-scale PV, BESS &amp; hybrid solutions"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/02.jpg"
-            date="22.03.2026"
-            title="Сонячні станції"
-            text="До 24 лютого 2022 року у більшості українських підприємців і компаній проблемою було лише зростання
-            вартості електроенергії, тоді"
-            href="blog-open.html"
+                image="img02.jpg"
+                date="19.08.2026"
+                category="Investment &amp; ROI"
+                categorySlug="investment-roi"
+                title="The power hub: commercial solar, storage &amp; hybrid innovations"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/03.jpg"
-            date="18.03.2026"
-            title="Системи накопичення"
-            text="Резервне живлення, згладжування піків і оптимізація споживання за допомогою УЗЕ."
-            href="#"
+                image="img03.jpg"
+                date="19.08.2026"
+                category="Policy &amp; Regulation"
+                categorySlug="policy-regulation"
+                title="Energy storage &amp; solar intelligence: scaling the renewable infrastructure"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/04.jpg"
-            date="10.03.2026"
-            title="Сервіс і моніторинг"
-            text="Регулярне обслуговування СЕС та УЗЕ, щоб система працювала стабільно весь рік."
-            href="#"
+                image="img04.jpg"
+                date="12.08.2026"
+                category="Market Insights"
+                categorySlug="market-insights"
+                title="Grid of tomorrow: insights into utility-scale PV, BESS &amp; hybrid solutions"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/02.jpg"
-            date="04.03.2026"
-            title="Сонячні станції"
-            text="До 24 лютого 2022 року у більшості українських підприємців і компаній проблемою було лише зростання
-            вартості електроенергії, тоді"
-            href="#"
+                image="img05.jpg"
+                date="05.08.2026"
+                category="Investment &amp; ROI"
+                categorySlug="investment-roi"
+                title="The power hub: commercial solar, storage &amp; hybrid innovations"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/03.jpg"
-            date="26.02.2026"
-            title="Системи накопичення"
-            text="Резервне живлення, згладжування піків і оптимізація споживання за допомогою УЗЕ."
-            href="#"
+                image="img01.jpg"
+                date="28.07.2026"
+                category="Policy &amp; Regulation"
+                categorySlug="policy-regulation"
+                title="Energy storage &amp; solar intelligence: scaling the renewable infrastructure"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/04.jpg"
-            date="18.02.2026"
-            title="Сервіс і моніторинг"
-            text="Регулярне обслуговування СЕС та УЗЕ, щоб система працювала стабільно весь рік."
-            href="#"
+                image="img02.jpg"
+                date="21.07.2026"
+                category="Market Insights"
+                categorySlug="market-insights"
+                title="Grid of tomorrow: insights into utility-scale PV, BESS &amp; hybrid solutions"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/02.jpg"
-            date="09.02.2026"
-            title="Сонячні станції"
-            text="До 24 лютого 2022 року у більшості українських підприємців і компаній проблемою було лише зростання
-            вартості електроенергії, тоді"
-            href="#"
+                image="img03.jpg"
+                date="14.07.2026"
+                category="Investment &amp; ROI"
+                categorySlug="investment-roi"
+                title="The power hub: commercial solar, storage &amp; hybrid innovations"
+                href="blog-open.html"
             }}
             {{> Blog/BlogCard
-            image="blog/03.jpg"
-            date="28.01.2026"
-            title="Системи накопичення"
-            text="Резервне живлення, згладжування піків і оптимізація споживання за допомогою УЗЕ."
-            href="#"
-            }}
-            {{> Blog/BlogCard
-            image="blog/04.jpg"
-            date="15.01.2026"
-            title="Сервіс і моніторинг"
-            text="Регулярне обслуговування СЕС та УЗЕ, щоб система працювала стабільно весь рік."
-            href="#"
+                image="img04.jpg"
+                date="07.07.2026"
+                category="Policy &amp; Regulation"
+                categorySlug="policy-regulation"
+                title="Energy storage &amp; solar intelligence: scaling the renewable infrastructure"
+                href="blog-open.html"
             }}
         </div>
 

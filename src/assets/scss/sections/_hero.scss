@@ -35,6 +35,92 @@
         }
     }
 
+    // contacts page
+    &.hero--contacts {
+        align-items: flex-start;
+        justify-content: flex-end;
+        text-align: left;
+
+        @media (min-width: 992px) {
+            min-height: 440px;
+        }
+
+        .hero__container {
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        .hero__title {
+            text-align: left;
+        }
+    }
+    // article open page
+    &.hero--article {
+        align-items: flex-start;
+        justify-content: flex-end;
+        text-align: left;
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+
+        .hero__container {
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        .hero__title {
+            text-align: left;
+            max-width: 1160px;
+
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+
+        .hero__actions {
+            justify-content: flex-start;
+        }
+
+        .breadcrumbs {
+            margin-bottom: auto;
+        }
+    }
+
+    // .hero__meta
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+        color: var(--white);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.2;
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s both;
+        &:not(:last-child) {
+            margin-bottom: 32px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
+        }
+
+        > span {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            & + span::before {
+                content: "";
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: var(--yellow-brand);
+            }
+        }
+    }
+
     @media (max-width: 991.98px) {
         border-radius: 0 0 20px 20px;
         padding: 76px 0 40px;
@@ -81,13 +167,16 @@
         color: var(--white);
         text-align: center;
         font-family: var(--font-roboto);
-        @include af(94, 48);
+        @include af(90, 40);
         font-weight: 700;
         line-height: 1;
         letter-spacing: -0.04em;
         text-transform: uppercase;
         animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s both;
 
+        .page--main & {
+            @include af(94, 48);
+        }
         &:not(:last-child) {
             margin-bottom: 20px;
         }
@@ -230,6 +319,7 @@
     .hero__text,
     .hero__btn.btn,
     .hero__benefits,
+    .hero__meta,
     .hero .breadcrumbs {
         animation: none;
     }

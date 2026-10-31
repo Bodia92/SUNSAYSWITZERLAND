@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+{{> Head/Head title="Insights — SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--blog">
+            {{> Breadcrumbs/Breadcrumbs
+            home="SUNSAY NRG"
+            homeUrl="/"
+            current="Insights"
+        }}
+            {{> Blog/BlogListing }}
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>
