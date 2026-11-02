@@ -2,15 +2,22 @@
 
 .project-card {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
     color: inherit;
     text-decoration: none;
     cursor: pointer;
+    background: var(--white);
+    border-radius: 32px;
+    overflow: hidden;
+
+    @media (max-width: 991.98px) {
+    }
 
     @media (max-width: 991.98px) {
         flex-direction: column;
-        align-items: stretch;
+        border-radius: 0;
+        background: transparent;
     }
 
     @media (any-hover: hover) {
@@ -37,17 +44,19 @@
         position: relative;
         display: block;
         overflow: hidden;
-        width: 100%;
-        min-height: 220px;
-        aspect-ratio: 39/22;
-        border-radius: 0;
+        flex: 0 0 58%;
+        max-width: 782px;
+        min-width: 0;
+        min-height: 280px;
+        aspect-ratio: 125/86;
+        border-radius: 24px;
 
-        @media (min-width: 992px) {
-            width: calc(50% + 100px);
-            min-height: 444px;
-            aspect-ratio: 787 / 444;
-            margin-right: -100px;
-            border-radius: 24px;
+        @media (max-width: 991.98px) {
+            flex: none;
+            width: 100%;
+            min-height: 200px;
+            aspect-ratio: 16 / 10;
+            border-radius: 12px;
         }
 
         img {
@@ -65,23 +74,113 @@
     &__content {
         position: relative;
         z-index: 1;
-        flex-shrink: 0;
-        width: calc(100% - 40px);
-        height: fit-content;
+        flex: 1 1 auto;
+        align-self: start;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: center;
         min-width: 0;
-        margin: -24px auto 0;
-        padding: 20px;
-        background: var(--white);
-        border-radius: 16px;
+        padding: 32px;
 
-        @media (min-width: 992px) {
-            width: 50%;
-            margin: 0;
-            padding: 32px;
-            border-radius: 24px;
+        @media (max-width: 991.98px) {
+            flex: none;
+            width: 100%;
+            margin-top: -32px;
+            padding: 16px;
+            background: var(--white);
+            border-radius: 12px;
+        }
+    }
+
+    // .project-card__meta
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+
+            @media (min-width: 992px) {
+                gap: 8px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    // .project-card__country
+    &__country {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--black);
+
+        img {
+            width: 24px;
+            height: 24px;
+            object-fit: scale-down;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 991.98px) {
+            padding: 4px 10px;
+            border-radius: 1000px;
+            background: var(--light-bg);
+            color: var(--black);
+            font-size: 12px;
+            gap: 6px;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    // .project-card__status
+    &__status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 12px;
+        border-radius: 100px;
+        background: var(--light-bg);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--black);
+
+        &::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--yellow-brand);
+        }
+
+        @media (max-width: 991.98px) {
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+
+    // .project-card__cod
+    &__cod {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--black);
+        white-space: nowrap;
+
+        @media (max-width: 991.98px) {
+            font-size: 12px;
         }
     }
 
@@ -100,67 +199,30 @@
     &__title {
         display: block;
         font-family: var(--font-roboto);
-        font-weight: 600;
-        line-height: 1;
+        font-weight: 700;
+        line-height: 1.2;
         text-transform: uppercase;
         color: var(--black);
         @include av("font-size", 40, 24);
 
         @media (max-width: 991.98px) {
             line-height: 1.12;
+            font-weight: 600;
         }
 
         &:not(:last-child) {
             margin-bottom: 8px;
-
-            @media (max-width: 991.98px) {
-                margin-bottom: 12px;
-            }
         }
     }
 
     // .project-card__subtitle
     &__subtitle {
         display: block;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 1;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--black);
-
-        &:not(:last-child) {
-            margin-bottom: 12px;
-
-            @media (max-width: 991.98px) {
-                margin-bottom: 16px;
-                letter-spacing: 0.04em;
-                font-size: 14px;
-            }
-        }
-    }
-
-    // .project-card__location
-    &__location {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        @include av("font-size", 16, 14);
-        font-weight: 400;
-        line-height: 1.25;
-        color: var(--black);
-
-        .icon {
-            flex-shrink: 0;
-            width: 20px;
-            height: 20px;
-            color: var(--yellow-brand);
-
-            @media (max-width: 991.98px) {
-                width: 16px;
-                height: 16px;
-            }
-        }
+        font-weight: 500;
+        @include af(16, 14);
+        font-style: italic;
+        line-height: 1.5;
+        color: var(--gray-color);
     }
 
     // .project-card__specs
@@ -170,67 +232,14 @@
         width: 100%;
     }
 
-    // .project-card__specs-toggle
-    &__specs-toggle {
-        display: none;
-        align-items: center;
-        gap: 8px;
-        width: 100%;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1;
-        color: var(--gray-color);
-        transition: all 0.3s ease;
-
-        @media (max-width: 991.98px) {
-            display: flex;
-        }
-
-        .icon {
-            flex-shrink: 0;
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-            color: var(--gray-color);
-            transition: transform 0.3s ease;
-        }
-
-        &.is-active .icon {
-            transform: rotate(180deg);
-        }
-    }
-
-    // .project-card__specs-body
-    &__specs-body {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        overflow: hidden;
-
-        @media (min-width: 992px) {
-            max-height: none !important;
-        }
-
-        @media (max-width: 991.98px) {
-            max-height: 0;
-
-            .is-open & {
-                padding-top: 12px;
-            }
-        }
-    }
-
     // .project-card__row
     &__row {
         display: flex;
         align-items: baseline;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 12px 0;
-        @include af(16, 12);
+        padding: 16px 0;
+        @include af(16, 14);
         color: var(--black);
-        line-height: 1.25;
-        font-weight: 400;
+        line-height: 1.2;
         border-bottom: 1px solid var(--stroke-line);
 
         &:first-child {
@@ -239,35 +248,28 @@
 
         > span:first-child {
             flex: 1 1 auto;
+            font-weight: 700;
         }
 
         > span:last-child {
+            flex-shrink: 0;
+            padding-left: 6px;
             width: 50%;
-            font-weight: 700;
-
-            @media (max-width: 991.98px) {
-                width: 100%;
-            }
+            font-weight: 500;
         }
 
         @media (max-width: 991.98px) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
+            padding: 12px 0;
+            font-size: 14px;
         }
     }
 
     // .project-card__btn
     &__btn.btn {
-        position: static;
         margin-top: 16px;
 
         @media (min-width: 992px) {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            margin-top: 0;
-            margin-bottom: -24px;
+            margin-top: 24px;
         }
     }
 }

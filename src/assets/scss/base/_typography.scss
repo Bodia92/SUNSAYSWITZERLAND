@@ -232,8 +232,6 @@ a {
 }
 
 .seo-section {
-    @include av("padding-top", 80, 56);
-
     .seo-section__content {
         padding-right: 10px;
         max-height: 168px;

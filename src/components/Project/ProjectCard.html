@@ -1,9 +1,26 @@
 <a class="project-card" href="{{#if href}}{{href}}{{else}}#{{/if}}">
     <span class="project-card__media">
-        <img src="@img/{{image}}" alt="{{title}}" />
+        <img src="@img/{{image}}" alt="{{title}}" loading="lazy" width="787" height="444" />
     </span>
 
     <span class="project-card__content">
+        {{#if country}}
+        <span class="project-card__meta">
+            <span class="project-card__country">
+                {{#if flag}}
+                <img src="@img/flags/{{flag}}" alt="" width="20" height="20" />
+                {{/if}}
+                <span>{{country}}</span>
+            </span>
+            {{#if status}}
+            <span class="project-card__status">{{status}}</span>
+            {{/if}}
+            {{#if cod}}
+            <span class="project-card__cod">COD: {{cod}}</span>
+            {{/if}}
+        </span>
+        {{/if}}
+
         <span class="project-card__head">
             {{#if title}}
             <span class="project-card__title">{{title}}</span>
@@ -12,26 +29,10 @@
             {{#if subtitle}}
             <span class="project-card__subtitle">{{subtitle}}</span>
             {{/if}}
-
-            {{#if location}}
-            <span class="project-card__location">
-                <svg class="icon" aria-hidden="true">
-                    <use href="@img/sprite.svg#icon-location"></use>
-                </svg>
-                <span>{{location}}</span>
-            </span>
-            {{/if}}
         </span>
 
         {{#if spec1}}
         <span class="project-card__specs">
-            <span class="project-card__specs-toggle">
-                <span>Характеристики об'єкту</span>
-                <svg class="icon" aria-hidden="true">
-                    <use href="@img/sprite.svg#icon-arrow-down"></use>
-                </svg>
-            </span>
-            <span class="project-card__specs-body">
             <span class="project-card__row">
                 <span>{{spec1}}</span>
                 <span>{{spec1val}}</span>
@@ -72,12 +73,11 @@
                 <span>{{spec7val}}</span>
             </span>
             {{/if}}
-            </span>
         </span>
         {{/if}}
 
         <span class="project-card__btn btn btn-main">
-            <span>{{#if link}}{{link}}{{else}}Докладніше{{/if}}</span>
+            <span>{{#if link}}{{link}}{{else}}View project details{{/if}}</span>
             {{> Ui/ArrowIcon }}
         </span>
     </span>

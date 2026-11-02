@@ -12,6 +12,14 @@
     align-items: center;
     justify-content: center;
 
+    &:not(:last-child) {
+        margin-bottom: 80px;
+
+        @media (max-width: 991.98px) {
+            margin-bottom: 56px;
+        }
+    }
+
     @media (max-width: 991.98px) {
         border-radius: 20px;
         min-height: 700px;

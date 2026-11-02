@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+{{> Head/Head title="SUNSAY NRG" }}
+
+<body>
+    <div class="wrapper" id="main">
+        {{> Header/Header}}
+
+        <main class="page page--projects">
+            <section class="hero hero--projects">
+
+                {{> Breadcrumbs/Breadcrumbs
+                    home="SUNSAY NRG"
+                    homeUrl="/"
+                    current="Utility-scale development portfolio"
+                }}
+
+                <div class="hero__bg">
+                    <img src="@img/hero/03.jpg" alt="SUNSAY NRG" width="1920" height="1080" />
+                </div>
+                <div class="hero__container">
+                    <h1 class="hero__title">
+                        Development Portfolio 
+                        <span>Our Projects</span>
+                    </h1>
+                    <div class="hero__text">
+                        <p>Active solar PV and BESS projects in structured development</p>
+                    </div>
+                </div>
+            </section>
+
+            {{> Pipeline/Pipeline }}
+
+            {{#> FeatureSlider/FeatureSlider
+                title="Projects by <span>development stage</span>"
+                desktop=4
+                className="bg-white"
+            }}
+                {{> FeatureSlider/FeatureSlide
+                    title="EDS"
+                    subtitle="Early Development Stage"
+                    number="01"
+                    text="Site secured, feasibility studies completed, grid connection approved"
+                }}
+                {{> FeatureSlider/FeatureSlide
+                    title="RTB"
+                    subtitle="Ready-to-Build"
+                    number="02"
+                    text="Permits secured, technical documentation finalized, construction contracts awarded"
+                }}
+                {{> FeatureSlider/FeatureSlide
+                    title="COD"
+                    subtitle="Commercial Operation Date"
+                    number="03"
+                    text="Asset commissioned, grid connection energized, revenue generation launched"
+                }}
+                {{> FeatureSlider/FeatureSlide
+                    title="COD+"
+                    subtitle="Project operations period"
+                    number="04"
+                    text="Performance monitored, asset optimized, value maximized throughout the operational lifetime"
+                }}
+                {{/FeatureSlider/FeatureSlider}}
+
+                {{> Projects/Projects }}
+
+                <section class="banner">
+                    <div class="banner__bg">
+                        <img src="@img/img05.jpg" alt="Banner" width="1920" height="1080">
+                    </div>
+                    <div class="banner__container">
+                        <h2 class="banner__title">Renewable energy is becoming
+                            an infrastructure-driven market</h2>
+                        <div class="banner__text">Our market overview covers solar, storage, grid dynamics, and long-term investment trends across the energy sector.</div>
+                        <div class="banner__actions">
+                            <a href="#" class="banner__action btn btn-main">
+                                <span>Download market overview</span>
+                                {{> Ui/ArrowIcon }}
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                {{> Contacts/Contacts }}
+                <section class="section seo-section">
+                    <div class="seo-section__container">
+                        <div class="seo-section__content editor">
+                            <h2>SEO</h2>
+                            <p>SUNSAY NRG Suisse AG develops utility-scale solar PV and battery energy storage projects in Switzerland, Austria and Ukraine. We take projects from land origination through grid connection and permitting to Ready-to-Build, then supervise trusted partners through construction and operations while you own the asset. Investment opportunities are available to private and institutional investors, and Ready-to-Build projects to developers and utility companies.</p>
+                            <p>SUNSAY NRG Suisse AG develops utility-scale solar PV and battery energy storage projects in Switzerland, Austria and Ukraine. We take projects from land origination through grid connection and permitting to Ready-to-Build, then supervise trusted partners through construction and operations while you own the asset. Investment opportunities are available to private and institutional investors, and Ready-to-Build projects to developers and utility companies.</p>
+                        </div>
+                    </div>
+                </section>
+        </main>
+
+        {{> Footer/Footer }}
+    </div>
+    {{> Popup/Popup }}
+</body>
+
+</html>

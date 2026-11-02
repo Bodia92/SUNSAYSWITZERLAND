@@ -1,8 +1,15 @@
 <div class="swiper-slide">
-    <article class="feature-card">
+    <article class="feature-card{{#if number}} feature-card--stage{{/if}}">
         <div class="feature-card__head">
-            <h3 class="feature-card__title">{{{title}}}</h3>
-            {{#if icon}}
+            <div class="feature-card__heading">
+                <h3 class="feature-card__title">{{{title}}}</h3>
+                {{#if subtitle}}
+                    <p class="feature-card__subtitle">{{{subtitle}}}</p>
+                {{/if}}
+            </div>
+            {{#if number}}
+                <span class="feature-card__number" aria-hidden="true">{{number}}</span>
+            {{else if icon}}
                 <div class="feature-card__icon" aria-hidden="true">
                     <img src="@img/icons/{{icon}}.svg" alt="" width="40" height="40" loading="lazy">
                 </div>

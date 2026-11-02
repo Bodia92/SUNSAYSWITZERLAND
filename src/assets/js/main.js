@@ -16,6 +16,7 @@ import { initFaqMore } from "./modules/faq-more.js";
 import { initHome } from "./modules/home.js";
 import { initPresentMap } from "./modules/present-map.js";
 import { initBlogFilters } from "./modules/blog-filters.js";
+import { initScrollSliders } from "./modules/scroll-slider.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     fixMobileVh();
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initHome();
     initPresentMap();
     initBlogFilters();
+    initScrollSliders();
 
 
     new Accordion(".sub-in", {
@@ -39,13 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     new Accordion(".js-faq-wrap");
-
-    new Accordion(".project-card__specs", {
-        triggerSelector: ".project-card__specs-toggle",
-        bodySelector: ".project-card__specs-body",
-        media: "(max-width: 991.98px)",
-        oneOpen: false,
-    });
 });
 
 const modules = import.meta.glob("../../components/**/*.js", { eager: true });

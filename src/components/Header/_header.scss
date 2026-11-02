@@ -27,6 +27,35 @@ body:has(.hero) {
     }
 }
 
+// Mobile menu open: white bar + dark text/logo (overrides transparent hero header)
+body.menu-open:has(.hero),
+body.menu-open {
+    @include mq-down(lg) {
+        .header {
+            --color-header: var(--black);
+            background: var(--white);
+            box-shadow: none;
+
+            .header__logo .header__logo-img-white {
+                display: none;
+            }
+
+            .header__logo .header__logo-img {
+                display: block;
+            }
+
+            &.scroll-header {
+                background: var(--white);
+                box-shadow: none;
+            }
+
+            .header__container::before {
+                background: var(--stroke-line);
+            }
+        }
+    }
+}
+
 body:has(.blog) {
     .header__container::before {
         background: var(--stroke-line);
@@ -705,10 +734,6 @@ body:has(.page-main) {
     // Mobile open menu layout
     // ----------------------------------------------------------------
     @include mq-down(lg) {
-        .menu-open & {
-            background: var(--white);
-        }
-
         .header__top {
             order: 2;
             flex: 0 0 auto;
