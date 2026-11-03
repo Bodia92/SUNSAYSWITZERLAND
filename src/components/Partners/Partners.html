@@ -1,50 +1,60 @@
-<section class="section partners">
+<section class="section partners" data-tabs>
     <div class="partners__container">
-        <p class="partners__label title-label">Обладнання</p>
-        <h2 class="partners__title title"><span>Наші</span> партнери</h2>
+        <h2 class="partners__title title">Our <span>partners</span></h2>
+        <div class="partners__text text-block">We work with established equipment manufacturers, industry associations and financial partners across European markets</div>
 
-        <div class="partners__rows">
-            <div class="partners__marquee" data-marquee data-marquee-speed="42" data-marquee-space="16">
-                <a class="partners__item" href="#" aria-label="Huawei">
-                    <img src="@img/brands/04.png" alt="Huawei" width="159" height="44" />
-                </a>
-                <div class="partners__item">
-                    <img src="@img/brands/05.png" alt="Deye" width="116" height="48" />
-                </div>
-                <a class="partners__item" href="#" aria-label="BenQ">
-                    <img src="@img/brands/06.png" alt="BenQ" width="131" height="48" />
-                </a>
-                <div class="partners__item">
-                    <img src="@img/brands/07.png" alt="Swissolar" width="154" height="42" />
-                </div>
-                <a class="partners__item" href="#" aria-label="Allpowers">
-                    <img src="@img/brands/08.png" alt="Allpowers" width="174" height="20" />
-                </a>
-                <div class="partners__item">
-                    <img src="@img/brands/09.png" alt="GoodWe" width="143" height="28" />
-                </div>
-            </div>
+        <div class="partners__filters" data-tabs-nav role="tablist" aria-label="Partner categories">
+            <button class="partners__filter is-active" type="button" data-tab="equipment" data-tabs-btn role="tab" aria-selected="true">
+                <span class="partners__filter-dot" aria-hidden="true"></span>
+                <span>Equipment</span>
+            </button>
+            <button class="partners__filter" type="button" data-tab="associations" data-tabs-btn role="tab" aria-selected="false" tabindex="-1">
+                <span class="partners__filter-dot" aria-hidden="true"></span>
+                <span>Associations</span>
+            </button>
+            <button class="partners__filter" type="button" data-tab="financial" data-tabs-btn role="tab" aria-selected="false" tabindex="-1">
+                <span class="partners__filter-dot" aria-hidden="true"></span>
+                <span>Financial partners</span>
+            </button>
+        </div>
 
-            <div class="partners__marquee" data-marquee data-marquee-speed="42" data-marquee-space="16" data-marquee-reverse>
-                <div class="partners__item">
-                    <img src="@img/brands/06.png" alt="BenQ" width="131" height="48" />
-                </div>
-                <a class="partners__item" href="#" aria-label="GoodWe">
-                    <img src="@img/brands/09.png" alt="GoodWe" width="143" height="28" />
-                </a>
-                <div class="partners__item">
-                    <img src="@img/brands/07.png" alt="Swissolar" width="154" height="42" />
-                </div>
-                <a class="partners__item" href="#" aria-label="Deye">
-                    <img src="@img/brands/05.png" alt="Deye" width="116" height="48" />
-                </a>
-                <div class="partners__item">
-                    <img src="@img/brands/04.png" alt="Huawei" width="159" height="44" />
-                </div>
-                <a class="partners__item" href="#" aria-label="Allpowers">
-                    <img src="@img/brands/08.png" alt="Allpowers" width="174" height="20" />
-                </a>
-            </div>
+        <div class="partners__panel is-active is-visible" data-tab="equipment" data-tabs-panel role="tabpanel">
+            <ul class="partners__grid">
+                <li class="partners__item"><img src="@img/brands/04.png" alt="Huawei" width="159" height="44" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/05.png" alt="Deye" width="116" height="48" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/06.png" alt="BenQ" width="131" height="48" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/01.png" alt="Swissolar" width="154" height="42" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/02.png" alt="Allpowers" width="174" height="20" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/03.png" alt="GoodWe" width="143" height="28" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/05.png" alt="Deye" width="116" height="48" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/04.png" alt="Huawei" width="159" height="44" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/02.png" alt="Allpowers" width="174" height="20" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/01.png" alt="Swissolar" width="154" height="42" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/03.png" alt="GoodWe" width="143" height="28" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/06.png" alt="BenQ" width="131" height="48" loading="lazy"></li>
+            </ul>
+        </div>
+
+        <div class="partners__panel" data-tab="associations" data-tabs-panel role="tabpanel" aria-hidden="true">
+            <ul class="partners__grid">
+                <li class="partners__item"><img src="@img/brands/01.png" alt="Swissolar" width="154" height="42" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/02.png" alt="Partner" width="174" height="20" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/03.png" alt="Partner" width="143" height="28" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/04.png" alt="Partner" width="159" height="44" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/05.png" alt="Partner" width="116" height="48" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/06.png" alt="Partner" width="131" height="48" loading="lazy"></li>
+            </ul>
+        </div>
+
+        <div class="partners__panel" data-tab="financial" data-tabs-panel role="tabpanel" aria-hidden="true">
+            <ul class="partners__grid">
+                <li class="partners__item"><img src="@img/brands/03.png" alt="Partner" width="143" height="28" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/02.png" alt="Partner" width="174" height="20" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/01.png" alt="Partner" width="154" height="42" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/06.png" alt="Partner" width="131" height="48" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/05.png" alt="Partner" width="116" height="48" loading="lazy"></li>
+                <li class="partners__item"><img src="@img/brands/04.png" alt="Partner" width="159" height="44" loading="lazy"></li>
+            </ul>
         </div>
     </div>
 </section>

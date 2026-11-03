@@ -1,0 +1,183 @@
+@use "@/assets/scss/abstracts/_mixins.scss" as *;
+
+.team {
+    // .team__title
+    &__title {
+        text-align: center;
+    }
+
+    // .team__text
+    &__text {
+        max-width: 728px;
+
+        &:not(:last-child) {
+            margin-bottom: 36px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    // .team__wrap
+    &__wrap {
+        min-width: 0;
+        // Room for avatars overlapping the card top
+    }
+
+    // .team__slider
+    &__slider {
+        overflow: hidden;
+
+        // Desktop: static 3-column grid (no swipe)
+        @media (min-width: 992px) {
+            overflow: visible;
+
+            .swiper-wrapper {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 24px;
+                transform: none !important;
+            }
+
+            .swiper-slide {
+                width: auto !important;
+                margin: 0 !important;
+            }
+        }
+
+        // Pre-init mobile fallback
+        &:not(.swiper-initialized) {
+            @media (max-width: 991.98px) {
+                .swiper-wrapper {
+                    display: flex;
+                }
+
+                .swiper-slide {
+                    flex: 0 0 100%;
+                    width: 100%;
+
+                    &:nth-child(n + 2) {
+                        display: none;
+                    }
+                }
+
+                ~ .swiper-nav {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .swiper-nav {
+        @media (min-width: 992px) {
+            display: none;
+        }
+    }
+}
+
+.team-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 32px 32px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 100px);
+        border-radius: 32px;
+        background: var(--white);
+
+        @media (max-width: 991.98px) {
+            height: calc(100% - 70px);
+            border-radius: 20px;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        padding: 0 24px 24px;
+    }
+
+    // .team-card__photo
+    &__photo {
+        position: relative;
+        z-index: 2;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 991.98px) {
+            width: 140px;
+            height: 140px;
+        }
+
+        img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background: #ededed;
+        }
+    }
+
+    // .team-card__body
+    &__body {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 0;
+    }
+
+    // .team-card__name
+    &__name {
+        margin: 0;
+        color: var(--black);
+        font-family: var(--font-roboto);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.4;
+        text-transform: uppercase;
+    }
+
+    // .team-card__role
+    &__role {
+        margin: 0;
+        color: var(--gray-color);
+        font-family: var(--font-roboto);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        text-transform: uppercase;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    // .team-card__text
+    &__text {
+        color: var(--black);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+}

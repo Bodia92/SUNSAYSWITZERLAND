@@ -42,6 +42,10 @@ form {
 
     &:not(:last-child) {
         margin-bottom: 10px;
+
+        @media (max-width: 991.98px) {
+            margin-bottom: 16px;
+        }
     }
 }
 
@@ -83,6 +87,10 @@ form {
 
     &:not(:last-child) {
         margin-bottom: 10px;
+
+        @media (max-width: 991.98px) {
+            margin-bottom: 16px;
+        }
     }
 }
 
@@ -98,6 +106,26 @@ form {
     &:not(:last-child) {
         margin-bottom: 32px;
     }
+}
+
+.form-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.form-error {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #d32f2f;
 }
 
 .form-input {
@@ -129,6 +157,11 @@ form {
     &:focus {
         border-color: var(--accent);
         outline: none;
+    }
+
+    &.is-invalid,
+    &.is-invalid:focus {
+        border-color: #d32f2f;
     }
 }
 textarea.form-input {
@@ -591,9 +624,15 @@ textarea.form-input {
 }
 
 .contact-form {
+    position: relative;
+
     .form-body {
         &:not(:last-child) {
             margin-bottom: 20px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
         }
     }
 
@@ -602,6 +641,10 @@ textarea.form-input {
 
         &:not(:last-child) {
             margin-bottom: 20px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
         }
 
         .form-group {
@@ -616,6 +659,10 @@ textarea.form-input {
     .form-group {
         &:not(:last-child) {
             margin-bottom: 20px;
+
+            @media (max-width: 991.98px) {
+                margin-bottom: 16px;
+            }
         }
     }
 
@@ -652,6 +699,11 @@ textarea.form-input {
 
         &:focus {
             border-color: var(--stroke);
+        }
+
+        &.is-invalid,
+        &.is-invalid:focus {
+            border-color: #d32f2f;
         }
     }
 

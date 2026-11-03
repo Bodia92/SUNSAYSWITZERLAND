@@ -1,26 +1,86 @@
-<form class="contact-form" action="#" method="post" id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}">
+<form
+    class="contact-form"
+    action="#"
+    method="post"
+    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}"
+    autocomplete="off"
+    novalidate
+    data-validate
+>
+    <div class="form-honeypot" aria-hidden="true">
+        <label for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-website">Website</label>
+        <input
+            class="form-input"
+            type="text"
+            name="website"
+            id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-website"
+            tabindex="-1"
+            autocomplete="off"
+        >
+    </div>
+
+    <input type="hidden" name="form-started" value="" data-form-started>
+
     <div class="form-body">
         <div class="form-grid">
             <div class="form-group">
-                <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name">Name</label>
-                <input class="form-input" type="text" name="your-name" id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name" placeholder="John" autocomplete="name">
+                <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name">Name <span>*</span></label>
+                <input
+                    class="form-input"
+                    type="text"
+                    name="your-name"
+                    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-name"
+                    placeholder="John"
+                    autocomplete="off"
+                    required
+                    data-validate-name
+                    maxlength="80"
+                >
             </div>
             <div class="form-group">
                 <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-phone">Phone</label>
-                <input class="form-input" type="tel" name="your-phone" id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-phone" placeholder="+41 00 000 00 00" autocomplete="tel">
+                <input
+                    class="form-input"
+                    type="tel"
+                    name="your-phone"
+                    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-phone"
+                    placeholder="+41 00 000 00 00"
+                    autocomplete="off"
+                    data-validate-phone
+                    maxlength="30"
+                >
             </div>
         </div>
 
         {{#unless compact}}
             <div class="form-group">
                 <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email">Email <span>*</span></label>
-                <input class="form-input" type="email" name="your-email" id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email" placeholder="Email" autocomplete="email" required>
+                <input
+                    class="form-input"
+                    type="email"
+                    name="your-email"
+                    id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-email"
+                    placeholder="Email"
+                    autocomplete="off"
+                    required
+                    data-validate-email
+                    maxlength="120"
+                >
             </div>
         {{/unless}}
 
         <div class="form-group">
             <label class="form-label" for="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message">Message</label>
-            <textarea class="form-input" name="your-message" id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message" rows="4" placeholder="{{#if messagePlaceholder}}{{messagePlaceholder}}{{else}}Your message{{/if}}"></textarea>
+            <textarea
+                class="form-input"
+                name="your-message"
+                id="{{#if formId}}{{formId}}{{else}}contact-form{{/if}}-message"
+                rows="4"
+                placeholder="{{#if messagePlaceholder}}{{messagePlaceholder}}{{else}}Your message{{/if}}"
+                autocomplete="off"
+                data-validate-message
+                maxlength="2000"
+            ></textarea>
         </div>
     </div>
 

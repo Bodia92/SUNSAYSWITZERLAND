@@ -39,7 +39,7 @@ a {
         line-height: 1;
         letter-spacing: -0.04em;
         text-transform: uppercase;
-        color: var(--dark);
+        color: var(--black);
         font-family: var(--font-roboto);
 
         &:not(:first-child) {
@@ -273,6 +273,10 @@ a {
             }
         }
     }
+}
+
+.page--about {
+    background: var(--white);
 }
 
 .page--privacy {

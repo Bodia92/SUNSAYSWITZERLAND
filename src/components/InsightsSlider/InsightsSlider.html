@@ -1,0 +1,93 @@
+<section class="section insights-slider" data-insights-slider>
+    <div class="insights-slider__container">
+        <h2 class="insights-slider__title title">Insights</h2>
+
+        <div class="insights-slider__filters" data-insights-filters>
+            <button class="insights-slider__filter is-active" type="button" data-insights-filter="all">
+                <span class="insights-slider__filter-dot" aria-hidden="true"></span>
+                All
+            </button>
+            <button class="insights-slider__filter" type="button" data-insights-filter="market-insights">
+                <span class="insights-slider__filter-dot" aria-hidden="true"></span>
+                Market Insights
+            </button>
+            <button class="insights-slider__filter" type="button" data-insights-filter="investment-roi">
+                <span class="insights-slider__filter-dot" aria-hidden="true"></span>
+                Investment &amp; ROI
+            </button>
+            <button class="insights-slider__filter" type="button" data-insights-filter="policy-regulation">
+                <span class="insights-slider__filter-dot" aria-hidden="true"></span>
+                Policy &amp; Regulation
+            </button>
+        </div>
+
+        <div class="insights-slider__wrap">
+            <div class="insights-slider__slider swiper js-blog-slider" data-desktop="3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        {{> Blog/BlogCard
+                            image="img01.jpg"
+                            date="19.08.2026"
+                            category="Market Insights"
+                            categorySlug="market-insights"
+                            title="Grid of tomorrow: insights into utility-scale PV, BESS &amp; hybrid solutions"
+                            href="blog-open.html"
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Blog/BlogCard
+                            image="img02.jpg"
+                            date="19.08.2026"
+                            category="Investment &amp; ROI"
+                            categorySlug="investment-roi"
+                            title="The power hub: commercial solar, storage &amp; hybrid innovations"
+                            href="blog-open.html"
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Blog/BlogCard
+                            image="img03.jpg"
+                            date="12.08.2026"
+                            category="Policy &amp; Regulation"
+                            categorySlug="policy-regulation"
+                            title="Energy storage &amp; solar intelligence: scaling the renewable infrastructure"
+                            href="blog-open.html"
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Blog/BlogCard
+                            image="img04.jpg"
+                            date="05.08.2026"
+                            category="Market Insights"
+                            categorySlug="market-insights"
+                            title="Grid of tomorrow: insights into utility-scale PV, BESS &amp; hybrid solutions"
+                            href="blog-open.html"
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Blog/BlogCard
+                            image="img05.jpg"
+                            date="28.07.2026"
+                            category="Investment &amp; ROI"
+                            categorySlug="investment-roi"
+                            title="The power hub: commercial solar, storage &amp; hybrid innovations"
+                            href="blog-open.html"
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Blog/BlogCard
+                            image="img01.jpg"
+                            date="21.07.2026"
+                            category="Policy &amp; Regulation"
+                            categorySlug="policy-regulation"
+                            title="Energy storage &amp; solar intelligence: scaling the renewable infrastructure"
+                            href="blog-open.html"
+                        }}
+                    </div>
+                </div>
+            </div>
+
+            {{> Ui/SliderNav }}
+        </div>
+    </div>
+</section>

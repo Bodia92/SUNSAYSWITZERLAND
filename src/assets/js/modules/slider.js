@@ -79,40 +79,49 @@ function initMediaSliders() {
     });
 }
 
+/**
+ * Leaders team: mobile slider, desktop CSS grid (see _team.scss).
+ */
 function initTeamSlider() {
-    const sliderEl = document.querySelector(".team__slider");
-    if (!sliderEl) return;
+    const wraps = [...document.querySelectorAll(".js-team-slider-wrap")];
+    if (!wraps.length) return;
 
-    const wrapEl = sliderEl.closest(".team__slider-wrap");
-    if (!wrapEl) return;
+    const mq = window.matchMedia("(max-width: 991.98px)");
 
-    new Swiper(sliderEl, {
-        modules: [Scrollbar],
-        speed: 600,
-        spaceBetween: 24,
-        slidesPerView: 3,
-        watchOverflow: true,
-        grabCursor: true,
-        watchSlidesProgress: true,
-        scrollbar: {
-            el: wrapEl.querySelector(".team__scrollbar"),
-            draggable: true,
-            hide: false,
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.15,
+    wraps.forEach((wrapEl) => {
+        const sliderEl = wrapEl.querySelector(".js-team-slider");
+        if (!sliderEl) return;
+
+        let swiper = null;
+
+        const mount = () => {
+            if (swiper || !mq.matches) return;
+
+            swiper = new Swiper(sliderEl, {
+                modules: [Navigation],
+                speed: 600,
                 spaceBetween: 16,
-            },
-            576: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            992: {
-                slidesPerView: 3,
-                spaceBetween: 24,
-            },
-        },
+                slidesPerView: 1,
+                watchOverflow: true,
+                watchSlidesProgress: true,
+                grabCursor: true,
+                navigation: getSliderNav(wrapEl),
+            });
+        };
+
+        const unmount = () => {
+            if (!swiper) return;
+            swiper.destroy(true, true);
+            swiper = null;
+        };
+
+        const sync = () => {
+            if (mq.matches) mount();
+            else unmount();
+        };
+
+        sync();
+        mq.addEventListener("change", sync);
     });
 }
 
@@ -536,38 +545,49 @@ function initFeatureSliders() {
 /**
  * Related insights / news slider (.js-blog-slider).
  * data-desktop — cards per row on desktop (default 3).
+ * Used in blog-open (.blog-more__wrap) and about Insights (.insights-slider__wrap).
  */
 function initBlogSliders() {
     const sliders = [...document.querySelectorAll(".js-blog-slider")];
     if (!sliders.length) return;
 
     sliders.forEach((sliderEl) => {
-        const wrapEl = sliderEl.closest(".blog-more__wrap");
+        const wrapEl = sliderEl.closest(".blog-more__wrap, .insights-slider__wrap");
         if (!wrapEl) return;
 
         const raw = Number(sliderEl.dataset.desktop);
         const desktopCount = [2, 3, 4].includes(raw) ? raw : 3;
+        const isInsights = wrapEl.classList.contains("insights-slider__wrap");
 
-        new Swiper(sliderEl, {
+        const swiper = new Swiper(sliderEl, {
             modules: [Navigation],
             speed: 600,
-            spaceBetween: 12,
+            spaceBetween: 16,
             slidesPerView: 1,
             watchOverflow: true,
             watchSlidesProgress: true,
             grabCursor: true,
             navigation: getSliderNav(wrapEl),
-            breakpoints: {
-                576: {
-                    slidesPerView: 2,
-                    spaceBetween: 16,
-                },
-                992: {
-                    slidesPerView: desktopCount,
-                    spaceBetween: 24,
-                },
-            },
+            breakpoints: isInsights
+                ? {
+                      992: {
+                          slidesPerView: desktopCount,
+                          spaceBetween: 24,
+                      },
+                  }
+                : {
+                      576: {
+                          slidesPerView: 2,
+                          spaceBetween: 16,
+                      },
+                      992: {
+                          slidesPerView: desktopCount,
+                          spaceBetween: 24,
+                      },
+                  },
         });
+
+        sliderEl._insightsSwiper = swiper;
     });
 }
 

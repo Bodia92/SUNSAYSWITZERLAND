@@ -17,6 +17,8 @@ import { initHome } from "./modules/home.js";
 import { initPresentMap } from "./modules/present-map.js";
 import { initBlogFilters } from "./modules/blog-filters.js";
 import { initScrollSliders } from "./modules/scroll-slider.js";
+import { initTextFill } from "./modules/text-fill.js";
+import { initFormValidation } from "./modules/form-validation.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     fixMobileVh();
@@ -32,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initPresentMap();
     initBlogFilters();
     initScrollSliders();
+    initTextFill();
+    initFormValidation();
 
 
     new Accordion(".sub-in", {

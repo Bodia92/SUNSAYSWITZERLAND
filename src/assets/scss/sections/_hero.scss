@@ -13,6 +13,11 @@
     min-height: calc(var(--vh, 1vh) * 100);
     text-align: center;
 
+    @media (max-width: 991.98px) {
+        border-radius: 0 0 20px 20px;
+        padding: 76px 0 32px;
+    }
+
     &:not(:last-child) {
         @include av("margin-bottom", 80, 56);
     }
@@ -122,11 +127,6 @@
         }
     }
 
-    @media (max-width: 991.98px) {
-        border-radius: 0 0 20px 20px;
-        padding: 76px 0 40px;
-    }
-
     // .hero__bg
     &__bg {
         position: absolute;
@@ -214,12 +214,12 @@
         align-items: center;
         justify-content: center;
         gap: 16px 24px;
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s both;
     }
 
-    // .hero__btn
-    &__btn.btn {
+    // .hero__action
+    &__action.btn {
         flex-shrink: 0;
-        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
     }
 
     // .hero__badges
@@ -231,6 +231,7 @@
         gap: 12px;
         margin: 0;
         padding: 0;
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
 
         &:not(:last-child) {
             margin-bottom: 24px;
@@ -272,6 +273,7 @@
         align-items: center;
         gap: 24px;
         margin: 0;
+        animation: hero-fade-up 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
 
         &:not(:last-child) {
             margin-bottom: 32px;
@@ -318,8 +320,9 @@
 @media (prefers-reduced-motion: reduce) {
     .hero__title,
     .hero__text,
-    .hero__btn.btn,
-    .hero__benefits,
+    .hero__actions,
+    .hero__list,
+    .hero__badges,
     .hero__meta,
     .hero .breadcrumbs {
         animation: none;

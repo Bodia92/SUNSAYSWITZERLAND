@@ -1,0 +1,63 @@
+<section class="section team bg-grey">
+    <div class="team__container">
+        <h2 class="team__title title">Our leaders <span>team</span></h2>
+        <div class="team__text text-block">We envision a world where clean energy is accessible to everyone, generated sustainably, and powers a thriving future for all</div>
+
+        <div class="team__wrap js-team-slider-wrap">
+            <div class="team__slider swiper js-team-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        {{> Team/TeamCard
+                            image="user02.jpg"
+                            name="Dmytro Zinkevych"
+                            role="Co-founder & CEO"
+                            text="With over 10 years of experience of driving high-impact renewable energy projects, Dmytro holds master’s degrees in Engineering and Economics, an MBA from IE Business School, and specialized in Climate Change & Environmental Policy at Cornell University, USA."
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Team/TeamCard
+                            image="user01.jpg"
+                            name="Rico Keller"
+                            role="Co-founder & Board Member"
+                            text="An expert in sustainable finance with more than seven years in the field, Rico leverages deep insights into institutional investors’ priorities. With a Master’s from ETH Zurich and an MBA from IE Business School, he is adept at aligning investment strategies with sustainability goals."
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Team/TeamCard
+                            image="user03.png"
+                            name="Oleksandr But"
+                            role="Technical Director"
+                            text="With over 10 years of experience in solar energy, Oleksandr brings deep technical expertise and a track record of delivering high-performance solutions. He completed the European Energy Manager Advanced Training (EUREM) and holds advanced certifications from SolarEdge and Huawei, ensuring top-tier quality across our projects."
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Team/TeamCard
+                            image="user04.png"
+                            name="Roland Keller"
+                            role="Board member"
+                            text="A widely respected expert in Switzerland’s infrastructure, energy, and real estate sectors, Roland Keller has amassed more than 40 years of industry experience. His previous leadership roles at pkag Paul Keller Engineers Ltd., Pöyry Ltd. and Basler & Hofmann strengthen our strategic capabilities through his extensive network and innovative approach."
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Team/TeamCard
+                            image="user05.png"
+                            name="Vladimirs Soha"
+                            role="Board member"
+                            text="Vladimirs brings exceptional managerial expertise from his 20+ years leadership as CEO of Henkel’s prominent building products division across CEE markets. A reputable figure in the industry and Board Member, Vladimirs significantly boosts our strategic insight and operational excellence."
+                        }}
+                    </div>
+                    <div class="swiper-slide">
+                        {{> Team/TeamCard
+                            image="user06.png"
+                            name="Kateryna Mokrovolska"
+                            role="Adviser"
+                            text="Kateryna brings extensive expertise in commercial strategy, brand positioning, and communications for technology and energy companies across Ukraine and Europe. Her background spans B2B sales, brand communications, content marketing, and public relations, enabling her to build integrated growth strategies and long-term partnerships that strengthen our presence in international markets."
+                        }}
+                    </div>
+                </div>
+            </div>
+
+            {{> Ui/SliderNav }}
+        </div>
+    </div>
+</section>

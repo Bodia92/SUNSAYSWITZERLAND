@@ -28,6 +28,10 @@
     &__board {
         padding-top: 80px;
         position: relative;
+
+        @media (max-width: 991.98px) {
+            padding-top: 0;
+        }
     }
 
     // .govern__decor
@@ -53,6 +57,8 @@
         @media (max-width: 991.98px) {
             left: 0;
             transform: translateX(0);
+            font-size: 72px;
+            display: none;
         }
     }
 
@@ -62,11 +68,9 @@
         z-index: 5;
 
         @media (max-width: 991.98px) {
-            margin: 0 calc(var(--padding-container) * -1);
-            padding: 0 var(--padding-container);
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            -webkit-overflow-scrolling: touch;
+            margin: 0;
+            padding: 0;
+            overflow: visible;
         }
     }
 
@@ -84,13 +88,7 @@
         gap: 0;
         min-width: 0;
 
-        @media (max-width: 991.98px) {
-            width: max-content;
-            min-width: 920px;
-            padding-bottom: 8px;
-        }
-
-        // continuous yellow line through marker centers
+        // continuous yellow line through marker centers (desktop)
         &::before {
             content: "";
             position: absolute;
@@ -103,6 +101,18 @@
             height: 4px;
             background: var(--yellow-brand);
             pointer-events: none;
+        }
+
+        @media (max-width: 991.98px) {
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+            padding-bottom: 0;
+            gap: 0;
+
+            &::before {
+                display: none;
+            }
         }
     }
 
@@ -121,6 +131,13 @@
         &--supervise {
             flex: 2 1 0;
         }
+
+        @media (max-width: 991.98px) {
+            flex: none;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 0;
+        }
     }
 
     // .govern__group-head
@@ -131,6 +148,16 @@
         justify-content: flex-end;
         height: var(--govern-head);
         margin-bottom: var(--govern-head-gap);
+
+        @media (max-width: 991.98px) {
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: flex-start;
+            height: auto;
+            margin-bottom: 0;
+            flex-shrink: 0;
+            gap: 6px;
+        }
     }
 
     // .govern__group-label
@@ -147,17 +174,20 @@
         span {
             color: var(--yellow-brand);
         }
+
+        @media (max-width: 991.98px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 24px;
+            line-height: 1.5;
+            white-space: nowrap;
+        }
     }
 
     // .govern__brace — open bracket across group columns
-    // &__brace {
-    //     display: block;
-    //     width: 100%;
-    //     height: 24px;
-    //     color: var(--yellow-brand);
-    //     overflow: visible;
-    // }
-
     &__brace {
         position: relative;
         z-index: 1;
@@ -186,6 +216,33 @@
             border: 1px solid var(--yellow-brand);
             border-bottom: none;
         }
+
+        @media (max-width: 991.98px) {
+            width: 24px;
+            height: auto;
+            align-self: stretch;
+
+            &::after {
+                left: auto;
+                right: 20px;
+                top: 50%;
+                width: 16px;
+                height: 1px;
+                transform: translateY(-50%);
+            }
+
+            &::before {
+                left: auto;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 20px;
+                height: auto;
+                border-radius: 14px 0 0 14px;
+                border: 1px solid var(--yellow-brand);
+                border-right: none;
+            }
+        }
     }
 
     // .govern__divider
@@ -198,8 +255,13 @@
         border-left: 2px dashed var(--gray-brand);
 
         @media (max-width: 991.98px) {
-            margin-top: 32px;
-            margin-inline: 4px;
+            flex: none;
+            align-self: stretch;
+            width: auto;
+            height: 0;
+            margin: 20px 0 20px 72px;
+            border-left: none;
+            border-top: 2px dashed var(--gray-brand);
         }
     }
 
@@ -217,12 +279,31 @@
         }
 
         @media (max-width: 991.98px) {
-            .govern__group--execute & {
-                grid-template-columns: repeat(4, minmax(140px, 1fr));
+            position: relative;
+            flex: 1 1 auto;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            padding-left: 0;
+
+            .govern__group--execute &,
+            .govern__group--supervise & {
+                grid-template-columns: none;
             }
 
-            .govern__group--supervise & {
-                grid-template-columns: repeat(2, minmax(140px, 1fr));
+            // vertical yellow axis through markers
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: calc(var(--govern-marker) / 2);
+                z-index: 0;
+                width: 4px;
+                transform: translateX(-50%);
+                background: var(--yellow-brand);
+                pointer-events: none;
             }
         }
     }
@@ -238,7 +319,14 @@
         padding: 0 8px;
 
         @media (max-width: 991.98px) {
-            padding: 0 6px;
+            display: grid;
+            grid-template-columns: var(--govern-marker) minmax(0, 1fr);
+            grid-template-rows: auto auto auto;
+            column-gap: 16px;
+            row-gap: 0;
+            align-items: start;
+            text-align: left;
+            padding: 0;
         }
     }
 
@@ -252,6 +340,14 @@
         letter-spacing: -0.96px;
         text-transform: uppercase;
         margin-bottom: 24px;
+
+        @media (max-width: 991.98px) {
+            grid-column: 2;
+            grid-row: 1;
+            margin: 0 0 2px;
+            font-size: 28px;
+            letter-spacing: -0.84px;
+        }
     }
 
     // .govern__marker
@@ -283,6 +379,13 @@
             border: 2px solid var(--yellow-brand);
             color: var(--gray-brand);
         }
+
+        @media (max-width: 991.98px) {
+            grid-column: 1;
+            grid-row: 1 / -1;
+            align-self: center;
+            margin: 0;
+        }
     }
 
     // .govern__step-title
@@ -296,8 +399,11 @@
         text-transform: uppercase;
 
         @media (max-width: 991.98px) {
-            margin-top: 10px;
+            grid-column: 2;
+            grid-row: 2;
+            margin: 0;
             font-size: 18px;
+            line-height: 1.3;
         }
     }
 
@@ -311,5 +417,15 @@
         font-size: 12px;
         font-weight: 400;
         line-height: 140%;
+
+        @media (max-width: 991.98px) {
+            grid-column: 2;
+            grid-row: 3;
+            max-width: none;
+            margin-top: 4px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.4;
+        }
     }
 }
