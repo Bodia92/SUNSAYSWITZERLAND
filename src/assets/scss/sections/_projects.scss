@@ -35,6 +35,8 @@
                 scroll-behavior: smooth;
                 -webkit-overflow-scrolling: touch;
                 overscroll-behavior-x: contain;
+                margin-left: -20px;
+                margin-right: -20px;
 
                 > .project-card {
                     flex: 0 0 100%;
