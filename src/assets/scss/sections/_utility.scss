@@ -45,6 +45,7 @@
             margin-top: 56px;
             padding: 32px 0 24px;
             min-height: 600px;
+            border-radius: 16px;
             gap: 24px;
         }
     }
@@ -68,11 +69,20 @@
                     rgba(0, 0, 0, 0) 60%,
                     rgba(0, 0, 0, 0.6) 100%
                 );
+
+            @media (max-width: 991.98px) {
+                border-radius: 16px;
+            }
+        }
+
+        picture,
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
             object-position: center;
         }
@@ -127,37 +137,111 @@
 
     // .utility__point
     &__point {
+        --utility-point-size: 20px;
+        --utility-point-gap: 8px;
+
         position: absolute;
         top: 0;
         left: 0;
         z-index: 4;
-        width: 34px;
-        height: 34px;
-        margin: 0;
+        display: block;
+        width: var(--utility-point-size);
+        height: var(--utility-point-size);
+        margin: 0 0 0 calc(var(--utility-point-size) / -2);
         padding: 0;
         border: none;
-        border-radius: 50%;
-        background: var(--yellow-brand);
-        box-shadow: inset 0 0 0 8px var(--white);
-        transform: translate(-50%, -50%);
+        background: transparent;
+        transform: translateY(-50%);
         cursor: pointer;
         pointer-events: auto;
-        transition: box-shadow 0.3s ease;
-
-        @media (any-hover: hover) {
-            &:hover,
-            &.is-active {
-                box-shadow: inset 0 0 0 2px var(--white);
-            }
-        }
-
-        &.is-active {
-            box-shadow: inset 0 0 0 2px var(--white);
-        }
+        color: var(--black);
 
         &:focus-visible {
             outline: 2px solid var(--white);
             outline-offset: 3px;
+        }
+
+        @media (min-width: 992px) {
+            --utility-point-size: 34px;
+
+            .utility__point-label {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+        }
+
+        // label flips to the left of the dot when it would overflow
+        &--label-start {
+            .utility__point-label {
+                left: auto;
+                right: calc(100% + var(--utility-point-gap));
+            }
+        }
+    }
+
+    // .utility__point-dot
+    &__point-dot {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--yellow-brand);
+        box-shadow: inset 0 0 0 8px var(--white);
+        transition:
+            box-shadow 0.3s ease,
+            background 0.3s ease;
+
+        @media (max-width: 991.98px) {
+            box-shadow: inset 0 0 0 4px var(--white);
+        }
+
+        .utility__point.is-active & {
+            box-shadow: inset 0 0 0 4px var(--yellow-brand);
+            background: var(--white);
+        }
+
+        @media (any-hover: hover) {
+            .utility__point:hover & {
+                box-shadow: inset 0 0 0 2px var(--white);
+            }
+        }
+    }
+
+    // .utility__point-label
+    &__point-label {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: calc(100% + var(--utility-point-gap));
+        z-index: 1;
+        padding: 4px 12px;
+        border-radius: 100px;
+        background: var(--white);
+        color: var(--black);
+        font-family: var(--font-roboto);
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        text-transform: uppercase;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(20, 20, 20, 0.12);
+        transform: translateY(-50%);
+        transition: background 0.25s ease;
+
+        @media (max-width: 991.98px) {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .utility__point.is-active & {
+            background: var(--yellow-brand);
         }
     }
 
@@ -171,20 +255,9 @@
         list-style: none;
 
         @media (max-width: 991.98px) {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory;
-            scroll-padding-inline: 20px;
-            margin-inline: calc(var(--padding-container) * -1);
-            padding-inline: var(--padding-container);
-            scrollbar-width: none;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            display: block;
+            margin: 0;
+            padding: 0;
         }
     }
 
@@ -202,9 +275,13 @@
             transform 0.3s ease;
 
         @media (max-width: 991.98px) {
-            flex: 0 0 min(350px, calc(100% - 20px));
-            scroll-snap-align: center;
-            cursor: pointer;
+            display: none;
+            width: 100%;
+            cursor: default;
+
+            &.is-active {
+                display: flex;
+            }
         }
 
         &.is-active {

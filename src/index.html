@@ -41,15 +41,55 @@
 
                 <div class="utility__block" data-utility>
                     <div class="utility__image">
-                        <img src="@img/img02.jpg" alt="Utility Scale BESS" width="1920" height="1080" loading="lazy" />
+                        <picture>
+                            <source srcset="@img/img02-mob.png" media="(max-width: 575.98px)">
+                            <img src="@img/img02.jpg" alt="Utility Scale BESS" width="1920" height="1080" loading="lazy" />
+                        </picture>
                     </div>
 
                     <svg class="utility__lines" data-utility-lines aria-hidden="true"></svg>
 
                     <div class="utility__points">
-                        <button class="utility__point" type="button" data-utility-point data-id="land-owner" data-x="18" data-y="46" aria-label="Land Owner"></button>
-                        <button class="utility__point" type="button" data-utility-point data-id="investor" data-x="42" data-y="40" aria-label="Investor"></button>
-                        <button class="utility__point" type="button" data-utility-point data-id="grid-operator" data-x="78" data-y="48" aria-label="Grid Operator"></button>
+                        {{!-- data-x / data-y: desktop+tablet; data-x-mobile / data-y-mobile: ≤575px --}}
+                        <button
+                            class="utility__point"
+                            type="button"
+                            data-utility-point
+                            data-id="land-owner"
+                            data-x="18"
+                            data-y="46"
+                            data-x-mobile="66"
+                            data-y-mobile="62"
+                        >
+                            <span class="utility__point-dot" aria-hidden="true"></span>
+                            <span class="utility__point-label">Land Owner</span>
+                        </button>
+                        <button
+                            class="utility__point"
+                            type="button"
+                            data-utility-point
+                            data-id="investor"
+                            data-x="42"
+                            data-y="40"
+                            data-x-mobile="15"
+                            data-y-mobile="48"
+                        >
+                            <span class="utility__point-dot" aria-hidden="true"></span>
+                            <span class="utility__point-label">Investor</span>
+                        </button>
+                        <button
+                            class="utility__point"
+                            type="button"
+                            data-utility-point
+                            data-id="grid-operator"
+                            data-x="78"
+                            data-y="48"
+                            data-x-mobile="48"
+                            data-y-mobile="32"
+                        >
+                            <span class="utility__point-dot" aria-hidden="true"></span>
+                            <span class="utility__point-label">Grid Operator</span>
+                        </button>
                     </div>
 
                     <div class="utility__container">
